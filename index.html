@@ -9,88 +9,84 @@
   <link rel="preconnect" href="https://fonts.gstatic.com" crossorigin>
   <link href="https://fonts.googleapis.com/css2?family=Cormorant+Garamond:ital,wght@0,300;0,400;0,500;0,600;1,300;1,400&family=Montserrat:wght@300;400;500;600&display=swap" rel="stylesheet">
   <style>
-    /* ============================================
-       ANDREA LYNN - Homepage Mockup
-       Squarespace-compatible CSS
-       ============================================ */
-
-    *, *::before, *::after {
-      margin: 0;
-      padding: 0;
-      box-sizing: border-box;
-    }
+    *, *::before, *::after { margin: 0; padding: 0; box-sizing: border-box; }
 
     :root {
-      --black: #0a0a0a;
-      --dark: #141414;
-      --dark-warm: #1a1815;
-      --gold: #c5a55a;
-      --gold-light: #d4b96e;
-      --gold-dark: #a68b3e;
-      --cream: #f5f0e8;
-      --cream-light: #faf7f2;
+      /* Brand palette */
+      --linen: #F2EDE4;
+      --linen-warm: #E6DFD3;
+      --charcoal: #2C2825;
+      --gold: #D4B85C;
+      --gold-bright: #E0C96A;
+      --gold-glow: rgba(212, 184, 92, 0.5);
+      --gold-glow-strong: rgba(212, 184, 92, 0.75);
+      --gold-glow-soft: rgba(212, 184, 92, 0.2);
+      --sage: #7A8C6E;
+      --sage-light: rgba(122, 140, 110, 0.15);
+      --taupe: #5C5650;
+      --taupe-light: #7a756e;
       --white: #ffffff;
-      --text-muted: #999999;
-      --serif: 'Cormorant Garamond', Georgia, 'Times New Roman', serif;
+      --serif: 'Cormorant Garamond', Georgia, serif;
       --sans: 'Montserrat', 'Helvetica Neue', Arial, sans-serif;
     }
 
-    html {
-      scroll-behavior: smooth;
-    }
+    html { scroll-behavior: smooth; }
 
     body {
       font-family: var(--sans);
-      background-color: var(--black);
-      color: var(--white);
+      background-color: var(--linen);
+      color: var(--taupe);
       line-height: 1.6;
       -webkit-font-smoothing: antialiased;
+      overflow-x: hidden;
     }
 
-    img {
-      max-width: 100%;
-      display: block;
-    }
+    img { max-width: 100%; display: block; }
+    a { text-decoration: none; color: inherit; transition: all 0.3s ease; }
 
-    a {
-      text-decoration: none;
-      color: inherit;
-      transition: color 0.3s ease;
+    /* Sacred geometry subtle bg */
+    .sacred-bg { position: relative; }
+    .sacred-bg::after {
+      content: '';
+      position: absolute;
+      inset: 0;
+      background-image: url('https://res.cloudinary.com/dstssdnoj/image/upload/q_auto,f_auto,w_400/AdobeStock_1517455802_pa5ifk.jpg');
+      background-size: 300px;
+      background-repeat: repeat;
+      opacity: 0.025;
+      pointer-events: none;
     }
 
     /* ============================================
-       NAVIGATION - Sticky
+       NAVIGATION
        ============================================ */
-
     .nav {
       position: fixed;
-      top: 0;
-      left: 0;
-      right: 0;
+      top: 0; left: 0; right: 0;
       z-index: 1000;
-      padding: 20px 40px;
+      padding: 22px 48px;
       display: flex;
       align-items: center;
       justify-content: space-between;
-      background: rgba(10, 10, 10, 0.9);
-      backdrop-filter: blur(10px);
-      -webkit-backdrop-filter: blur(10px);
-      border-bottom: 1px solid rgba(197, 165, 90, 0.1);
+      background: rgba(242, 237, 228, 0.9);
+      backdrop-filter: blur(16px);
+      -webkit-backdrop-filter: blur(16px);
+      border-bottom: 1px solid rgba(212, 184, 92, 0.1);
       transition: all 0.4s ease;
     }
 
     .nav.scrolled {
-      padding: 14px 40px;
-      background: rgba(10, 10, 10, 0.95);
+      padding: 14px 48px;
+      box-shadow: 0 4px 30px rgba(212, 184, 92, 0.06);
     }
 
     .nav-logo {
-      font-family: var(--sans);
-      font-size: 13px;
-      font-weight: 500;
-      letter-spacing: 4px;
+      font-family: var(--serif);
+      font-size: 22px;
+      font-weight: 400;
+      letter-spacing: 3px;
       text-transform: uppercase;
-      color: var(--white);
+      color: var(--charcoal);
     }
 
     .nav-links {
@@ -102,33 +98,30 @@
 
     .nav-links a {
       font-family: var(--sans);
-      font-size: 11px;
+      font-size: 12px;
       font-weight: 400;
       letter-spacing: 2px;
       text-transform: uppercase;
-      color: var(--text-muted);
-      transition: color 0.3s ease;
+      color: var(--taupe);
     }
 
-    .nav-links a:hover {
-      color: var(--white);
-    }
+    .nav-links a:hover { color: var(--charcoal); }
 
     .nav-cta {
-      background: var(--gold);
-      color: var(--black) !important;
-      padding: 10px 24px;
+      background: var(--gold) !important;
+      color: var(--white) !important;
+      padding: 10px 24px !important;
       font-weight: 500 !important;
-      letter-spacing: 2px;
-      transition: background 0.3s ease, transform 0.3s ease !important;
+      box-shadow: 0 0 20px var(--gold-glow), 0 0 8px var(--gold-glow-soft);
+      animation: goldPulse 4s ease-in-out infinite;
     }
 
     .nav-cta:hover {
-      background: var(--gold-light);
+      background: var(--gold-bright) !important;
+      box-shadow: 0 0 36px var(--gold-glow-strong), 0 0 14px var(--gold-glow);
       transform: translateY(-1px);
     }
 
-    /* Mobile nav toggle */
     .nav-toggle {
       display: none;
       background: none;
@@ -141,75 +134,164 @@
       display: block;
       width: 24px;
       height: 1px;
-      background: var(--white);
+      background: var(--charcoal);
       margin: 6px 0;
-      transition: all 0.3s ease;
     }
 
     /* ============================================
-       HERO SECTION
+       HERO
        ============================================ */
-
     .hero {
       min-height: 100vh;
       display: flex;
       align-items: center;
       justify-content: center;
       text-align: center;
-      padding: 140px 40px 100px;
+      padding: 160px 40px 120px;
       position: relative;
-      background: var(--black);
+      background: var(--linen);
       overflow: hidden;
     }
 
     .hero::before {
       content: '';
       position: absolute;
-      top: 0;
-      left: 0;
-      right: 0;
-      bottom: 0;
-      background: radial-gradient(ellipse at center, rgba(197, 165, 90, 0.04) 0%, transparent 70%);
+      top: 40%; left: 50%;
+      transform: translate(-50%, -50%);
+      width: 900px;
+      height: 900px;
+      background: radial-gradient(circle, rgba(212,184,92,0.07) 0%, rgba(212,184,92,0.02) 40%, transparent 70%);
       pointer-events: none;
     }
 
+    /* Hero background image - subtle */
+    .hero-bg {
+      position: absolute;
+      inset: 0;
+      z-index: 0;
+      overflow: hidden;
+    }
+
+    .hero-bg img {
+      width: 100%;
+      height: 100%;
+      object-fit: cover;
+      object-position: center 20%;
+      opacity: 0.35;
+      filter: saturate(0.7) brightness(1.08);
+    }
+
+    /* Breathing sacred circles */
+    .hero-ornament {
+      position: absolute;
+      top: 50%; left: 50%;
+      transform: translate(-50%, -50%);
+      width: 520px;
+      height: 520px;
+      border: 1px solid rgba(212,184,92,0.07);
+      border-radius: 50%;
+      pointer-events: none;
+      animation: breathe 8s ease-in-out infinite;
+      z-index: 0;
+    }
+
+    .hero-ornament::before {
+      content: '';
+      position: absolute;
+      top: -50px; left: -50px; right: -50px; bottom: -50px;
+      border: 1px solid rgba(212,184,92,0.04);
+      border-radius: 50%;
+    }
+
+    .hero-ornament::after {
+      content: '';
+      position: absolute;
+      top: 50px; left: 50px; right: 50px; bottom: 50px;
+      border: 1px solid rgba(212,184,92,0.05);
+      border-radius: 50%;
+    }
+
+    @keyframes breathe {
+      0%, 100% { transform: translate(-50%, -50%) scale(1); opacity: 1; }
+      50% { transform: translate(-50%, -50%) scale(1.05); opacity: 0.6; }
+    }
+
+    .star {
+      position: absolute;
+      width: 4px; height: 4px;
+      background: var(--gold);
+      border-radius: 50%;
+      box-shadow: 0 0 8px var(--gold-glow);
+      animation: twinkle 3s ease-in-out infinite;
+      z-index: 0;
+    }
+
+    .star:nth-child(1) { top: 18%; left: 15%; animation-delay: 0s; }
+    .star:nth-child(2) { top: 25%; right: 18%; animation-delay: 1.2s; }
+    .star:nth-child(3) { bottom: 30%; left: 20%; animation-delay: 0.6s; }
+    .star:nth-child(4) { top: 35%; left: 8%; animation-delay: 1.8s; width: 3px; height: 3px; }
+    .star:nth-child(5) { bottom: 25%; right: 12%; animation-delay: 2.4s; width: 3px; height: 3px; }
+    .star:nth-child(6) { top: 15%; right: 25%; animation-delay: 0.3s; width: 2px; height: 2px; }
+    .star:nth-child(7) { bottom: 35%; left: 28%; animation-delay: 2s; width: 2px; height: 2px; }
+
+    @keyframes twinkle {
+      0%, 100% { opacity: 0.2; transform: scale(1); }
+      50% { opacity: 1; transform: scale(1.6); }
+    }
+
     .hero-content {
-      max-width: 800px;
+      max-width: 780px;
       position: relative;
-      z-index: 1;
+      z-index: 2;
     }
 
     .hero-eyebrow {
       font-family: var(--sans);
-      font-size: 11px;
-      font-weight: 400;
+      font-size: 12px;
+      font-weight: 500;
       letter-spacing: 4px;
       text-transform: uppercase;
-      color: var(--gold);
-      margin-bottom: 40px;
+      color: var(--sage);
+      margin-bottom: 44px;
       opacity: 0;
       animation: fadeUp 1s ease 0.3s forwards;
     }
 
+    .hero-divider {
+      width: 2px;
+      height: 44px;
+      background: linear-gradient(to bottom, transparent, var(--sage), transparent);
+      margin: 0 auto 44px;
+      opacity: 0;
+      animation: fadeUp 1s ease 0.5s forwards;
+    }
+
     .hero-headline {
       font-family: var(--serif);
-      font-size: clamp(42px, 6vw, 72px);
+      font-size: clamp(44px, 6.5vw, 76px);
       font-weight: 300;
-      line-height: 1.15;
-      color: var(--white);
-      margin-bottom: 32px;
+      line-height: 1.12;
+      color: var(--charcoal);
+      margin-bottom: 36px;
       opacity: 0;
-      animation: fadeUp 1s ease 0.6s forwards;
+      animation: fadeUp 1.2s ease 0.6s forwards;
+    }
+
+    .hero-headline em {
+      font-style: italic;
+      color: var(--gold);
+      text-shadow: 0 0 30px var(--gold-glow-soft);
     }
 
     .hero-subhead {
-      font-family: var(--sans);
-      font-size: 16px;
+      font-family: var(--serif);
+      font-size: 20px;
       font-weight: 300;
+      font-style: italic;
       line-height: 1.8;
-      color: var(--text-muted);
-      max-width: 600px;
-      margin: 0 auto 48px;
+      color: var(--taupe);
+      max-width: 540px;
+      margin: 0 auto 56px;
       opacity: 0;
       animation: fadeUp 1s ease 0.9s forwards;
     }
@@ -223,83 +305,93 @@
       animation: fadeUp 1s ease 1.2s forwards;
     }
 
+    /* ============================================
+       BUTTONS
+       ============================================ */
     .btn-primary {
       display: inline-block;
       background: var(--gold);
-      color: var(--black);
+      color: var(--white);
       font-family: var(--sans);
-      font-size: 11px;
+      font-size: 12px;
       font-weight: 500;
       letter-spacing: 3px;
       text-transform: uppercase;
-      padding: 16px 40px;
+      padding: 18px 44px;
       border: none;
       cursor: pointer;
-      transition: all 0.3s ease;
+      box-shadow: 0 0 24px var(--gold-glow), 0 0 8px var(--gold-glow-soft);
+      transition: all 0.4s ease;
     }
 
     .btn-primary:hover {
-      background: var(--gold-light);
+      background: var(--gold-bright);
+      box-shadow: 0 0 44px var(--gold-glow-strong), 0 0 18px var(--gold-glow);
       transform: translateY(-2px);
     }
 
     .btn-secondary {
       display: inline-block;
-      background: transparent;
-      color: var(--white);
+      color: var(--sage);
       font-family: var(--sans);
-      font-size: 11px;
+      font-size: 12px;
       font-weight: 400;
       letter-spacing: 3px;
       text-transform: uppercase;
-      padding: 16px 40px;
-      border: 1px solid rgba(255, 255, 255, 0.2);
+      padding: 18px 44px;
+      border: 1px solid rgba(122,140,110,0.3);
       cursor: pointer;
-      transition: all 0.3s ease;
+      transition: all 0.4s ease;
     }
 
     .btn-secondary:hover {
-      border-color: var(--gold);
-      color: var(--gold);
+      border-color: var(--sage);
+      background: rgba(122,140,110,0.06);
+      color: var(--charcoal);
+    }
+
+    /* Sage green divider */
+    .sage-divider {
+      width: 60px;
+      height: 1px;
+      background: var(--sage);
+      margin: 0 auto;
+      opacity: 0.5;
     }
 
     /* ============================================
        SCROLLING MARQUEE
        ============================================ */
-
     .marquee-section {
-      padding: 32px 0;
-      border-top: 1px solid rgba(197, 165, 90, 0.15);
-      border-bottom: 1px solid rgba(197, 165, 90, 0.15);
+      padding: 28px 0;
+      border-top: 2px solid rgba(122,140,110,0.2);
+      border-bottom: 2px solid rgba(122,140,110,0.2);
       overflow: hidden;
-      background: var(--black);
+      background: var(--linen-warm);
     }
 
     .marquee-track {
       display: flex;
-      animation: marqueeScroll 30s linear infinite;
+      animation: marqueeScroll 35s linear infinite;
       width: max-content;
-    }
-
-    .marquee-track:hover {
-      animation-play-state: paused;
     }
 
     .marquee-item {
       font-family: var(--serif);
       font-size: 18px;
-      font-weight: 300;
+      font-weight: 400;
       font-style: italic;
-      color: var(--gold);
+      color: var(--charcoal);
       white-space: nowrap;
       padding: 0 24px;
-      opacity: 0.7;
     }
 
     .marquee-item::after {
-      content: '\2022';
+      content: '\2726';
       margin-left: 48px;
-      opacity: 0.3;
+      font-size: 10px;
+      vertical-align: middle;
+      color: var(--sage);
     }
 
     @keyframes marqueeScroll {
@@ -308,80 +400,120 @@
     }
 
     /* ============================================
+       COMPOSED IMAGE (pre-framed from Canva/design)
+       ============================================ */
+    .composed-image {
+      max-width: 620px;
+      width: 100%;
+      margin: 0 auto;
+    }
+
+    .composed-image img {
+      width: 100%;
+      height: auto;
+      display: block;
+    }
+
+    /* ============================================
+       FRAMED IMAGE COMPONENT
+       ============================================ */
+    .framed-image {
+      position: relative;
+      max-width: 460px;
+      width: 100%;
+      margin: 0 auto;
+      /* Extra space for frame overhang */
+      padding: 20px;
+    }
+
+    /* Frame overlay on top, wraps around photo edges */
+    .framed-image .frame-overlay {
+      position: absolute;
+      inset: 0;
+      width: 100%;
+      height: 100%;
+      object-fit: contain;
+      z-index: 2;
+      pointer-events: none;
+      filter: drop-shadow(0 0 20px rgba(212,184,92,0.3));
+    }
+
+    /* Photo in normal flow, gives container height */
+    .framed-image .photo {
+      display: block;
+      width: 100%;
+      aspect-ratio: 3 / 4;
+      object-fit: cover;
+      object-position: center top;
+      border-radius: 100px 100px 6px 6px;
+      filter: brightness(1.02) saturate(0.95);
+      position: relative;
+      z-index: 1;
+    }
+
+    /* ---- Variant: frame BEHIND the photo (coaching) ---- */
+    .framed-image.frame-behind {
+      padding: 30px;
+    }
+
+    .framed-image.frame-behind .frame-overlay {
+      inset: -15px;
+      width: calc(100% + 30px);
+      height: calc(100% + 30px);
+      z-index: 0;
+    }
+
+    .framed-image.frame-behind .photo {
+      z-index: 2;
+      border-radius: 6px;
+      box-shadow: 0 8px 40px rgba(44,40,37,0.12);
+    }
+
+    /* Variant: orbital frame (testimonial) */
+    .framed-image.frame-orbital .photo {
+      border-radius: 50% 50% 6px 6px / 30% 30% 6px 6px;
+    }
+
+    /* ============================================
        ABOUT BRIDGE
        ============================================ */
-
     .about {
-      padding: 120px 40px;
-      background: var(--dark-warm);
+      padding: 160px 48px;
+      background: var(--white);
+      position: relative;
     }
 
     .about-inner {
       max-width: 1100px;
       margin: 0 auto;
       display: grid;
-      grid-template-columns: 1fr 1fr;
-      gap: 80px;
+      grid-template-columns: 0.9fr 1.1fr;
+      gap: 100px;
       align-items: center;
-    }
-
-    .about-image {
-      position: relative;
-    }
-
-    .about-image-placeholder {
-      aspect-ratio: 3/4;
-      background: linear-gradient(135deg, rgba(197, 165, 90, 0.1) 0%, rgba(197, 165, 90, 0.03) 100%);
-      border: 1px solid rgba(197, 165, 90, 0.15);
-      display: flex;
-      align-items: center;
-      justify-content: center;
-      font-family: var(--sans);
-      font-size: 11px;
-      letter-spacing: 2px;
-      text-transform: uppercase;
-      color: var(--text-muted);
-    }
-
-    .about-text {
-      padding: 20px 0;
     }
 
     .about-headline {
       font-family: var(--serif);
-      font-size: clamp(32px, 4vw, 48px);
+      font-size: clamp(34px, 4vw, 50px);
       font-weight: 300;
       font-style: italic;
       line-height: 1.2;
-      color: var(--white);
-      margin-bottom: 40px;
+      color: var(--charcoal);
+      margin-bottom: 44px;
     }
 
     .about-body p {
       font-family: var(--sans);
-      font-size: 15px;
+      font-size: 16px;
       font-weight: 300;
       line-height: 1.9;
-      color: var(--text-muted);
+      color: var(--taupe);
       margin-bottom: 20px;
     }
 
     .about-body p strong {
-      color: var(--white);
-      font-weight: 400;
-    }
-
-    .about-badge {
-      display: inline-block;
-      font-family: var(--sans);
-      font-size: 11px;
-      font-weight: 400;
-      letter-spacing: 2px;
-      text-transform: uppercase;
-      color: var(--gold);
-      margin-top: 20px;
-      padding-top: 20px;
-      border-top: 1px solid rgba(197, 165, 90, 0.2);
+      color: var(--charcoal);
+      font-weight: 500;
     }
 
     .about-link {
@@ -389,339 +521,541 @@
       font-family: var(--sans);
       font-size: 12px;
       font-weight: 400;
-      letter-spacing: 2px;
-      text-transform: uppercase;
-      color: var(--gold);
-      margin-top: 32px;
-      transition: all 0.3s ease;
-    }
-
-    .about-link:hover {
-      color: var(--gold-light);
       letter-spacing: 3px;
-    }
-
-    /* ============================================
-       OFFERINGS GRID
-       ============================================ */
-
-    .offerings {
-      padding: 120px 40px;
-      background: var(--black);
-    }
-
-    .section-header {
-      text-align: center;
-      max-width: 700px;
-      margin: 0 auto 72px;
-    }
-
-    .section-eyebrow {
-      font-family: var(--sans);
-      font-size: 11px;
-      font-weight: 400;
-      letter-spacing: 4px;
       text-transform: uppercase;
       color: var(--gold);
-      margin-bottom: 20px;
-    }
-
-    .section-headline {
-      font-family: var(--serif);
-      font-size: clamp(32px, 4vw, 48px);
-      font-weight: 300;
-      line-height: 1.2;
-      color: var(--white);
-      margin-bottom: 20px;
-    }
-
-    .section-subhead {
-      font-family: var(--sans);
-      font-size: 15px;
-      font-weight: 300;
-      line-height: 1.8;
-      color: var(--text-muted);
-    }
-
-    .offerings-grid {
-      max-width: 1100px;
-      margin: 0 auto;
-      display: grid;
-      grid-template-columns: repeat(3, 1fr);
-      gap: 24px;
-    }
-
-    .offering-card {
-      background: var(--dark);
-      border: 1px solid rgba(255, 255, 255, 0.06);
-      padding: 48px 36px;
-      transition: all 0.4s ease;
+      margin-top: 36px;
       position: relative;
-      overflow: hidden;
     }
 
-    .offering-card::before {
+    .about-link::after {
       content: '';
       position: absolute;
-      top: 0;
-      left: 0;
-      right: 0;
-      height: 2px;
+      bottom: -4px; left: 0;
+      width: 0; height: 1px;
       background: var(--gold);
-      transform: scaleX(0);
-      transition: transform 0.4s ease;
+      transition: width 0.3s ease;
     }
 
-    .offering-card:hover {
-      border-color: rgba(197, 165, 90, 0.2);
-      transform: translateY(-4px);
-    }
+    .about-link:hover::after { width: 100%; }
 
-    .offering-card:hover::before {
-      transform: scaleX(1);
-    }
-
-    .offering-number {
-      font-family: var(--sans);
-      font-size: 11px;
-      font-weight: 400;
-      color: var(--gold);
-      letter-spacing: 2px;
-      margin-bottom: 20px;
-    }
-
-    .offering-title {
-      font-family: var(--serif);
-      font-size: 24px;
-      font-weight: 400;
-      color: var(--white);
-      margin-bottom: 16px;
-    }
-
-    .offering-desc {
-      font-family: var(--sans);
-      font-size: 14px;
-      font-weight: 300;
-      line-height: 1.8;
-      color: var(--text-muted);
-      margin-bottom: 28px;
-    }
-
-    .offering-link {
-      font-family: var(--sans);
-      font-size: 11px;
-      font-weight: 400;
-      letter-spacing: 2px;
-      text-transform: uppercase;
-      color: var(--gold);
-      transition: letter-spacing 0.3s ease;
-    }
-
-    .offering-link:hover {
-      letter-spacing: 3px;
-    }
-
-    /* Gold CTA card */
-    .offering-card.gold-card {
-      background: var(--gold);
-      border-color: var(--gold);
-      display: flex;
-      flex-direction: column;
-      justify-content: center;
-      text-align: center;
-    }
-
-    .offering-card.gold-card::before {
-      display: none;
-    }
-
-    .offering-card.gold-card:hover {
-      background: var(--gold-light);
-      border-color: var(--gold-light);
-    }
-
-    .offering-card.gold-card .offering-title {
-      color: var(--black);
-      font-size: 28px;
-      font-style: italic;
-    }
-
-    .offering-card.gold-card .offering-desc {
-      color: rgba(10, 10, 10, 0.7);
-    }
-
-    .offering-card.gold-card .btn-dark {
-      display: inline-block;
-      background: var(--black);
-      color: var(--white);
+    .about-badge {
+      display: inline-flex;
+      align-items: center;
+      gap: 10px;
       font-family: var(--sans);
       font-size: 11px;
       font-weight: 500;
       letter-spacing: 3px;
       text-transform: uppercase;
-      padding: 14px 32px;
-      transition: all 0.3s ease;
-      align-self: center;
+      color: var(--sage);
+      margin-top: 24px;
+      padding-top: 24px;
+      border-top: 2px solid var(--sage);
     }
 
-    .offering-card.gold-card .btn-dark:hover {
-      background: var(--dark);
+    .about-badge::before {
+      content: '\2726';
+      font-size: 10px;
+      color: var(--sage);
+    }
+
+    /* Sage accent line */
+    .sage-line-horiz {
+      width: 50px;
+      height: 2px;
+      background: var(--sage);
+      opacity: 0.5;
+    }
+
+    /* ============================================
+       COACHING SPOTLIGHT
+       ============================================ */
+    .coaching {
+      padding: 160px 48px;
+      background: var(--linen-warm);
+      position: relative;
+      border-top: 2px solid rgba(122,140,110,0.25);
+      border-bottom: 2px solid rgba(122,140,110,0.25);
+    }
+
+    .coaching-inner {
+      max-width: 1100px;
+      margin: 0 auto;
+      display: grid;
+      grid-template-columns: 1.1fr 0.9fr;
+      gap: 100px;
+      align-items: center;
+      position: relative;
+      z-index: 1;
+    }
+
+    .coaching-eyebrow {
+      font-family: var(--sans);
+      font-size: 12px;
+      font-weight: 500;
+      letter-spacing: 5px;
+      text-transform: uppercase;
+      color: var(--gold);
+      margin-bottom: 24px;
+      text-shadow: 0 0 24px var(--gold-glow);
+    }
+
+    .coaching-headline {
+      font-family: var(--serif);
+      font-size: clamp(34px, 4vw, 52px);
+      font-weight: 300;
+      line-height: 1.15;
+      color: var(--charcoal);
+      margin-bottom: 32px;
+    }
+
+    .coaching-body p {
+      font-family: var(--sans);
+      font-size: 16px;
+      font-weight: 300;
+      line-height: 1.9;
+      color: var(--taupe);
+      margin-bottom: 20px;
+    }
+
+    .coaching-features {
+      list-style: none;
+      margin: 36px 0;
+      padding: 0;
+    }
+
+    .coaching-features li {
+      font-family: var(--serif);
+      font-size: 18px;
+      font-weight: 300;
+      font-style: italic;
+      color: var(--charcoal);
+      padding: 14px 0;
+      border-bottom: 1px solid rgba(122,140,110,0.2);
+      display: flex;
+      align-items: center;
+      gap: 16px;
+    }
+
+    .coaching-features li::before {
+      content: '';
+      width: 8px; height: 8px;
+      background: var(--sage);
+      border-radius: 50%;
+      flex-shrink: 0;
+      box-shadow: 0 0 10px rgba(122,140,110,0.4);
+    }
+
+    .coaching-cta { margin-top: 44px; }
+
+    /* ============================================
+       STANDALONE SECTIONS (Breathwork, YTT)
+       ============================================ */
+    .standalone-section {
+      padding: 160px 48px;
+      background: var(--white);
+      position: relative;
+    }
+
+    .standalone-section.alt-bg {
+      background: var(--linen);
+    }
+
+    .standalone-inner {
+      max-width: 1100px;
+      margin: 0 auto;
+      display: grid;
+      grid-template-columns: 1.1fr 0.9fr;
+      gap: 80px;
+      align-items: center;
+    }
+
+    .standalone-inner.reverse {
+      grid-template-columns: 0.9fr 1.1fr;
+      direction: rtl;
+    }
+
+    .standalone-inner.reverse > * {
+      direction: ltr;
+    }
+
+    .standalone-placeholder {
+      width: 100%;
+      aspect-ratio: 4/5;
+      background: linear-gradient(135deg, var(--linen-warm) 0%, rgba(122,140,110,0.08) 100%);
+      border: 1px solid rgba(122,140,110,0.15);
+      display: flex;
+      align-items: center;
+      justify-content: center;
+      border-radius: 4px;
+    }
+
+    .standalone-placeholder span {
+      font-family: var(--sans);
+      font-size: 12px;
+      letter-spacing: 2px;
+      text-transform: uppercase;
+      color: var(--taupe-light);
+    }
+
+    /* ============================================
+       GOLD CTA BANNER
+       ============================================ */
+    .gold-banner {
+      padding: 100px 48px;
+      background-image: url('https://res.cloudinary.com/dstssdnoj/image/upload/q_auto,f_auto,w_1600/AdobeStock_544400437_2_wxjx1v.jpg');
+      background-size: cover;
+      background-position: center;
+      text-align: center;
+      box-shadow: 0 0 60px var(--gold-glow), 0 0 20px var(--gold-glow-soft);
+    }
+
+    .gold-banner-inner {
+      max-width: 600px;
+      margin: 0 auto;
+    }
+
+    .gold-banner-headline {
+      font-family: var(--serif);
+      font-size: clamp(28px, 3.5vw, 40px);
+      font-weight: 400;
+      font-style: italic;
+      color: var(--charcoal);
+      margin-bottom: 20px;
+    }
+
+    .gold-banner-body {
+      font-family: var(--sans);
+      font-size: 16px;
+      font-weight: 400;
+      line-height: 1.8;
+      color: rgba(44,40,37,0.75);
+      margin-bottom: 36px;
+    }
+
+    .gold-banner-btn {
+      display: inline-block;
+      background: var(--charcoal);
+      color: var(--white);
+      font-family: var(--sans);
+      font-size: 12px;
+      font-weight: 500;
+      letter-spacing: 3px;
+      text-transform: uppercase;
+      padding: 18px 44px;
+      transition: all 0.3s ease;
+      box-shadow: 0 4px 20px rgba(44,40,37,0.2);
+    }
+
+    .gold-banner-btn:hover {
+      background: var(--taupe);
+      transform: translateY(-2px);
+    }
+
+    @keyframes goldShimmer {
+      0%, 100% { background-position: 0% 50%; }
+      50% { background-position: 100% 50%; }
+    }
+
+    /* ============================================
+       RETREATS
+       ============================================ */
+    .retreats {
+      padding: 0;
+      position: relative;
+      overflow: hidden;
+    }
+
+    .retreats-bg {
+      position: absolute;
+      inset: 0;
+    }
+
+    .retreats-bg img {
+      width: 100%;
+      height: 100%;
+      object-fit: cover;
+      filter: brightness(0.3) sepia(0.2);
+    }
+
+    .retreats-overlay {
+      position: absolute;
+      inset: 0;
+      background:
+        radial-gradient(ellipse at 30% 50%, rgba(212,184,92,0.08) 0%, transparent 50%),
+        linear-gradient(to bottom, rgba(44,40,37,0.3) 0%, rgba(44,40,37,0.7) 100%);
+      z-index: 1;
+    }
+
+    .retreats-content {
+      position: relative;
+      z-index: 2;
+      max-width: 1100px;
+      margin: 0 auto;
+      padding: 200px 48px;
+      display: grid;
+      grid-template-columns: 1fr 1fr;
+      gap: 100px;
+      align-items: center;
+    }
+
+    .retreat-images-stack {
+      display: flex;
+      gap: 20px;
+    }
+
+    .retreat-framed {
+      flex: 1;
+      overflow: hidden;
+    }
+
+    .retreat-framed img {
+      width: 100%;
+      aspect-ratio: 3/4;
+      object-fit: cover;
+      border: 1px solid rgba(212,184,92,0.2);
+    }
+
+    .retreat-framed:nth-child(2) { margin-top: 60px; }
+
+    .retreats-eyebrow {
+      font-family: var(--sans);
+      font-size: 12px;
+      font-weight: 500;
+      letter-spacing: 5px;
+      text-transform: uppercase;
+      color: var(--gold);
+      margin-bottom: 24px;
+      text-shadow: 0 0 24px var(--gold-glow);
+    }
+
+    .retreats-headline {
+      font-family: var(--serif);
+      font-size: clamp(34px, 4vw, 52px);
+      font-weight: 300;
+      font-style: italic;
+      line-height: 1.2;
+      color: var(--white);
+      margin-bottom: 28px;
+    }
+
+    .retreats-body p {
+      font-family: var(--sans);
+      font-size: 16px;
+      font-weight: 300;
+      line-height: 2;
+      color: rgba(255,255,255,0.65);
+      margin-bottom: 20px;
+    }
+
+    .retreats-detail {
+      display: flex;
+      gap: 48px;
+      margin: 40px 0;
+      padding: 32px 0;
+      border-top: 1px solid rgba(212,184,92,0.15);
+      border-bottom: 1px solid rgba(212,184,92,0.15);
+    }
+
+    .retreats-detail-item { text-align: center; }
+
+    .retreats-detail-number {
+      font-family: var(--serif);
+      font-size: 40px;
+      font-weight: 300;
+      color: var(--gold);
+      text-shadow: 0 0 28px var(--gold-glow);
+      line-height: 1;
+      margin-bottom: 6px;
+    }
+
+    .retreats-detail-label {
+      font-family: var(--sans);
+      font-size: 11px;
+      font-weight: 400;
+      letter-spacing: 2px;
+      text-transform: uppercase;
+      color: rgba(255,255,255,0.4);
     }
 
     /* ============================================
        TESTIMONIAL
        ============================================ */
-
     .testimonial {
-      padding: 120px 40px;
-      background: var(--dark-warm);
-      text-align: center;
+      padding: 160px 48px;
+      background: var(--linen);
+      position: relative;
+      overflow: hidden;
+    }
+
+    .testimonial::before {
+      content: '';
+      position: absolute;
+      top: 50%; left: 50%;
+      transform: translate(-50%, -50%);
+      width: 500px; height: 500px;
+      border: 1px solid rgba(122,140,110,0.06);
+      border-radius: 50%;
+      pointer-events: none;
     }
 
     .testimonial-inner {
-      max-width: 800px;
+      max-width: 1100px;
       margin: 0 auto;
+      display: grid;
+      grid-template-columns: 0.7fr 1.3fr;
+      gap: 80px;
+      align-items: center;
+      position: relative;
+      z-index: 1;
+    }
+
+    .testimonial-text {
+      text-align: left;
+    }
+
+    .testimonial-sage-line {
+      width: 50px;
+      height: 3px;
+      background: var(--sage);
+      margin-bottom: 32px;
+    }
+
+    .testimonial-mark {
+      font-family: var(--serif);
+      font-size: 100px;
+      color: var(--sage);
+      opacity: 0.25;
+      line-height: 0.5;
+      margin-bottom: 28px;
     }
 
     .testimonial-quote {
       font-family: var(--serif);
-      font-size: clamp(22px, 3vw, 32px);
+      font-size: clamp(20px, 2.5vw, 28px);
       font-weight: 300;
       font-style: italic;
-      line-height: 1.6;
-      color: var(--cream);
-      margin-bottom: 40px;
-      position: relative;
-    }
-
-    .testimonial-quote::before {
-      content: '\201C';
-      font-family: var(--serif);
-      font-size: 100px;
-      color: var(--gold);
-      opacity: 0.3;
-      position: absolute;
-      top: -40px;
-      left: 50%;
-      transform: translateX(-50%);
-      line-height: 1;
+      line-height: 1.7;
+      color: var(--charcoal);
+      margin-bottom: 36px;
     }
 
     .testimonial-attribution {
       font-family: var(--sans);
       font-size: 12px;
       font-weight: 400;
-      letter-spacing: 2px;
+      letter-spacing: 3px;
       text-transform: uppercase;
-      color: var(--text-muted);
+      color: var(--sage);
     }
 
     /* ============================================
        EMAIL CAPTURE
        ============================================ */
-
     .email-capture {
-      padding: 120px 40px;
-      background: var(--black);
+      padding: 160px 48px;
+      background: var(--white);
       text-align: center;
-      border-top: 1px solid rgba(197, 165, 90, 0.1);
-      border-bottom: 1px solid rgba(197, 165, 90, 0.1);
+      position: relative;
+      border-top: 3px solid rgba(122,140,110,0.2);
     }
 
     .email-inner {
-      max-width: 560px;
+      max-width: 520px;
       margin: 0 auto;
     }
 
     .email-eyebrow {
       font-family: var(--sans);
-      font-size: 11px;
+      font-size: 12px;
       font-weight: 400;
-      letter-spacing: 4px;
+      letter-spacing: 5px;
       text-transform: uppercase;
-      color: var(--gold);
-      margin-bottom: 20px;
+      color: var(--sage);
+      margin-bottom: 24px;
     }
 
     .email-headline {
       font-family: var(--serif);
-      font-size: clamp(28px, 3.5vw, 40px);
+      font-size: clamp(30px, 3.5vw, 42px);
       font-weight: 300;
       font-style: italic;
-      color: var(--white);
+      color: var(--charcoal);
       margin-bottom: 20px;
     }
 
     .email-subhead {
-      font-family: var(--sans);
-      font-size: 15px;
+      font-family: var(--serif);
+      font-size: 17px;
       font-weight: 300;
+      font-style: italic;
       line-height: 1.8;
-      color: var(--text-muted);
-      margin-bottom: 40px;
+      color: var(--taupe-light);
+      margin-bottom: 44px;
     }
 
     .email-form {
       display: flex;
-      gap: 12px;
-      margin-bottom: 16px;
+      gap: 0;
+      margin-bottom: 20px;
     }
 
     .email-form input[type="email"] {
       flex: 1;
-      background: transparent;
-      border: 1px solid rgba(255, 255, 255, 0.15);
-      padding: 16px 20px;
+      background: var(--linen);
+      border: 1px solid rgba(212,184,92,0.15);
+      border-right: none;
+      padding: 18px 24px;
       font-family: var(--sans);
-      font-size: 14px;
+      font-size: 15px;
       font-weight: 300;
-      color: var(--white);
+      color: var(--charcoal);
       outline: none;
-      transition: border-color 0.3s ease;
+      transition: all 0.3s ease;
     }
 
-    .email-form input[type="email"]::placeholder {
-      color: rgba(255, 255, 255, 0.3);
-    }
-
+    .email-form input[type="email"]::placeholder { color: var(--taupe-light); }
     .email-form input[type="email"]:focus {
       border-color: var(--gold);
+      box-shadow: 0 0 16px var(--gold-glow-soft);
     }
 
     .email-form button {
       background: var(--gold);
-      color: var(--black);
+      color: var(--white);
       font-family: var(--sans);
-      font-size: 11px;
+      font-size: 12px;
       font-weight: 500;
       letter-spacing: 2px;
       text-transform: uppercase;
-      padding: 16px 28px;
-      border: none;
+      padding: 18px 28px;
+      border: 1px solid var(--gold);
       cursor: pointer;
       white-space: nowrap;
-      transition: background 0.3s ease;
+      box-shadow: 0 0 20px var(--gold-glow);
+      transition: all 0.3s ease;
     }
 
     .email-form button:hover {
-      background: var(--gold-light);
+      background: var(--gold-bright);
+      box-shadow: 0 0 36px var(--gold-glow-strong);
     }
 
     .email-micro {
-      font-family: var(--sans);
-      font-size: 12px;
+      font-family: var(--serif);
+      font-size: 14px;
       font-weight: 300;
-      color: rgba(255, 255, 255, 0.3);
       font-style: italic;
+      color: var(--taupe-light);
     }
 
     /* ============================================
        FINAL CTA
        ============================================ */
-
     .final-cta {
-      padding: 160px 40px;
-      background: var(--dark-warm);
+      padding: 200px 48px;
+      background: var(--linen-warm);
       text-align: center;
       position: relative;
       overflow: hidden;
@@ -730,16 +1064,27 @@
     .final-cta::before {
       content: '';
       position: absolute;
-      top: 0;
-      left: 0;
-      right: 0;
-      bottom: 0;
-      background: radial-gradient(ellipse at center, rgba(197, 165, 90, 0.06) 0%, transparent 60%);
+      top: 50%; left: 50%;
+      transform: translate(-50%, -50%);
+      width: 700px; height: 700px;
+      background: radial-gradient(circle, rgba(212,184,92,0.08) 0%, transparent 60%);
       pointer-events: none;
     }
 
+    .final-cta .circle-deco {
+      position: absolute;
+      top: 50%; left: 50%;
+      border: 1px solid rgba(212,184,92,0.05);
+      border-radius: 50%;
+      pointer-events: none;
+    }
+
+    .final-cta .circle-deco:nth-child(1) { width: 280px; height: 280px; transform: translate(-50%,-50%); border-color: rgba(122,140,110,0.08); }
+    .final-cta .circle-deco:nth-child(2) { width: 480px; height: 480px; transform: translate(-50%,-50%); border-color: rgba(212,184,92,0.05); }
+    .final-cta .circle-deco:nth-child(3) { width: 680px; height: 680px; transform: translate(-50%,-50%); border-color: rgba(122,140,110,0.04); }
+
     .final-cta-inner {
-      max-width: 700px;
+      max-width: 650px;
       margin: 0 auto;
       position: relative;
       z-index: 1;
@@ -747,22 +1092,23 @@
 
     .final-headline {
       font-family: var(--serif);
-      font-size: clamp(36px, 5vw, 56px);
+      font-size: clamp(38px, 5vw, 60px);
       font-weight: 300;
       font-style: italic;
-      line-height: 1.2;
-      color: var(--white);
-      margin-bottom: 28px;
+      line-height: 1.15;
+      color: var(--charcoal);
+      margin-bottom: 32px;
     }
 
     .final-body {
-      font-family: var(--sans);
-      font-size: 16px;
+      font-family: var(--serif);
+      font-size: 18px;
       font-weight: 300;
+      font-style: italic;
       line-height: 1.8;
-      color: var(--text-muted);
-      margin-bottom: 48px;
-      max-width: 550px;
+      color: var(--taupe);
+      margin-bottom: 56px;
+      max-width: 500px;
       margin-left: auto;
       margin-right: auto;
     }
@@ -777,22 +1123,20 @@
     /* ============================================
        FOOTER
        ============================================ */
-
     .footer {
-      padding: 60px 40px;
-      background: var(--black);
-      border-top: 1px solid rgba(255, 255, 255, 0.06);
+      padding: 72px 48px;
+      background: var(--charcoal);
       text-align: center;
     }
 
     .footer-logo {
-      font-family: var(--sans);
-      font-size: 12px;
-      font-weight: 500;
+      font-family: var(--serif);
+      font-size: 18px;
+      font-weight: 400;
       letter-spacing: 4px;
       text-transform: uppercase;
       color: var(--white);
-      margin-bottom: 24px;
+      margin-bottom: 28px;
     }
 
     .footer-links {
@@ -805,164 +1149,146 @@
 
     .footer-links a {
       font-family: var(--sans);
-      font-size: 11px;
+      font-size: 12px;
       font-weight: 400;
       letter-spacing: 2px;
       text-transform: uppercase;
-      color: var(--text-muted);
-      transition: color 0.3s ease;
+      color: rgba(255,255,255,0.4);
     }
 
-    .footer-links a:hover {
-      color: var(--gold);
-    }
+    .footer-links a:hover { color: var(--gold); }
 
     .footer-copy {
       font-family: var(--sans);
-      font-size: 12px;
+      font-size: 11px;
       font-weight: 300;
-      color: rgba(255, 255, 255, 0.3);
+      color: rgba(255,255,255,0.2);
     }
 
     /* ============================================
-       SCROLL ANIMATIONS
-       (Squarespace supports via custom CSS + JS)
+       ANIMATIONS
        ============================================ */
+    @keyframes goldPulse {
+      0%, 100% { box-shadow: 0 0 20px var(--gold-glow), 0 0 8px var(--gold-glow-soft); }
+      50% { box-shadow: 0 0 40px var(--gold-glow-strong), 0 0 16px var(--gold-glow); }
+    }
+
+    @keyframes fadeUp {
+      from { opacity: 0; transform: translateY(24px); }
+      to { opacity: 1; transform: translateY(0); }
+    }
 
     .fade-in {
       opacity: 0;
       transform: translateY(30px);
-      transition: opacity 0.8s ease, transform 0.8s ease;
+      transition: opacity 1s ease, transform 1s ease;
     }
 
-    .fade-in.visible {
-      opacity: 1;
-      transform: translateY(0);
-    }
+    .fade-in.visible { opacity: 1; transform: translateY(0); }
 
-    .fade-in-delay-1 { transition-delay: 0.1s; }
-    .fade-in-delay-2 { transition-delay: 0.2s; }
-    .fade-in-delay-3 { transition-delay: 0.3s; }
-    .fade-in-delay-4 { transition-delay: 0.4s; }
-    .fade-in-delay-5 { transition-delay: 0.5s; }
-    .fade-in-delay-6 { transition-delay: 0.6s; }
-
-    @keyframes fadeUp {
-      from {
-        opacity: 0;
-        transform: translateY(20px);
-      }
-      to {
-        opacity: 1;
-        transform: translateY(0);
-      }
-    }
+    .fade-in-delay-1 { transition-delay: 0.15s; }
+    .fade-in-delay-2 { transition-delay: 0.3s; }
+    .fade-in-delay-3 { transition-delay: 0.45s; }
+    .fade-in-delay-4 { transition-delay: 0.6s; }
+    .fade-in-delay-5 { transition-delay: 0.75s; }
 
     /* ============================================
        RESPONSIVE
        ============================================ */
-
     @media (max-width: 900px) {
-      .nav-links {
-        display: none;
-      }
-
-      .nav-toggle {
-        display: block;
-      }
+      .nav-links { display: none; }
+      .nav-toggle { display: block; }
+      .nav { padding: 16px 24px; }
 
       .nav-links.open {
         display: flex;
         flex-direction: column;
         position: fixed;
-        top: 0;
-        left: 0;
-        right: 0;
-        bottom: 0;
-        background: var(--black);
+        inset: 0;
+        background: var(--linen);
         justify-content: center;
         align-items: center;
         gap: 28px;
         z-index: 999;
       }
 
-      .about-inner {
-        grid-template-columns: 1fr;
-        gap: 48px;
-      }
+      .about-inner,
+      .coaching-inner,
+      .testimonial-inner,
+      .standalone-inner,
+      .standalone-inner.reverse { grid-template-columns: 1fr; gap: 60px; direction: ltr; }
 
-      .offerings-grid {
-        grid-template-columns: 1fr;
-      }
+      .framed-image { max-width: 320px; }
 
-      .email-form {
-        flex-direction: column;
-      }
+      .retreats-content { grid-template-columns: 1fr; gap: 60px; padding: 120px 24px; }
+      .retreat-framed:nth-child(2) { margin-top: 0; }
 
-      .hero {
-        padding: 120px 24px 80px;
-      }
+      .offerings-grid { grid-template-columns: 1fr; }
 
-      .nav {
-        padding: 16px 24px;
-      }
+      .hero { padding: 140px 24px 100px; }
+      .hero-ornament { width: 320px; height: 320px; }
 
-      .about,
-      .offerings,
-      .testimonial,
-      .email-capture,
-      .final-cta {
-        padding: 80px 24px;
-      }
+      .about, .coaching, .standalone-section, .testimonial,
+      .email-capture, .final-cta { padding: 100px 24px; }
+
+      .gold-banner { padding: 80px 24px; }
+
+      .email-form { flex-direction: column; }
+      .email-form input[type="email"] { border-right: 1px solid rgba(212,184,92,0.15); }
+
+      .retreats-detail { gap: 28px; }
     }
 
     @media (min-width: 901px) and (max-width: 1100px) {
-      .offerings-grid {
-        grid-template-columns: repeat(2, 1fr);
-      }
+      .offerings-grid { grid-template-columns: repeat(2, 1fr); }
     }
   </style>
 </head>
 <body>
 
-  <!-- ==========================================
-       NAVIGATION
-       ========================================== -->
+  <!-- NAVIGATION -->
   <nav class="nav" id="nav">
     <a href="#" class="nav-logo">Andrea Lynn</a>
     <ul class="nav-links" id="navLinks">
       <li><a href="#about">About</a></li>
-      <li><a href="#offerings">Work With Me</a></li>
-      <li><a href="#events">Events</a></li>
+      <li><a href="#coaching">Work With Me</a></li>
+      <li><a href="#offerings">Events</a></li>
       <li><a href="#retreats">Retreats</a></li>
       <li><a href="#contact">Contact</a></li>
       <li><a href="#book" class="nav-cta">Book a Call</a></li>
     </ul>
-    <button class="nav-toggle" id="navToggle" aria-label="Toggle navigation">
-      <span></span>
-      <span></span>
-      <span></span>
+    <button class="nav-toggle" id="navToggle" aria-label="Menu">
+      <span></span><span></span><span></span>
     </button>
   </nav>
 
-  <!-- ==========================================
-       SECTION 01 - HERO
-       ========================================== -->
+  <!-- HERO -->
   <section class="hero" id="home">
+    <div class="hero-bg">
+      <img src="https://res.cloudinary.com/dstssdnoj/image/upload/q_auto,f_auto,w_1600/AdobeStock_255167394_x3jreb.jpg" alt="">
+    </div>
+    <span class="star"></span>
+    <span class="star"></span>
+    <span class="star"></span>
+    <span class="star"></span>
+    <span class="star"></span>
+    <span class="star"></span>
+    <span class="star"></span>
+    <div class="hero-ornament"></div>
+
     <div class="hero-content">
       <p class="hero-eyebrow">Somatic Coach &middot; Embodiment Guide &middot; Initiation Keeper</p>
-      <h1 class="hero-headline">You were made for more<br>than this half-life.</h1>
+      <div class="hero-divider"></div>
+      <h1 class="hero-headline">You were made for <em>more</em><br>than this half-life.</h1>
       <p class="hero-subhead">You're not broken. You're between versions. I help women in midlife cross through into aliveness, clarity, and the life they actually want.</p>
       <div class="hero-ctas">
         <a href="#book" class="btn-primary">Book a Call</a>
-        <a href="#offerings" class="btn-secondary">Explore the Work</a>
+        <a href="#coaching" class="btn-secondary">Explore the Work</a>
       </div>
     </div>
   </section>
 
-  <!-- ==========================================
-       SECTION 02 - SCROLLING MARQUEE
-       ========================================== -->
+  <!-- SCROLLING MARQUEE -->
   <div class="marquee-section">
     <div class="marquee-track">
       <span class="marquee-item">Somatic Coaching</span>
@@ -974,7 +1300,6 @@
       <span class="marquee-item">Alchemy</span>
       <span class="marquee-item">Love, Sex & Intimacy</span>
       <span class="marquee-item">Yoga Teacher Training</span>
-      <!-- Duplicate for seamless loop -->
       <span class="marquee-item">Somatic Coaching</span>
       <span class="marquee-item">Women's Embodiment</span>
       <span class="marquee-item">Breathwork</span>
@@ -987,15 +1312,11 @@
     </div>
   </div>
 
-  <!-- ==========================================
-       SECTION 03 - ABOUT BRIDGE
-       ========================================== -->
-  <section class="about" id="about">
+  <!-- ABOUT BRIDGE -->
+  <section class="about sacred-bg" id="about">
     <div class="about-inner">
-      <div class="about-image fade-in">
-        <div class="about-image-placeholder">
-          Photo of Andrea
-        </div>
+      <div class="composed-image fade-in">
+        <img src="https://res.cloudinary.com/dstssdnoj/image/upload/q_auto,f_auto,w_800/Untitled_design_3_uzonky.png" alt="Woman meditating surrounded by golden light, framed in celestial arch">
       </div>
       <div class="about-text">
         <h2 class="about-headline fade-in">I didn't find this work.<br>It found me.</h2>
@@ -1007,81 +1328,160 @@
         </div>
         <a href="#" class="about-link fade-in fade-in-delay-5">Meet Andrea &rarr;</a>
         <br>
-        <span class="about-badge fade-in fade-in-delay-6">15+ Years of Practice</span>
+        <span class="about-badge fade-in fade-in-delay-5">15+ Years of Practice</span>
       </div>
     </div>
   </section>
 
-  <!-- ==========================================
-       SECTION 04 - OFFERINGS GRID
-       ========================================== -->
-  <section class="offerings" id="offerings">
-    <div class="section-header">
-      <p class="section-eyebrow fade-in">The Work</p>
-      <h2 class="section-headline fade-in fade-in-delay-1">Ways We Can Work Together</h2>
-      <p class="section-subhead fade-in fade-in-delay-2">Whether you're ready for deep 1:1 work, the power of group containers, or an immersive retreat, there's a doorway here for you.</p>
-    </div>
-    <div class="offerings-grid">
-      <!-- Card 01 -->
-      <div class="offering-card fade-in fade-in-delay-1">
-        <p class="offering-number">01</p>
-        <h3 class="offering-title">1:1 Coaching & Group Containers</h3>
-        <p class="offering-desc">This is for the woman who is ready to go all the way in. We work together intimately with your body, your patterns, your longings, and your becoming.</p>
-        <a href="#" class="offering-link">Learn More &rarr;</a>
+  <!-- COACHING SPOTLIGHT -->
+  <section class="coaching sacred-bg" id="coaching">
+    <div class="coaching-inner">
+      <div class="coaching-text">
+        <p class="coaching-eyebrow fade-in">The Heart of the Work</p>
+        <h2 class="coaching-headline fade-in fade-in-delay-1">1:1 Coaching &<br>Group Containers</h2>
+        <div class="coaching-body">
+          <p class="fade-in fade-in-delay-2">This is for the woman who is ready to go all the way in. We work together intimately with your body, your patterns, your longings, and your becoming. Personalized, embodied, and held with full presence.</p>
+          <p class="fade-in fade-in-delay-3">There is something that happens when women gather in real intention. My group programs create sacred containers for shared transformation, where you heal in community and remember who you are in the presence of other women.</p>
+        </div>
+        <ul class="coaching-features fade-in fade-in-delay-4">
+          <li>Somatic process & nervous system work</li>
+          <li>Breathwork & feminine embodiment</li>
+          <li>Guided visualization & ceremony</li>
+          <li>Deep 1:1 or intimate group containers</li>
+        </ul>
+        <div class="coaching-cta fade-in fade-in-delay-5">
+          <a href="#book" class="btn-primary">Book a Free Discovery Call</a>
+        </div>
       </div>
-      <!-- Card 02 -->
-      <div class="offering-card fade-in fade-in-delay-2">
-        <p class="offering-number">02</p>
-        <h3 class="offering-title">Breathwork</h3>
-        <p class="offering-desc">Breath is the fastest path into the body. It bypasses the mind and goes straight to what's held. Join me for group sessions, live and virtual.</p>
-        <a href="#" class="offering-link">View Workshops &rarr;</a>
-      </div>
-      <!-- Card 03 -->
-      <div class="offering-card fade-in fade-in-delay-3">
-        <p class="offering-number">03</p>
-        <h3 class="offering-title">Retreats</h3>
-        <p class="offering-desc">Immersive. Sacred. Life-altering. My retreats bring women together in beautiful locations for days of breathwork, ceremony, somatic practice, and sisterhood.</p>
-        <a href="#" class="offering-link">Learn More &rarr;</a>
-      </div>
-      <!-- Card 04 -->
-      <div class="offering-card fade-in fade-in-delay-4">
-        <p class="offering-number">04</p>
-        <h3 class="offering-title">Yoga Teacher Training</h3>
-        <p class="offering-desc">A living, embodied training that goes far beyond posture. This is for teachers who want to teach from their whole self, from the body, from depth.</p>
-        <a href="#" class="offering-link">Learn More &rarr;</a>
-      </div>
-      <!-- Card 05 -->
-      <div class="offering-card fade-in fade-in-delay-5">
-        <p class="offering-number">05</p>
-        <h3 class="offering-title">Events</h3>
-        <p class="offering-desc">Sacred containers for shared transformation. Gather in real intention, heal in community, and remember who you are in the presence of other women.</p>
-        <a href="#" class="offering-link">Upcoming Events &rarr;</a>
-      </div>
-      <!-- Gold CTA Card -->
-      <div class="offering-card gold-card fade-in fade-in-delay-6">
-        <h3 class="offering-title">Not sure where to start?</h3>
-        <p class="offering-desc">Let's talk. A discovery call is free, pressure-free, and real. Just a conversation about where you are and where you want to go.</p>
-        <a href="#book" class="btn-dark">Book a Free Call</a>
+      <div class="standalone-visual fade-in">
+        <div class="standalone-placeholder">
+          <span>1:1 Coaching Photo</span>
+        </div>
       </div>
     </div>
   </section>
 
-  <!-- ==========================================
-       SECTION 05 - TESTIMONIAL
-       ========================================== -->
+  <!-- BREATHWORK -->
+  <section class="standalone-section sacred-bg" id="breathwork">
+    <div class="standalone-inner">
+      <div class="standalone-text fade-in">
+        <p class="coaching-eyebrow">Breathwork</p>
+        <h2 class="coaching-headline">The fastest path<br>into the body.</h2>
+        <div class="coaching-body">
+          <p>Breath bypasses the mind and goes straight to what's held. It opens what words cannot reach. Join me for group breathwork sessions, live and virtual, that move energy, release stored emotion, and reconnect you to the parts of yourself you've been carrying in silence.</p>
+        </div>
+        <ul class="coaching-features">
+          <li>Group breathwork circles, live & virtual</li>
+          <li>Nervous system regulation</li>
+          <li>Emotional release & somatic integration</li>
+        </ul>
+        <div class="coaching-cta">
+          <a href="#" class="btn-primary">View Upcoming Workshops</a>
+        </div>
+      </div>
+      <div class="standalone-visual fade-in fade-in-delay-2">
+        <div class="standalone-placeholder">
+          <span>Breathwork Photo</span>
+        </div>
+      </div>
+    </div>
+  </section>
+
+  <!-- YOGA TEACHER TRAINING -->
+  <section class="standalone-section alt-bg" id="ytt">
+    <div class="standalone-inner reverse">
+      <div class="standalone-text fade-in">
+        <p class="coaching-eyebrow">Yoga Teacher Training</p>
+        <h2 class="coaching-headline">Teach from your<br>whole self.</h2>
+        <div class="coaching-body">
+          <p>A living, embodied training that goes far beyond posture. This is for teachers who want to teach from the body, from experience, from depth. Not just the mechanics of a pose, but the medicine underneath it.</p>
+        </div>
+        <ul class="coaching-features">
+          <li>Embodied teaching methodology</li>
+          <li>Somatic awareness & trauma-informed practices</li>
+          <li>Certification & mentorship</li>
+        </ul>
+        <div class="coaching-cta">
+          <a href="#" class="btn-primary">Learn More</a>
+        </div>
+      </div>
+      <div class="standalone-visual fade-in fade-in-delay-2">
+        <div class="standalone-placeholder">
+          <span>YTT Photo</span>
+        </div>
+      </div>
+    </div>
+  </section>
+
+  <!-- GOLD CTA BANNER -->
+  <section class="gold-banner">
+    <div class="gold-banner-inner fade-in">
+      <h3 class="gold-banner-headline">Not sure where to start?</h3>
+      <p class="gold-banner-body">Let's talk. A discovery call is free, pressure-free, and real. Just a conversation about where you are and where you want to go.</p>
+      <a href="#book" class="gold-banner-btn">Book a Free Call</a>
+    </div>
+  </section>
+
+  <!-- RETREATS -->
+  <section class="retreats" id="retreats">
+    <div class="retreats-bg">
+      <img src="https://res.cloudinary.com/dstssdnoj/image/upload/q_auto,f_auto,w_1600/AdobeStock_138693496_ngwvat.jpg" alt="" aria-hidden="true">
+    </div>
+    <div class="retreats-overlay"></div>
+    <div class="retreats-content">
+      <div class="retreat-images-stack fade-in">
+        <div class="retreat-framed">
+          <img src="https://res.cloudinary.com/dstssdnoj/image/upload/q_auto,f_auto,w_500,h_667,c_fill/AdobeStock_812065335_gnlbay.jpg" alt="Women gathered in a sacred retreat circle">
+        </div>
+        <div class="retreat-framed">
+          <img src="https://res.cloudinary.com/dstssdnoj/image/upload/q_auto,f_auto,w_500,h_667,c_fill/AdobeStock_1869137455_ujaizp.jpg" alt="Sacred ceremony altar with crystals and candles">
+        </div>
+      </div>
+      <div>
+        <p class="retreats-eyebrow fade-in">Retreats</p>
+        <h2 class="retreats-headline fade-in fade-in-delay-1">The kind of reset that<br>rewrites the story.</h2>
+        <div class="retreats-body">
+          <p class="fade-in fade-in-delay-2">Immersive. Sacred. Life-altering. My retreats bring women together in beautiful locations for days of breathwork, ceremony, somatic practice, and sisterhood.</p>
+        </div>
+        <div class="retreats-detail fade-in fade-in-delay-3">
+          <div class="retreats-detail-item">
+            <p class="retreats-detail-number">3-5</p>
+            <p class="retreats-detail-label">Days</p>
+          </div>
+          <div class="retreats-detail-item">
+            <p class="retreats-detail-number">12</p>
+            <p class="retreats-detail-label">Women Max</p>
+          </div>
+          <div class="retreats-detail-item">
+            <p class="retreats-detail-number">1</p>
+            <p class="retreats-detail-label">Transformation</p>
+          </div>
+        </div>
+        <a href="#" class="btn-primary fade-in fade-in-delay-4">View Upcoming Retreats</a>
+      </div>
+    </div>
+  </section>
+
+  <!-- TESTIMONIAL -->
   <section class="testimonial">
-    <div class="testimonial-inner fade-in">
-      <blockquote class="testimonial-quote">
-        Working with Andrea was the most profound experience of my life. I came in stuck, disconnected from my body, and completely lost about who I was becoming. I left knowing exactly who I am, what I want, and what I'm here to do. She held me through every layer of it.
-      </blockquote>
-      <p class="testimonial-attribution">Sarah M., Life Coach & Mother of Three</p>
+    <div class="testimonial-inner">
+      <div class="framed-image frame-orbital fade-in" style="max-width: 360px;">
+        <img class="frame-overlay" src="https://res.cloudinary.com/dstssdnoj/image/upload/q_auto,f_auto/5_iygebi.png" alt="" aria-hidden="true">
+        <img class="photo" src="https://res.cloudinary.com/dstssdnoj/image/upload/q_auto,f_auto,w_500,h_700,c_fill,g_face/AdobeStock_1869137455_ujaizp.jpg" alt="Sacred ceremony altar with crystals and golden light">
+      </div>
+      <div class="testimonial-text fade-in fade-in-delay-1">
+        <div class="testimonial-sage-line"></div>
+        <p class="testimonial-mark">"</p>
+        <blockquote class="testimonial-quote">
+          Working with Andrea was the most profound experience of my life. I came in stuck, disconnected from my body, and completely lost about who I was becoming. I left knowing exactly who I am, what I want, and what I'm here to do. She held me through every layer of it.
+        </blockquote>
+        <p class="testimonial-attribution">Sarah M., Life Coach & Mother of Three</p>
+      </div>
     </div>
   </section>
 
-  <!-- ==========================================
-       SECTION 06 - EMAIL CAPTURE
-       ========================================== -->
-  <section class="email-capture">
+  <!-- EMAIL CAPTURE -->
+  <section class="email-capture sacred-bg">
     <div class="email-inner">
       <p class="email-eyebrow fade-in">Free Resource</p>
       <h2 class="email-headline fade-in fade-in-delay-1">Ready to feel something shift?</h2>
@@ -1094,23 +1494,22 @@
     </div>
   </section>
 
-  <!-- ==========================================
-       SECTION 07 - FINAL CTA
-       ========================================== -->
+  <!-- FINAL CTA -->
   <section class="final-cta" id="book">
+    <div class="circle-deco"></div>
+    <div class="circle-deco"></div>
+    <div class="circle-deco"></div>
     <div class="final-cta-inner">
-      <h2 class="final-headline fade-in">You already know it's time to leap.</h2>
+      <h2 class="final-headline fade-in">You already know<br>it's time to leap.</h2>
       <p class="final-body fade-in fade-in-delay-1">The woman who has crossed through, she's not that far away. She's one conversation, one breath, one decision from where you're standing right now. Let's go get her.</p>
       <div class="final-ctas fade-in fade-in-delay-2">
         <a href="#" class="btn-primary">Book a Call</a>
-        <a href="#offerings" class="btn-secondary">View All Offerings</a>
+        <a href="#coaching" class="btn-secondary">View All Offerings</a>
       </div>
     </div>
   </section>
 
-  <!-- ==========================================
-       FOOTER
-       ========================================== -->
+  <!-- FOOTER -->
   <footer class="footer">
     <p class="footer-logo">Andrea Lynn</p>
     <div class="footer-links">
@@ -1123,41 +1522,14 @@
     <p class="footer-copy">&copy; 2026 Andrea Lynn. All rights reserved.</p>
   </footer>
 
-  <!-- ==========================================
-       JAVASCRIPT
-       Scroll animations + nav behavior
-       (Can be added to Squarespace via Code Injection)
-       ========================================== -->
   <script>
-    // Sticky nav scroll effect
     const nav = document.getElementById('nav');
-    window.addEventListener('scroll', () => {
-      if (window.scrollY > 60) {
-        nav.classList.add('scrolled');
-      } else {
-        nav.classList.remove('scrolled');
-      }
-    });
+    window.addEventListener('scroll', () => nav.classList.toggle('scrolled', window.scrollY > 60));
 
-    // Mobile nav toggle
     const navToggle = document.getElementById('navToggle');
     const navLinks = document.getElementById('navLinks');
-    navToggle.addEventListener('click', () => {
-      navLinks.classList.toggle('open');
-    });
-
-    // Close mobile nav on link click
-    navLinks.querySelectorAll('a').forEach(link => {
-      link.addEventListener('click', () => {
-        navLinks.classList.remove('open');
-      });
-    });
-
-    // Scroll-triggered fade-in animations
-    const observerOptions = {
-      threshold: 0.15,
-      rootMargin: '0px 0px -40px 0px'
-    };
+    navToggle.addEventListener('click', () => navLinks.classList.toggle('open'));
+    navLinks.querySelectorAll('a').forEach(l => l.addEventListener('click', () => navLinks.classList.remove('open')));
 
     const observer = new IntersectionObserver((entries) => {
       entries.forEach(entry => {
@@ -1166,11 +1538,9 @@
           observer.unobserve(entry.target);
         }
       });
-    }, observerOptions);
+    }, { threshold: 0.12, rootMargin: '0px 0px -60px 0px' });
 
-    document.querySelectorAll('.fade-in').forEach(el => {
-      observer.observe(el);
-    });
+    document.querySelectorAll('.fade-in').forEach(el => observer.observe(el));
   </script>
 
 </body>
