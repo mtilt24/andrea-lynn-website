@@ -483,11 +483,11 @@
     .path-list li:last-child { border-bottom: none; }
     .path-cta { margin-top: auto; }
 
-    /* ── WHO THIS IS FOR ── */
+    /* ── WHO THIS IS FOR (cinematic dark section) ── */
     .who {
-      padding: 180px 48px;
+      padding: 200px 48px;
       position: relative;
-      background: var(--linen);
+      background: linear-gradient(180deg, #2C2825 0%, #1a1815 100%);
       overflow: hidden;
     }
     .who::before {
@@ -495,15 +495,65 @@
       position: absolute;
       top: 50%; left: 50%;
       transform: translate(-50%, -50%);
-      width: 700px; height: 700px;
-      background: radial-gradient(circle, rgba(122,140,110,0.06) 0%, transparent 60%);
+      width: 900px; height: 900px;
+      background: radial-gradient(circle, rgba(212,184,92,0.08) 0%, rgba(122,140,110,0.05) 40%, transparent 70%);
       pointer-events: none;
     }
+
+    /* Sparkle star field */
+    .who-stars {
+      position: absolute; inset: 0;
+      overflow: hidden;
+      pointer-events: none;
+    }
+    .who-stars-layer {
+      position: absolute; top: 0; left: 0;
+      width: 1px; height: 1px;
+      background: transparent;
+    }
+    .who-stars-layer-1 {
+      box-shadow:
+        80px 120px rgba(255,255,255,0.9), 220px 80px rgba(255,255,255,0.7), 380px 200px rgba(255,255,255,0.8),
+        520px 140px rgba(255,255,255,0.6), 680px 260px rgba(255,255,255,0.9), 820px 180px rgba(255,255,255,0.7),
+        960px 320px rgba(255,255,255,0.8), 1100px 240px rgba(255,255,255,0.6), 1260px 380px rgba(255,255,255,0.9),
+        1400px 300px rgba(255,255,255,0.7), 140px 340px rgba(255,255,255,0.8), 280px 460px rgba(255,255,255,0.6),
+        440px 520px rgba(255,255,255,0.9), 600px 440px rgba(255,255,255,0.7), 760px 580px rgba(255,255,255,0.8),
+        920px 500px rgba(255,255,255,0.6), 1080px 640px rgba(255,255,255,0.9), 1220px 540px rgba(255,255,255,0.7),
+        180px 700px rgba(255,255,255,0.8), 340px 760px rgba(255,255,255,0.6), 500px 820px rgba(255,255,255,0.9),
+        660px 740px rgba(255,255,255,0.7), 820px 880px rgba(255,255,255,0.8), 980px 800px rgba(255,255,255,0.6),
+        1140px 920px rgba(255,255,255,0.9), 1300px 840px rgba(255,255,255,0.7), 60px 960px rgba(255,255,255,0.8),
+        240px 1020px rgba(255,255,255,0.6), 400px 1080px rgba(255,255,255,0.9);
+      animation: twinkleStars 4s ease-in-out infinite;
+    }
+    .who-stars-layer-2 {
+      width: 2px; height: 2px;
+      box-shadow:
+        160px 60px var(--gold), 420px 160px var(--gold), 680px 80px var(--gold),
+        940px 200px var(--gold), 1200px 120px var(--gold), 100px 380px var(--gold),
+        360px 480px var(--gold), 620px 400px var(--gold), 880px 520px var(--gold),
+        1140px 440px var(--gold), 200px 680px var(--gold), 460px 780px var(--gold),
+        720px 700px var(--gold), 980px 820px var(--gold), 1240px 740px var(--gold);
+      animation: twinkleStars 6s ease-in-out infinite;
+      animation-delay: 1s;
+      filter: drop-shadow(0 0 4px var(--gold-glow));
+    }
+    .who-stars-layer-3 {
+      width: 3px; height: 3px;
+      box-shadow:
+        300px 240px rgba(255,255,255,0.95), 760px 340px rgba(255,255,255,0.95),
+        1180px 180px rgba(255,255,255,0.95), 500px 620px rgba(255,255,255,0.95),
+        1000px 680px rgba(255,255,255,0.95), 140px 880px rgba(255,255,255,0.95),
+        860px 940px rgba(255,255,255,0.95);
+      animation: twinkleStars 5s ease-in-out infinite;
+      animation-delay: 0.5s;
+      filter: drop-shadow(0 0 6px rgba(255,255,255,0.5));
+    }
+
     .who-inner {
       max-width: 820px;
       margin: 0 auto;
       position: relative;
-      z-index: 1;
+      z-index: 2;
     }
     .who-header {
       text-align: center;
@@ -512,27 +562,29 @@
     .who-header .eyebrow {
       font-size: 12px; font-weight: 500;
       letter-spacing: 4px; text-transform: uppercase;
-      color: var(--sage);
+      color: var(--gold);
       margin-bottom: 28px;
+      text-shadow: 0 0 20px var(--gold-glow);
     }
     .who-header h2 {
       font-family: var(--serif);
-      font-size: clamp(36px, 4.5vw, 58px);
+      font-size: clamp(38px, 5vw, 62px);
       font-weight: 300;
       font-style: italic;
       line-height: 1.15;
-      color: var(--charcoal);
+      color: var(--white);
     }
     .who-header h2 em {
       color: var(--gold);
-      text-shadow: 0 0 20px var(--gold-glow-soft);
+      text-shadow: 0 0 30px var(--gold-glow);
     }
     .sage-divider {
       width: 60px;
       height: 1px;
-      background: var(--sage);
-      margin: 28px auto 0;
-      opacity: 0.6;
+      background: var(--gold);
+      margin: 32px auto 0;
+      opacity: 0.7;
+      box-shadow: 0 0 10px var(--gold-glow);
     }
     .who-list {
       list-style: none;
@@ -542,26 +594,31 @@
     .who-list li {
       display: flex;
       align-items: flex-start;
-      gap: 20px;
-      padding: 22px 0;
-      border-bottom: 1px solid rgba(122, 140, 110, 0.2);
+      gap: 22px;
+      padding: 24px 0;
+      border-bottom: 1px solid rgba(212, 184, 92, 0.15);
       font-family: var(--serif);
-      font-size: 21px;
+      font-size: 22px;
       font-weight: 300;
       font-style: italic;
-      color: var(--charcoal);
+      color: rgba(255, 255, 255, 0.92);
       line-height: 1.5;
     }
     .who-list li::before {
       content: '';
       width: 10px; height: 10px;
-      background: var(--sage);
+      background: var(--gold);
       border-radius: 50%;
       flex-shrink: 0;
-      margin-top: 12px;
-      box-shadow: 0 0 12px rgba(122, 140, 110, 0.4);
+      margin-top: 14px;
+      box-shadow: 0 0 14px var(--gold-glow), 0 0 6px var(--gold);
     }
     .who-list li:last-child { border-bottom: none; }
+
+    @keyframes twinkleStars {
+      0%, 100% { opacity: 1; }
+      50% { opacity: 0.3; }
+    }
 
     /* ── INSIDE THE WORK (2-col with image) ── */
     .inside {
@@ -951,6 +1008,11 @@
 
   <!-- WHO THIS IS FOR -->
   <section class="who">
+    <div class="who-stars">
+      <div class="who-stars-layer who-stars-layer-1"></div>
+      <div class="who-stars-layer who-stars-layer-2"></div>
+      <div class="who-stars-layer who-stars-layer-3"></div>
+    </div>
     <div class="who-inner">
       <div class="who-header">
         <p class="eyebrow">Is This You</p>
