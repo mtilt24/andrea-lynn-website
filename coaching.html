@@ -111,122 +111,121 @@
       color: var(--charcoal);
     }
 
-    /* ── HERO ── */
-    .hero {
-      min-height: 100vh;
-      display: flex; align-items: center; justify-content: center;
-      text-align: center;
-      padding: 160px 40px 120px;
+    /* ── INTERNAL PAGE HERO ── */
+    .page-hero {
+      padding: 180px 48px 120px;
       position: relative;
       background: var(--linen);
       overflow: hidden;
     }
-    .hero::before {
+    .page-hero::before {
       content: '';
       position: absolute;
-      top: 40%; left: 50%;
-      transform: translate(-50%, -50%);
-      width: 900px; height: 900px;
-      background: radial-gradient(circle, rgba(212,184,92,0.08) 0%, rgba(212,184,92,0.02) 40%, transparent 70%);
+      top: -100px; right: -200px;
+      width: 600px; height: 600px;
+      background: radial-gradient(circle, rgba(212,184,92,0.08) 0%, transparent 60%);
       pointer-events: none;
     }
-    .hero-bg {
-      position: absolute; inset: 0; z-index: 0; overflow: hidden;
-    }
-    .hero-bg img {
-      width: 100%; height: 100%;
-      object-fit: cover; object-position: center 30%;
-      opacity: 0.28;
-      filter: saturate(0.7) brightness(1.1);
-    }
-    .hero-ornament {
+    .page-hero::after {
+      content: '';
       position: absolute;
-      top: 50%; left: 50%;
-      transform: translate(-50%, -50%);
-      width: 520px; height: 520px;
-      border: 1px solid rgba(212,184,92,0.08);
-      border-radius: 50%;
+      bottom: -150px; left: -150px;
+      width: 500px; height: 500px;
+      background: radial-gradient(circle, rgba(122,140,110,0.06) 0%, transparent 60%);
       pointer-events: none;
-      animation: breathe 8s ease-in-out infinite;
-      z-index: 0;
     }
-    .hero-ornament::before {
-      content: '';
-      position: absolute;
-      top: -50px; left: -50px; right: -50px; bottom: -50px;
-      border: 1px solid rgba(212,184,92,0.05);
-      border-radius: 50%;
+    .page-hero-inner {
+      max-width: 1200px;
+      margin: 0 auto;
+      display: grid;
+      grid-template-columns: 1fr 0.8fr;
+      gap: 100px;
+      align-items: center;
+      position: relative;
+      z-index: 1;
     }
-    .hero-ornament::after {
-      content: '';
-      position: absolute;
-      top: 50px; left: 50px; right: 50px; bottom: 50px;
-      border: 1px solid rgba(212,184,92,0.06);
-      border-radius: 50%;
-    }
-    .star {
-      position: absolute;
-      width: 4px; height: 4px;
-      background: var(--gold);
-      border-radius: 50%;
-      box-shadow: 0 0 8px var(--gold-glow);
-      animation: twinkle 3s ease-in-out infinite;
-      z-index: 0;
-    }
-    .star:nth-child(1) { top: 18%; left: 15%; animation-delay: 0s; }
-    .star:nth-child(2) { top: 25%; right: 18%; animation-delay: 1.2s; }
-    .star:nth-child(3) { bottom: 30%; left: 20%; animation-delay: 0.6s; }
-    .star:nth-child(4) { top: 35%; left: 8%; animation-delay: 1.8s; width: 3px; height: 3px; }
-    .star:nth-child(5) { bottom: 25%; right: 12%; animation-delay: 2.4s; width: 3px; height: 3px; }
-    .star:nth-child(6) { top: 15%; right: 25%; animation-delay: 0.3s; width: 2px; height: 2px; }
-    .star:nth-child(7) { bottom: 35%; left: 28%; animation-delay: 2s; width: 2px; height: 2px; }
-    .hero-content { max-width: 860px; position: relative; z-index: 2; }
-    .hero-eyebrow {
+    .page-hero-text { position: relative; }
+    .page-hero-breadcrumb {
       font-family: var(--sans);
-      font-size: 12px; font-weight: 500;
+      font-size: 11px; font-weight: 500;
       letter-spacing: 4px; text-transform: uppercase;
       color: var(--sage);
-      margin-bottom: 44px;
+      margin-bottom: 32px;
+      display: flex; align-items: center; gap: 12px;
       opacity: 0;
-      animation: fadeUp 1s ease 0.3s forwards;
+      animation: fadeUp 1s ease 0.2s forwards;
     }
-    .hero-divider {
-      width: 2px; height: 44px;
-      background: linear-gradient(to bottom, transparent, var(--sage), transparent);
-      margin: 0 auto 44px;
-      opacity: 0;
-      animation: fadeUp 1s ease 0.5s forwards;
+    .page-hero-breadcrumb .line {
+      width: 40px; height: 1px;
+      background: var(--sage);
+      opacity: 0.5;
     }
-    .hero-headline {
+    .page-hero-title {
       font-family: var(--serif);
-      font-size: clamp(44px, 6.5vw, 78px);
+      font-size: clamp(48px, 6vw, 84px);
       font-weight: 300;
-      line-height: 1.1;
+      line-height: 1.05;
       color: var(--charcoal);
       margin-bottom: 36px;
       opacity: 0;
-      animation: fadeUp 1.2s ease 0.6s forwards;
+      animation: fadeUp 1.2s ease 0.4s forwards;
     }
-    .hero-headline em {
+    .page-hero-title em {
       font-style: italic;
       color: var(--gold);
       text-shadow: 0 0 30px var(--gold-glow-soft);
     }
-    .hero-subhead {
+    .page-hero-lede {
       font-family: var(--serif);
-      font-size: 21px; font-weight: 300;
+      font-size: 20px; font-weight: 300;
       font-style: italic;
       line-height: 1.75;
       color: var(--taupe);
-      max-width: 580px;
-      margin: 0 auto 56px;
+      max-width: 520px;
+      margin-bottom: 32px;
       opacity: 0;
-      animation: fadeUp 1s ease 0.9s forwards;
+      animation: fadeUp 1s ease 0.6s forwards;
     }
-    .hero-ctas {
-      display: flex; gap: 20px; justify-content: center; flex-wrap: wrap;
+    .page-hero-divider {
+      width: 48px; height: 1px;
+      background: var(--gold);
+      opacity: 0.7;
+      margin-top: 16px;
       opacity: 0;
-      animation: fadeUp 1s ease 1.2s forwards;
+      animation: fadeUp 1s ease 0.8s forwards;
+    }
+    .page-hero-visual {
+      position: relative;
+      opacity: 0;
+      animation: fadeUp 1.2s ease 0.6s forwards;
+    }
+    .page-hero-visual img {
+      width: 100%;
+      aspect-ratio: 4 / 5;
+      object-fit: cover;
+      object-position: center;
+      border-radius: 180px 180px 6px 6px;
+      box-shadow: 0 20px 60px rgba(44,40,37,0.15);
+      position: relative;
+      z-index: 1;
+    }
+    .page-hero-visual::before {
+      content: '';
+      position: absolute;
+      top: -16px; left: -16px; right: 16px; bottom: 16px;
+      border: 1px solid var(--gold);
+      border-radius: 180px 180px 6px 6px;
+      opacity: 0.4;
+      pointer-events: none;
+    }
+    .page-hero-visual::after {
+      content: '✦';
+      position: absolute;
+      top: 10%; right: -30px;
+      font-size: 24px;
+      color: var(--gold);
+      opacity: 0.6;
+      animation: twinkle 4s ease-in-out infinite;
     }
 
     /* ── MARQUEE ── */
@@ -802,8 +801,9 @@
     @media (max-width: 900px) {
       .nav { padding: 18px 24px; }
       .nav-links { display: none; }
-      .hero { padding: 140px 24px 100px; }
-      .hero-ornament { width: 320px; height: 320px; }
+      .page-hero { padding: 140px 24px 80px; }
+      .page-hero-inner { grid-template-columns: 1fr; gap: 60px; }
+      .page-hero-visual::after { display: none; }
       .process, .paths, .who, .inside, .testimonial, .final-cta { padding: 120px 24px; }
       .process-inner, .inside-inner { grid-template-columns: 1fr; gap: 60px; }
       .paths-grid { grid-template-columns: 1fr; gap: 40px; }
@@ -827,30 +827,20 @@
   </nav>
 
   <!-- HERO -->
-  <section class="hero">
-    <div class="hero-bg">
-      <img src="https://res.cloudinary.com/dstssdnoj/image/upload/q_auto,f_auto,w_1600/AdobeStock_255167394_x3jreb.jpg" alt="">
-    </div>
-    <div class="hero-ornament"></div>
-    <div class="star"></div>
-    <div class="star"></div>
-    <div class="star"></div>
-    <div class="star"></div>
-    <div class="star"></div>
-    <div class="star"></div>
-    <div class="star"></div>
-    <div class="hero-content">
-      <p class="hero-eyebrow">The Heart of the Work</p>
-      <div class="hero-divider"></div>
-      <h1 class="hero-headline">
-        From living in your head<br>to leading from your <em>body</em>.
-      </h1>
-      <p class="hero-subhead">
-        There is a version of your life already alive inside you. She is not someone you become. She is someone you remember.
-      </p>
-      <div class="hero-ctas">
-        <a href="#book" class="btn-primary">Schedule a Discovery Call</a>
-        <a href="#paths" class="btn-secondary">Explore the Paths</a>
+  <section class="page-hero">
+    <div class="page-hero-inner">
+      <div class="page-hero-text">
+        <p class="page-hero-breadcrumb"><span class="line"></span> Coaching</p>
+        <h1 class="page-hero-title">
+          From living in your head<br>to leading from your <em>body</em>.
+        </h1>
+        <p class="page-hero-lede">
+          There is a version of your life already alive inside you. She is not someone you become. She is someone you remember.
+        </p>
+        <div class="page-hero-divider"></div>
+      </div>
+      <div class="page-hero-visual">
+        <img src="https://res.cloudinary.com/dstssdnoj/image/upload/q_auto,f_auto,w_700,h_900,c_fill/AdobeStock_255167394_x3jreb.jpg" alt="Andrea Lynn">
       </div>
     </div>
   </section>
