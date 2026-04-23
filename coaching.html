@@ -464,12 +464,12 @@
       gap: 14px;
       padding: 14px 0;
       border-bottom: 1px solid rgba(122, 140, 110, 0.15);
-      font-family: var(--serif);
-      font-size: 17px;
-      font-weight: 300;
-      font-style: italic;
-      color: var(--charcoal);
-      line-height: 1.45;
+      font-family: var(--sans);
+      font-size: 14px;
+      font-weight: 400;
+      color: var(--taupe);
+      line-height: 1.7;
+      letter-spacing: 0.2px;
     }
     .path-list li::before {
       content: '';
@@ -586,34 +586,52 @@
       opacity: 0.7;
       box-shadow: 0 0 10px var(--gold-glow);
     }
-    .who-list {
-      list-style: none;
-      max-width: 680px;
+    /* Stacked whispered statements */
+    .who-statements {
+      max-width: 780px;
       margin: 0 auto;
+      text-align: center;
     }
-    .who-list li {
-      display: flex;
-      align-items: flex-start;
-      gap: 22px;
-      padding: 24px 0;
-      border-bottom: 1px solid rgba(212, 184, 92, 0.15);
+    .who-statement {
       font-family: var(--serif);
-      font-size: 22px;
+      font-size: clamp(26px, 3.2vw, 38px);
       font-weight: 300;
       font-style: italic;
-      color: rgba(255, 255, 255, 0.92);
-      line-height: 1.5;
+      line-height: 1.4;
+      color: rgba(255, 255, 255, 0.95);
+      padding: 28px 0;
+      opacity: 0.95;
     }
-    .who-list li::before {
-      content: '';
-      width: 10px; height: 10px;
-      background: var(--gold);
-      border-radius: 50%;
-      flex-shrink: 0;
-      margin-top: 14px;
-      box-shadow: 0 0 14px var(--gold-glow), 0 0 6px var(--gold);
+    .who-statement em {
+      color: var(--gold);
+      font-style: italic;
+      text-shadow: 0 0 24px var(--gold-glow);
     }
-    .who-list li:last-child { border-bottom: none; }
+    .who-ornament {
+      display: flex;
+      align-items: center;
+      justify-content: center;
+      gap: 18px;
+      margin: 0 auto;
+      max-width: 320px;
+    }
+    .who-ornament .line {
+      flex: 1;
+      height: 1px;
+      background: linear-gradient(to right, transparent, rgba(212,184,92,0.4), transparent);
+    }
+    .who-ornament .star {
+      position: static;
+      width: auto; height: auto;
+      background: transparent;
+      border-radius: 0;
+      box-shadow: none;
+      animation: none;
+      font-family: var(--serif);
+      font-size: 14px;
+      color: var(--gold);
+      text-shadow: 0 0 12px var(--gold-glow);
+    }
 
     @keyframes twinkleStars {
       0%, 100% { opacity: 1; }
@@ -680,12 +698,12 @@
       gap: 16px;
       padding: 18px 0;
       border-bottom: 1px solid rgba(122, 140, 110, 0.18);
-      font-family: var(--serif);
-      font-size: 19px;
-      font-weight: 300;
-      font-style: italic;
-      color: var(--charcoal);
-      line-height: 1.5;
+      font-family: var(--sans);
+      font-size: 15px;
+      font-weight: 400;
+      color: var(--taupe);
+      line-height: 1.7;
+      letter-spacing: 0.2px;
     }
     .inside-list li::before {
       content: '';
@@ -1019,13 +1037,17 @@
         <h2>This work is for the woman <em>who</em>...</h2>
         <div class="sage-divider"></div>
       </div>
-      <ul class="who-list">
-        <li>Knows there is more, but cannot yet name it</li>
-        <li>Feels pulled by the roles she plays, and disconnected from herself underneath them</li>
-        <li>Is ready to stop waiting for permission</li>
-        <li>Wants to move from living in her head to leading from her body</li>
-        <li>Is done playing small</li>
-      </ul>
+      <div class="who-statements">
+        <p class="who-statement">She knows there is <em>more</em>, but cannot yet name it.</p>
+        <div class="who-ornament"><span class="line"></span><span class="star">✦</span><span class="line"></span></div>
+        <p class="who-statement">She feels pulled by the roles she plays, and disconnected from herself underneath them.</p>
+        <div class="who-ornament"><span class="line"></span><span class="star">✦</span><span class="line"></span></div>
+        <p class="who-statement">She is ready to stop waiting for <em>permission</em>.</p>
+        <div class="who-ornament"><span class="line"></span><span class="star">✦</span><span class="line"></span></div>
+        <p class="who-statement">She wants to move from living in her head to leading from her body.</p>
+        <div class="who-ornament"><span class="line"></span><span class="star">✦</span><span class="line"></span></div>
+        <p class="who-statement">She is <em>done</em> playing small.</p>
+      </div>
     </div>
   </section>
 
