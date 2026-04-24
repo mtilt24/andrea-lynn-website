@@ -700,43 +700,119 @@
     }
 
     /* ============================================
-       GOLD CTA BANNER
+       STARRY CTA BANNER (mid-page)
        ============================================ */
     .gold-banner {
-      padding: 100px 48px;
-      background-image: url('https://res.cloudinary.com/dstssdnoj/image/upload/q_auto,f_auto,w_1600/AdobeStock_544400437_2_wxjx1v.jpg');
-      background-size: cover;
-      background-position: center;
+      padding: 160px 48px;
+      background: linear-gradient(180deg, #2C2825 0%, #1a1815 100%);
       text-align: center;
-      box-shadow: 0 0 60px var(--gold-glow), 0 0 20px var(--gold-glow-soft);
+      position: relative;
+      overflow: hidden;
+    }
+    .gold-banner::before {
+      content: '';
+      position: absolute;
+      top: 50%; left: 50%;
+      transform: translate(-50%, -50%);
+      width: 900px; height: 900px;
+      background: radial-gradient(circle, rgba(212,184,92,0.1) 0%, rgba(122,140,110,0.05) 40%, transparent 70%);
+      pointer-events: none;
+    }
+
+    .banner-stars {
+      position: absolute; inset: 0;
+      overflow: hidden;
+      pointer-events: none;
+    }
+    .banner-stars-layer {
+      position: absolute; top: 0; left: 0;
+      width: 1px; height: 1px;
+      background: transparent;
+    }
+    .banner-stars-layer-1 {
+      box-shadow:
+        80px 100px rgba(255,255,255,0.9), 220px 60px rgba(255,255,255,0.7), 380px 180px rgba(255,255,255,0.8),
+        520px 120px rgba(255,255,255,0.6), 680px 240px rgba(255,255,255,0.9), 820px 160px rgba(255,255,255,0.7),
+        960px 300px rgba(255,255,255,0.8), 1100px 220px rgba(255,255,255,0.6), 1260px 360px rgba(255,255,255,0.9),
+        1400px 280px rgba(255,255,255,0.7), 140px 320px rgba(255,255,255,0.8), 280px 440px rgba(255,255,255,0.6),
+        440px 500px rgba(255,255,255,0.9), 600px 420px rgba(255,255,255,0.7), 760px 560px rgba(255,255,255,0.8),
+        920px 480px rgba(255,255,255,0.6), 1080px 620px rgba(255,255,255,0.9), 1220px 520px rgba(255,255,255,0.7),
+        180px 680px rgba(255,255,255,0.8), 340px 740px rgba(255,255,255,0.6), 500px 800px rgba(255,255,255,0.9),
+        660px 720px rgba(255,255,255,0.7), 820px 60px rgba(255,255,255,0.8), 980px 780px rgba(255,255,255,0.6),
+        1140px 100px rgba(255,255,255,0.9), 1300px 820px rgba(255,255,255,0.7);
+      animation: twinkleStars 4s ease-in-out infinite;
+    }
+    .banner-stars-layer-2 {
+      width: 2px; height: 2px;
+      box-shadow:
+        160px 40px var(--gold), 420px 140px var(--gold), 680px 60px var(--gold),
+        940px 180px var(--gold), 1200px 100px var(--gold), 100px 360px var(--gold),
+        360px 460px var(--gold), 620px 380px var(--gold), 880px 500px var(--gold),
+        1140px 420px var(--gold), 200px 660px var(--gold), 460px 760px var(--gold),
+        720px 680px var(--gold), 980px 800px var(--gold), 1240px 720px var(--gold);
+      animation: twinkleStars 6s ease-in-out infinite;
+      animation-delay: 1s;
+      filter: drop-shadow(0 0 4px var(--gold-glow));
+    }
+    .banner-stars-layer-3 {
+      width: 3px; height: 3px;
+      box-shadow:
+        300px 220px rgba(255,255,255,0.95), 760px 320px rgba(255,255,255,0.95),
+        1180px 160px rgba(255,255,255,0.95), 500px 600px rgba(255,255,255,0.95),
+        1000px 660px rgba(255,255,255,0.95), 140px 840px rgba(255,255,255,0.95),
+        860px 140px rgba(255,255,255,0.95);
+      animation: twinkleStars 5s ease-in-out infinite;
+      animation-delay: 0.5s;
+      filter: drop-shadow(0 0 6px rgba(255,255,255,0.5));
     }
 
     .gold-banner-inner {
-      max-width: 600px;
+      max-width: 720px;
       margin: 0 auto;
+      position: relative;
+      z-index: 2;
+    }
+
+    .gold-banner-eyebrow {
+      font-family: var(--sans);
+      font-size: 11px;
+      font-weight: 500;
+      letter-spacing: 4px;
+      text-transform: uppercase;
+      color: var(--gold);
+      margin-bottom: 28px;
+      text-shadow: 0 0 20px var(--gold-glow);
     }
 
     .gold-banner-headline {
       font-family: var(--serif);
-      font-size: clamp(28px, 3.5vw, 40px);
-      font-weight: 400;
+      font-size: clamp(34px, 4.5vw, 52px);
+      font-weight: 300;
       font-style: italic;
-      color: var(--charcoal);
-      margin-bottom: 20px;
+      color: var(--white);
+      margin-bottom: 28px;
+      line-height: 1.15;
+    }
+    .gold-banner-headline em {
+      color: var(--gold);
+      text-shadow: 0 0 30px var(--gold-glow);
     }
 
     .gold-banner-body {
       font-family: var(--sans);
       font-size: 16px;
-      font-weight: 400;
-      line-height: 1.8;
-      color: rgba(44,40,37,0.75);
-      margin-bottom: 36px;
+      font-weight: 300;
+      line-height: 1.85;
+      color: rgba(255,255,255,0.7);
+      margin-bottom: 48px;
+      max-width: 540px;
+      margin-left: auto;
+      margin-right: auto;
     }
 
     .gold-banner-btn {
       display: inline-block;
-      background: var(--charcoal);
+      background: var(--gold);
       color: var(--white);
       font-family: var(--sans);
       font-size: 12px;
@@ -744,18 +820,19 @@
       letter-spacing: 3px;
       text-transform: uppercase;
       padding: 18px 44px;
-      transition: all 0.3s ease;
-      box-shadow: 0 4px 20px rgba(44,40,37,0.2);
+      transition: all 0.4s ease;
+      box-shadow: 0 0 24px var(--gold-glow), 0 0 8px var(--gold-glow-soft);
     }
 
     .gold-banner-btn:hover {
-      background: var(--taupe);
+      background: var(--gold-bright);
+      box-shadow: 0 0 44px var(--gold-glow-strong), 0 0 18px var(--gold-glow);
       transform: translateY(-2px);
     }
 
-    @keyframes goldShimmer {
-      0%, 100% { background-position: 0% 50%; }
-      50% { background-position: 100% 50%; }
+    @keyframes twinkleStars {
+      0%, 100% { opacity: 1; }
+      50% { opacity: 0.3; }
     }
 
     /* ============================================
@@ -1051,76 +1128,6 @@
     }
 
     /* ============================================
-       FINAL CTA
-       ============================================ */
-    .final-cta {
-      padding: 200px 48px;
-      background: var(--linen-warm);
-      text-align: center;
-      position: relative;
-      overflow: hidden;
-    }
-
-    .final-cta::before {
-      content: '';
-      position: absolute;
-      top: 50%; left: 50%;
-      transform: translate(-50%, -50%);
-      width: 700px; height: 700px;
-      background: radial-gradient(circle, rgba(212,184,92,0.08) 0%, transparent 60%);
-      pointer-events: none;
-    }
-
-    .final-cta .circle-deco {
-      position: absolute;
-      top: 50%; left: 50%;
-      border: 1px solid rgba(212,184,92,0.05);
-      border-radius: 50%;
-      pointer-events: none;
-    }
-
-    .final-cta .circle-deco:nth-child(1) { width: 280px; height: 280px; transform: translate(-50%,-50%); border-color: rgba(122,140,110,0.08); }
-    .final-cta .circle-deco:nth-child(2) { width: 480px; height: 480px; transform: translate(-50%,-50%); border-color: rgba(212,184,92,0.05); }
-    .final-cta .circle-deco:nth-child(3) { width: 680px; height: 680px; transform: translate(-50%,-50%); border-color: rgba(122,140,110,0.04); }
-
-    .final-cta-inner {
-      max-width: 650px;
-      margin: 0 auto;
-      position: relative;
-      z-index: 1;
-    }
-
-    .final-headline {
-      font-family: var(--serif);
-      font-size: clamp(38px, 5vw, 60px);
-      font-weight: 300;
-      font-style: italic;
-      line-height: 1.15;
-      color: var(--charcoal);
-      margin-bottom: 32px;
-    }
-
-    .final-body {
-      font-family: var(--serif);
-      font-size: 18px;
-      font-weight: 300;
-      font-style: italic;
-      line-height: 1.8;
-      color: var(--taupe);
-      margin-bottom: 56px;
-      max-width: 500px;
-      margin-left: auto;
-      margin-right: auto;
-    }
-
-    .final-ctas {
-      display: flex;
-      gap: 20px;
-      justify-content: center;
-      flex-wrap: wrap;
-    }
-
-    /* ============================================
        FOOTER
        ============================================ */
     .footer {
@@ -1380,7 +1387,7 @@
       .hero-ornament { width: 320px; height: 320px; }
 
       .about, .coaching, .standalone-section, .testimonial,
-      .email-capture, .final-cta { padding: 100px 24px; }
+      .email-capture { padding: 100px 24px; }
 
       .gold-banner { padding: 80px 24px; }
 
@@ -1564,12 +1571,18 @@
     </div>
   </section>
 
-  <!-- GOLD CTA BANNER -->
-  <section class="gold-banner">
+  <!-- STARRY CTA BANNER -->
+  <section class="gold-banner" id="book">
+    <div class="banner-stars">
+      <div class="banner-stars-layer banner-stars-layer-1"></div>
+      <div class="banner-stars-layer banner-stars-layer-2"></div>
+      <div class="banner-stars-layer banner-stars-layer-3"></div>
+    </div>
     <div class="gold-banner-inner fade-in">
-      <h3 class="gold-banner-headline">Not sure where to start?</h3>
-      <p class="gold-banner-body">Let's talk. A discovery call is free, pressure-free, and real. Just a conversation about where you are and where you want to go.</p>
-      <a href="#book" class="gold-banner-btn">Book a Free Call</a>
+      <p class="gold-banner-eyebrow">A Door, Still Open</p>
+      <h3 class="gold-banner-headline">Not sure where to <em>start</em>?</h3>
+      <p class="gold-banner-body">Let's talk. A discovery call is free, pressure-free, and real. Just a conversation about where you are, and where you want to go.</p>
+      <a href="#" class="gold-banner-btn">Schedule a Discovery Call</a>
     </div>
   </section>
 
@@ -1642,21 +1655,6 @@
         <button type="submit">Send Me the Guide</button>
       </form>
       <p class="email-micro fade-in fade-in-delay-4">No spam. Just real tools and occasional love notes from me.</p>
-    </div>
-  </section>
-
-  <!-- FINAL CTA -->
-  <section class="final-cta" id="book">
-    <div class="circle-deco"></div>
-    <div class="circle-deco"></div>
-    <div class="circle-deco"></div>
-    <div class="final-cta-inner">
-      <h2 class="final-headline fade-in">You already know<br>it's time to leap.</h2>
-      <p class="final-body fade-in fade-in-delay-1">The woman who has crossed through, she's not that far away. She's one conversation, one breath, one decision from where you're standing right now. Let's go get her.</p>
-      <div class="final-ctas fade-in fade-in-delay-2">
-        <a href="#" class="btn-primary">Book a Call</a>
-        <a href="#coaching" class="btn-secondary">View All Offerings</a>
-      </div>
     </div>
   </section>
 
