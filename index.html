@@ -572,10 +572,18 @@
        ============================================ */
     .coaching {
       padding: 160px 48px;
-      background: var(--linen-warm);
+      background: linear-gradient(180deg, #2C2825 0%, #1a1815 100%);
       position: relative;
-      border-top: 2px solid rgba(122,140,110,0.25);
-      border-bottom: 2px solid rgba(122,140,110,0.25);
+      overflow: hidden;
+    }
+    .coaching::before {
+      content: '';
+      position: absolute;
+      top: 50%; left: 50%;
+      transform: translate(-50%, -50%);
+      width: 900px; height: 900px;
+      background: radial-gradient(circle, rgba(212,184,92,0.06) 0%, rgba(122,140,110,0.04) 40%, transparent 70%);
+      pointer-events: none;
     }
 
     .coaching-inner {
@@ -606,8 +614,12 @@
       font-weight: 300;
       font-style: italic;
       line-height: 1.15;
-      color: var(--charcoal);
+      color: var(--white);
       margin-bottom: 32px;
+    }
+    .coaching-headline em {
+      color: var(--gold);
+      text-shadow: 0 0 30px var(--gold-glow);
     }
 
     .coaching-body p {
@@ -615,7 +627,7 @@
       font-size: 16px;
       font-weight: 300;
       line-height: 1.9;
-      color: var(--taupe);
+      color: rgba(255,255,255,0.7);
       margin-bottom: 20px;
     }
 
@@ -630,9 +642,9 @@
       font-size: 18px;
       font-weight: 300;
       font-style: italic;
-      color: var(--charcoal);
+      color: rgba(255,255,255,0.92);
       padding: 14px 0;
-      border-bottom: 1px solid rgba(122,140,110,0.2);
+      border-bottom: 1px solid rgba(212,184,92,0.15);
       display: flex;
       align-items: center;
       gap: 16px;
@@ -644,10 +656,32 @@
       background: var(--sage);
       border-radius: 50%;
       flex-shrink: 0;
-      box-shadow: 0 0 10px rgba(122,140,110,0.4);
+      box-shadow: 0 0 12px rgba(122,140,110,0.6);
     }
 
     .coaching-cta { margin-top: 44px; }
+
+    /* Cream button for dark sections */
+    .btn-cream {
+      display: inline-block;
+      background: var(--linen);
+      color: var(--charcoal);
+      font-family: var(--sans);
+      font-size: 12px;
+      font-weight: 500;
+      letter-spacing: 3px;
+      text-transform: uppercase;
+      padding: 18px 44px;
+      border: none;
+      cursor: pointer;
+      box-shadow: 0 4px 24px rgba(242,237,228,0.12);
+      transition: all 0.4s ease;
+    }
+    .btn-cream:hover {
+      background: var(--white);
+      box-shadow: 0 8px 36px rgba(242,237,228,0.22);
+      transform: translateY(-2px);
+    }
 
     /* ============================================
        STANDALONE SECTIONS (Breathwork, YTT)
@@ -812,8 +846,8 @@
 
     .gold-banner-btn {
       display: inline-block;
-      background: var(--gold);
-      color: var(--white);
+      background: var(--linen);
+      color: var(--charcoal);
       font-family: var(--sans);
       font-size: 12px;
       font-weight: 500;
@@ -821,12 +855,12 @@
       text-transform: uppercase;
       padding: 18px 44px;
       transition: all 0.4s ease;
-      box-shadow: 0 0 24px var(--gold-glow), 0 0 8px var(--gold-glow-soft);
+      box-shadow: 0 4px 24px rgba(242,237,228,0.12);
     }
 
     .gold-banner-btn:hover {
-      background: var(--gold-bright);
-      box-shadow: 0 0 44px var(--gold-glow-strong), 0 0 18px var(--gold-glow);
+      background: var(--white);
+      box-shadow: 0 8px 36px rgba(242,237,228,0.22);
       transform: translateY(-2px);
     }
 
@@ -1492,7 +1526,7 @@
   </section>
 
   <!-- COACHING SPOTLIGHT -->
-  <section class="coaching sacred-bg" id="coaching">
+  <section class="coaching" id="coaching">
     <div class="coaching-inner">
       <div class="coaching-text">
         <p class="coaching-eyebrow fade-in">The Heart of the Work</p>
@@ -1508,7 +1542,7 @@
           <li>Deep 1:1 or intimate group containers</li>
         </ul>
         <div class="coaching-cta fade-in fade-in-delay-5">
-          <a href="#book" class="btn-primary">Book a Free Discovery Call</a>
+          <a href="#book" class="btn-cream">Book a Free Discovery Call</a>
         </div>
       </div>
       <div class="standalone-visual fade-in">
