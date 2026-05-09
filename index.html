@@ -107,6 +107,77 @@
 
     .nav-links a:hover { color: var(--charcoal); }
 
+    .nav-dropdown { position: relative; }
+    .nav-dropdown > a {
+      display: inline-flex;
+      align-items: center;
+      gap: 6px;
+      cursor: pointer;
+    }
+    .nav-dropdown > a::after {
+      content: '';
+      display: inline-block;
+      width: 5px; height: 5px;
+      border-right: 1px solid currentColor;
+      border-bottom: 1px solid currentColor;
+      transform: rotate(45deg) translateY(-2px);
+      opacity: 0.6;
+      transition: transform 0.3s ease;
+    }
+    .nav-dropdown:hover > a::after {
+      transform: rotate(225deg) translateY(-2px);
+    }
+    .nav-dropdown-menu {
+      position: absolute;
+      top: calc(100% + 14px);
+      left: 50%;
+      transform: translateX(-50%) translateY(-6px);
+      background: rgba(242, 237, 228, 0.97);
+      backdrop-filter: blur(16px);
+      padding: 14px 0;
+      min-width: 220px;
+      box-shadow: 0 14px 44px rgba(44,40,37,0.1);
+      border: 1px solid rgba(212,184,92,0.18);
+      opacity: 0;
+      visibility: hidden;
+      transition: opacity 0.3s ease, visibility 0.3s ease, transform 0.3s ease;
+      z-index: 1001;
+      list-style: none;
+    }
+    .nav-dropdown:hover .nav-dropdown-menu,
+    .nav-dropdown:focus-within .nav-dropdown-menu {
+      opacity: 1;
+      visibility: visible;
+      transform: translateX(-50%) translateY(0);
+    }
+    .nav-dropdown-menu::before {
+      content: '';
+      position: absolute;
+      top: -7px; left: 50%;
+      transform: translateX(-50%) rotate(45deg);
+      width: 12px; height: 12px;
+      background: rgba(242, 237, 228, 0.97);
+      border-left: 1px solid rgba(212,184,92,0.18);
+      border-top: 1px solid rgba(212,184,92,0.18);
+    }
+    .nav-dropdown-menu li { margin: 0; }
+    .nav-dropdown-menu a {
+      display: block;
+      padding: 11px 26px;
+      font-family: var(--sans);
+      font-size: 11px;
+      letter-spacing: 2.5px;
+      text-transform: uppercase;
+      white-space: nowrap;
+      color: var(--taupe);
+      transition: all 0.25s ease;
+    }
+    .nav-dropdown-menu a:hover {
+      background: rgba(212,184,92,0.1);
+      color: var(--gold);
+      letter-spacing: 3px;
+    }
+
     .nav-cta {
       background: var(--gold) !important;
       color: var(--white) !important;
@@ -1335,6 +1406,32 @@
         z-index: 999;
       }
 
+      .nav-dropdown { display: flex; flex-direction: column; align-items: center; gap: 8px; }
+      .nav-dropdown > a::after { display: none; }
+      .nav-dropdown-menu {
+        position: static;
+        transform: none;
+        opacity: 1;
+        visibility: visible;
+        background: transparent;
+        box-shadow: none;
+        border: none;
+        backdrop-filter: none;
+        padding: 0;
+        min-width: 0;
+        display: flex;
+        flex-direction: column;
+        align-items: center;
+        gap: 6px;
+      }
+      .nav-dropdown-menu::before { display: none; }
+      .nav-dropdown-menu a {
+        padding: 4px 0;
+        font-size: 10px;
+        color: var(--sage);
+      }
+      .nav-dropdown-menu a:hover { letter-spacing: 2.5px; }
+
       .about-inner,
       .coaching-inner,
       .testimonial-inner,
@@ -1374,7 +1471,16 @@
     <a href="#" class="nav-logo">Andrea Lynn</a>
     <ul class="nav-links" id="navLinks">
       <li><a href="#about">About</a></li>
-      <li><a href="#coaching">Work With Me</a></li>
+      <li class="nav-dropdown">
+        <a href="#coaching">Work With Me</a>
+        <ul class="nav-dropdown-menu">
+          <li><a href="/coaching.html">1:1 Coaching</a></li>
+          <li><a href="#coaching">Group Containers</a></li>
+          <li><a href="#retreats">Retreats</a></li>
+          <li><a href="#breathwork">Workshops &amp; Events</a></li>
+          <li><a href="#ytt">Yoga Teacher Training</a></li>
+        </ul>
+      </li>
       <li><a href="#breathwork">Events</a></li>
       <li><a href="#retreats">Retreats</a></li>
       <li><a href="#book">Contact</a></li>
