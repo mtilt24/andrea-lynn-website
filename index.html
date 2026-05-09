@@ -562,11 +562,11 @@
       align-items: center;
     }
 
+    .about-headline em { font-style: italic; color: var(--gold); }
     .about-headline {
       font-family: var(--serif);
       font-size: clamp(34px, 4vw, 50px);
       font-weight: 300;
-      font-style: italic;
       line-height: 1.2;
       color: var(--charcoal);
       margin-bottom: 44px;
@@ -671,11 +671,11 @@
       text-shadow: 0 0 24px var(--gold-glow);
     }
 
+    .coaching-headline em { font-style: italic; color: var(--gold); }
     .coaching-headline {
       font-family: var(--serif);
       font-size: clamp(34px, 4vw, 52px);
       font-weight: 300;
-      font-style: italic;
       line-height: 1.15;
       color: var(--charcoal);
       margin-bottom: 32px;
@@ -697,10 +697,9 @@
     }
 
     .coaching-features li {
-      font-family: var(--serif);
-      font-size: 18px;
+      font-family: var(--sans);
+      font-size: 15px;
       font-weight: 300;
-      font-style: italic;
       color: var(--charcoal);
       padding: 14px 0;
       border-bottom: 1px solid rgba(122,140,110,0.2);
@@ -818,11 +817,11 @@
       opacity: 0.7;
     }
 
+    .gold-banner-headline em { font-style: italic; color: var(--gold); }
     .gold-banner-headline {
       font-family: var(--serif);
       font-size: clamp(34px, 4.5vw, 52px);
       font-weight: 300;
-      font-style: italic;
       color: var(--charcoal);
       margin-bottom: 28px;
       line-height: 1.15;
@@ -941,11 +940,11 @@
       text-shadow: 0 0 24px var(--gold-glow);
     }
 
+    .retreats-headline em { font-style: italic; color: var(--gold); }
     .retreats-headline {
       font-family: var(--serif);
       font-size: clamp(34px, 4vw, 52px);
       font-weight: 300;
-      font-style: italic;
       line-height: 1.2;
       color: var(--white);
       margin-bottom: 28px;
@@ -1087,11 +1086,11 @@
       margin-bottom: 24px;
     }
 
+    .email-headline em { font-style: italic; color: var(--gold); }
     .email-headline {
       font-family: var(--serif);
       font-size: clamp(30px, 3.5vw, 42px);
       font-weight: 300;
-      font-style: italic;
       color: var(--charcoal);
       margin-bottom: 20px;
     }
@@ -1482,7 +1481,14 @@
         </ul>
       </li>
       <li><a href="#breathwork">Events</a></li>
-      <li><a href="#retreats">Retreats</a></li>
+      <li class="nav-dropdown">
+        <a href="retreats.html">Retreats</a>
+        <ul class="nav-dropdown-menu">
+          <li><a href="retreats.html">All Retreats</a></li>
+          <li><a href="retreats.html#costa-rica">Costa Rica · Jul 2026</a></li>
+          <li><a href="retreats.html#sedona">Sedona · Oct 2026</a></li>
+        </ul>
+      </li>
       <li><a href="#book">Contact</a></li>
       <li><a href="#book" class="nav-cta">Book a Call</a></li>
     </ul>

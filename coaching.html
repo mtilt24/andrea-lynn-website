@@ -358,12 +358,12 @@
       font-family: var(--serif);
       font-size: clamp(36px, 4.4vw, 56px);
       font-weight: 300;
-      font-style: italic;
       line-height: 1.2;
       color: var(--charcoal);
       margin-bottom: 36px;
     }
     .intro h2 em {
+      font-style: italic;
       color: var(--gold);
       text-shadow: 0 0 24px var(--gold-glow-soft);
     }
@@ -411,13 +411,13 @@
     }
     .for-card h3 {
       font-family: var(--serif);
-      font-size: 36px;
+      font-size: 32px;
       font-weight: 300;
-      font-style: italic;
-      line-height: 1.2;
+      line-height: 1.25;
       color: var(--charcoal);
       margin-bottom: 36px;
     }
+    .for-card h3 em { font-style: italic; color: var(--gold); }
     .for-card.dark h3 {
       color: var(--white);
     }
@@ -430,12 +430,11 @@
       gap: 14px;
       padding: 16px 0;
       border-bottom: 1px solid rgba(122, 140, 110, 0.18);
-      font-family: var(--serif);
-      font-size: 19px;
+      font-family: var(--sans);
+      font-size: 15px;
       font-weight: 300;
-      font-style: italic;
       color: var(--charcoal);
-      line-height: 1.5;
+      line-height: 1.7;
     }
     .for-card.dark li {
       color: rgba(255,255,255,0.85);
@@ -477,12 +476,12 @@
       font-family: var(--serif);
       font-size: clamp(40px, 5vw, 64px);
       font-weight: 300;
-      font-style: italic;
       line-height: 1.1;
       color: var(--charcoal);
       margin-bottom: 24px;
     }
     .process-header h2 em {
+      font-style: italic;
       color: var(--gold);
     }
     .process-header p {
@@ -520,12 +519,12 @@
     }
     .process-step h3 {
       font-family: var(--serif);
-      font-size: 30px;
-      font-weight: 300;
-      font-style: italic;
-      line-height: 1.2;
+      font-size: 26px;
+      font-weight: 400;
+      line-height: 1.25;
       color: var(--charcoal);
     }
+    .process-step h3 em { font-style: italic; color: var(--gold); }
     .process-step p {
       font-size: 15px;
       line-height: 1.85;
@@ -536,13 +535,20 @@
       margin-top: 8px;
       padding-top: 16px;
       border-top: 1px solid rgba(122,140,110,0.2);
-      font-family: var(--serif);
-      font-size: 17px;
-      font-style: italic;
+      font-family: var(--sans);
+      font-size: 13px;
+      font-weight: 500;
+      letter-spacing: 0.5px;
       color: var(--charcoal);
     }
     .process-step .result em {
+      font-style: normal;
+      font-weight: 600;
       color: var(--gold);
+      text-transform: uppercase;
+      letter-spacing: 2px;
+      font-size: 11px;
+      margin-right: 8px;
     }
 
     /* ── OUTCOMES ── */
@@ -582,11 +588,11 @@
       font-family: var(--serif);
       font-size: clamp(38px, 5vw, 60px);
       font-weight: 300;
-      font-style: italic;
       line-height: 1.15;
       color: var(--white);
     }
     .outcomes-header h2 em {
+      font-style: italic;
       color: var(--gold);
       text-shadow: 0 0 30px var(--gold-glow);
     }
@@ -607,14 +613,13 @@
       display: flex;
       align-items: flex-start;
       gap: 22px;
-      padding: 24px 0;
+      padding: 22px 0;
       border-bottom: 1px solid rgba(212,184,92,0.18);
       font-family: var(--serif);
-      font-size: clamp(20px, 2.4vw, 26px);
+      font-size: clamp(18px, 2vw, 22px);
       font-weight: 300;
-      font-style: italic;
       color: rgba(255,255,255,0.92);
-      line-height: 1.5;
+      line-height: 1.55;
     }
     .outcomes-list li::before {
       content: '✦';
@@ -657,11 +662,11 @@
       font-family: var(--serif);
       font-size: clamp(36px, 4.4vw, 56px);
       font-weight: 300;
-      font-style: italic;
       line-height: 1.2;
       color: var(--charcoal);
       margin-bottom: 60px;
     }
+    .pricing h2 em { font-style: italic; color: var(--gold); }
     .pricing-card {
       background: var(--warm-white);
       padding: 72px 56px;
@@ -763,10 +768,10 @@
       font-family: var(--serif);
       font-size: clamp(36px, 4.4vw, 56px);
       font-weight: 300;
-      font-style: italic;
       line-height: 1.15;
       color: var(--charcoal);
     }
+    .testimonials-header h2 em { font-style: italic; color: var(--gold); }
     .testimonials-grid {
       max-width: 1200px;
       margin: 0 auto;
@@ -840,12 +845,12 @@
       font-family: var(--serif);
       font-size: clamp(36px, 4.5vw, 58px);
       font-weight: 300;
-      font-style: italic;
       line-height: 1.15;
       color: var(--white);
       margin-bottom: 24px;
     }
     .final-cta h2 em {
+      font-style: italic;
       color: var(--gold);
       text-shadow: 0 0 30px var(--gold-glow);
     }
@@ -1111,7 +1116,14 @@
         </ul>
       </li>
       <li><a href="index.html#breathwork">Events</a></li>
-      <li><a href="index.html#retreats">Retreats</a></li>
+      <li class="nav-dropdown">
+        <a href="retreats.html">Retreats</a>
+        <ul class="nav-dropdown-menu">
+          <li><a href="retreats.html">All Retreats</a></li>
+          <li><a href="retreats.html#costa-rica">Costa Rica · Jul 2026</a></li>
+          <li><a href="retreats.html#sedona">Sedona · Oct 2026</a></li>
+        </ul>
+      </li>
       <li><a href="index.html#book">Contact</a></li>
       <li><a href="#apply" class="nav-cta">Apply</a></li>
     </ul>

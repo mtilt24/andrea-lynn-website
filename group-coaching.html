@@ -215,30 +215,20 @@
       background: var(--sage);
       opacity: 0.5;
     }
-    .page-hero-program {
+    .page-hero-title {
       font-family: var(--serif);
-      font-size: clamp(64px, 8vw, 112px);
+      font-size: clamp(44px, 5.4vw, 76px);
       font-weight: 300;
-      font-style: italic;
-      line-height: 0.95;
+      line-height: 1.05;
       color: var(--charcoal);
-      letter-spacing: -2px;
-      margin-bottom: 12px;
+      margin-bottom: 36px;
       opacity: 0;
       animation: fadeUp 1.2s ease 0.4s forwards;
     }
-    .page-hero-program em {
+    .page-hero-title em {
+      font-style: italic;
       color: var(--gold);
       text-shadow: 0 0 30px var(--gold-glow-soft);
-    }
-    .page-hero-tag {
-      font-family: var(--sans);
-      font-size: 12px; font-weight: 500;
-      letter-spacing: 4px; text-transform: uppercase;
-      color: var(--gold);
-      margin-bottom: 32px;
-      opacity: 0;
-      animation: fadeUp 1s ease 0.5s forwards;
     }
     .page-hero-lede {
       font-family: var(--serif);
@@ -445,13 +435,13 @@
     }
     .for-card h3 {
       font-family: var(--serif);
-      font-size: 36px;
+      font-size: 32px;
       font-weight: 300;
-      font-style: italic;
-      line-height: 1.2;
+      line-height: 1.25;
       color: var(--charcoal);
       margin-bottom: 36px;
     }
+    .for-card h3 em { font-style: italic; color: var(--gold); }
     .for-card.dark h3 {
       color: var(--white);
     }
@@ -464,12 +454,11 @@
       gap: 14px;
       padding: 16px 0;
       border-bottom: 1px solid rgba(122, 140, 110, 0.18);
-      font-family: var(--serif);
-      font-size: 19px;
+      font-family: var(--sans);
+      font-size: 15px;
       font-weight: 300;
-      font-style: italic;
       color: var(--charcoal);
-      line-height: 1.5;
+      line-height: 1.7;
     }
     .for-card.dark li {
       color: rgba(255,255,255,0.85);
@@ -511,12 +500,12 @@
       font-family: var(--serif);
       font-size: clamp(40px, 5vw, 64px);
       font-weight: 300;
-      font-style: italic;
       line-height: 1.1;
       color: var(--charcoal);
       margin-bottom: 24px;
     }
     .arc-header h2 em {
+      font-style: italic;
       color: var(--gold);
     }
     .arc-header p {
@@ -553,15 +542,15 @@
     }
     .arc-week h3 {
       font-family: var(--serif);
-      font-size: 26px;
-      font-weight: 300;
-      font-style: italic;
-      line-height: 1.2;
+      font-size: 24px;
+      font-weight: 400;
+      line-height: 1.25;
       color: var(--charcoal);
     }
+    .arc-week h3 em { font-style: italic; color: var(--gold); }
     .arc-week p {
-      font-size: 14px;
-      line-height: 1.85;
+      font-size: 15px;
+      line-height: 1.8;
       font-weight: 300;
       color: var(--taupe);
     }
@@ -569,135 +558,190 @@
       margin-top: auto;
       padding-top: 14px;
       border-top: 1px solid rgba(122,140,110,0.2);
-      font-family: var(--serif);
-      font-size: 16px;
-      font-style: italic;
+      font-family: var(--sans);
+      font-size: 13px;
+      font-weight: 500;
+      letter-spacing: 0.5px;
       color: var(--charcoal);
     }
     .arc-week .result em {
+      font-style: normal;
+      font-weight: 600;
       color: var(--gold);
+      text-transform: uppercase;
+      letter-spacing: 2px;
+      font-size: 11px;
+      margin-right: 8px;
     }
 
-    /* ── HOW IT WORKS / WHY DIFFERENT ── */
+    /* ── IMAGE BREAK ── */
+    .image-break {
+      width: 100%;
+      height: 540px;
+      background-size: cover;
+      background-position: center;
+      position: relative;
+    }
+    .image-break::after {
+      content: '';
+      position: absolute; inset: 0;
+      background: linear-gradient(180deg, rgba(44,40,37,0.05) 0%, transparent 30%, transparent 70%, rgba(44,40,37,0.15) 100%);
+    }
+
+    /* ── HOW IT WORKS ── */
     .how {
       padding: 180px 48px;
       background: var(--linen-warm);
     }
-    .how-inner {
-      max-width: 1200px;
-      margin: 0 auto;
-      display: grid;
-      grid-template-columns: 1fr 1fr;
-      gap: 80px;
-      align-items: start;
+    .how-header {
+      text-align: center;
+      max-width: 720px;
+      margin: 0 auto 80px;
     }
-    .how-block .eyebrow {
+    .how-header .eyebrow {
       font-size: 12px; font-weight: 500;
       letter-spacing: 4px; text-transform: uppercase;
       color: var(--gold);
       margin-bottom: 28px;
     }
-    .how-block h2 {
+    .how-header h2 {
       font-family: var(--serif);
-      font-size: clamp(34px, 4vw, 50px);
+      font-size: clamp(40px, 5vw, 60px);
       font-weight: 300;
-      font-style: italic;
-      line-height: 1.15;
+      line-height: 1.1;
       color: var(--charcoal);
-      margin-bottom: 36px;
+      margin-bottom: 24px;
     }
-    .how-block h2 em {
-      color: var(--gold);
-    }
-    .how-list {
-      list-style: none;
-    }
-    .how-list li {
-      display: flex;
-      align-items: flex-start;
-      gap: 14px;
-      padding: 14px 0;
-      border-bottom: 1px solid rgba(122,140,110,0.18);
-      font-family: var(--serif);
-      font-size: 18px;
+    .how-header h2 em { font-style: italic; color: var(--gold); }
+    .how-header p {
+      font-family: var(--sans);
+      font-size: 16px;
       font-weight: 300;
-      font-style: italic;
-      color: var(--charcoal);
-      line-height: 1.5;
+      color: var(--taupe);
+      line-height: 1.85;
+      max-width: 600px;
+      margin: 0 auto;
     }
-    .how-list li::before {
-      content: '';
-      width: 8px; height: 8px;
-      background: var(--sage);
-      border-radius: 50%;
-      flex-shrink: 0;
-      margin-top: 11px;
-      box-shadow: 0 0 10px rgba(122,140,110,0.4);
+    .how-grid {
+      max-width: 1200px;
+      margin: 0 auto 60px;
+      display: grid;
+      grid-template-columns: repeat(auto-fit, minmax(220px, 1fr));
+      gap: 2px;
+      background: var(--linen-deep);
     }
-    .how-list li:last-child { border-bottom: none; }
-    .how-note {
-      margin-top: 32px;
-      padding: 24px 28px;
-      border-left: 3px solid var(--gold);
-      background: rgba(212, 184, 92, 0.06);
-      font-family: var(--serif);
-      font-size: 17px;
-      font-style: italic;
-      color: var(--charcoal);
-      line-height: 1.5;
-    }
-    .compare-rows {
+    .how-cell {
+      background: var(--warm-white);
+      padding: 40px 32px;
+      text-align: center;
       display: flex;
       flex-direction: column;
-      gap: 2px;
+      align-items: center;
+      gap: 14px;
     }
-    .compare-row {
+    .how-cell-num {
+      font-family: var(--serif);
+      font-size: 13px;
+      font-style: italic;
+      letter-spacing: 4px;
+      color: var(--gold);
+      text-transform: uppercase;
+    }
+    .how-cell h3 {
+      font-family: var(--serif);
+      font-size: 22px;
+      font-weight: 400;
+      line-height: 1.3;
+      color: var(--charcoal);
+    }
+    .how-cell p {
+      font-family: var(--sans);
+      font-size: 14px;
+      font-weight: 300;
+      line-height: 1.7;
+      color: var(--taupe);
+    }
+    .how-note {
+      max-width: 760px;
+      margin: 0 auto;
+      padding: 28px 32px;
+      border-left: 3px solid var(--gold);
+      background: var(--warm-white);
+      font-family: var(--serif);
+      font-size: 19px;
+      color: var(--charcoal);
+      line-height: 1.5;
+      text-align: left;
+    }
+    .how-note em { font-style: italic; color: var(--gold); }
+
+    /* ── WHY DIFFERENT (clean compare) ── */
+    .why {
+      padding: 180px 48px;
+      background: var(--linen);
+    }
+    .why-header {
+      text-align: center;
+      max-width: 720px;
+      margin: 0 auto 80px;
+    }
+    .why-header .eyebrow {
+      font-size: 12px; font-weight: 500;
+      letter-spacing: 4px; text-transform: uppercase;
+      color: var(--gold);
+      margin-bottom: 28px;
+    }
+    .why-header h2 {
+      font-family: var(--serif);
+      font-size: clamp(40px, 5vw, 60px);
+      font-weight: 300;
+      line-height: 1.1;
+      color: var(--charcoal);
+    }
+    .why-header h2 em { font-style: italic; color: var(--gold); }
+    .compare-table {
+      max-width: 1100px;
+      margin: 0 auto;
       display: grid;
       grid-template-columns: 1fr 1fr;
       gap: 2px;
+      background: var(--linen-deep);
     }
-    .compare-cell {
-      padding: 24px 28px;
-      font-family: var(--serif);
-      font-size: 16px;
-      font-style: italic;
-      line-height: 1.5;
+    .compare-col {
+      background: var(--warm-white);
     }
-    .compare-cell.them {
-      background: rgba(255,255,255,0.5);
-      color: var(--taupe);
-      text-decoration: line-through;
-      text-decoration-color: rgba(92,86,80,0.4);
-    }
-    .compare-cell.us {
+    .compare-col.us {
       background: var(--charcoal);
       color: var(--white);
     }
-    .compare-cell.us em {
-      color: var(--gold);
-    }
-    .compare-header {
-      display: grid;
-      grid-template-columns: 1fr 1fr;
-      gap: 2px;
-      margin-bottom: 2px;
-    }
-    .compare-header div {
-      padding: 16px 28px;
+    .compare-col-head {
+      padding: 28px 36px;
       font-family: var(--sans);
       font-size: 11px;
-      font-weight: 500;
+      font-weight: 600;
       letter-spacing: 3px;
       text-transform: uppercase;
+      color: var(--taupe);
+      border-bottom: 1px solid rgba(122,140,110,0.18);
     }
-    .compare-header .them-h {
-      background: rgba(255,255,255,0.5);
+    .compare-col.us .compare-col-head {
+      color: var(--gold);
+      border-bottom-color: rgba(212,184,92,0.18);
+    }
+    .compare-col-row {
+      padding: 24px 36px;
+      border-bottom: 1px solid rgba(122,140,110,0.12);
+      font-family: var(--sans);
+      font-size: 15px;
+      line-height: 1.65;
+      font-weight: 300;
       color: var(--taupe);
     }
-    .compare-header .us-h {
-      background: var(--gold);
-      color: var(--white);
+    .compare-col.us .compare-col-row {
+      color: rgba(255,255,255,0.85);
+      border-bottom-color: rgba(212,184,92,0.12);
     }
+    .compare-col-row:last-child { border-bottom: none; }
 
     /* ── PRICING / LOGISTICS ── */
     .pricing {
@@ -719,11 +763,11 @@
       font-family: var(--serif);
       font-size: clamp(36px, 4.4vw, 56px);
       font-weight: 300;
-      font-style: italic;
       line-height: 1.2;
       color: var(--charcoal);
       margin-bottom: 60px;
     }
+    .pricing h2 em { font-style: italic; color: var(--gold); }
     .pricing-card {
       background: var(--warm-white);
       padding: 72px 56px;
@@ -835,10 +879,10 @@
       font-family: var(--serif);
       font-size: clamp(36px, 4.4vw, 56px);
       font-weight: 300;
-      font-style: italic;
       line-height: 1.15;
       color: var(--charcoal);
     }
+    .testimonials-header h2 em { font-style: italic; color: var(--gold); }
     .testimonials-grid {
       max-width: 1200px;
       margin: 0 auto;
@@ -912,12 +956,12 @@
       font-family: var(--serif);
       font-size: clamp(36px, 4.5vw, 58px);
       font-weight: 300;
-      font-style: italic;
       line-height: 1.15;
       color: var(--white);
       margin-bottom: 24px;
     }
     .final-cta h2 em {
+      font-style: italic;
       color: var(--gold);
       text-shadow: 0 0 30px var(--gold-glow);
     }
@@ -1149,12 +1193,16 @@
       .page-hero { padding: 140px 24px 80px; }
       .page-hero-inner { grid-template-columns: 1fr; gap: 60px; }
       .page-hero-visual::after { display: none; }
-      .manifesto, .for-not-for, .arc, .how, .pricing, .testimonials, .final-cta { padding: 100px 24px; }
+      .manifesto, .for-not-for, .arc, .how, .why, .pricing, .testimonials, .final-cta { padding: 100px 24px; }
       .for-not-for-inner { grid-template-columns: 1fr; }
       .for-card { padding: 48px 32px; }
       .arc-grid { grid-template-columns: 1fr; }
       .arc-week { padding: 40px 28px; }
-      .how-inner { grid-template-columns: 1fr; gap: 60px; }
+      .image-break { height: 320px; }
+      .how-grid { grid-template-columns: 1fr 1fr; }
+      .how-cell { padding: 32px 24px; }
+      .compare-table { grid-template-columns: 1fr; }
+      .compare-col-head, .compare-col-row { padding: 20px 24px; }
       .testimonials-grid { grid-template-columns: 1fr; }
       .t-card { padding: 44px 32px; }
       .pricing-card { padding: 56px 32px; }
@@ -1184,7 +1232,14 @@
         </ul>
       </li>
       <li><a href="index.html#breathwork">Events</a></li>
-      <li><a href="index.html#retreats">Retreats</a></li>
+      <li class="nav-dropdown">
+        <a href="retreats.html">Retreats</a>
+        <ul class="nav-dropdown-menu">
+          <li><a href="retreats.html">All Retreats</a></li>
+          <li><a href="retreats.html#costa-rica">Costa Rica · Jul 2026</a></li>
+          <li><a href="retreats.html#sedona">Sedona · Oct 2026</a></li>
+        </ul>
+      </li>
       <li><a href="index.html#book">Contact</a></li>
       <li><a href="#apply" class="nav-cta">Apply</a></li>
     </ul>
@@ -1195,10 +1250,11 @@
     <div class="page-hero-inner">
       <div class="page-hero-text">
         <p class="page-hero-breadcrumb"><span class="line"></span> Group Container</p>
-        <h1 class="page-hero-program"><em>RE</em>BUILD</h1>
-        <p class="page-hero-tag">An 8-Week Container · Fall 2026</p>
+        <h1 class="page-hero-title">
+          REBUILD.<br>An 8-week <em>container</em>.
+        </h1>
         <p class="page-hero-lede">
-          For women in transition who are ready to stop repeating patterns and create a clear, aligned, juicy next chapter.
+          For women in transition who are ready to stop repeating patterns and create a clear, aligned next chapter.
         </p>
         <p class="page-hero-sub">
           Eight weeks of live, somatic, structured work in community. We go into the body, where the real answers live, and we activate what's already there.
@@ -1365,47 +1421,72 @@
     </div>
   </section>
 
-  <!-- HOW IT WORKS / WHY DIFFERENT -->
+  <!-- IMAGE BREAK -->
+  <div class="image-break" style="background-image:url('https://res.cloudinary.com/dstssdnoj/image/upload/q_auto,f_auto,w_1800,h_900,c_fill/AdobeStock_1869137455_ujaizp.jpg');" role="img" aria-label="Women gathered in sacred circle"></div>
+
+  <!-- HOW IT WORKS -->
   <section class="how">
-    <div class="how-inner">
-      <div class="how-block fade-in">
-        <p class="eyebrow">How It Works</p>
-        <h2>Active. <em>Structured.</em> Real.</h2>
-        <ul class="how-list">
-          <li>Weekly 90-minute live sessions.</li>
-          <li>Structured exercises, not just talking.</li>
-          <li>Partner work for accountability.</li>
-          <li>Somatic and practical tools, woven together.</li>
-          <li>Integration practices between sessions.</li>
-        </ul>
-        <p class="how-note">
-          This is an active program. You will not get results by staying on the surface.
-        </p>
+    <div class="how-header fade-in">
+      <p class="eyebrow">How It Works</p>
+      <h2>Active. Structured. <em>Real</em>.</h2>
+      <p>Five anchors hold the container. Each one is built so the work doesn't stop when the session ends.</p>
+    </div>
+
+    <div class="how-grid">
+      <div class="how-cell fade-in">
+        <p class="how-cell-num">i.</p>
+        <h3>Weekly Live Sessions</h3>
+        <p>90 minutes together, every week. No replays as a substitute for showing up.</p>
       </div>
+      <div class="how-cell fade-in fade-in-delay-1">
+        <p class="how-cell-num">ii.</p>
+        <h3>Structured Exercises</h3>
+        <p>Real practices in the body. Not group discussion that goes nowhere.</p>
+      </div>
+      <div class="how-cell fade-in fade-in-delay-2">
+        <p class="how-cell-num">iii.</p>
+        <h3>Partner Work</h3>
+        <p>Pairings between sessions to keep you in motion and accountable.</p>
+      </div>
+      <div class="how-cell fade-in fade-in-delay-1">
+        <p class="how-cell-num">iv.</p>
+        <h3>Somatic + Practical</h3>
+        <p>The body practices and the life-level decisions, held in the same container.</p>
+      </div>
+      <div class="how-cell fade-in fade-in-delay-2">
+        <p class="how-cell-num">v.</p>
+        <h3>Integration</h3>
+        <p>Tools and prompts to keep what shifts in session alive in your week.</p>
+      </div>
+    </div>
 
-      <div class="how-block fade-in fade-in-delay-1">
-        <p class="eyebrow">Why This Is Different</p>
-        <h2>You won't end up here <em>again</em>.</h2>
+    <p class="how-note fade-in fade-in-delay-2">
+      This is an active program. You will not get results by staying on the <em>surface</em>.
+    </p>
+  </section>
 
-        <div class="compare-header">
-          <div class="them-h">Most Programs</div>
-          <div class="us-h">REBUILD</div>
-        </div>
+  <!-- IMAGE BREAK -->
+  <div class="image-break" style="background-image:url('https://res.cloudinary.com/dstssdnoj/image/upload/q_auto,f_auto,w_1800,h_900,c_fill/AdobeStock_812065335_gnlbay.jpg');" role="img" aria-label="Women in meditation hall"></div>
 
-        <div class="compare-rows">
-          <div class="compare-row">
-            <div class="compare-cell them">Give you insight.</div>
-            <div class="compare-cell us">Rewires how you operate in real time.</div>
-          </div>
-          <div class="compare-row">
-            <div class="compare-cell them">Make you feel better temporarily.</div>
-            <div class="compare-cell us">Changes the patterns that put you here.</div>
-          </div>
-          <div class="compare-row">
-            <div class="compare-cell them">Don't change your behavior.</div>
-            <div class="compare-cell us">Means you don't end up in the same place six months from now.</div>
-          </div>
-        </div>
+  <!-- WHY DIFFERENT -->
+  <section class="why">
+    <div class="why-header fade-in">
+      <p class="eyebrow">Why This Is Different</p>
+      <h2>You won't end up here <em>again</em>.</h2>
+    </div>
+
+    <div class="compare-table fade-in fade-in-delay-1">
+      <div class="compare-col">
+        <div class="compare-col-head">Most Programs</div>
+        <div class="compare-col-row">Give you insight.</div>
+        <div class="compare-col-row">Make you feel better temporarily.</div>
+        <div class="compare-col-row">Don't change your behavior.</div>
+      </div>
+      <div class="compare-col us">
+        <div class="compare-col-head">REBUILD</div>
+        <div class="compare-col-row">Rewires how you operate in real time.</div>
+        <div class="compare-col-row">Changes the patterns that put you here.</div>
+        <div class="compare-col-row">Means you don't end up in the same place six months from now.</div>
       </div>
     </div>
   </section>
@@ -1435,7 +1516,7 @@
           </div>
         </div>
 
-        <p class="dates">Sept 11 <em>—</em> Nov 6, 2026</p>
+        <p class="dates">Sept 11 <em>to</em> Nov 6, 2026</p>
         <p class="price">$1,500</p>
         <p class="price-note">Payment plans available on request.</p>
 
