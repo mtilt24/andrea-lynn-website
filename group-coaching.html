@@ -3,8 +3,8 @@
 <head>
   <meta charset="UTF-8">
   <meta name="viewport" content="width=device-width, initial-scale=1.0">
-  <title>1:1 Coaching | Andrea Lynn</title>
-  <meta name="description" content="A six-session private coaching container with Andrea Lynn. Embodied, somatic work for women ready to stop abandoning themselves and start living from their truth.">
+  <title>REBUILD · Group Container | Andrea Lynn</title>
+  <meta name="description" content="REBUILD is an 8-week group container for women in transition who are ready to stop repeating patterns and create a clear, aligned, juicy next chapter. September 11 to November 6, 2026.">
   <link rel="preconnect" href="https://fonts.googleapis.com">
   <link rel="preconnect" href="https://fonts.gstatic.com" crossorigin>
   <link href="https://fonts.googleapis.com/css2?family=Cormorant+Garamond:ital,wght@0,300;0,400;0,500;0,600;1,300;1,400&family=Montserrat:wght@300;400;500;600&display=swap" rel="stylesheet">
@@ -166,21 +166,6 @@
       box-shadow: 0 0 44px var(--gold-glow-strong), 0 0 18px var(--gold-glow);
       transform: translateY(-2px);
     }
-    .btn-secondary {
-      display: inline-block;
-      color: var(--charcoal);
-      font-family: var(--sans);
-      font-size: 12px; font-weight: 400; letter-spacing: 3px;
-      text-transform: uppercase;
-      padding: 18px 44px;
-      border: 1px solid rgba(44,40,37,0.3);
-      cursor: pointer;
-      transition: all 0.4s ease;
-    }
-    .btn-secondary:hover {
-      border-color: var(--charcoal);
-      background: rgba(44,40,37,0.04);
-    }
 
     /* ── PAGE HERO ── */
     .page-hero {
@@ -230,20 +215,30 @@
       background: var(--sage);
       opacity: 0.5;
     }
-    .page-hero-title {
+    .page-hero-program {
       font-family: var(--serif);
-      font-size: clamp(44px, 5.4vw, 76px);
+      font-size: clamp(64px, 8vw, 112px);
       font-weight: 300;
-      line-height: 1.05;
+      font-style: italic;
+      line-height: 0.95;
       color: var(--charcoal);
-      margin-bottom: 36px;
+      letter-spacing: -2px;
+      margin-bottom: 12px;
       opacity: 0;
       animation: fadeUp 1.2s ease 0.4s forwards;
     }
-    .page-hero-title em {
-      font-style: italic;
+    .page-hero-program em {
       color: var(--gold);
       text-shadow: 0 0 30px var(--gold-glow-soft);
+    }
+    .page-hero-tag {
+      font-family: var(--sans);
+      font-size: 12px; font-weight: 500;
+      letter-spacing: 4px; text-transform: uppercase;
+      color: var(--gold);
+      margin-bottom: 32px;
+      opacity: 0;
+      animation: fadeUp 1s ease 0.5s forwards;
     }
     .page-hero-lede {
       font-family: var(--serif);
@@ -251,7 +246,7 @@
       font-style: italic;
       line-height: 1.5;
       color: var(--charcoal);
-      max-width: 520px;
+      max-width: 540px;
       margin-bottom: 24px;
       opacity: 0;
       animation: fadeUp 1s ease 0.6s forwards;
@@ -261,17 +256,36 @@
       font-size: 16px; font-weight: 300;
       line-height: 1.85;
       color: var(--taupe);
-      max-width: 520px;
+      max-width: 540px;
       opacity: 0;
       animation: fadeUp 1s ease 0.8s forwards;
     }
-    .page-hero-divider {
-      width: 48px; height: 1px;
-      background: var(--gold);
-      opacity: 0.7;
+    .page-hero-meta {
       margin-top: 32px;
+      display: flex;
+      gap: 36px;
+      flex-wrap: wrap;
       opacity: 0;
       animation: fadeUp 1s ease 1s forwards;
+    }
+    .page-hero-meta div {
+      display: flex;
+      flex-direction: column;
+      gap: 4px;
+    }
+    .page-hero-meta .lab {
+      font-family: var(--sans);
+      font-size: 10px;
+      font-weight: 500;
+      letter-spacing: 3px;
+      text-transform: uppercase;
+      color: var(--sage);
+    }
+    .page-hero-meta .val {
+      font-family: var(--serif);
+      font-size: 18px;
+      font-style: italic;
+      color: var(--charcoal);
     }
     .page-hero-visual {
       position: relative;
@@ -338,50 +352,70 @@
       opacity: 0.6;
     }
 
-    /* ── INTRO BLOCK ── */
-    .intro {
-      padding: 140px 48px 100px;
-      background: var(--white);
+    /* ── MANIFESTO ── */
+    .manifesto {
+      padding: 200px 48px;
+      background: linear-gradient(180deg, #2C2825 0%, #1a1815 100%);
+      position: relative;
+      overflow: hidden;
+    }
+    .manifesto::before {
+      content: '';
+      position: absolute;
+      top: 50%; left: 50%;
+      transform: translate(-50%, -50%);
+      width: 1100px; height: 1100px;
+      background: radial-gradient(circle, rgba(212,184,92,0.08) 0%, rgba(122,140,110,0.04) 40%, transparent 70%);
+      pointer-events: none;
+    }
+    .manifesto-inner {
+      max-width: 880px;
+      margin: 0 auto;
+      position: relative;
+      z-index: 2;
       text-align: center;
     }
-    .intro-inner {
-      max-width: 820px;
-      margin: 0 auto;
-    }
-    .intro .eyebrow {
+    .manifesto .eyebrow {
       font-size: 12px; font-weight: 500;
       letter-spacing: 4px; text-transform: uppercase;
       color: var(--gold);
-      margin-bottom: 28px;
+      margin-bottom: 36px;
+      text-shadow: 0 0 20px var(--gold-glow);
     }
-    .intro h2 {
+    .manifesto h2 {
       font-family: var(--serif);
-      font-size: clamp(36px, 4.4vw, 56px);
+      font-size: clamp(28px, 3.6vw, 42px);
       font-weight: 300;
       font-style: italic;
-      line-height: 1.2;
-      color: var(--charcoal);
-      margin-bottom: 36px;
+      line-height: 1.4;
+      color: var(--white);
+      margin-bottom: 60px;
     }
-    .intro h2 em {
+    .manifesto h2 em {
       color: var(--gold);
-      text-shadow: 0 0 24px var(--gold-glow-soft);
+      text-shadow: 0 0 30px var(--gold-glow);
     }
-    .intro p {
-      font-size: 17px; font-weight: 300;
-      line-height: 1.95;
-      color: var(--taupe);
-      margin-bottom: 22px;
-      max-width: 700px;
-      margin-left: auto;
-      margin-right: auto;
+    .manifesto-divider {
+      width: 60px;
+      height: 1px;
+      background: var(--gold);
+      margin: 60px auto;
+      opacity: 0.7;
+      box-shadow: 0 0 10px var(--gold-glow);
     }
-    .intro p strong {
+    .manifesto p {
       font-family: var(--serif);
-      font-size: 22px;
-      font-weight: 400;
+      font-size: clamp(20px, 2.4vw, 26px);
+      font-weight: 300;
       font-style: italic;
-      color: var(--charcoal);
+      line-height: 1.6;
+      color: rgba(255,255,255,0.92);
+      max-width: 820px;
+      margin: 0 auto 24px;
+    }
+    .manifesto p em {
+      color: var(--gold);
+      text-shadow: 0 0 20px var(--gold-glow);
     }
 
     /* ── FOR / NOT FOR ── */
@@ -456,24 +490,24 @@
     }
     .for-card li:last-child { border-bottom: none; }
 
-    /* ── PROCESS STEPS ── */
-    .process {
+    /* ── ARC (8-WEEK STRUCTURE) ── */
+    .arc {
       padding: 180px 48px;
       background: var(--linen);
       position: relative;
     }
-    .process-header {
+    .arc-header {
       text-align: center;
       max-width: 720px;
       margin: 0 auto 100px;
     }
-    .process-header .eyebrow {
+    .arc-header .eyebrow {
       font-size: 12px; font-weight: 500;
       letter-spacing: 4px; text-transform: uppercase;
       color: var(--gold);
       margin-bottom: 28px;
     }
-    .process-header h2 {
+    .arc-header h2 {
       font-family: var(--serif);
       font-size: clamp(40px, 5vw, 64px);
       font-weight: 300;
@@ -482,10 +516,10 @@
       color: var(--charcoal);
       margin-bottom: 24px;
     }
-    .process-header h2 em {
+    .arc-header h2 em {
       color: var(--gold);
     }
-    .process-header p {
+    .arc-header p {
       font-family: var(--sans);
       font-size: 16px;
       font-weight: 300;
@@ -494,147 +528,175 @@
       max-width: 600px;
       margin: 0 auto;
     }
-    .process-grid {
-      max-width: 1100px;
+    .arc-grid {
+      max-width: 1200px;
       margin: 0 auto;
       display: grid;
       grid-template-columns: repeat(2, 1fr);
       gap: 2px;
       background: var(--linen-deep);
     }
-    .process-step {
+    .arc-week {
       background: var(--warm-white);
-      padding: 56px 48px;
-      position: relative;
+      padding: 48px 44px;
       display: flex;
       flex-direction: column;
-      gap: 16px;
+      gap: 14px;
     }
-    .process-step-num {
+    .arc-week-num {
       font-family: var(--serif);
-      font-size: 14px;
+      font-size: 13px;
       font-style: italic;
       letter-spacing: 4px;
       color: var(--gold);
       text-transform: uppercase;
     }
-    .process-step h3 {
+    .arc-week h3 {
       font-family: var(--serif);
-      font-size: 30px;
+      font-size: 26px;
       font-weight: 300;
       font-style: italic;
       line-height: 1.2;
       color: var(--charcoal);
     }
-    .process-step p {
-      font-size: 15px;
+    .arc-week p {
+      font-size: 14px;
       line-height: 1.85;
       font-weight: 300;
       color: var(--taupe);
     }
-    .process-step .result {
-      margin-top: 8px;
-      padding-top: 16px;
+    .arc-week .result {
+      margin-top: auto;
+      padding-top: 14px;
       border-top: 1px solid rgba(122,140,110,0.2);
       font-family: var(--serif);
-      font-size: 17px;
+      font-size: 16px;
       font-style: italic;
       color: var(--charcoal);
     }
-    .process-step .result em {
+    .arc-week .result em {
       color: var(--gold);
     }
 
-    /* ── OUTCOMES ── */
-    .outcomes {
-      padding: 200px 48px;
-      position: relative;
-      background: linear-gradient(180deg, #2C2825 0%, #1a1815 100%);
-      overflow: hidden;
+    /* ── HOW IT WORKS / WHY DIFFERENT ── */
+    .how {
+      padding: 180px 48px;
+      background: var(--linen-warm);
     }
-    .outcomes::before {
-      content: '';
-      position: absolute;
-      top: 50%; left: 50%;
-      transform: translate(-50%, -50%);
-      width: 900px; height: 900px;
-      background: radial-gradient(circle, rgba(212,184,92,0.08) 0%, rgba(122,140,110,0.05) 40%, transparent 70%);
-      pointer-events: none;
-    }
-    .outcomes-inner {
-      max-width: 920px;
+    .how-inner {
+      max-width: 1200px;
       margin: 0 auto;
-      position: relative;
-      z-index: 2;
+      display: grid;
+      grid-template-columns: 1fr 1fr;
+      gap: 80px;
+      align-items: start;
     }
-    .outcomes-header {
-      text-align: center;
-      margin-bottom: 80px;
-    }
-    .outcomes-header .eyebrow {
+    .how-block .eyebrow {
       font-size: 12px; font-weight: 500;
       letter-spacing: 4px; text-transform: uppercase;
       color: var(--gold);
       margin-bottom: 28px;
-      text-shadow: 0 0 20px var(--gold-glow);
     }
-    .outcomes-header h2 {
+    .how-block h2 {
       font-family: var(--serif);
-      font-size: clamp(38px, 5vw, 60px);
+      font-size: clamp(34px, 4vw, 50px);
       font-weight: 300;
       font-style: italic;
       line-height: 1.15;
-      color: var(--white);
+      color: var(--charcoal);
+      margin-bottom: 36px;
     }
-    .outcomes-header h2 em {
+    .how-block h2 em {
       color: var(--gold);
-      text-shadow: 0 0 30px var(--gold-glow);
     }
-    .gold-divider {
-      width: 60px;
-      height: 1px;
-      background: var(--gold);
-      margin: 32px auto 0;
-      opacity: 0.7;
-      box-shadow: 0 0 10px var(--gold-glow);
-    }
-    .outcomes-list {
-      max-width: 760px;
-      margin: 0 auto;
+    .how-list {
       list-style: none;
     }
-    .outcomes-list li {
+    .how-list li {
       display: flex;
       align-items: flex-start;
-      gap: 22px;
-      padding: 24px 0;
-      border-bottom: 1px solid rgba(212,184,92,0.18);
+      gap: 14px;
+      padding: 14px 0;
+      border-bottom: 1px solid rgba(122,140,110,0.18);
       font-family: var(--serif);
-      font-size: clamp(20px, 2.4vw, 26px);
+      font-size: 18px;
       font-weight: 300;
       font-style: italic;
-      color: rgba(255,255,255,0.92);
+      color: var(--charcoal);
       line-height: 1.5;
     }
-    .outcomes-list li::before {
-      content: '✦';
-      color: var(--gold);
-      font-style: normal;
-      font-size: 14px;
-      margin-top: 10px;
+    .how-list li::before {
+      content: '';
+      width: 8px; height: 8px;
+      background: var(--sage);
+      border-radius: 50%;
       flex-shrink: 0;
-      text-shadow: 0 0 12px var(--gold-glow);
+      margin-top: 11px;
+      box-shadow: 0 0 10px rgba(122,140,110,0.4);
     }
-    .outcomes-list li:last-child { border-bottom: none; }
-    .outcomes-closer {
-      text-align: center;
-      margin-top: 60px;
+    .how-list li:last-child { border-bottom: none; }
+    .how-note {
+      margin-top: 32px;
+      padding: 24px 28px;
+      border-left: 3px solid var(--gold);
+      background: rgba(212, 184, 92, 0.06);
       font-family: var(--serif);
-      font-size: clamp(22px, 2.6vw, 30px);
+      font-size: 17px;
       font-style: italic;
-      color: var(--gold);
+      color: var(--charcoal);
       line-height: 1.5;
-      text-shadow: 0 0 20px var(--gold-glow);
+    }
+    .compare-rows {
+      display: flex;
+      flex-direction: column;
+      gap: 2px;
+    }
+    .compare-row {
+      display: grid;
+      grid-template-columns: 1fr 1fr;
+      gap: 2px;
+    }
+    .compare-cell {
+      padding: 24px 28px;
+      font-family: var(--serif);
+      font-size: 16px;
+      font-style: italic;
+      line-height: 1.5;
+    }
+    .compare-cell.them {
+      background: rgba(255,255,255,0.5);
+      color: var(--taupe);
+      text-decoration: line-through;
+      text-decoration-color: rgba(92,86,80,0.4);
+    }
+    .compare-cell.us {
+      background: var(--charcoal);
+      color: var(--white);
+    }
+    .compare-cell.us em {
+      color: var(--gold);
+    }
+    .compare-header {
+      display: grid;
+      grid-template-columns: 1fr 1fr;
+      gap: 2px;
+      margin-bottom: 2px;
+    }
+    .compare-header div {
+      padding: 16px 28px;
+      font-family: var(--sans);
+      font-size: 11px;
+      font-weight: 500;
+      letter-spacing: 3px;
+      text-transform: uppercase;
+    }
+    .compare-header .them-h {
+      background: rgba(255,255,255,0.5);
+      color: var(--taupe);
+    }
+    .compare-header .us-h {
+      background: var(--gold);
+      color: var(--white);
     }
 
     /* ── PRICING / LOGISTICS ── */
@@ -724,6 +786,16 @@
       letter-spacing: 3px;
       text-transform: uppercase;
       color: var(--taupe);
+    }
+    .pricing-card .dates {
+      font-family: var(--serif);
+      font-size: 22px;
+      font-style: italic;
+      color: var(--charcoal);
+      margin-bottom: 24px;
+    }
+    .pricing-card .dates em {
+      color: var(--gold);
     }
     .pricing-card .price {
       font-family: var(--serif);
@@ -1077,11 +1149,12 @@
       .page-hero { padding: 140px 24px 80px; }
       .page-hero-inner { grid-template-columns: 1fr; gap: 60px; }
       .page-hero-visual::after { display: none; }
-      .intro, .for-not-for, .process, .outcomes, .pricing, .testimonials, .final-cta { padding: 100px 24px; }
+      .manifesto, .for-not-for, .arc, .how, .pricing, .testimonials, .final-cta { padding: 100px 24px; }
       .for-not-for-inner { grid-template-columns: 1fr; }
       .for-card { padding: 48px 32px; }
-      .process-grid { grid-template-columns: 1fr; }
-      .process-step { padding: 44px 32px; }
+      .arc-grid { grid-template-columns: 1fr; }
+      .arc-week { padding: 40px 28px; }
+      .how-inner { grid-template-columns: 1fr; gap: 60px; }
       .testimonials-grid { grid-template-columns: 1fr; }
       .t-card { padding: 44px 32px; }
       .pricing-card { padding: 56px 32px; }
@@ -1121,20 +1194,32 @@
   <section class="page-hero">
     <div class="page-hero-inner">
       <div class="page-hero-text">
-        <p class="page-hero-breadcrumb"><span class="line"></span> 1:1 Coaching</p>
-        <h1 class="page-hero-title">
-          A six-session<br>private <em>container</em>.
-        </h1>
+        <p class="page-hero-breadcrumb"><span class="line"></span> Group Container</p>
+        <h1 class="page-hero-program"><em>RE</em>BUILD</h1>
+        <p class="page-hero-tag">An 8-Week Container · Fall 2026</p>
         <p class="page-hero-lede">
-          You know what you want. And you can feel where you're not fully choosing it.
+          For women in transition who are ready to stop repeating patterns and create a clear, aligned, juicy next chapter.
         </p>
         <p class="page-hero-sub">
-          This is a space where you are deeply supported and gently, firmly challenged to close that gap. Not through pressure. Not through force. By coming back into alignment with what you already know is true, and moving from that place.
+          Eight weeks of live, somatic, structured work in community. We go into the body, where the real answers live, and we activate what's already there.
         </p>
-        <div class="page-hero-divider"></div>
+        <div class="page-hero-meta">
+          <div>
+            <p class="lab">Begins</p>
+            <p class="val">September 11, 2026</p>
+          </div>
+          <div>
+            <p class="lab">Closes</p>
+            <p class="val">November 6, 2026</p>
+          </div>
+          <div>
+            <p class="lab">Investment</p>
+            <p class="val">$1,500</p>
+          </div>
+        </div>
       </div>
       <div class="page-hero-visual">
-        <img src="https://res.cloudinary.com/dstssdnoj/image/upload/q_auto,f_auto,w_700,h_900,c_fill/AdobeStock_255167394_x3jreb.jpg" alt="Andrea Lynn">
+        <img src="https://res.cloudinary.com/dstssdnoj/image/upload/q_auto,f_auto,w_700,h_900,c_fill/AdobeStock_812065335_gnlbay.jpg" alt="Women gathered in a sacred circle">
       </div>
     </div>
   </section>
@@ -1142,36 +1227,44 @@
   <!-- MARQUEE -->
   <div class="marquee-section">
     <div class="marquee-track">
-      <span class="marquee-item">Somatic Coaching</span>
-      <span class="marquee-item">Self-Trust</span>
-      <span class="marquee-item">Embodied Becoming</span>
-      <span class="marquee-item">Pattern Work</span>
-      <span class="marquee-item">Nervous System Repair</span>
-      <span class="marquee-item">Aligned Action</span>
-      <span class="marquee-item">Initiation</span>
-      <span class="marquee-item">Somatic Coaching</span>
-      <span class="marquee-item">Self-Trust</span>
-      <span class="marquee-item">Embodied Becoming</span>
-      <span class="marquee-item">Pattern Work</span>
-      <span class="marquee-item">Nervous System Repair</span>
-      <span class="marquee-item">Aligned Action</span>
-      <span class="marquee-item">Initiation</span>
+      <span class="marquee-item">Sisterhood</span>
+      <span class="marquee-item">Somatic Work</span>
+      <span class="marquee-item">Pattern Interruption</span>
+      <span class="marquee-item">Self-Worth</span>
+      <span class="marquee-item">Real Behavior Change</span>
+      <span class="marquee-item">Community</span>
+      <span class="marquee-item">Embodied Action</span>
+      <span class="marquee-item">Sisterhood</span>
+      <span class="marquee-item">Somatic Work</span>
+      <span class="marquee-item">Pattern Interruption</span>
+      <span class="marquee-item">Self-Worth</span>
+      <span class="marquee-item">Real Behavior Change</span>
+      <span class="marquee-item">Community</span>
+      <span class="marquee-item">Embodied Action</span>
     </div>
   </div>
 
-  <!-- INTRO -->
-  <section class="intro">
-    <div class="intro-inner">
-      <p class="eyebrow fade-in">How It Works</p>
-      <h2 class="fade-in fade-in-delay-1">Six private sessions. <em>Sixty</em> minutes. Online.</h2>
+  <!-- MANIFESTO -->
+  <section class="manifesto">
+    <div class="manifesto-inner">
+      <p class="eyebrow">The Manifesto</p>
+      <h2 class="fade-in">
+        Healing was never meant to happen <em>alone</em>.
+      </h2>
+      <p class="fade-in fade-in-delay-1">
+        We can learn all the tools and techniques, but without community to lead us back into wholeness, we are just smarter than we were before. The nervous system is still stuck in its loops. We need each other to walk each other home.
+      </p>
+
+      <div class="manifesto-divider"></div>
+
       <p class="fade-in fade-in-delay-2">
-        Most clients meet biweekly to allow time for integration. If you feel ready for a more accelerated pace, we can meet weekly.
+        You don't need more information. You already know what's wrong.
       </p>
       <p class="fade-in fade-in-delay-3">
-        This is a contained process designed to help you actually move forward, not just understand yourself more.
+        What you need is to <em>feel</em>, in your body and not just your mind, that you are worthy of the life you keep imagining.
       </p>
       <p class="fade-in fade-in-delay-4">
-        <strong>There is a clear structure. We move at the pace your system can integrate.</strong>
+        That is what this program does. Not more strategies. Not more mindset work. We go into the body, where the real answers live, and we activate what's already there.
       </p>
     </div>
   </section>
@@ -1181,94 +1274,139 @@
     <div class="for-not-for-inner">
       <div class="for-card fade-in">
         <p class="eyebrow">This Is For You If</p>
-        <h3>You feel the pull, and you're ready.</h3>
+        <h3>You're done circling the same chapter.</h3>
         <ul>
-          <li>You're aware of your patterns but still feel caught in them.</li>
-          <li>You're ready for change, and you don't want to force or override yourself to get there.</li>
-          <li>You want both support and honesty.</li>
+          <li>You're in a real transition, and you're ready to stop repeating the pattern.</li>
+          <li>You want behavior change, not more insight.</li>
+          <li>You believe healing happens faster in community than in isolation.</li>
+          <li>You're willing to do active work between sessions.</li>
+          <li>You want a clear, aligned, juicy next chapter, and you're ready to build it.</li>
         </ul>
       </div>
       <div class="for-card dark fade-in fade-in-delay-1">
         <p class="eyebrow">This Is Not For You If</p>
-        <h3>You're not ready to meet yourself yet.</h3>
+        <h3>You're not ready to stay with yourself.</h3>
         <ul>
-          <li>You're looking for advice without self-inquiry.</li>
-          <li>You're not willing to take action between sessions.</li>
+          <li>You want more information without the embodiment.</li>
+          <li>You're looking for a quick fix or surface-level inspiration.</li>
+          <li>You won't show up to live sessions.</li>
           <li>You want to stay comfortable more than you want to change.</li>
         </ul>
       </div>
     </div>
   </section>
 
-  <!-- THE PROCESS -->
-  <section class="process">
-    <div class="process-header">
-      <p class="eyebrow">The Process</p>
-      <h2>The arc of the <em>work</em>.</h2>
-      <p>Six sessions, six movements. Each one builds on the last, returning you to yourself one layer at a time.</p>
+  <!-- THE 8-WEEK ARC -->
+  <section class="arc">
+    <div class="arc-header">
+      <p class="eyebrow">The Eight-Week Arc</p>
+      <h2>From pattern to <em>next chapter</em>.</h2>
+      <p>Each week builds on the last. By the end, you don't just understand yourself differently. You move differently.</p>
     </div>
 
-    <div class="process-grid">
+    <div class="arc-grid">
 
-      <div class="process-step fade-in">
-        <p class="process-step-num">01 ✦ Clarify</p>
-        <h3>What you truly want.</h3>
-        <p>We slow down enough to hear what's real beneath the noise. Not what you think you should want. What your body already knows is true.</p>
+      <div class="arc-week fade-in">
+        <p class="arc-week-num">Week 01</p>
+        <h3>Clarify your desire and your inner saboteur.</h3>
+        <p>You clarify what you actually desire, through the body, and map exactly what's been happening, and your role in it.</p>
+        <p class="result"><em>Result:</em> The pattern becomes undeniable.</p>
       </div>
 
-      <div class="process-step fade-in fade-in-delay-1">
-        <p class="process-step-num">02 ✦ Meet</p>
-        <h3>The parts of you involved.</h3>
-        <p>You come into relationship with the parts of you that are ready for change, the parts that fear it, and the parts that have been protecting you from it. Nothing is pushed aside. Everything is welcomed.</p>
+      <div class="arc-week fade-in fade-in-delay-1">
+        <p class="arc-week-num">Week 02</p>
+        <h3>Understand why it keeps happening.</h3>
+        <p>You identify the internal drivers: fear, attachment, conditioning. The system that's been running you.</p>
+        <p class="result"><em>Result:</em> You stop blaming yourself and start seeing the system.</p>
       </div>
 
-      <div class="process-step fade-in fade-in-delay-2">
-        <p class="process-step-num">03 ✦ Build</p>
-        <h3>Internal trust.</h3>
-        <p>Through somatic-based work, you begin to feel yourself more clearly. Respond instead of react. Stay with yourself when things feel uncomfortable. This is where self-abandonment starts to dissolve.</p>
+      <div class="arc-week fade-in">
+        <p class="arc-week-num">Week 03</p>
+        <h3>Stop self-sabotage at the root.</h3>
+        <p>You dismantle the internal voice that keeps you stuck, the one that's been narrating your smallness.</p>
+        <p class="result"><em>Result:</em> Less emotional collapse, more stability.</p>
       </div>
 
-      <div class="process-step fade-in fade-in-delay-3">
-        <p class="process-step-num">04 ✦ Interrupt</p>
-        <h3>The pattern, gently.</h3>
-        <p>You begin to notice the moments where you would normally override yourself, stay quiet, pull back, or move against your truth. Instead of forcing change, you practice choosing differently with support.</p>
+      <div class="arc-week fade-in fade-in-delay-1">
+        <p class="arc-week-num">Week 04</p>
+        <h3>Clear the past.</h3>
+        <p>You release guilt, shame, and "I should have known better." The weight you've been dragging behind you.</p>
+        <p class="result"><em>Result:</em> You stop replaying old decisions.</p>
       </div>
 
-      <div class="process-step fade-in fade-in-delay-2">
-        <p class="process-step-num">05 ✦ Move</p>
-        <h3>Aligned, supported action.</h3>
-        <p>Between sessions, you take steps that reflect your truth: having conversations, making decisions, shifting behavior. You won't be doing this alone. We stay connected to what arises as you move.</p>
+      <div class="arc-week fade-in">
+        <p class="arc-week-num">Week 05</p>
+        <h3>Reclaim your power.</h3>
+        <p>You shift from victim of your past to builder of your future. Not in language. In your body.</p>
+        <p class="result"><em>Result:</em> Confidence starts returning.</p>
       </div>
 
-      <div class="process-step fade-in fade-in-delay-3">
-        <p class="process-step-num">06 ✦ Expand</p>
-        <h3>Your capacity.</h3>
-        <p>As your life begins to shift, new edges appear. We build your capacity to hold more visibility, more intimacy, more responsibility, more of what you actually want. Without collapsing or retreating.</p>
+      <div class="arc-week fade-in fade-in-delay-1">
+        <p class="arc-week-num">Week 06</p>
+        <h3>Interrupt the pattern in real time.</h3>
+        <p>You learn how to catch yourself before you repeat it. The exact moment of choice becomes visible.</p>
+        <p class="result"><em>Result:</em> Behavior actually changes.</p>
+      </div>
+
+      <div class="arc-week fade-in">
+        <p class="arc-week-num">Week 07</p>
+        <h3>Reset your standards.</h3>
+        <p>You rebuild self-worth so you stop settling. You stop accepting what you've outgrown.</p>
+        <p class="result"><em>Result:</em> You choose differently.</p>
+      </div>
+
+      <div class="arc-week fade-in fade-in-delay-1">
+        <p class="arc-week-num">Week 08</p>
+        <h3>Rebuild your life.</h3>
+        <p>You define your next chapter with clarity and direction. You walk out with the structure to keep building.</p>
+        <p class="result"><em>Result:</em> You leave with momentum, not just insight.</p>
       </div>
 
     </div>
   </section>
 
-  <!-- OUTCOMES -->
-  <section class="outcomes">
-    <div class="outcomes-inner">
-      <div class="outcomes-header">
-        <p class="eyebrow">What You Walk Away With</p>
-        <h2>By the end of this process, <em>you</em>...</h2>
-        <div class="gold-divider"></div>
+  <!-- HOW IT WORKS / WHY DIFFERENT -->
+  <section class="how">
+    <div class="how-inner">
+      <div class="how-block fade-in">
+        <p class="eyebrow">How It Works</p>
+        <h2>Active. <em>Structured.</em> Real.</h2>
+        <ul class="how-list">
+          <li>Weekly 90-minute live sessions.</li>
+          <li>Structured exercises, not just talking.</li>
+          <li>Partner work for accountability.</li>
+          <li>Somatic and practical tools, woven together.</li>
+          <li>Integration practices between sessions.</li>
+        </ul>
+        <p class="how-note">
+          This is an active program. You will not get results by staying on the surface.
+        </p>
       </div>
 
-      <ul class="outcomes-list">
-        <li class="fade-in">Feel more connected to your truth and your inner guidance, and able to confidently act from it.</li>
-        <li class="fade-in fade-in-delay-1">Recognize your patterns as they arise, without getting lost in them.</li>
-        <li class="fade-in fade-in-delay-2">Make decisions with more clarity and self-love.</li>
-        <li class="fade-in fade-in-delay-3">Stay with yourself in moments where you would have abandoned yourself before.</li>
-        <li class="fade-in fade-in-delay-4">Trust your ability to move your life forward.</li>
-      </ul>
+      <div class="how-block fade-in fade-in-delay-1">
+        <p class="eyebrow">Why This Is Different</p>
+        <h2>You won't end up here <em>again</em>.</h2>
 
-      <p class="outcomes-closer fade-in fade-in-delay-4">
-        You experience what it feels like to stay with and nurture yourself while moving through your own evolution.
-      </p>
+        <div class="compare-header">
+          <div class="them-h">Most Programs</div>
+          <div class="us-h">REBUILD</div>
+        </div>
+
+        <div class="compare-rows">
+          <div class="compare-row">
+            <div class="compare-cell them">Give you insight.</div>
+            <div class="compare-cell us">Rewires how you operate in real time.</div>
+          </div>
+          <div class="compare-row">
+            <div class="compare-cell them">Make you feel better temporarily.</div>
+            <div class="compare-cell us">Changes the patterns that put you here.</div>
+          </div>
+          <div class="compare-row">
+            <div class="compare-cell them">Don't change your behavior.</div>
+            <div class="compare-cell us">Means you don't end up in the same place six months from now.</div>
+          </div>
+        </div>
+      </div>
     </div>
   </section>
 
@@ -1276,32 +1414,33 @@
   <section class="pricing" id="apply">
     <div class="pricing-inner">
       <p class="eyebrow fade-in">The Investment</p>
-      <h2 class="fade-in fade-in-delay-1">Ready to step in?</h2>
+      <h2 class="fade-in fade-in-delay-1">Step into the circle.</h2>
 
       <div class="pricing-card fade-in fade-in-delay-2">
-        <p class="label">1:1 Private Container</p>
-        <p class="name">Six-Session <em>Coaching</em></p>
+        <p class="label">Group Container</p>
+        <p class="name"><em>RE</em>BUILD</p>
 
         <div class="pricing-meta">
           <div class="pricing-meta-item">
-            <p class="num">6</p>
-            <p class="lab">Sessions</p>
+            <p class="num">8</p>
+            <p class="lab">Weeks</p>
           </div>
           <div class="pricing-meta-item">
-            <p class="num">60</p>
-            <p class="lab">Minutes Each</p>
+            <p class="num">90</p>
+            <p class="lab">Min Sessions</p>
           </div>
           <div class="pricing-meta-item">
-            <p class="num">∞</p>
-            <p class="lab">Held in Between</p>
+            <p class="num">1</p>
+            <p class="lab">Real Shift</p>
           </div>
         </div>
 
-        <p class="price">$2,200</p>
-        <p class="price-note">Starting investment. Payment plans available on request.</p>
+        <p class="dates">Sept 11 <em>—</em> Nov 6, 2026</p>
+        <p class="price">$1,500</p>
+        <p class="price-note">Payment plans available on request.</p>
 
         <div class="pricing-cta">
-          <a href="mailto:invision@andreaspacek.com?subject=1:1 Coaching Application" class="btn-primary">Apply for 1:1 Coaching</a>
+          <a href="mailto:invision@andreaspacek.com?subject=REBUILD Application" class="btn-primary">Apply for REBUILD</a>
         </div>
       </div>
     </div>
@@ -1311,24 +1450,24 @@
   <section class="testimonials">
     <div class="testimonials-header">
       <p class="eyebrow fade-in">In Their Words</p>
-      <h2 class="fade-in fade-in-delay-1">From women who've done the work.</h2>
+      <h2 class="fade-in fade-in-delay-1">From women who've done the work in community.</h2>
     </div>
 
     <div class="testimonials-grid">
       <div class="t-card fade-in">
         <p class="mark">"</p>
         <blockquote>
-          Andrea was born to do this work. She has a gift of not only seeing you and compassionately guiding you, but also empowering you. Every time I have a session with Andrea I feel like I know and love myself on a deeper level, and leave feeling inspired. She has helped me see and work through my blocks, fears, and doubts in order for me to step into the fullest version of myself that I was always meant to be.
+          These last few months have been monumental, steeped in divinity, grace, and an abundance I never could have expected. Being able to truly open up to myself has been an incredible gift. Your presence, certainty, and unconditional love through this process has given me unlimited permission to dive deep. I feel like I have truly stepped into feminine guided leadership.
         </blockquote>
-        <p class="attr">Kelly Austin · Spiritual Coach</p>
+        <p class="attr">Melissa Moon · Elan Healing Facilitator</p>
       </div>
 
       <div class="t-card fade-in fade-in-delay-1">
         <p class="mark">"</p>
         <blockquote>
-          My coaching sessions with Andrea left me with a sense of my life as a divine mystery unfolding into a perfectly beautiful love story. She has mastered the art of providing deep and powerful coaching in a loving, compassionate, and supportive space. Her thoughtful questions are somehow both challenging and gentle at the same time.
+          I knew I needed something like this. I just didn't know how much I needed it. Being in community with other women that are also doing this work was beyond priceless. Watching the other women have breakthrough moments and being able to share in that experience as a community has been so good for my soul. This experience will be one I look back to as a time of great shifting for me.
         </blockquote>
-        <p class="attr">Jessica G. · Transformational Coach</p>
+        <p class="attr">Becky Bradley · Group Participant</p>
       </div>
     </div>
   </section>
@@ -1337,9 +1476,9 @@
   <section class="final-cta">
     <div class="final-cta-inner">
       <div class="gold-line"></div>
-      <h2>The question is not whether you are <em>ready</em>.</h2>
-      <p class="final-cta-sub">It is how much longer you are willing to wait.</p>
-      <a href="mailto:invision@andreaspacek.com?subject=1:1 Coaching Application" class="btn-primary">Apply for 1:1 Coaching</a>
+      <h2>You can keep <em>circling</em>, or you can rebuild.</h2>
+      <p class="final-cta-sub">REBUILD opens September 11. Spots are limited so the container stays sacred.</p>
+      <a href="mailto:invision@andreaspacek.com?subject=REBUILD Application" class="btn-primary">Apply for REBUILD</a>
       <p class="final-cta-fine">Application reviewed within 48 hours</p>
     </div>
   </section>
@@ -1363,8 +1502,8 @@
           <ul>
             <li><a href="index.html#about">About</a></li>
             <li><a href="coaching.html">1:1 Coaching</a></li>
+            <li><a href="group-coaching.html">Group Containers</a></li>
             <li><a href="index.html#retreats">Retreats</a></li>
-            <li><a href="index.html#events">Events</a></li>
             <li><a href="index.html#ytt">Teacher Training</a></li>
           </ul>
         </div>
@@ -1387,7 +1526,7 @@
           <h4>A Door, Still Open</h4>
           <h3>If something in you just <em>stirred</em>, that is your answer.</h3>
           <a href="#apply" class="footer-whisper-link">
-            Apply for 1:1 Coaching <span class="arrow">→</span>
+            Apply for REBUILD <span class="arrow">→</span>
           </a>
         </div>
 
