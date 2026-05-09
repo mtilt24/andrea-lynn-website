@@ -1,0 +1,795 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+  <meta charset="UTF-8">
+  <meta name="viewport" content="width=device-width, initial-scale=1.0">
+  <title>Jungle Room · Costa Rica Retreat | Andrea Lynn</title>
+  <meta name="description" content="A peaceful retreat tucked deep in the trees. Two queen beds, outdoor terrace, ensuite bathroom. Sold out for July 2026.">
+  <link rel="preconnect" href="https://fonts.googleapis.com">
+  <link rel="preconnect" href="https://fonts.gstatic.com" crossorigin>
+  <link href="https://fonts.googleapis.com/css2?family=Cormorant+Garamond:ital,wght@0,300;0,400;0,500;0,600;1,300;1,400&family=Montserrat:wght@300;400;500;600&display=swap" rel="stylesheet">
+  <style>
+    *, *::before, *::after { margin: 0; padding: 0; box-sizing: border-box; }
+
+    :root {
+      --linen: #F2EDE4;
+      --linen-warm: #E6DFD3;
+      --linen-deep: #E0D8CC;
+      --charcoal: #2C2825;
+      --gold: #D4B85C;
+      --gold-bright: #E0C96A;
+      --gold-glow: rgba(212, 184, 92, 0.5);
+      --gold-glow-strong: rgba(212, 184, 92, 0.75);
+      --gold-glow-soft: rgba(212, 184, 92, 0.2);
+      --sage: #7A8C6E;
+      --taupe: #5C5650;
+      --white: #ffffff;
+      --warm-white: #FDFAF6;
+      --serif: 'Cormorant Garamond', Georgia, serif;
+      --sans: 'Montserrat', 'Helvetica Neue', Arial, sans-serif;
+    }
+
+    html { scroll-behavior: smooth; }
+    body {
+      font-family: var(--sans);
+      background-color: var(--linen);
+      color: var(--taupe);
+      line-height: 1.6;
+      -webkit-font-smoothing: antialiased;
+      overflow-x: hidden;
+    }
+    img { max-width: 100%; display: block; }
+    a { text-decoration: none; color: inherit; transition: all 0.3s ease; }
+
+    /* ── NAV ── */
+    .nav {
+      position: fixed; top: 0; left: 0; right: 0; z-index: 100;
+      padding: 24px 60px;
+      display: flex; justify-content: space-between; align-items: center;
+      background: rgba(242, 237, 228, 0.92);
+      backdrop-filter: blur(14px);
+      border-bottom: 1px solid rgba(122, 140, 110, 0.12);
+    }
+    .nav-logo {
+      font-family: var(--serif);
+      font-size: 24px; font-weight: 400; font-style: italic;
+      color: var(--charcoal); letter-spacing: 1px;
+    }
+    .nav-links { list-style: none; display: flex; gap: 36px; align-items: center; }
+    .nav-links a {
+      font-size: 12px; font-weight: 400; letter-spacing: 2px;
+      text-transform: uppercase; color: var(--taupe);
+    }
+    .nav-links a:hover { color: var(--charcoal); }
+    .nav-dropdown { position: relative; }
+    .nav-dropdown > a { display: inline-flex; align-items: center; gap: 6px; cursor: pointer; }
+    .nav-dropdown > a::after {
+      content: ''; display: inline-block;
+      width: 5px; height: 5px;
+      border-right: 1px solid currentColor; border-bottom: 1px solid currentColor;
+      transform: rotate(45deg) translateY(-2px);
+      opacity: 0.6; transition: transform 0.3s ease;
+    }
+    .nav-dropdown:hover > a::after { transform: rotate(225deg) translateY(-2px); }
+    .nav-dropdown-menu {
+      position: absolute; top: calc(100% + 14px); left: 50%;
+      transform: translateX(-50%) translateY(-6px);
+      background: rgba(242, 237, 228, 0.97);
+      backdrop-filter: blur(16px); padding: 14px 0; min-width: 220px;
+      box-shadow: 0 14px 44px rgba(44,40,37,0.1);
+      border: 1px solid rgba(212,184,92,0.18);
+      opacity: 0; visibility: hidden;
+      transition: opacity 0.3s ease, visibility 0.3s ease, transform 0.3s ease;
+      z-index: 1001; list-style: none;
+    }
+    .nav-dropdown:hover .nav-dropdown-menu, .nav-dropdown:focus-within .nav-dropdown-menu {
+      opacity: 1; visibility: visible; transform: translateX(-50%) translateY(0);
+    }
+    .nav-dropdown-menu::before {
+      content: ''; position: absolute; top: -7px; left: 50%;
+      transform: translateX(-50%) rotate(45deg);
+      width: 12px; height: 12px;
+      background: rgba(242, 237, 228, 0.97);
+      border-left: 1px solid rgba(212,184,92,0.18);
+      border-top: 1px solid rgba(212,184,92,0.18);
+    }
+    .nav-dropdown-menu a {
+      display: block; padding: 11px 26px;
+      font-family: var(--sans); font-size: 11px;
+      letter-spacing: 2.5px; text-transform: uppercase;
+      white-space: nowrap; color: var(--taupe);
+      transition: all 0.25s ease;
+    }
+    .nav-dropdown-menu a:hover { background: rgba(212,184,92,0.1); color: var(--gold); letter-spacing: 3px; }
+    .nav-cta {
+      background: var(--gold) !important;
+      color: var(--white) !important;
+      padding: 10px 24px !important;
+      font-weight: 500 !important;
+      box-shadow: 0 0 20px var(--gold-glow), 0 0 8px var(--gold-glow-soft);
+      animation: goldPulse 4s ease-in-out infinite;
+    }
+    .nav-cta:hover { background: var(--gold-bright) !important; transform: translateY(-1px); }
+
+    /* ── BUTTONS ── */
+    .btn-primary {
+      display: inline-block;
+      background: var(--gold); color: var(--white);
+      font-family: var(--sans); font-size: 12px; font-weight: 500;
+      letter-spacing: 3px; text-transform: uppercase;
+      padding: 18px 36px; border: none; cursor: pointer;
+      box-shadow: 0 0 24px var(--gold-glow), 0 0 8px var(--gold-glow-soft);
+      transition: all 0.4s ease;
+    }
+    .btn-primary:hover {
+      background: var(--gold-bright);
+      box-shadow: 0 0 44px var(--gold-glow-strong);
+      transform: translateY(-2px);
+    }
+    .btn-ghost {
+      display: inline-block;
+      background: transparent; color: var(--charcoal);
+      font-family: var(--sans); font-size: 12px; font-weight: 500;
+      letter-spacing: 3px; text-transform: uppercase;
+      padding: 18px 36px;
+      border: 1px solid rgba(44,40,37,0.3);
+      transition: all 0.3s ease;
+    }
+    .btn-ghost:hover { border-color: var(--charcoal); background: rgba(44,40,37,0.04); }
+
+    /* ── PAGE HERO ── */
+    .page-hero {
+      padding: 160px 48px 80px;
+      background: var(--linen);
+      position: relative; overflow: hidden;
+    }
+    .page-hero::before {
+      content: ''; position: absolute;
+      top: -100px; right: -200px;
+      width: 600px; height: 600px;
+      background: radial-gradient(circle, rgba(212,184,92,0.08) 0%, transparent 60%);
+      pointer-events: none;
+    }
+    .page-hero-inner { max-width: 1100px; margin: 0 auto; position: relative; z-index: 1; }
+    .breadcrumb {
+      font-family: var(--sans); font-size: 11px; font-weight: 500;
+      letter-spacing: 3px; text-transform: uppercase;
+      color: var(--sage); margin-bottom: 28px;
+    }
+    .breadcrumb a:hover { color: var(--gold); }
+    .page-hero h1 {
+      font-family: var(--serif);
+      font-size: clamp(48px, 6vw, 84px);
+      font-weight: 300; line-height: 1.05;
+      color: var(--charcoal); margin-bottom: 28px;
+    }
+    .page-hero h1 em { font-style: italic; color: var(--gold); text-shadow: 0 0 30px var(--gold-glow-soft); }
+    .page-hero-meta {
+      display: flex; flex-wrap: wrap; gap: 14px;
+      align-items: center;
+      font-family: var(--sans); font-size: 13px;
+      color: var(--taupe);
+    }
+    .page-hero-meta .dot {
+      width: 4px; height: 4px;
+      background: var(--sage); border-radius: 50%;
+      opacity: 0.6;
+    }
+
+    /* ── GALLERY ── */
+    .gallery {
+      padding: 80px 48px;
+      background: var(--warm-white);
+    }
+    .gallery-grid {
+      max-width: 1200px; margin: 0 auto;
+      display: grid;
+      grid-template-columns: repeat(2, 1fr);
+      gap: 16px;
+    }
+    .gallery-img {
+      aspect-ratio: 4/3;
+      background-size: cover;
+      background-position: center;
+    }
+    .gallery-img.tall { aspect-ratio: 3/4; }
+    .gallery-img.wide { grid-column: span 2; aspect-ratio: 16/9; }
+
+    /* ── DETAILS ── */
+    .details {
+      padding: 140px 48px;
+      background: var(--linen-warm);
+    }
+    .details-inner {
+      max-width: 1200px; margin: 0 auto;
+      display: grid;
+      grid-template-columns: 1fr 380px;
+      gap: 80px;
+      align-items: start;
+    }
+    .details-body p.lead {
+      font-family: var(--serif);
+      font-size: clamp(22px, 2.4vw, 28px);
+      font-weight: 300; font-style: italic;
+      line-height: 1.5;
+      color: var(--charcoal);
+      margin-bottom: 28px;
+    }
+    .details-body p {
+      font-family: var(--sans);
+      font-size: 16px; font-weight: 300;
+      line-height: 1.85;
+      color: var(--taupe);
+      margin-bottom: 22px;
+    }
+    .sidebar {
+      background: var(--warm-white);
+      padding: 40px 36px;
+      box-shadow: 0 20px 60px rgba(44,40,37,0.08);
+      position: sticky; top: 100px;
+    }
+    .sidebar .eyebrow {
+      font-family: var(--sans); font-size: 11px; font-weight: 500;
+      letter-spacing: 3px; text-transform: uppercase;
+      color: var(--gold);
+    }
+    .sidebar-price-row {
+      display: flex; align-items: baseline;
+      gap: 12px; flex-wrap: wrap;
+      margin-bottom: 8px;
+    }
+    .sidebar-price-amount {
+      font-family: var(--serif);
+      font-size: 48px; font-weight: 300;
+      color: var(--charcoal);
+    }
+    .sidebar-price-unit {
+      font-family: var(--sans); font-size: 13px;
+      color: var(--taupe); letter-spacing: 0.5px;
+    }
+    .sidebar-price-note {
+      font-family: var(--sans); font-size: 13px;
+      color: var(--sage); margin-bottom: 24px;
+    }
+    .sidebar-divider {
+      height: 1px; background: rgba(122,140,110,0.2);
+      margin: 28px 0;
+    }
+    .sidebar h4 {
+      font-family: var(--serif); font-size: 18px;
+      font-weight: 400; color: var(--charcoal);
+      margin-bottom: 14px;
+    }
+    .sidebar ul { list-style: none; }
+    .sidebar ul li {
+      display: flex; justify-content: space-between;
+      padding: 8px 0;
+      border-bottom: 1px solid rgba(122,140,110,0.12);
+      font-family: var(--sans); font-size: 13px;
+      color: var(--taupe);
+    }
+    .sidebar ul li:last-child { border-bottom: none; }
+    .sidebar ul li span { color: var(--charcoal); font-weight: 500; }
+    .sidebar-amenities li { display: block; }
+
+    /* ── INCLUDES ── */
+    .includes {
+      padding: 100px 48px;
+      background: var(--white);
+    }
+    .includes-inner { max-width: 1100px; margin: 0 auto; }
+    .includes-head {
+      display: flex; justify-content: space-between;
+      align-items: baseline;
+      margin-bottom: 36px; flex-wrap: wrap; gap: 12px;
+    }
+    .includes-head h3 {
+      font-family: var(--serif);
+      font-size: clamp(28px, 3.2vw, 40px);
+      font-weight: 300;
+      color: var(--charcoal);
+    }
+    .includes-head h3 em { font-style: italic; color: var(--gold); }
+    .includes-note {
+      font-family: var(--sans); font-size: 11px;
+      letter-spacing: 2.5px; text-transform: uppercase;
+      color: var(--sage);
+    }
+    .includes-grid {
+      display: grid;
+      grid-template-columns: repeat(auto-fit, minmax(180px, 1fr));
+      gap: 2px;
+      background: var(--linen-deep);
+      list-style: none;
+    }
+    .includes-grid li {
+      background: var(--warm-white);
+      padding: 18px 24px;
+      font-family: var(--sans); font-size: 13px; font-weight: 400;
+      color: var(--charcoal);
+    }
+
+    /* ── PAYMENTS ── */
+    .payments {
+      padding: 140px 48px;
+      background: var(--linen);
+    }
+    .payments-head {
+      text-align: center; max-width: 720px;
+      margin: 0 auto 60px;
+    }
+    .payments-head .eyebrow {
+      font-family: var(--sans); font-size: 12px; font-weight: 500;
+      letter-spacing: 4px; text-transform: uppercase;
+      color: var(--gold); margin-bottom: 24px;
+    }
+    .payments-head h2 {
+      font-family: var(--serif);
+      font-size: clamp(34px, 4.2vw, 50px);
+      font-weight: 300;
+      color: var(--charcoal); margin-bottom: 16px;
+    }
+    .payments-head h2 em { font-style: italic; color: var(--gold); }
+    .payments-head p {
+      font-family: var(--sans); font-size: 15px; font-weight: 300;
+      color: var(--taupe);
+    }
+    .payments-grid {
+      max-width: 1200px; margin: 0 auto;
+      display: grid;
+      grid-template-columns: repeat(auto-fit, minmax(280px, 1fr));
+      gap: 2px;
+      background: var(--linen-deep);
+    }
+    .payment {
+      background: var(--warm-white);
+      padding: 44px 36px;
+      display: flex; flex-direction: column;
+      gap: 8px;
+      position: relative;
+    }
+    .payment.featured {
+      background: var(--charcoal);
+      color: var(--white);
+    }
+    .payment-tag {
+      font-family: var(--sans); font-size: 10px; font-weight: 600;
+      letter-spacing: 3px; text-transform: uppercase;
+      color: var(--sage);
+      align-self: flex-start;
+      margin-bottom: 8px;
+    }
+    .payment.featured .payment-tag { color: var(--gold); }
+    .payment-name {
+      font-family: var(--serif);
+      font-size: 24px; font-weight: 400;
+      color: var(--charcoal);
+    }
+    .payment.featured .payment-name { color: var(--white); }
+    .payment-amount {
+      font-family: var(--serif);
+      font-size: 40px; font-weight: 300;
+      color: var(--charcoal);
+      letter-spacing: -0.5px;
+    }
+    .payment.featured .payment-amount { color: var(--gold); }
+    .payment-unit {
+      font-family: var(--sans); font-size: 12px;
+      color: var(--taupe); margin-bottom: 4px;
+    }
+    .payment.featured .payment-unit { color: rgba(255,255,255,0.6); }
+    .payment-desc {
+      font-family: var(--sans); font-size: 13px; font-weight: 300;
+      line-height: 1.7;
+      color: var(--taupe);
+      margin: 12px 0 24px;
+      flex: 1;
+    }
+    .payment.featured .payment-desc { color: rgba(255,255,255,0.78); }
+    .payment .btn-primary, .payment .btn-ghost {
+      align-self: flex-start;
+      padding: 14px 28px; font-size: 11px;
+    }
+    .payment.featured .btn-ghost {
+      color: var(--white);
+      border-color: rgba(255,255,255,0.35);
+    }
+    .payment.featured .btn-ghost:hover { border-color: var(--gold); background: rgba(212,184,92,0.08); }
+
+    /* ── CANCELLATION ── */
+    .cancellation {
+      padding: 80px 48px;
+      background: var(--linen-warm);
+    }
+    .cancellation-inner { max-width: 760px; margin: 0 auto; }
+    .cancellation h4 {
+      font-family: var(--serif); font-size: 22px;
+      font-weight: 400; color: var(--charcoal);
+      margin-bottom: 14px;
+    }
+    .cancellation p {
+      font-family: var(--sans); font-size: 14px; font-weight: 300;
+      line-height: 1.85; color: var(--taupe);
+    }
+
+    /* ── INQUIRE ── */
+    .inquire {
+      padding: 140px 48px;
+      background: var(--charcoal);
+      text-align: center;
+      position: relative; overflow: hidden;
+    }
+    .inquire::before {
+      content: ''; position: absolute; inset: 0;
+      background: radial-gradient(ellipse at center, rgba(212,184,92,0.1) 0%, transparent 70%);
+      pointer-events: none;
+    }
+    .inquire-inner { max-width: 720px; margin: 0 auto; position: relative; z-index: 1; }
+    .inquire .eyebrow {
+      font-family: var(--sans); font-size: 12px; font-weight: 500;
+      letter-spacing: 4px; text-transform: uppercase;
+      color: var(--gold); margin-bottom: 20px;
+    }
+    .inquire h2 {
+      font-family: var(--serif);
+      font-size: clamp(34px, 4vw, 48px);
+      font-weight: 300; color: var(--white);
+      margin-bottom: 20px;
+    }
+    .inquire h2 em { font-style: italic; color: var(--gold); }
+    .inquire p {
+      font-family: var(--sans); font-size: 15px;
+      color: rgba(255,255,255,0.7);
+      margin-bottom: 36px;
+      line-height: 1.85;
+    }
+
+    /* ── FOOTER ── */
+    .footer {
+      background: var(--charcoal);
+      padding: 80px 48px 32px;
+      position: relative; overflow: hidden;
+    }
+    .footer::before {
+      content: ''; position: absolute;
+      top: 0; left: 50%; transform: translateX(-50%);
+      width: 80%; height: 1px;
+      background: linear-gradient(to right, transparent, rgba(212,184,92,0.4), transparent);
+    }
+    .footer-inner { max-width: 1280px; margin: 0 auto; }
+    .footer-grid {
+      display: grid;
+      grid-template-columns: 1.3fr 1fr 1fr 1.2fr;
+      gap: 60px; padding-bottom: 56px;
+    }
+    .footer-col h4 {
+      font-family: var(--sans); font-size: 11px;
+      font-weight: 500; letter-spacing: 3px;
+      text-transform: uppercase; color: var(--gold);
+      margin-bottom: 24px;
+    }
+    .footer-brand .footer-logo {
+      font-family: var(--serif); font-size: 32px;
+      font-weight: 300; font-style: italic;
+      color: var(--white); margin-bottom: 20px;
+    }
+    .footer-brand .footer-tagline {
+      font-family: var(--sans); font-size: 13px;
+      font-weight: 300; line-height: 1.8;
+      color: rgba(255,255,255,0.55);
+      max-width: 280px; margin-bottom: 28px;
+    }
+    .footer-socials { display: flex; gap: 14px; }
+    .footer-socials a {
+      width: 40px; height: 40px;
+      border: 1px solid rgba(212,184,92,0.3);
+      border-radius: 50%;
+      display: flex; align-items: center; justify-content: center;
+      color: var(--gold); font-size: 13px; font-weight: 500;
+      transition: all 0.3s ease;
+    }
+    .footer-socials a:hover { background: var(--gold); color: var(--charcoal); }
+    .footer-nav ul, .footer-connect ul { list-style: none; }
+    .footer-nav li, .footer-connect li { margin-bottom: 14px; }
+    .footer-nav a, .footer-connect a {
+      font-family: var(--sans); font-size: 13px;
+      font-weight: 300; color: rgba(255,255,255,0.65);
+    }
+    .footer-nav a:hover, .footer-connect a:hover { color: var(--gold); }
+    .footer-connect .label {
+      font-family: var(--sans); font-size: 10px; font-weight: 500;
+      letter-spacing: 2.5px; text-transform: uppercase;
+      color: rgba(255,255,255,0.35); display: block; margin-bottom: 4px;
+    }
+    .footer-bottom {
+      display: flex; justify-content: space-between;
+      align-items: center; padding-top: 28px;
+      border-top: 1px solid rgba(255,255,255,0.08);
+      flex-wrap: wrap; gap: 20px;
+    }
+    .footer-copy {
+      font-family: var(--sans); font-size: 11px;
+      font-weight: 300; color: rgba(255,255,255,0.35);
+    }
+    .footer-legal { display: flex; gap: 24px; flex-wrap: wrap; }
+    .footer-legal a {
+      font-family: var(--sans); font-size: 11px; font-weight: 300;
+      letter-spacing: 1.5px; text-transform: uppercase;
+      color: rgba(255,255,255,0.35);
+    }
+    .footer-legal a:hover { color: var(--gold); }
+
+    /* ── ANIMATIONS ── */
+    @keyframes goldPulse {
+      0%, 100% { box-shadow: 0 0 20px var(--gold-glow), 0 0 8px var(--gold-glow-soft); }
+      50% { box-shadow: 0 0 32px var(--gold-glow-strong), 0 0 14px var(--gold-glow); }
+    }
+    .fade-in {
+      opacity: 0; transform: translateY(30px);
+      transition: opacity 1s ease, transform 1s ease;
+    }
+    .fade-in.visible { opacity: 1; transform: translateY(0); }
+
+    /* ── RESPONSIVE ── */
+    @media (max-width: 900px) {
+      .nav { padding: 18px 24px; }
+      .nav-links { display: none; }
+      .page-hero { padding: 120px 24px 60px; }
+      .gallery, .details, .includes, .payments, .cancellation, .inquire { padding: 80px 24px; }
+      .gallery-grid { grid-template-columns: 1fr; }
+      .gallery-img.wide { grid-column: span 1; }
+      .details-inner { grid-template-columns: 1fr; gap: 48px; }
+      .sidebar { position: static; }
+      .footer { padding: 60px 24px 28px; }
+      .footer-grid { grid-template-columns: 1fr 1fr; gap: 40px; padding-bottom: 40px; }
+      .footer-bottom { flex-direction: column; align-items: flex-start; }
+    }
+  </style>
+</head>
+<body>
+
+  <!-- NAV -->
+  <nav class="nav">
+    <a href="index.html" class="nav-logo">Andrea Lynn</a>
+    <ul class="nav-links">
+      <li><a href="index.html#about">About</a></li>
+      <li class="nav-dropdown">
+        <a href="index.html#coaching">Work With Me</a>
+        <ul class="nav-dropdown-menu">
+          <li><a href="coaching.html">1:1 Coaching</a></li>
+          <li><a href="group-coaching.html">Group Containers</a></li>
+          <li><a href="workshops.html">Workshops</a></li>
+          <li><a href="ytt.html">Yoga Teacher Training</a></li>
+        </ul>
+      </li>
+      <li><a href="workshops.html">Workshops</a></li>
+      <li class="nav-dropdown">
+        <a href="costa-rica-retreat.html">Retreats</a>
+        <ul class="nav-dropdown-menu">
+          <li><a href="costa-rica-retreat.html">Costa Rica · Jul 2026</a></li>
+          <li><a href="sedona-retreat.html">Sedona · Oct 2026</a></li>
+        </ul>
+      </li>
+      <li><a href="ytt.html">Teacher Training</a></li>
+      <li><a href="index.html#book">Contact</a></li>
+      <li><a href="index.html#book" class="nav-cta">Book a Call</a></li>
+    </ul>
+  </nav>
+
+  <!-- HERO -->
+  <section class="page-hero">
+    <div class="page-hero-inner">
+      <p class="breadcrumb"><a href="costa-rica-retreat.html">← Costa Rica Retreat</a></p>
+      <h1><em>Jungle</em> Room.</h1>
+      <div class="page-hero-meta">
+        <span>2 Queen Beds</span>
+        <span class="dot"></span>
+        <span>Outdoor Terrace</span>
+        <span class="dot"></span>
+        <span>21 m²</span>
+        <span class="dot"></span>
+        <span>Sleeps up to 4</span>
+      </div>
+    </div>
+  </section>
+
+  <!-- GALLERY -->
+  <section class="gallery">
+    <div class="gallery-grid">
+      <div class="gallery-img wide" style="background-image:url('https://res.cloudinary.com/dstssdnoj/image/upload/f_auto,q_auto,w_1800/FGA/jungle-rooms');"></div>
+      <div class="gallery-img" style="background-image:url('https://res.cloudinary.com/dstssdnoj/image/upload/f_auto,q_auto,w_1100/FGA/jungle-room-bodhi-tree-2-870x965');"></div>
+      <div class="gallery-img" style="background-image:url('https://res.cloudinary.com/dstssdnoj/image/upload/f_auto,q_auto,w_1100/FGA/jungle-room-bodhi-tree-3-870x965');"></div>
+      <div class="gallery-img" style="background-image:url('https://res.cloudinary.com/dstssdnoj/image/upload/f_auto,q_auto,w_1100/FGA/jungle-room-bodhi-tree-4-870x965');"></div>
+      <div class="gallery-img" style="background-image:url('https://res.cloudinary.com/dstssdnoj/image/upload/f_auto,q_auto,w_1100/FGA/jungle-room-bodhi-tree-6-870x965');"></div>
+    </div>
+  </section>
+
+  <!-- DETAILS -->
+  <section class="details">
+    <div class="details-inner">
+      <div class="details-body">
+        <p class="lead fade-in">Two queen beds, dramatic high ceilings, and the soft sound of waterfalls in the distance.</p>
+        <p class="fade-in">This unit features two queen beds with dramatic high ceilings, a wet bar filled with local delights, Egyptian cotton sheets, air conditioning, and a laptop-sized safe. Unwind by lounging on your outdoor patio as you hear the sounds of waterfalls in the distance.</p>
+        <p class="fade-in">Study or work in comfort at the large work desk with access to free wireless internet. Refresh in your open-air rainfall shower, featuring luxurious Raw Botanicals toiletries.</p>
+      </div>
+
+      <aside class="sidebar fade-in">
+        <p class="eyebrow" style="margin-bottom: 14px;">Per person, double occupancy</p>
+        <div class="sidebar-price-row">
+          <span class="sidebar-price-amount">$3,449</span>
+          <span class="sidebar-price-unit">all inclusive</span>
+        </div>
+        <p class="sidebar-price-note">Save $100 paying in full via Venmo</p>
+        <a class="btn-primary" href="#payments">See Payment Options →</a>
+
+        <div class="sidebar-divider"></div>
+        <h4>Room Details</h4>
+        <ul>
+          <li>Maximum capacity <span>4</span></li>
+          <li>Beds <span>2 Queen</span></li>
+          <li>Bathroom <span>1 Ensuite</span></li>
+          <li>Size <span>21 m²</span></li>
+        </ul>
+
+        <div class="sidebar-divider"></div>
+        <h4>In This Room</h4>
+        <ul class="sidebar-amenities">
+          <li>Open Air Rainfall Shower</li>
+          <li>Outside Terrace</li>
+          <li>Work Desk + Mini Bar</li>
+          <li>Egyptian Cotton Sheets</li>
+          <li>Spacious Closet</li>
+        </ul>
+      </aside>
+    </div>
+  </section>
+
+  <!-- INCLUDES -->
+  <section class="includes">
+    <div class="includes-inner fade-in">
+      <div class="includes-head">
+        <h3>All rooms <em>include</em>.</h3>
+        <span class="includes-note">Standard for every guest</span>
+      </div>
+      <ul class="includes-grid">
+        <li>Free WiFi</li>
+        <li>Free Beach Shuttle</li>
+        <li>Free Bike Rentals</li>
+        <li>Air Conditioning</li>
+        <li>Rainfall Shower</li>
+        <li>Aromas Toiletries</li>
+        <li>Coffee Maker</li>
+        <li>Umbrellas</li>
+        <li>North American Outlets</li>
+        <li>Laptop-Size Safe</li>
+        <li>Private Patio</li>
+        <li>3 Meals + Programming</li>
+      </ul>
+    </div>
+  </section>
+
+  <!-- PAYMENTS -->
+  <section class="payments" id="payments">
+    <div class="payments-head">
+      <p class="eyebrow fade-in">Reserve Your Spot</p>
+      <h2 class="fade-in">Pick your <em>payment plan</em>.</h2>
+      <p class="fade-in">Pay in full, secure your spot with a deposit, or save $100 paying in full via Venmo.</p>
+    </div>
+    <div class="payments-grid">
+      <div class="payment fade-in">
+        <span class="payment-tag">Standard</span>
+        <p class="payment-name">Pay in Full</p>
+        <p class="payment-amount">$3,449</p>
+        <p class="payment-unit">Per person, one payment</p>
+        <p class="payment-desc">Secure your spot with a single payment. Afterpay, Klarna, and Affirm available at checkout.</p>
+        <a class="btn-primary" href="https://buy.stripe.com/9B6fZgclYe3H7QM5cc87K0e" target="_blank" rel="noopener">Pay in Full →</a>
+      </div>
+      <div class="payment featured fade-in">
+        <span class="payment-tag">Most Flexible</span>
+        <p class="payment-name">Deposit + Plan</p>
+        <p class="payment-amount">$500</p>
+        <p class="payment-unit">Today, then 2 monthly payments</p>
+        <p class="payment-desc">Hold your room with a $500 deposit. We'll email to confirm details and split the remaining balance into 2 monthly payments.</p>
+        <a class="btn-primary" href="https://buy.stripe.com/14AbJ099M4t76MI8oo87K06" target="_blank" rel="noopener">Pay $500 Deposit →</a>
+      </div>
+      <div class="payment fade-in">
+        <span class="payment-tag">Save $100</span>
+        <p class="payment-name">Pay with Venmo</p>
+        <p class="payment-amount">$3,349</p>
+        <p class="payment-unit">Per person, paid in full via Venmo</p>
+        <p class="payment-desc">Save $100 when you pay in full via Venmo. Email to confirm and we'll send Venmo details.</p>
+        <a class="btn-ghost" href="mailto:invision@andreaspacek.com?subject=Costa%20Rica%20Retreat%20Jungle%20Room%20-%20Venmo">Pay via Venmo →</a>
+      </div>
+    </div>
+  </section>
+
+  <!-- CANCELLATION -->
+  <section class="cancellation">
+    <div class="cancellation-inner fade-in">
+      <h4>Cancellation Policy</h4>
+      <p>A $500 deposit is required to secure your space and is nonrefundable. If you cancel more than 60 days prior to the retreat start date, you will receive a 50% refund of amounts paid to date, excluding the deposit. Within 60 days of the retreat start date, no refunds are available for any reason, including the deposit and all payments made.</p>
+    </div>
+  </section>
+
+  <!-- INQUIRE -->
+  <section class="inquire">
+    <div class="inquire-inner">
+      <p class="eyebrow fade-in">Questions?</p>
+      <h2 class="fade-in">Email <em>Andrea</em>.</h2>
+      <p class="fade-in">Want to chat about the room, travel, or anything else on your heart? Andrea will reply personally.</p>
+      <a class="btn-primary fade-in" href="mailto:invision@andreaspacek.com?subject=Costa%20Rica%20Retreat%20Jungle%20Room%20Inquiry">Email Andrea →</a>
+    </div>
+  </section>
+
+  <!-- FOOTER -->
+  <footer class="footer">
+    <div class="footer-inner">
+      <div class="footer-grid">
+
+        <div class="footer-col footer-brand">
+          <p class="footer-logo">Andrea Lynn</p>
+          <p class="footer-tagline">Embodied coaching for women in transition. Somatic, sacred, soul-led.</p>
+          <div class="footer-socials">
+            <a href="https://www.instagram.com/andrealynnalchemy/" target="_blank" aria-label="Instagram">IG</a>
+            <a href="https://www.facebook.com/drespacek" target="_blank" aria-label="Facebook">FB</a>
+          </div>
+        </div>
+
+        <div class="footer-col footer-nav">
+          <h4>Explore</h4>
+          <ul>
+            <li><a href="index.html#about">About</a></li>
+            <li><a href="coaching.html">1:1 Coaching</a></li>
+            <li><a href="group-coaching.html">Group Containers</a></li>
+            <li><a href="costa-rica-retreat.html">Costa Rica Retreat</a></li>
+            <li><a href="sedona-retreat.html">Sedona Retreat</a></li>
+            <li><a href="workshops.html">Workshops</a></li>
+            <li><a href="ytt.html">Teacher Training</a></li>
+          </ul>
+        </div>
+
+        <div class="footer-col footer-connect">
+          <h4>Connect</h4>
+          <ul>
+            <li><span class="label">Email</span><a href="mailto:invision@andreaspacek.com">invision@andreaspacek.com</a></li>
+            <li><span class="label">Phone</span><a href="tel:5087373972">(508) 737-3972</a></li>
+          </ul>
+        </div>
+
+        <div class="footer-col footer-whisper">
+          <h4>Costa Rica</h4>
+          <ul>
+            <li><a href="costa-rica-retreat.html">← Back to Retreat</a></li>
+            <li><a href="queen-bungalow.html">Queen Bungalow</a></li>
+            <li><a href="casita.html">Casita</a></li>
+          </ul>
+        </div>
+
+      </div>
+
+      <div class="footer-bottom">
+        <p class="footer-copy">&copy; 2026 Andrea Lynn. All rights reserved.</p>
+        <div class="footer-legal">
+          <a href="#">Terms</a>
+          <a href="#">Refund Policy</a>
+          <a href="#">Accessibility</a>
+          <a href="#">Privacy</a>
+        </div>
+      </div>
+    </div>
+  </footer>
+
+  <script>
+    const observer = new IntersectionObserver((entries) => {
+      entries.forEach(entry => {
+        if (entry.isIntersecting) {
+          entry.target.classList.add('visible');
+          observer.unobserve(entry.target);
+        }
+      });
+    }, { threshold: 0.12, rootMargin: '0px 0px -60px 0px' });
+    document.querySelectorAll('.fade-in').forEach(el => observer.observe(el));
+  </script>
+
+</body>
+</html>

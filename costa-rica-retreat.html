@@ -658,6 +658,238 @@
     }
     .retreat-cta h3 em { font-style: italic; color: var(--gold); }
 
+    /* ── SECTION BG WRAPPERS ── */
+    .rs-hero { padding: 180px 48px 80px; background: var(--linen); }
+    .rs-about { padding: 100px 48px; background: var(--warm-white); }
+    .rs-stay { padding: 140px 48px; background: var(--linen-warm); }
+    .rs-tour { padding: 120px 48px; background: var(--charcoal); color: var(--white); text-align: center; position: relative; overflow: hidden; }
+    .rs-includes { padding: 140px 48px; background: var(--linen); }
+    .rs-hosts { padding: 140px 48px; background: var(--warm-white); }
+    .rs-rooms { padding: 140px 48px; background: var(--linen-warm); }
+    .rs-side { padding: 100px 48px; background: var(--white); }
+    .rs-cancellation { padding: 100px 48px; background: var(--linen); }
+    .rs-cta { padding: 100px 48px; background: var(--linen-warm); text-align: center; }
+    .rs-hero .retreat-card,
+    .rs-about .retreat-about,
+    .rs-includes .includes,
+    .rs-hosts .hosts,
+    .rs-side .side-info,
+    .rs-cta .retreat-cta { margin-bottom: 0; }
+
+    /* ── STAY GRID ── */
+    .stay-head { text-align: center; max-width: 720px; margin: 0 auto 64px; }
+    .stay-head .eyebrow {
+      font-size: 12px; font-weight: 500;
+      letter-spacing: 4px; text-transform: uppercase;
+      color: var(--gold); margin-bottom: 24px;
+    }
+    .stay-head h2 {
+      font-family: var(--serif);
+      font-size: clamp(34px, 4.2vw, 50px);
+      font-weight: 300;
+      color: var(--charcoal);
+    }
+    .stay-head h2 em { font-style: italic; color: var(--gold); }
+    .stay-grid {
+      max-width: 1200px; margin: 0 auto;
+      display: grid;
+      grid-template-columns: repeat(auto-fit, minmax(280px, 1fr));
+      gap: 2px;
+      background: var(--linen-deep);
+    }
+    .stay-card {
+      background: var(--warm-white);
+      display: flex; flex-direction: column;
+    }
+    .stay-card-img {
+      aspect-ratio: 4/3;
+      background-size: cover;
+      background-position: center;
+    }
+    .stay-card-img.placeholder {
+      background: linear-gradient(135deg, var(--linen-deep) 0%, var(--linen-warm) 100%);
+      display: flex; align-items: center; justify-content: center;
+      color: var(--taupe);
+      font-family: var(--sans);
+      font-size: 11px; letter-spacing: 3px;
+      text-transform: uppercase;
+    }
+    .stay-card-body { padding: 28px 28px 32px; }
+    .stay-card-title {
+      font-family: var(--serif);
+      font-size: 22px; font-weight: 400;
+      color: var(--charcoal);
+      margin-bottom: 8px;
+    }
+    .stay-card-desc {
+      font-family: var(--sans);
+      font-size: 14px; font-weight: 300;
+      line-height: 1.65;
+      color: var(--taupe);
+    }
+
+    /* ── VIRTUAL TOUR ── */
+    .rs-tour::before {
+      content: ''; position: absolute; inset: 0;
+      background: radial-gradient(ellipse at center, rgba(212,184,92,0.08) 0%, transparent 70%);
+      pointer-events: none;
+    }
+    .tour-inner { max-width: 720px; margin: 0 auto; position: relative; z-index: 1; }
+    .tour-eyebrow {
+      font-family: var(--sans);
+      font-size: 12px; font-weight: 500;
+      letter-spacing: 4px; text-transform: uppercase;
+      color: var(--gold); margin-bottom: 24px;
+      text-shadow: 0 0 20px var(--gold-glow);
+    }
+    .tour-inner h3 {
+      font-family: var(--serif);
+      font-size: clamp(28px, 3.6vw, 44px);
+      font-weight: 300;
+      line-height: 1.2;
+      color: var(--white);
+      margin-bottom: 20px;
+    }
+    .tour-inner h3 em { font-style: italic; color: var(--gold); text-shadow: 0 0 24px var(--gold-glow); }
+    .tour-inner p {
+      font-family: var(--sans);
+      font-size: 16px; font-weight: 300;
+      line-height: 1.85;
+      color: rgba(255,255,255,0.78);
+      margin-bottom: 36px;
+    }
+
+    /* ── CLICKABLE ROOMS ── */
+    .rooms-head { text-align: center; max-width: 720px; margin: 0 auto 64px; }
+    .rooms-head .eyebrow {
+      font-size: 12px; font-weight: 500;
+      letter-spacing: 4px; text-transform: uppercase;
+      color: var(--gold); margin-bottom: 24px;
+    }
+    .rooms-head h2 {
+      font-family: var(--serif);
+      font-size: clamp(34px, 4.2vw, 50px);
+      font-weight: 300;
+      color: var(--charcoal);
+      margin-bottom: 16px;
+    }
+    .rooms-head h2 em { font-style: italic; color: var(--gold); }
+    .rooms-head p {
+      font-family: var(--sans);
+      font-size: 14px; font-weight: 300;
+      color: var(--taupe);
+    }
+    .rooms-grid {
+      max-width: 1200px; margin: 0 auto;
+      display: grid;
+      grid-template-columns: repeat(auto-fit, minmax(300px, 1fr));
+      gap: 2px;
+      background: var(--linen-deep);
+    }
+    .room-card {
+      background: var(--warm-white);
+      display: flex; flex-direction: column;
+      transition: transform 0.4s ease, box-shadow 0.4s ease;
+      position: relative;
+    }
+    .room-card:hover {
+      transform: translateY(-4px);
+      box-shadow: 0 24px 60px rgba(44,40,37,0.12);
+      z-index: 2;
+    }
+    .room-card.sold-out { opacity: 0.65; }
+    .room-card.sold-out:hover { transform: none; box-shadow: none; }
+    .room-card-image {
+      aspect-ratio: 4/3;
+      background-size: cover;
+      background-position: center;
+      position: relative;
+    }
+    .room-card-image.placeholder {
+      background: linear-gradient(135deg, var(--linen-deep) 0%, var(--linen-warm) 100%);
+      display: flex; align-items: center; justify-content: center;
+      color: var(--taupe);
+      font-family: var(--sans);
+      font-size: 11px; letter-spacing: 3px;
+      text-transform: uppercase;
+    }
+    .room-card-status {
+      position: absolute;
+      top: 16px; left: 16px;
+      padding: 6px 14px;
+      background: var(--charcoal);
+      color: var(--white);
+      font-family: var(--sans);
+      font-size: 10px; font-weight: 600;
+      letter-spacing: 2.5px; text-transform: uppercase;
+    }
+    .room-card-status.urgent { background: var(--gold); color: var(--white); }
+    .room-card-status.sold { background: rgba(44,40,37,0.85); color: rgba(255,255,255,0.85); }
+    .room-card-body {
+      padding: 32px 32px 36px;
+      display: flex; flex-direction: column;
+      flex: 1;
+    }
+    .room-card-name {
+      font-family: var(--serif);
+      font-size: 28px; font-weight: 400;
+      color: var(--charcoal);
+      margin-bottom: 8px;
+    }
+    .room-card-meta {
+      font-family: var(--sans);
+      font-size: 12px; font-weight: 500;
+      letter-spacing: 1.5px; text-transform: uppercase;
+      color: var(--sage);
+      margin-bottom: 18px;
+    }
+    .room-card-price {
+      font-family: var(--serif);
+      font-size: 36px; font-weight: 300;
+      color: var(--charcoal);
+      margin-bottom: 4px;
+    }
+    .room-card-price-note {
+      font-family: var(--sans);
+      font-size: 12px; font-weight: 300;
+      color: var(--taupe);
+      margin-bottom: 20px;
+    }
+    .room-card-desc {
+      font-family: var(--sans);
+      font-size: 14px; font-weight: 300;
+      line-height: 1.7;
+      color: var(--taupe);
+      margin-bottom: 24px;
+      flex: 1;
+    }
+    .room-card-cta {
+      font-family: var(--sans);
+      font-size: 11px; font-weight: 600;
+      letter-spacing: 3px; text-transform: uppercase;
+      color: var(--gold);
+      padding-bottom: 4px;
+      border-bottom: 1px solid var(--gold);
+      align-self: flex-start;
+      transition: letter-spacing 0.3s ease;
+    }
+    .room-card:hover .room-card-cta { letter-spacing: 3.5px; }
+
+    /* ── CANCELLATION ── */
+    .cancellation-inner { max-width: 760px; margin: 0 auto; }
+    .cancellation-inner h4 {
+      font-family: var(--serif);
+      font-size: 22px; font-weight: 400;
+      color: var(--charcoal);
+      margin-bottom: 16px;
+    }
+    .cancellation-inner p {
+      font-family: var(--sans);
+      font-size: 14px; font-weight: 300;
+      line-height: 1.85;
+      color: var(--taupe);
+    }
+
     /* ── DIVIDER between retreats ── */
     .retreat-divider {
       padding: 80px 48px;
@@ -849,7 +1081,10 @@
       .nav-dropdown-menu::before { display: none; }
       .page-hero { padding: 140px 24px 80px; }
       .philosophy { padding: 100px 24px; }
-      .retreat-section { padding: 120px 24px 80px; }
+      .rs-hero, .rs-about, .rs-stay, .rs-tour, .rs-includes, .rs-hosts, .rs-rooms, .rs-side, .rs-cancellation, .rs-cta { padding: 80px 24px; }
+      .rs-hero { padding-top: 120px; }
+      .stay-grid { grid-template-columns: 1fr 1fr; }
+      .rooms-grid { grid-template-columns: 1fr; }
       .retreat-card { grid-template-columns: 1fr; }
       .retreat-card-image { min-height: 360px; }
       .retreat-card-body { padding: 48px 32px; }
@@ -882,11 +1117,11 @@
         <ul class="nav-dropdown-menu">
           <li><a href="coaching.html">1:1 Coaching</a></li>
           <li><a href="group-coaching.html">Group Containers</a></li>
-          <li><a href="index.html#breathwork">Workshops &amp; Events</a></li>
-          <li><a href="index.html#ytt">Yoga Teacher Training</a></li>
+          <li><a href="workshops.html">Workshops</a></li>
+          <li><a href="ytt.html">Yoga Teacher Training</a></li>
         </ul>
       </li>
-      <li><a href="index.html#breathwork">Events</a></li>
+      <li><a href="workshops.html">Workshops</a></li>
       <li class="nav-dropdown">
         <a href="costa-rica-retreat.html">Retreats</a>
         <ul class="nav-dropdown-menu">
@@ -894,6 +1129,7 @@
           <li><a href="sedona-retreat.html">Sedona · Oct 2026</a></li>
         </ul>
       </li>
+      <li><a href="ytt.html">Teacher Training</a></li>
       <li><a href="index.html#book">Contact</a></li>
       <li><a href="index.html#book" class="nav-cta">Book a Call</a></li>
     </ul>
@@ -920,179 +1156,278 @@
     </div>
   </section>
 
-  <!-- COSTA RICA RETREAT -->
-  <section class="retreat-section retreat-costa-rica" id="costa-rica">
-    <div class="retreat-section-inner">
-
-      <!-- HERO CARD -->
-      <div class="retreat-card fade-in">
-        <div class="retreat-card-image" style="background-image:url('https://res.cloudinary.com/dstssdnoj/image/upload/q_auto,f_auto,w_1200/AdobeStock_716954740.jpg');">
-          <span class="badge">Pura Vida</span>
+  <!-- HERO CARD -->
+  <section class="rs-hero" id="costa-rica">
+    <div class="retreat-card fade-in">
+      <div class="retreat-card-image" style="background-image:url('https://res.cloudinary.com/dstssdnoj/image/upload/f_auto,q_auto,w_1500/FGA/746797217');">
+        <span class="badge">Pura Vida</span>
+      </div>
+      <div class="retreat-card-body">
+        <p class="retreat-card-eyebrow">Co-Ed Retreat · Couples Friendly</p>
+        <h2 class="retreat-card-title">Costa Rica, <em>Pura Vida</em>.</h2>
+        <p class="retreat-card-tag">Seven nights of movement, magic, and soul-deep connection in the jungle of Nosara.</p>
+        <div class="retreat-card-meta">
+          <div><p class="lab">Dates</p><p class="val">Jul 11–18, 2026</p></div>
+          <div><p class="lab">Where</p><p class="val">Bodhi Tree, Nosara</p></div>
+          <div><p class="lab">Length</p><p class="val">7 Nights</p></div>
+          <div><p class="lab">Co-Hosted</p><p class="val">With Becky Bradley</p></div>
         </div>
-        <div class="retreat-card-body">
-          <p class="retreat-card-eyebrow">Retreat 01 · Co-Ed</p>
-          <h2 class="retreat-card-title">Costa Rica, <em>Pura Vida</em>.</h2>
-          <p class="retreat-card-tag">Seven nights of movement, magic, and soul-deep connection in the jungle of Nosara.</p>
-          <div class="retreat-card-meta">
-            <div><p class="lab">Dates</p><p class="val">Jul 11–18, 2026</p></div>
-            <div><p class="lab">Where</p><p class="val">Bodhi Tree, Nosara</p></div>
-            <div><p class="lab">Length</p><p class="val">7 Nights</p></div>
-            <div><p class="lab">Co-Hosted</p><p class="val">With Becky Bradley</p></div>
-          </div>
-          <p class="retreat-card-desc">Hosted at the serene Bodhi Tree Yoga Resort, this retreat is designed for men and women ready to come home to themselves. Each day weaves together yoga, breathwork, cacao ceremony, ecstatic dance, sound healing, and embodied movement, alongside nature-rooted adventures. Couples-friendly. Open to all.</p>
-          <div class="retreat-card-ctas">
-            <a href="mailto:invision@andreaspacek.com?subject=Costa%20Rica%20Retreat%20Inquiry" class="btn-primary">Inquire Now</a>
-            <a href="https://tours.360virtualcr.com/group/8FWYLxG39" target="_blank" rel="noopener" class="btn-outline">360° Virtual Tour</a>
-          </div>
+        <p class="retreat-card-desc">Hosted at the serene Bodhi Tree Yoga Resort, this retreat is designed for men and women ready to come home to themselves. Each day weaves together yoga, breathwork, cacao ceremony, ecstatic dance, sound healing, and embodied movement, alongside nature-rooted adventures. Couples-friendly. Open to all.</p>
+        <div class="retreat-card-ctas">
+          <a href="#rooms" class="btn-primary">View Rooms &amp; Pricing</a>
+          <a href="https://tours.360virtualcr.com/group/8FWYLxG39" target="_blank" rel="noopener" class="btn-outline">360° Virtual Tour</a>
         </div>
       </div>
+    </div>
+  </section>
 
-      <!-- ABOUT -->
-      <div class="retreat-about fade-in">
-        <p class="eyebrow">A Sacred Return</p>
-        <h2>Connect to Nature. Connect to Community. Connect to <em>You</em>.</h2>
-        <p>With nourishing meals, sacred ceremony, and spacious time to rest and explore, you'll be supported in slowing down and reconnecting with what truly matters. Immerse yourself in the essence of <em>Pura Vida</em>, the good life, the simple life, the true life, and return home grounded, open, joyful, and renewed.</p>
-      </div>
+  <!-- ABOUT -->
+  <section class="rs-about">
+    <div class="retreat-about fade-in">
+      <p class="eyebrow">A Sacred Return</p>
+      <h2>Connect to Nature. Connect to Community. Connect to <em>You</em>.</h2>
+      <p>Step away from the grind, breathe deeply, and feel alive again. With nourishing meals, sacred ceremony, and spacious time to rest and explore, you'll be supported in slowing down and reconnecting with what truly matters. Immerse yourself in the essence of <em>Pura Vida</em>, the good life, the simple life, the true life, and return home grounded, open, joyful, and renewed.</p>
+    </div>
+  </section>
 
-      <!-- INCLUDES -->
-      <div class="includes">
-        <div class="includes-header fade-in">
-          <p class="eyebrow">Your Week</p>
-          <h3>What's <em>included</em>.</h3>
-        </div>
-        <div class="includes-grid">
-          <div class="include-card fade-in">
-            <p class="include-card-num">i.</p>
-            <h4>Daily practices that anchor you.</h4>
-            <ul>
-              <li>Daily yoga</li>
-              <li>Breathwork sessions</li>
-              <li>Sound bath and cacao ceremony</li>
-              <li>Guided automatic writing and reflection circles</li>
-              <li>Ecstatic dance with the local community</li>
-            </ul>
-          </div>
-          <div class="include-card fade-in fade-in-delay-1">
-            <p class="include-card-num">ii.</p>
-            <h4>Connection to nature and culture.</h4>
-            <ul>
-              <li>Visit to the Nosara Farmers Market</li>
-              <li>Nature mandala making</li>
-              <li>Journaling and sacred sharing circles</li>
-              <li>One excursion included (zipline, waterfall hike, or sunset horseback ride)</li>
-            </ul>
-          </div>
-          <div class="include-card fade-in fade-in-delay-2">
-            <p class="include-card-num">iii.</p>
-            <h4>Beautiful living.</h4>
-            <ul>
-              <li>Seven nights at Bodhi Tree Yoga Resort</li>
-              <li>Three nourishing meals per day</li>
-              <li>Use of pools, spa, jungle gym, and amenities</li>
-              <li>Steps from Playa Guiones</li>
-              <li>Surf lessons available daily (add-on)</li>
-            </ul>
-          </div>
+  <!-- STAY GRID -->
+  <section class="rs-stay">
+    <div class="stay-head fade-in">
+      <p class="eyebrow">Where You'll Be Staying</p>
+      <h2>Bodhi Tree Yoga <em>Resort</em>.</h2>
+    </div>
+    <div class="stay-grid">
+      <div class="stay-card fade-in">
+        <div class="stay-card-img" style="background-image:url('https://res.cloudinary.com/dstssdnoj/image/upload/f_auto,q_auto,w_900/FGA/746797217');"></div>
+        <div class="stay-card-body">
+          <p class="stay-card-title">Sacred Practice Shalas</p>
+          <p class="stay-card-desc">Open-air studios for breath, movement, and ceremony, surrounded by jungle.</p>
         </div>
       </div>
-
-      <!-- TIERS -->
-      <div class="tiers">
-        <div class="tiers-header fade-in">
-          <p class="eyebrow">Pick Your Room</p>
-          <h3>Three rooms. <em>Two left.</em></h3>
-          <p>All rooms are double occupancy and include the full retreat experience. Save $100 paying in full via Venmo.</p>
-        </div>
-        <div class="tiers-grid">
-          <div class="tier sold-out fade-in">
-            <p class="tier-status">Sold Out</p>
-            <p class="tier-name">Jungle Room</p>
-            <p class="tier-price">$3,449</p>
-            <p class="tier-price-note">per person · 2 queen beds</p>
-            <ul class="tier-features">
-              <li>Outdoor terrace</li>
-              <li>Ensuite bathroom + AC</li>
-              <li>Tucked deep in the trees</li>
-            </ul>
-          </div>
-          <div class="tier fade-in fade-in-delay-1">
-            <p class="tier-status urgent">1 Available</p>
-            <p class="tier-name">Queen Bungalow</p>
-            <p class="tier-price">$3,599</p>
-            <p class="tier-price-note">per person · 2 queen beds</p>
-            <ul class="tier-features">
-              <li>Private balcony</li>
-              <li>Ensuite bathroom + AC</li>
-              <li>Jungle views</li>
-            </ul>
-          </div>
-          <div class="tier fade-in fade-in-delay-2">
-            <p class="tier-status urgent">2 Left</p>
-            <p class="tier-name">Casita</p>
-            <p class="tier-price">$3,699</p>
-            <p class="tier-price-note">per person · 2 bedrooms</p>
-            <ul class="tier-features">
-              <li>Kitchenette + indoor living</li>
-              <li>Private outdoor patio</li>
-              <li>Choose private or shared twin</li>
-            </ul>
-          </div>
+      <div class="stay-card fade-in">
+        <div class="stay-card-img" style="background-image:url('https://res.cloudinary.com/dstssdnoj/image/upload/f_auto,q_auto,w_900/FGA/172527690');"></div>
+        <div class="stay-card-body">
+          <p class="stay-card-title">Bodhi Tree Restaurant</p>
+          <p class="stay-card-desc">Three nourishing meals a day, fresh, local, and lovingly prepared.</p>
         </div>
       </div>
-
-      <!-- HOSTS -->
-      <div class="hosts">
-        <div class="hosts-header fade-in">
-          <p class="eyebrow">Held With Care</p>
-          <h3>Co-hosted by <em>Becky Bradley</em>.</h3>
-          <p>At the heart of this experience is a shared intention, to create something meaningful together, with care, openness, and deep respect for connection.</p>
-        </div>
-        <div class="hosts-grid">
-          <div class="host fade-in">
-            <p class="host-role">Co-Host</p>
-            <p class="host-name">Andrea <em>Lynn</em></p>
-            <p class="host-bio">Initiatory guide and somatic teacher devoted to supporting people through pivotal thresholds of transformation. Andrea weaves embodied practice, mythic inquiry, and nervous-system awareness so that change is not just understood but lived in the body.</p>
-          </div>
-          <div class="host fade-in fade-in-delay-1">
-            <p class="host-role">Co-Host</p>
-            <p class="host-name">Becky <em>Bradley</em></p>
-            <p class="host-bio">Host of the FEEL Good Always podcast and a soul-led guide for women returning to their bodies and their truth. Becky brings warmth, practical clarity, and a deep love of community to every space she holds.</p>
-          </div>
+      <div class="stay-card fade-in">
+        <div class="stay-card-img" style="background-image:url('https://res.cloudinary.com/dstssdnoj/image/upload/f_auto,q_auto,w_900/FGA/172529133');"></div>
+        <div class="stay-card-body">
+          <p class="stay-card-title">Nosara &amp; Playa Guiones</p>
+          <p class="stay-card-desc">Walk to the beach, catch the sunset, feel the magic of Nosara.</p>
         </div>
       </div>
+      <div class="stay-card fade-in">
+        <div class="stay-card-img" style="background-image:url('https://res.cloudinary.com/dstssdnoj/image/upload/f_auto,q_auto,w_900/FGA/746791436');"></div>
+        <div class="stay-card-body">
+          <p class="stay-card-title">Pools &amp; Lounging</p>
+          <p class="stay-card-desc">Three beautiful pools. Take a dip, unwind, soak in the pura vida.</p>
+        </div>
+      </div>
+      <div class="stay-card fade-in">
+        <div class="stay-card-img" style="background-image:url('https://res.cloudinary.com/dstssdnoj/image/upload/f_auto,q_auto,w_900/FGA/746793388');"></div>
+        <div class="stay-card-body">
+          <p class="stay-card-title">Gym &amp; Movement Spaces</p>
+          <p class="stay-card-desc">An on-site gym for all your movement needs.</p>
+        </div>
+      </div>
+      <div class="stay-card fade-in">
+        <div class="stay-card-img" style="background-image:url('https://res.cloudinary.com/dstssdnoj/image/upload/f_auto,q_auto,w_900/FGA/dadbf467-1');"></div>
+        <div class="stay-card-body">
+          <p class="stay-card-title">The Healing Spa</p>
+          <p class="stay-card-desc">Soothing treatments, jungle views, and deep restoration.</p>
+        </div>
+      </div>
+      <div class="stay-card fade-in">
+        <div class="stay-card-img" style="background-image:url('https://res.cloudinary.com/dstssdnoj/image/upload/f_auto,q_auto,w_900/FGA/172529070');"></div>
+        <div class="stay-card-body">
+          <p class="stay-card-title">Jungle Grounds &amp; Gardens</p>
+          <p class="stay-card-desc">Wander barefoot paths humming with life and beauty.</p>
+        </div>
+      </div>
+      <div class="stay-card fade-in">
+        <div class="stay-card-img" style="background-image:url('https://res.cloudinary.com/dstssdnoj/image/upload/f_auto,q_auto,w_900/FGA/746812106');"></div>
+        <div class="stay-card-body">
+          <p class="stay-card-title">Your Retreat Room</p>
+          <p class="stay-card-desc">Peaceful, thoughtfully designed spaces for deep rest.</p>
+        </div>
+      </div>
+    </div>
+  </section>
 
-      <!-- SIDE INFO -->
-      <div class="side-info fade-in">
-        <div class="side-card">
-          <h4>All rooms include</h4>
+  <!-- VIRTUAL TOUR -->
+  <section class="rs-tour">
+    <div class="tour-inner fade-in">
+      <p class="tour-eyebrow">Step Inside</p>
+      <h3>Take a 360° <em>virtual tour</em> of Bodhi Tree.</h3>
+      <p>Wander the shalas, walk the gardens, peek into the rooms, all from where you are right now.</p>
+      <a class="btn-primary" href="https://tours.360virtualcr.com/group/8FWYLxG39" target="_blank" rel="noopener">Take the Virtual Tour →</a>
+    </div>
+  </section>
+
+  <!-- INCLUDES -->
+  <section class="rs-includes">
+    <div class="includes">
+      <div class="includes-header fade-in">
+        <p class="eyebrow">Your Week</p>
+        <h3>What's <em>included</em>.</h3>
+      </div>
+      <div class="includes-grid">
+        <div class="include-card fade-in">
+          <p class="include-card-num">i.</p>
+          <h4>Daily practices that anchor you.</h4>
           <ul>
-            <li><strong>Free WiFi</strong></li>
-            <li><strong>Free beach shuttle</strong></li>
-            <li><strong>Free bike rentals</strong></li>
-            <li><strong>Air conditioning + rainfall shower</strong></li>
-            <li><strong>Coffee maker, private patio, laptop-size safe</strong></li>
-            <li><strong>Standard North American outlets</strong></li>
+            <li>Daily yoga</li>
+            <li>Breathwork sessions</li>
+            <li>Sound bath and cacao ceremony</li>
+            <li>Guided automatic writing and reflection circles</li>
+            <li>Ecstatic dance with the local community</li>
           </ul>
         </div>
-        <div class="side-card">
-          <h4>What's not included</h4>
+        <div class="include-card fade-in fade-in-delay-1">
+          <p class="include-card-num">ii.</p>
+          <h4>Connection to nature and culture.</h4>
           <ul>
-            <li><strong>Flights:</strong> Fly into Liberia, Costa Rica (LIR).</li>
-            <li><strong>Ground transportation:</strong> We coordinate your ride to and from the resort.</li>
-            <li><strong>Spa treatments:</strong> Bookable separately at Bodhi Tree.</li>
-            <li><strong>Additional excursions:</strong> Beyond the one included.</li>
-            <li><strong>Travel insurance:</strong> Highly recommended.</li>
+            <li>Visit to the Nosara Farmers Market</li>
+            <li>Nature mandala making</li>
+            <li>Journaling and sacred sharing circles</li>
+            <li>One excursion included (zipline, waterfall hike, or sunset horseback ride)</li>
+          </ul>
+        </div>
+        <div class="include-card fade-in fade-in-delay-2">
+          <p class="include-card-num">iii.</p>
+          <h4>Beautiful living.</h4>
+          <ul>
+            <li>Seven nights at Bodhi Tree Yoga Resort</li>
+            <li>Three nourishing meals per day</li>
+            <li>Use of pools, spa, jungle gym, and amenities</li>
+            <li>Steps from Playa Guiones</li>
+            <li>Surf lessons available daily (add-on)</li>
           </ul>
         </div>
       </div>
+    </div>
+  </section>
 
-      <!-- RETREAT CTA -->
-      <div class="retreat-cta">
-        <p class="eyebrow">Ready to Go</p>
-        <h3>Want to <em>chat</em> first?</h3>
-        <a href="mailto:invision@andreaspacek.com?subject=Costa%20Rica%20Retreat%20Inquiry" class="btn-primary">Inquire About Costa Rica</a>
+  <!-- HOSTS -->
+  <section class="rs-hosts">
+    <div class="hosts">
+      <div class="hosts-header fade-in">
+        <p class="eyebrow">Held With Care</p>
+        <h3>Co-hosted by <em>Becky Bradley</em>.</h3>
+        <p>At the heart of this experience is a shared intention, to create something meaningful together, with care, openness, and deep respect for connection.</p>
       </div>
+      <div class="hosts-grid">
+        <div class="host fade-in">
+          <p class="host-role">Co-Host</p>
+          <p class="host-name">Andrea <em>Lynn</em></p>
+          <p class="host-bio">Initiatory guide and somatic teacher devoted to supporting people through pivotal thresholds of transformation. Andrea weaves embodied practice, mythic inquiry, and nervous-system awareness so that change is not just understood but lived in the body.</p>
+        </div>
+        <div class="host fade-in fade-in-delay-1">
+          <p class="host-role">Co-Host</p>
+          <p class="host-name">Becky <em>Bradley</em></p>
+          <p class="host-bio">Host of the FEEL Good Always podcast and a soul-led guide for women returning to their bodies and their truth. Becky brings warmth, practical clarity, and a deep love of community to every space she holds.</p>
+        </div>
+      </div>
+    </div>
+  </section>
 
+  <!-- ROOMS (clickable) -->
+  <section class="rs-rooms" id="rooms">
+    <div class="rooms-head fade-in">
+      <p class="eyebrow">Pick Your Room</p>
+      <h2>Three rooms. <em>Two left</em>.</h2>
+      <p>All rooms are double occupancy and include the full retreat experience. Save $100 paying in full via Venmo.</p>
+    </div>
+    <div class="rooms-grid">
+
+      <a class="room-card sold-out fade-in" href="jungle-room.html">
+        <div class="room-card-image" style="background-image:url('https://res.cloudinary.com/dstssdnoj/image/upload/f_auto,q_auto,w_1100/FGA/jungle-rooms');">
+          <span class="room-card-status sold">Sold Out</span>
+        </div>
+        <div class="room-card-body">
+          <p class="room-card-name">Jungle Room</p>
+          <p class="room-card-meta">2 Queen · Outdoor Terrace · Sleeps 4</p>
+          <p class="room-card-price">$3,449</p>
+          <p class="room-card-price-note">per person · double occupancy</p>
+          <p class="room-card-desc">A peaceful retreat tucked deep in the trees, quiet, grounding, and full of Costa Rican magic.</p>
+          <span class="room-card-cta">Tour the Room →</span>
+        </div>
+      </a>
+
+      <a class="room-card fade-in" href="queen-bungalow.html">
+        <div class="room-card-image" style="background-image:url('https://res.cloudinary.com/dstssdnoj/image/upload/f_auto,q_auto,w_1100/FGA/queen-bungalow');">
+          <span class="room-card-status urgent">1 Available</span>
+        </div>
+        <div class="room-card-body">
+          <p class="room-card-name">Queen Bungalow</p>
+          <p class="room-card-meta">2 Queen · Private Balcony · Sleeps 2</p>
+          <p class="room-card-price">$3,599</p>
+          <p class="room-card-price-note">per person · double occupancy</p>
+          <p class="room-card-desc">Jungle views and cozy comfort, perfect for two friends who want extra space to stretch out.</p>
+          <span class="room-card-cta">Tour the Bungalow →</span>
+        </div>
+      </a>
+
+      <a class="room-card fade-in" href="casita.html">
+        <div class="room-card-image" style="background-image:url('https://res.cloudinary.com/dstssdnoj/image/upload/f_auto,q_auto,w_1100/FGA/bodhicasitas-kirstenellis-022-hr-870x965');">
+          <span class="room-card-status urgent">2 Left</span>
+        </div>
+        <div class="room-card-body">
+          <p class="room-card-name">Casita</p>
+          <p class="room-card-meta">2 Bedrooms · Kitchenette · Sleeps 3</p>
+          <p class="room-card-price">$3,699</p>
+          <p class="room-card-price-note">per person · double occupancy</p>
+          <p class="room-card-desc">A spacious jungle casita with two bedrooms, perfect for friends who love community.</p>
+          <span class="room-card-cta">Tour the Casita →</span>
+        </div>
+      </a>
+
+    </div>
+  </section>
+
+  <!-- SIDE INFO -->
+  <section class="rs-side">
+    <div class="side-info fade-in">
+      <div class="side-card">
+        <h4>All rooms include</h4>
+        <ul>
+          <li><strong>Free WiFi</strong></li>
+          <li><strong>Free beach shuttle</strong></li>
+          <li><strong>Free bike rentals</strong></li>
+          <li><strong>Air conditioning + rainfall shower</strong></li>
+          <li><strong>Coffee maker, private patio, laptop-size safe</strong></li>
+          <li><strong>Standard North American outlets</strong></li>
+        </ul>
+      </div>
+      <div class="side-card">
+        <h4>What's not included</h4>
+        <ul>
+          <li><strong>Flights:</strong> Fly into Liberia, Costa Rica (LIR).</li>
+          <li><strong>Ground transportation:</strong> We coordinate your ride to and from the resort.</li>
+          <li><strong>Spa treatments:</strong> Bookable separately at Bodhi Tree.</li>
+          <li><strong>Additional excursions:</strong> Beyond the one included.</li>
+          <li><strong>Travel insurance:</strong> Highly recommended.</li>
+        </ul>
+      </div>
+    </div>
+  </section>
+
+  <!-- CANCELLATION -->
+  <section class="rs-cancellation">
+    <div class="cancellation-inner fade-in">
+      <h4>Cancellation Policy</h4>
+      <p>A $500 deposit is required to secure your space and is nonrefundable. If you cancel more than 60 days prior to the retreat start date, you will receive a 50% refund of amounts paid to date, excluding the deposit. Within 60 days of the retreat start date, no refunds are available for any reason, including the deposit and all payments made.</p>
+    </div>
+  </section>
+
+  <!-- INQUIRE -->
+  <section class="rs-cta">
+    <div class="retreat-cta">
+      <p class="eyebrow">Questions?</p>
+      <h3>Want to <em>chat</em> first?</h3>
+      <a href="mailto:invision@andreaspacek.com?subject=Costa%20Rica%20Retreat%20Inquiry" class="btn-primary">Email Andrea</a>
     </div>
   </section>
 
@@ -1127,7 +1462,7 @@
             <li><a href="index.html#about">About</a></li>
             <li><a href="coaching.html">1:1 Coaching</a></li>
             <li><a href="group-coaching.html">Group Containers</a></li>
-              <li><a href="index.html#ytt">Teacher Training</a></li>
+              <li><a href="ytt.html">Teacher Training</a></li>
           </ul>
         </div>
 
