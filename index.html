@@ -1455,7 +1455,13 @@
        ============================================ */
     @media (max-width: 900px) {
       .nav-links { display: none !important; }
-      .nav-toggle { display: block; }
+      .nav-toggle { display: block; position: relative; z-index: 99999; }
+      .mobile-only { display: none; }
+      .nav-links.open .mobile-only { display: list-item; }
+      .nav-links.open ~ .nav-toggle span { background: var(--charcoal); }
+      .nav-links.open ~ .nav-toggle span:nth-child(1) { transform: translateY(7px) rotate(45deg); }
+      .nav-links.open ~ .nav-toggle span:nth-child(2) { opacity: 0; }
+      .nav-links.open ~ .nav-toggle span:nth-child(3) { transform: translateY(-7px) rotate(-45deg); }
       .nav { padding: 16px 24px; backdrop-filter: none !important; -webkit-backdrop-filter: none !important; }
 
       .nav-links.open {
@@ -1579,6 +1585,7 @@
   <nav class="nav" id="nav">
     <a href="#" class="nav-logo">Andrea Lynn</a>
     <ul class="nav-links" id="navLinks">
+      <li class="mobile-only"><a href="index.html">Home</a></li>
       <li><a href="about.html">About</a></li>
       <li class="nav-dropdown">
         <a tabindex="0" role="button" aria-haspopup="true">Work With Me</a>

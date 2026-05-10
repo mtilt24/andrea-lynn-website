@@ -109,7 +109,7 @@
       font-size: 24px; font-weight: 400; font-style: italic;
       color: var(--charcoal); letter-spacing: 1px;
     }
-    .nav-links { list-style: none; display: flex; gap: 40px; align-items: center; }
+    .nav-links .mobile-only { display: none; } .nav-links { list-style: none; display: flex; gap: 40px; align-items: center; }
     .nav-links a {
       font-size: 12px; font-weight: 400; letter-spacing: 2px;
       text-transform: uppercase; color: var(--taupe);
@@ -1190,7 +1190,13 @@
       display: block; width: 24px; height: 1px; background: var(--charcoal); margin: 6px 0;
     }
     @media (max-width: 900px) {
-      .nav-toggle { display: block; }
+      .nav-toggle { display: block; position: relative; z-index: 99999; }
+      .mobile-only { display: none; }
+      .nav-links.open .mobile-only { display: list-item; }
+      .nav-links.open ~ .nav-toggle span { background: var(--charcoal); }
+      .nav-links.open ~ .nav-toggle span:nth-child(1) { transform: translateY(7px) rotate(45deg); }
+      .nav-links.open ~ .nav-toggle span:nth-child(2) { opacity: 0; }
+      .nav-links.open ~ .nav-toggle span:nth-child(3) { transform: translateY(-7px) rotate(-45deg); }
       .nav { backdrop-filter: none !important; -webkit-backdrop-filter: none !important; }
       .nav-links { display: none !important; }
       .nav-links.open { display: flex !important; flex-direction: column; position: fixed !important; inset: 0 !important; background: #F2EDE4 !important; justify-content: center; align-items: center; gap: 32px; z-index: 9999 !important; padding: 80px 24px 32px; overflow-y: auto; }
@@ -1213,6 +1219,10 @@
       .nav-links.open > li > a { font-size: 16px; letter-spacing: 3px; color: var(--charcoal); padding: 8px 0; }
       .nav-links.open .nav-dropdown > a { font-size: 16px; letter-spacing: 3px; color: var(--charcoal); }
       .nav-links.open .nav-cta { background: var(--gold) !important; color: var(--white) !important; padding: 12px 28px !important; font-size: 13px !important; letter-spacing: 2.5px !important; }
+      .nav-links.open .nav-dropdown .nav-dropdown-menu { display: none !important; }
+      .nav-links.open .nav-dropdown.expanded .nav-dropdown-menu { display: flex !important; flex-direction: column; align-items: center; gap: 6px; }
+      .nav-links.open .nav-dropdown > a::after { display: inline-block !important; transition: transform 0.3s ease; }
+      .nav-links.open .nav-dropdown.expanded > a::after { transform: rotate(225deg) translateY(-2px); }
     }
   </style>
 
@@ -1223,6 +1233,7 @@
   <nav class="nav" id="nav">
     <a href="index.html" class="nav-logo">Andrea Lynn</a>
     <ul class="nav-links" id="navLinks">
+      <li class="mobile-only"><a href="index.html">Home</a></li>
       <li><a href="about.html">About</a></li>
       <li class="nav-dropdown">
         <a tabindex="0" role="button" aria-haspopup="true">Work With Me</a>
@@ -1603,7 +1614,13 @@
     const navLinks = document.getElementById("navLinks");
     if (navToggle && navLinks) {
       navToggle.addEventListener("click", () => navLinks.classList.toggle("open"));
-      navLinks.querySelectorAll("a").forEach(l => l.addEventListener("click", () => navLinks.classList.remove("open")));
+      navLinks.querySelectorAll("a[href]").forEach(l => l.addEventListener("click", () => navLinks.classList.remove("open")));
+      navLinks.querySelectorAll(".nav-dropdown > a").forEach(t => t.addEventListener("click", (e) => {
+        if (window.matchMedia("(max-width: 900px)").matches) {
+          e.preventDefault();
+          t.closest(".nav-dropdown").classList.toggle("expanded");
+        }
+      }));
     }
 
     const observer = new IntersectionObserver((entries) => {
