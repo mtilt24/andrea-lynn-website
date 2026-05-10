@@ -1369,14 +1369,50 @@
       .hero-headline br, .page-hero-title br { display: none; }
       .btn-primary, .btn-secondary { padding: 15px 22px; font-size: 11px; letter-spacing: 1.5px; }
     }
+    /* MOBILE NAV */
+    .nav-toggle {
+      display: none; background: none; border: none; cursor: pointer; padding: 8px;
+    }
+    .nav-toggle span {
+      display: block; width: 24px; height: 1px; background: var(--charcoal); margin: 6px 0;
+    }
+    @media (max-width: 900px) {
+      .nav-toggle { display: block; }
+      .nav-links { display: none; }
+      .nav-links.open {
+        display: flex !important;
+        flex-direction: column;
+        position: fixed; inset: 0;
+        background: var(--linen);
+        justify-content: center; align-items: center;
+        gap: 28px; z-index: 999;
+      }
+      .nav-links.open .nav-dropdown { display: flex; flex-direction: column; align-items: center; gap: 8px; }
+      .nav-links.open .nav-dropdown-menu {
+        position: static !important;
+        transform: none !important;
+        opacity: 1 !important;
+        visibility: visible !important;
+        background: transparent !important;
+        box-shadow: none !important;
+        border: none !important;
+        backdrop-filter: none !important;
+        padding: 0 !important;
+        min-width: 0 !important;
+        display: flex; flex-direction: column; align-items: center; gap: 6px;
+      }
+      .nav-links.open .nav-dropdown-menu::before { display: none !important; }
+      .nav-links.open .nav-dropdown-menu a { padding: 4px 0; font-size: 10px; color: var(--sage); }
+    }
   </style>
+
 </head>
 <body>
 
   <!-- NAV -->
-  <nav class="nav">
+  <nav class="nav" id="nav">
     <a href="index.html" class="nav-logo">Andrea Lynn</a>
-    <ul class="nav-links">
+    <ul class="nav-links" id="navLinks">
       <li><a href="about.html">About</a></li>
       <li class="nav-dropdown">
         <a tabindex="0" role="button" aria-haspopup="true">Work With Me</a>
@@ -1397,6 +1433,7 @@
             <li><a href="contact.html">Contact</a></li>
       <li><a href="#apply" class="nav-cta">Apply</a></li>
     </ul>
+    <button class="nav-toggle" id="navToggle" aria-label="Menu"><span></span><span></span><span></span></button>
   </nav>
 
   <!-- HERO -->
@@ -1789,6 +1826,15 @@
   </footer>
 
   <script>
+    const navEl = document.getElementById("nav");
+    if (navEl) window.addEventListener("scroll", () => navEl.classList.toggle("scrolled", window.scrollY > 60));
+    const navToggle = document.getElementById("navToggle");
+    const navLinks = document.getElementById("navLinks");
+    if (navToggle && navLinks) {
+      navToggle.addEventListener("click", () => navLinks.classList.toggle("open"));
+      navLinks.querySelectorAll("a").forEach(l => l.addEventListener("click", () => navLinks.classList.remove("open")));
+    }
+
     const observer = new IntersectionObserver((entries) => {
       entries.forEach(entry => {
         if (entry.isIntersecting) {
