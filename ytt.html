@@ -720,6 +720,33 @@
       margin-top: 20px;
       opacity: 0.75;
     }
+    .scroller-wrap { position: relative; }
+    .scroller-arrow {
+      position: absolute;
+      top: 50%;
+      transform: translateY(-50%);
+      width: 52px; height: 52px;
+      border-radius: 50%;
+      background: var(--white);
+      border: 1px solid rgba(212,184,92,0.5);
+      color: var(--charcoal);
+      cursor: pointer;
+      font-family: var(--serif);
+      font-size: 26px;
+      line-height: 1;
+      display: flex;
+      align-items: center;
+      justify-content: center;
+      box-shadow: 0 8px 28px rgba(44,40,37,0.12);
+      z-index: 5;
+      transition: all 0.3s ease;
+    }
+    .scroller-arrow:hover { background: var(--gold); color: var(--white); border-color: var(--gold); }
+    .scroller-arrow.prev { left: 0; }
+    .scroller-arrow.next { right: 0; }
+    @media (max-width: 600px) {
+      .scroller-arrow { width: 42px; height: 42px; font-size: 22px; }
+    }
     .ytt-voice-card {
       background: var(--white); padding: 40px 32px;
       border: 1px solid rgba(122, 140, 110, 0.18);
@@ -901,7 +928,10 @@
         <p class="eyebrow">Past Trainees</p>
         <h2>From women who <em>crossed through</em>.</h2>
       </div>
-      <div class="ytt-voices-scroller fade-in">
+      <div class="scroller-wrap">
+        <button class="scroller-arrow prev" data-dir="prev" aria-label="Previous testimonial">‹</button>
+        <button class="scroller-arrow next" data-dir="next" aria-label="Next testimonial">›</button>
+        <div class="ytt-voices-scroller fade-in" data-scroller>
         <div class="ytt-voice-card">
           <p class="mark">"</p>
           <blockquote>Participating in this yoga training was truly an awakening experience. To be surrounded by all the love and support while you dive deep into an unknown journey together, life-changing. This was more than just a yoga teacher training. This was a transformational experience in all areas. It will stay with me forever.</blockquote>
@@ -932,8 +962,8 @@
           <blockquote>Andrea so eloquently facilitated the divine flow of the universe to allow, nurture, and energize a beautiful community. This experience has become the scaffolding to move through the rest of my life with a real authentic connection to myself, my yoga practice, and continued self growth.</blockquote>
           <p class="attr">Madison McCoy · 200hr YTT 2023</p>
         </div>
+        </div>
       </div>
-      <p class="ytt-scroll-hint">← Scroll for more →</p>
     </div>
   </section>
 
@@ -1028,6 +1058,19 @@
       });
     }, { threshold: 0.12, rootMargin: '0px 0px -60px 0px' });
     document.querySelectorAll('.fade-in').forEach(el => observer.observe(el));
+
+    document.querySelectorAll('.scroller-wrap').forEach(wrap => {
+      const scroller = wrap.querySelector('[data-scroller]');
+      if (!scroller) return;
+      wrap.querySelectorAll('.scroller-arrow').forEach(btn => {
+        btn.addEventListener('click', () => {
+          const card = scroller.querySelector(':scope > *');
+          const step = card ? card.offsetWidth + 24 : 360;
+          const dir = btn.dataset.dir === 'prev' ? -1 : 1;
+          scroller.scrollBy({ left: dir * step, behavior: 'smooth' });
+        });
+      });
+    });
   </script>
 
 </body>

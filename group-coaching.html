@@ -1049,6 +1049,35 @@
       margin-top: 28px;
       opacity: 0.75;
     }
+    .scroller-wrap { position: relative; }
+    .scroller-arrow {
+      position: absolute;
+      top: 50%;
+      transform: translateY(-50%);
+      width: 52px; height: 52px;
+      border-radius: 50%;
+      background: var(--white, #FAF7F0);
+      border: 1px solid rgba(212,184,92,0.5);
+      color: var(--charcoal);
+      cursor: pointer;
+      font-family: var(--serif);
+      font-size: 26px;
+      line-height: 1;
+      display: flex;
+      align-items: center;
+      justify-content: center;
+      box-shadow: 0 8px 28px rgba(44,40,37,0.12);
+      z-index: 5;
+      transition: all 0.3s ease;
+    }
+    .scroller-arrow:hover { background: var(--gold); color: var(--white, #FAF7F0); border-color: var(--gold); }
+    .scroller-arrow.prev { left: 16px; }
+    .scroller-arrow.next { right: 16px; }
+    @media (max-width: 600px) {
+      .scroller-arrow { width: 42px; height: 42px; font-size: 22px; }
+      .scroller-arrow.prev { left: 4px; }
+      .scroller-arrow.next { right: 4px; }
+    }
     .t-card {
       background: var(--warm-white);
       padding: 56px 48px;
@@ -1764,7 +1793,10 @@
       <h2 class="fade-in fade-in-delay-1">From women who've done the work in community.</h2>
     </div>
 
-    <div class="testimonials-scroller fade-in">
+    <div class="scroller-wrap">
+      <button class="scroller-arrow prev" data-dir="prev" aria-label="Previous testimonial">‹</button>
+      <button class="scroller-arrow next" data-dir="next" aria-label="Next testimonial">›</button>
+      <div class="testimonials-scroller fade-in" data-scroller>
       <div class="t-card">
         <p class="mark">"</p>
         <blockquote>
@@ -1828,8 +1860,8 @@
         </blockquote>
         <p class="attr">Hailey K · Group Participant</p>
       </div>
+      </div>
     </div>
-    <p class="scroll-hint">← Scroll for more →</p>
   </section>
 
   <!-- FINAL CTA -->
@@ -1928,6 +1960,19 @@
     }, { threshold: 0.12, rootMargin: '0px 0px -60px 0px' });
 
     document.querySelectorAll('.fade-in').forEach(el => observer.observe(el));
+
+    document.querySelectorAll('.scroller-wrap').forEach(wrap => {
+      const scroller = wrap.querySelector('[data-scroller]');
+      if (!scroller) return;
+      wrap.querySelectorAll('.scroller-arrow').forEach(btn => {
+        btn.addEventListener('click', () => {
+          const card = scroller.querySelector(':scope > *');
+          const step = card ? card.offsetWidth + 24 : 360;
+          const dir = btn.dataset.dir === 'prev' ? -1 : 1;
+          scroller.scrollBy({ left: dir * step, behavior: 'smooth' });
+        });
+      });
+    });
   </script>
 
 </body>
