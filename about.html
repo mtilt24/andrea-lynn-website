@@ -1194,21 +1194,60 @@
     .editorial-spread-image {
       position: relative;
       overflow: hidden;
-      box-shadow: 0 30px 60px rgba(44, 40, 37, 0.12);
     }
     .editorial-spread-image img {
       width: 100%;
       height: auto;
       display: block;
-      transition: transform 1.2s ease;
     }
-    .editorial-spread-image:hover img { transform: scale(1.03); }
-    .editorial-spread-image::after {
+
+    /* Image placeholders matching site aesthetic */
+    .img-placeholder {
+      position: relative;
+      display: flex;
+      align-items: center;
+      justify-content: center;
+      background: var(--linen-warm);
+      overflow: hidden;
+    }
+    .img-placeholder::before {
+      content: '';
+      position: absolute;
+      inset: 14px;
+      border: 1px solid rgba(122, 140, 110, 0.22);
+      pointer-events: none;
+    }
+    .img-placeholder::after {
       content: '';
       position: absolute;
       inset: 0;
-      border: 1px solid rgba(212, 184, 92, 0.18);
+      background-image:
+        radial-gradient(circle at 30% 20%, rgba(255,255,255,0.5), transparent 50%),
+        radial-gradient(circle at 70% 80%, rgba(212,184,92,0.06), transparent 60%);
       pointer-events: none;
+    }
+    .img-placeholder.portrait {
+      width: 100%;
+      aspect-ratio: 9 / 11;
+    }
+    .img-placeholder.full {
+      position: absolute;
+      inset: 0;
+      width: 100%;
+      height: 100%;
+      background: linear-gradient(135deg, var(--linen-warm), var(--linen-deep));
+    }
+    .img-placeholder-label {
+      position: relative;
+      z-index: 1;
+      font-family: var(--serif);
+      font-style: italic;
+      font-size: 17px;
+      letter-spacing: 1px;
+      color: var(--taupe);
+      opacity: 0.55;
+      text-align: center;
+      padding: 12px 24px;
     }
 
     .editorial-spread-text .eyebrow,
@@ -1221,7 +1260,7 @@
       font-weight: 500;
       letter-spacing: 4px;
       text-transform: uppercase;
-      color: var(--gold);
+      color: var(--sage);
       margin-bottom: 24px;
     }
     .editorial-spread-text h2 {
@@ -1332,15 +1371,14 @@
           I've been in <em>the fire</em>.<br>I know how to hold it.
         </h1>
         <p class="page-hero-lede">
-          I'm Andrea Lynn. Somatic coach, embodiment guide, and keeper of sacred space for women becoming.
-        </p>
-        <p class="page-hero-sub">
-          What I do is not a method I learned. It is a remembering. The work of returning women to themselves, and I have been in this work for over twenty years.
+          I know what it's like to feel the pull toward something more.
         </p>
         <div class="page-hero-divider"></div>
       </div>
       <div class="page-hero-visual">
-        <img src="https://res.cloudinary.com/dstssdnoj/image/upload/q_auto,f_auto,w_700,h_900,c_fill/AdobeStock_255167394_x3jreb.jpg" alt="Woman in stillness, sacred light, somatic embodiment with Andrea Lynn" width="700" height="900" fetchpriority="high" decoding="async">
+        <div class="img-placeholder portrait" aria-label="Portrait placeholder">
+          <span class="img-placeholder-label">Andrea Portrait</span>
+        </div>
       </div>
     </div>
   </section>
@@ -1371,50 +1409,27 @@
   <section class="editorial-spread">
     <div class="editorial-spread-inner">
       <div class="editorial-spread-text fade-in">
-        <p class="eyebrow">The Origin</p>
+        <p class="eyebrow">In Her Words</p>
         <h2>I didn't find this work. <em>It found me</em>.</h2>
-        <p>I came to embodiment because my body insisted. Long before I had language for it, I was the woman who could feel everything in a room. I was the woman who knew what was true, and pretended I didn't.</p>
-        <p>Yoga was the first doorway. Then breath. Then the slow, devoted work of meeting what lives beneath the language. Of learning to stay with myself when staying is the harder thing. Of trusting the body when the mind keeps trying to argue with it.</p>
-        <p>Twenty plus years later, I am still in it. Still being remade by what I teach. The work has changed me. It changes every woman who lets it.</p>
+        <p>I'm Andrea Lynn. Somatic coach, embodiment guide, and keeper of sacred space for women who know, deep in their bones, that they're meant for more.</p>
+        <p>My work lives in the body. In the breath. In the places you've stopped feeling, the desires you've stopped voicing, the version of yourself you've been quietly shelving.</p>
+        <p>I use somatic process, breathwork, feminine embodiment practices, and guided visualization to help women move from numb to alive, from performing to becoming.</p>
         <p><strong>This isn't therapy. It isn't conventional coaching. It is initiation. And it changes everything.</strong></p>
       </div>
       <div class="editorial-spread-image fade-in fade-in-delay-1">
-        <img src="https://res.cloudinary.com/dstssdnoj/image/upload/q_auto,f_auto,w_900,h_1100,c_fill/Untitled_design_3_uzonky.png" alt="Andrea Lynn in meditation, framed in golden celestial light" width="900" height="1100" loading="lazy" decoding="async">
+        <div class="img-placeholder portrait" aria-label="Portrait placeholder">
+          <span class="img-placeholder-label">Andrea Portrait</span>
+        </div>
       </div>
     </div>
   </section>
 
   <!-- EDITORIAL IMAGE BREAK -->
   <section class="editorial-image-full">
-    <img src="https://res.cloudinary.com/dstssdnoj/image/upload/q_auto,f_auto,w_2000,h_1100,c_fill,g_auto/AdobeStock_138693496_ngwvat.jpg" alt="Sacred light pouring through ancient space, Andrea Lynn's embodiment practice" width="2000" height="1100" loading="lazy" decoding="async">
-    <p class="caption fade-in">"My work lives in the body. In the breath. In the places you've stopped feeling, the desires you've stopped voicing, the version of yourself you've been quietly shelving."</p>
-  </section>
-
-  <!-- THE WORK -->
-  <section class="for-not-for">
-    <div class="for-not-for-inner">
-      <div class="for-card fade-in">
-        <p class="eyebrow">What I Do</p>
-        <h3>Embodied. Somatic. Devotional.</h3>
-        <ul>
-          <li>Somatic coaching, the kind that lives in the body, not the mind.</li>
-          <li>Breathwork that bypasses what words cannot reach.</li>
-          <li>Feminine embodiment, devoted to aliveness over performance.</li>
-          <li>200-hour and 300-hour yoga teacher training.</li>
-          <li>Retreats, ceremony, and sacred immersion in beautiful places.</li>
-        </ul>
-      </div>
-      <div class="for-card dark fade-in fade-in-delay-1">
-        <p class="eyebrow">What I Don't Do</p>
-        <h3>This is not what you've already tried.</h3>
-        <ul>
-          <li>I do not push, fix, or hustle you toward your becoming.</li>
-          <li>I do not bypass the body to get to the breakthrough.</li>
-          <li>I do not believe you are broken. You are between versions.</li>
-          <li>I do not make you small to keep you comfortable.</li>
-        </ul>
-      </div>
+    <div class="img-placeholder full" aria-label="Editorial image placeholder">
+      <span class="img-placeholder-label">Andrea — In Practice</span>
     </div>
+    <p class="caption fade-in">Your body knows the way.</p>
   </section>
 
   <!-- THE PRACTICE -->
@@ -1422,32 +1437,15 @@
     <div class="editorial-spread-inner reverse">
       <div class="editorial-spread-text fade-in fade-in-delay-1">
         <p class="eyebrow">The Practice</p>
-        <h2>Twenty plus years <em>in the body</em>.</h2>
-        <p>Yoga teacher and trainer for over two decades. Somatic, breath-based, and embodiment practices grounded in lived devotion.</p>
-        <p>200-hour and 300-hour Sacred Alchemy yoga teacher training, designed to develop highly skilled teachers and deeply embodied practitioners. Workshops and breathwork circles taught throughout California, online, and on retreat.</p>
-        <p>Retreats co-hosted with sister teachers in Costa Rica, Sedona, and beyond.</p>
-        <p><strong>Every credential I hold is a doorway. The real practice is the daily devotion to staying in my body and helping you return to yours.</strong></p>
+        <h2>Over twenty years <em>in the body</em>.</h2>
+        <p>Yoga teacher and trainer for over two decades. 200-hour and 300-hour Sacred Alchemy yoga teacher training. Workshops and breathwork circles. Retreats in Costa Rica, Sedona, and beyond.</p>
+        <p><strong>Every credential is a doorway. The practice is the daily devotion to staying in the body and helping you return to yours.</strong></p>
       </div>
       <div class="editorial-spread-image fade-in">
-        <img src="https://res.cloudinary.com/dstssdnoj/image/upload/q_auto,f_auto,w_900,h_1100,c_fill,g_face/AdobeStock_812065335_gnlbay.jpg" alt="Andrea Lynn leading a sacred women's circle, twenty plus years of embodied practice" width="900" height="1100" loading="lazy" decoding="async">
+        <div class="img-placeholder portrait" aria-label="Portrait placeholder">
+          <span class="img-placeholder-label">Andrea Teaching</span>
+        </div>
       </div>
-    </div>
-  </section>
-
-  <!-- WHO I WORK WITH -->
-  <section class="intro">
-    <div class="intro-inner">
-      <p class="eyebrow fade-in">Who I Sit With</p>
-      <h2 class="fade-in fade-in-delay-1">The women I work with are <em>becoming</em>.</h2>
-      <p class="fade-in fade-in-delay-2">
-        They are leaving careers, marriages, identities, or eras of themselves that no longer fit. They have done the books, the therapy, the personal development. They are not new to inner work. They are new to letting it land in the body.
-      </p>
-      <p class="fade-in fade-in-delay-3">
-        They are mothers, leaders, healers, teachers, artists. They are women in midlife at a threshold. They are women in their thirties who already feel the pull. They are women who can sense the next version of themselves and refuse to keep pretending they cannot.
-      </p>
-      <p class="fade-in fade-in-delay-4">
-        <strong>If something in this is calling you, that is your answer.</strong>
-      </p>
     </div>
   </section>
 
