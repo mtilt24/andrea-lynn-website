@@ -251,6 +251,16 @@
       position: relative;
       z-index: 1;
     }
+    /* Contact page: text-only hero, centered */
+    .contact-hero .page-hero-inner {
+      grid-template-columns: 1fr;
+      max-width: 820px;
+      text-align: center;
+    }
+    .contact-hero .page-hero-breadcrumb { justify-content: center; }
+    .contact-hero .page-hero-title { max-width: none; }
+    .contact-hero .page-hero-lede { max-width: 600px; margin-left: auto; margin-right: auto; }
+    .contact-hero .page-hero-divider { margin-left: auto; margin-right: auto; }
     .page-hero-breadcrumb {
       font-family: var(--sans);
       font-size: 11px; font-weight: 500;
@@ -1193,7 +1203,7 @@
   </nav>
 
   <!-- HERO -->
-  <section class="page-hero">
+  <section class="page-hero contact-hero">
     <div class="page-hero-inner">
       <div class="page-hero-text">
         <p class="page-hero-breadcrumb"><span class="line"></span> Contact</p>
@@ -1203,13 +1213,7 @@
         <p class="page-hero-lede">
           If something in you is stirring, that is your answer.
         </p>
-        <p class="page-hero-sub">
-          A discovery call is free, pressure-free, and real. Just a conversation about where you are and where you want to go. From there, we choose the door together.
-        </p>
         <div class="page-hero-divider"></div>
-      </div>
-      <div class="page-hero-visual">
-        <img src="https://res.cloudinary.com/dstssdnoj/image/upload/q_auto,f_auto,w_700,h_900,c_fill/AdobeStock_1869137455_ujaizp.jpg" alt="Sacred altar at golden hour, threshold to the work with Andrea Lynn" width="700" height="900" fetchpriority="high" decoding="async">
       </div>
     </div>
   </section>
