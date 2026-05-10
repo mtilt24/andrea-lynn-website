@@ -1191,14 +1191,7 @@
     @media (max-width: 900px) {
       .nav-toggle { display: block; }
       .nav-links { display: none; }
-      .nav-links.open {
-        display: flex !important;
-        flex-direction: column;
-        position: fixed; inset: 0;
-        background: var(--linen);
-        justify-content: center; align-items: center;
-        gap: 28px; z-index: 999;
-      }
+      .nav-links.open { display: flex !important; flex-direction: column; position: fixed !important; inset: 0 !important; background: #F2EDE4 !important; justify-content: center; align-items: center; gap: 32px; z-index: 9999 !important; padding: 80px 24px 32px; overflow-y: auto; }
       .nav-links.open .nav-dropdown { display: flex; flex-direction: column; align-items: center; gap: 8px; }
       .nav-links.open .nav-dropdown-menu {
         position: static !important;

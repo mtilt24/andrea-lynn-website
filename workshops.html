@@ -206,7 +206,7 @@
     }
     .page-hero-inner {
       max-width: 1200px; margin: 0 auto;
-      display: grid; grid-template-columns: 1fr 0.85fr;
+      display: grid; grid-template-columns: 1.2fr 0.7fr;
       gap: 100px; align-items: center;
       position: relative; z-index: 1;
     }
@@ -235,7 +235,7 @@
       line-height: 1.85; color: var(--taupe);
       max-width: 540px;
     }
-    .page-hero-visual {
+    .page-hero-visual { max-width: 420px; margin-left: auto; margin-right: auto;
       aspect-ratio: 4/5;
       border-radius: 4px 4px 200px 200px;
     }
@@ -621,14 +621,7 @@
     @media (max-width: 900px) {
       .nav-toggle { display: block; }
       .nav-links { display: none; }
-      .nav-links.open {
-        display: flex !important;
-        flex-direction: column;
-        position: fixed; inset: 0;
-        background: var(--linen);
-        justify-content: center; align-items: center;
-        gap: 28px; z-index: 999;
-      }
+      .nav-links.open { display: flex !important; flex-direction: column; position: fixed !important; inset: 0 !important; background: #F2EDE4 !important; justify-content: center; align-items: center; gap: 32px; z-index: 9999 !important; padding: 80px 24px 32px; overflow-y: auto; }
       .nav-links.open .nav-dropdown { display: flex; flex-direction: column; align-items: center; gap: 8px; }
       .nav-links.open .nav-dropdown-menu {
         position: static !important;
