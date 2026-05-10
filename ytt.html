@@ -745,7 +745,13 @@
     .scroller-arrow.prev { left: 0; }
     .scroller-arrow.next { right: 0; }
     @media (max-width: 600px) {
-      .scroller-arrow { width: 42px; height: 42px; font-size: 22px; }
+      .scroller-wrap { padding-bottom: 64px; }
+      .scroller-arrow {
+        width: 42px; height: 42px; font-size: 22px;
+        top: auto; bottom: 0; transform: none;
+      }
+      .scroller-arrow.prev { left: calc(50% - 50px); right: auto; }
+      .scroller-arrow.next { left: calc(50% + 8px); right: auto; }
     }
     .ytt-voice-card {
       background: var(--white); padding: 40px 32px;

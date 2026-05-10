@@ -1259,9 +1259,13 @@
     .scroller-arrow.prev { left: 16px; }
     .scroller-arrow.next { right: 16px; }
     @media (max-width: 600px) {
-      .scroller-arrow { width: 42px; height: 42px; font-size: 22px; }
-      .scroller-arrow.prev { left: 4px; }
-      .scroller-arrow.next { right: 4px; }
+      .scroller-wrap { padding-bottom: 64px; }
+      .scroller-arrow {
+        width: 42px; height: 42px; font-size: 22px;
+        top: auto; bottom: 0; transform: none;
+      }
+      .scroller-arrow.prev { left: calc(50% - 50px); right: auto; }
+      .scroller-arrow.next { left: calc(50% + 8px); right: auto; }
     }
     @media (max-width: 900px) {
       .voices { padding: 100px 0; }
