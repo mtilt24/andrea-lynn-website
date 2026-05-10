@@ -1125,6 +1125,73 @@
       color: var(--sage);
     }
 
+    /* Multi-testimonial grid (homepage) */
+    .voices {
+      padding: 60px 48px 120px;
+      background: var(--linen);
+      position: relative;
+    }
+    .voices-inner { max-width: 1240px; margin: 0 auto; }
+    .voices-header { text-align: center; margin-bottom: 64px; }
+    .voices-eyebrow {
+      font-family: var(--sans);
+      font-size: 11px; font-weight: 500;
+      letter-spacing: 4px; text-transform: uppercase;
+      color: var(--sage);
+      margin-bottom: 20px;
+      display: block;
+    }
+    .voices-header h3 {
+      font-family: var(--serif);
+      font-size: clamp(28px, 3vw, 38px);
+      font-weight: 300; line-height: 1.2;
+      color: var(--charcoal);
+    }
+    .voices-grid {
+      display: grid;
+      grid-template-columns: repeat(3, 1fr);
+      gap: 36px;
+    }
+    .voice-card {
+      background: var(--white);
+      padding: 40px 32px;
+      border: 1px solid rgba(122, 140, 110, 0.18);
+      border-radius: 4px;
+      display: flex;
+      flex-direction: column;
+    }
+    .voice-card .mark {
+      font-family: var(--serif);
+      font-size: 64px;
+      color: var(--sage);
+      opacity: 0.3;
+      line-height: 0.4;
+      margin-bottom: 20px;
+    }
+    .voice-card blockquote {
+      font-family: var(--serif);
+      font-size: 17px;
+      font-weight: 300;
+      font-style: italic;
+      line-height: 1.65;
+      color: var(--charcoal);
+      margin-bottom: 24px;
+      flex: 1;
+    }
+    .voice-card .attr {
+      font-family: var(--sans);
+      font-size: 11px;
+      font-weight: 500;
+      letter-spacing: 2.5px;
+      text-transform: uppercase;
+      color: var(--sage);
+    }
+    @media (max-width: 900px) {
+      .voices { padding: 40px 28px 100px; }
+      .voices-grid { grid-template-columns: 1fr; gap: 24px; }
+      .voice-card { padding: 32px 28px; }
+    }
+
     /* ============================================
        EMAIL CAPTURE
        ============================================ */
@@ -1814,7 +1881,7 @@
     </div>
   </section>
 
-  <!-- TESTIMONIAL -->
+  <!-- TESTIMONIAL FEATURED -->
   <section class="testimonial">
     <div class="testimonial-inner">
       <div class="framed-image frame-orbital fade-in" style="max-width: 360px;">
@@ -1828,6 +1895,33 @@
           Andrea was born to do this work. She has a gift of not only seeing you and compassionately guiding you, but also empowering you. Every time I have a session with Andrea I feel like I know and love myself on a deeper level, and leave feeling inspired. She has helped me see and work through my blocks, fears, and doubts in order for me to step into the fullest version of myself that I was always meant to be.
         </blockquote>
         <p class="testimonial-attribution">Kelly Austin, Spiritual Coach</p>
+      </div>
+    </div>
+  </section>
+
+  <!-- MORE VOICES -->
+  <section class="voices">
+    <div class="voices-inner">
+      <div class="voices-header fade-in">
+        <span class="voices-eyebrow">More Voices</span>
+        <h3>Women who've done the work.</h3>
+      </div>
+      <div class="voices-grid">
+        <div class="voice-card fade-in">
+          <p class="mark">"</p>
+          <blockquote>My coaching sessions with Andrea left me with a sense of my life as a divine mystery unfolding into a perfectly beautiful love story. It was pure magic to sit in a space with someone and feel free to speak from such an embodied space.</blockquote>
+          <p class="attr">Jessica G. · Transformational Coach</p>
+        </div>
+        <div class="voice-card fade-in fade-in-delay-1">
+          <p class="mark">"</p>
+          <blockquote>Andrea has a unique ability to show up with profound presence and love, seeing things from a perspective that both calls you forward into expressing yourself honestly while also seeing where you are stuck and encouraging you to grow beyond your limitations.</blockquote>
+          <p class="attr">Hailey K. · Group Container Participant</p>
+        </div>
+        <div class="voice-card fade-in fade-in-delay-2">
+          <p class="mark">"</p>
+          <blockquote>Andrea so eloquently facilitated the divine flow of the universe to allow, nurture and energize a beautiful community, that has a live spirit, a heart beat, and is so much more than I could have imagined. This experience was everything.</blockquote>
+          <p class="attr">Madison McCoy · 200hr YTT</p>
+        </div>
       </div>
     </div>
   </section>

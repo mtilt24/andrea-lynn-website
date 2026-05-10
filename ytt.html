@@ -674,6 +674,46 @@
       .nav-links.open .nav-dropdown > a::after { display: inline-block !important; transition: transform 0.3s ease; }
       .nav-links.open .nav-dropdown.expanded > a::after { transform: rotate(225deg) translateY(-2px); }
     }
+    /* YTT TESTIMONIALS */
+    .ytt-voices { padding: 120px 60px; background: var(--linen); }
+    .ytt-voices-inner { max-width: 1240px; margin: 0 auto; }
+    .ytt-voices-header { text-align: center; margin-bottom: 64px; }
+    .ytt-voices-header .eyebrow {
+      font-family: var(--sans); font-size: 11px; font-weight: 500;
+      letter-spacing: 4px; text-transform: uppercase; color: var(--sage);
+      margin-bottom: 20px; display: block;
+    }
+    .ytt-voices-header h2 {
+      font-family: var(--serif); font-size: clamp(32px, 4vw, 48px);
+      font-weight: 300; line-height: 1.2; color: var(--charcoal);
+    }
+    .ytt-voices-header h2 em { font-style: italic; color: var(--gold); }
+    .ytt-voices-grid {
+      display: grid; grid-template-columns: repeat(3, 1fr); gap: 32px;
+    }
+    .ytt-voice-card {
+      background: var(--white); padding: 40px 32px;
+      border: 1px solid rgba(122, 140, 110, 0.18);
+      border-radius: 4px;
+      display: flex; flex-direction: column;
+    }
+    .ytt-voice-card .mark {
+      font-family: var(--serif); font-size: 64px; color: var(--sage);
+      opacity: 0.3; line-height: 0.4; margin-bottom: 20px;
+    }
+    .ytt-voice-card blockquote {
+      font-family: var(--serif); font-size: 16px; font-weight: 300; font-style: italic;
+      line-height: 1.65; color: var(--charcoal); margin-bottom: 24px; flex: 1;
+    }
+    .ytt-voice-card .attr {
+      font-family: var(--sans); font-size: 11px; font-weight: 500;
+      letter-spacing: 2.5px; text-transform: uppercase; color: var(--sage);
+    }
+    @media (max-width: 900px) {
+      .ytt-voices { padding: 100px 28px; }
+      .ytt-voices-grid { grid-template-columns: 1fr; gap: 24px; }
+      .ytt-voice-card { padding: 32px 28px; }
+    }
   </style>
 
 </head>
@@ -821,6 +861,33 @@
       <h2 class="fade-in fade-in-delay-1">By the end, you won't just understand yoga. <em>You'll be able to teach it</em>.</h2>
       <p class="fade-in fade-in-delay-2">In a way that's clear, safe, and impactful. With a body that knows what it is asking of others. With the presence to hold a room and the discernment to meet who's actually in it.</p>
       <p class="fade-in fade-in-delay-2">This is not about adding more information. It's about becoming more effective, more intuitive, and more grounded in your work.</p>
+    </div>
+  </section>
+
+  <!-- TESTIMONIALS -->
+  <section class="ytt-voices">
+    <div class="ytt-voices-inner">
+      <div class="ytt-voices-header fade-in">
+        <p class="eyebrow">Past Trainees</p>
+        <h2>From women who <em>crossed through</em>.</h2>
+      </div>
+      <div class="ytt-voices-grid">
+        <div class="ytt-voice-card fade-in">
+          <p class="mark">"</p>
+          <blockquote>Participating in this yoga training was truly an awakening experience. To be surrounded by all the love and support while you dive deep into an unknown journey together, life-changing. Working with Andrea was amazing and had such an impact on me. Her nurturing, fiery, passionate, and playful energy never goes unnoticed. This was more than just a yoga teacher training. This was a transformational experience in all areas. It will stay with me forever.</blockquote>
+          <p class="attr">Joriel P. · 200hr YTT 2023</p>
+        </div>
+        <div class="ytt-voice-card fade-in fade-in-delay-1">
+          <p class="mark">"</p>
+          <blockquote>My experience with the 200-hour training Andrea provided was more than I ever anticipated. Yes, we learned asana. Yes, my personal practice grew. However above all, I experienced a closeness to myself I never knew existed. Taking my 200-hour was an important decision, one that will forever change my life course. Nurturing and tactful, Andrea was there for me and all my peers every step of the way.</blockquote>
+          <p class="attr">Jenny H. · 200hr YTT 2023</p>
+        </div>
+        <div class="ytt-voice-card fade-in fade-in-delay-2">
+          <p class="mark">"</p>
+          <blockquote>Andrea is a true modern mystic. Her deep yogini wisdom combined with her expertise as a facilitator of women's circles helped me recognize walls and barriers I had within myself, and not just knock them down, but completely burn them to the ground in the name of healing for myself and the planet. I learned so much from her about how to live yoga.</blockquote>
+          <p class="attr">Nicole Beardsley · Channels of Healing YTT 2023</p>
+        </div>
+      </div>
     </div>
   </section>
 
