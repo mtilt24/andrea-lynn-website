@@ -537,7 +537,7 @@
        COMPOSED IMAGE (pre-framed from Canva/design)
        ============================================ */
     .composed-image {
-      max-width: 620px;
+      max-width: 595px;
       width: 100%;
       margin: 0 auto;
     }
@@ -553,7 +553,7 @@
        ============================================ */
     .framed-image {
       position: relative;
-      max-width: 460px;
+      max-width: 435px;
       width: 100%;
       margin: 0 auto;
       /* Extra space for frame overhang */
@@ -817,6 +817,8 @@
 
     .standalone-placeholder {
       width: 100%;
+      max-width: 434px;
+      margin: 0 auto;
       aspect-ratio: 4/5;
       background: linear-gradient(135deg, var(--linen-warm) 0%, rgba(122,140,110,0.08) 100%);
       border: 1px solid rgba(122,140,110,0.15);
@@ -1582,9 +1584,15 @@
       .standalone-inner.reverse { grid-template-columns: 1fr; gap: 60px; direction: ltr; }
 
       .framed-image { max-width: 320px; }
+      .framed-image .photo { max-height: 348px; }
+      .framed-image.frame-orbital .photo { max-height: 425px; }
+      .standalone-placeholder { aspect-ratio: auto; height: 325px; max-width: 320px; }
+      .composed-image { max-width: 380px; }
+      .composed-image img { max-height: 425px; object-fit: cover; }
 
       .retreats-content { grid-template-columns: 1fr; gap: 60px; padding: 120px 28px; }
       .retreat-framed:nth-child(2) { margin-top: 0; }
+      .marquee-track { animation-duration: 22s; }
 
       .offerings-grid { grid-template-columns: 1fr; }
 

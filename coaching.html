@@ -288,7 +288,6 @@
     .page-hero-lede {
       font-family: var(--serif);
       font-size: 22px; font-weight: 300;
-      font-style: italic;
       line-height: 1.5;
       color: var(--charcoal);
       max-width: 520px;
@@ -1140,6 +1139,7 @@
     }
     /* Phones: 600px and below */
     @media (max-width: 600px) {
+      .marquee-track { animation-duration: 22s !important; }
       .nav { padding: 14px 22px; }
       .nav.scrolled { padding: 10px 22px; }
       .nav-logo { font-size: 18px; letter-spacing: 2.5px; }
@@ -1252,9 +1252,6 @@
         </h1>
         <p class="page-hero-lede">
           You know what you want. And you can feel where you're not fully choosing it.
-        </p>
-        <p class="page-hero-sub">
-          This is a space where you are deeply supported and gently, firmly challenged to close that gap. Not through pressure. Not through force. By coming back into alignment with what you already know is true, and moving from that place.
         </p>
         <div class="page-hero-divider"></div>
       </div>
