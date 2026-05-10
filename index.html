@@ -1576,6 +1576,10 @@
       }
       .nav-dropdown-menu a:hover { letter-spacing: 3px; }
       .nav-links.open .nav-cta { background: var(--gold) !important; color: var(--white) !important; padding: 12px 28px !important; font-size: 13px !important; letter-spacing: 2.5px !important; }
+      .nav-links.open .nav-dropdown .nav-dropdown-menu { display: none !important; }
+      .nav-links.open .nav-dropdown.expanded .nav-dropdown-menu { display: flex !important; flex-direction: column; align-items: center; gap: 6px; }
+      .nav-links.open .nav-dropdown > a::after { display: inline-block !important; transition: transform 0.3s ease; }
+      .nav-links.open .nav-dropdown.expanded > a::after { transform: rotate(225deg) translateY(-2px); }
 
       .about-inner,
       .coaching-inner,
@@ -2017,7 +2021,13 @@
     const navToggle = document.getElementById('navToggle');
     const navLinks = document.getElementById('navLinks');
     navToggle.addEventListener('click', () => navLinks.classList.toggle('open'));
-    navLinks.querySelectorAll('a').forEach(l => l.addEventListener('click', () => navLinks.classList.remove('open')));
+    navLinks.querySelectorAll('a[href]').forEach(l => l.addEventListener('click', () => navLinks.classList.remove('open')));
+    navLinks.querySelectorAll('.nav-dropdown > a').forEach(t => t.addEventListener('click', (e) => {
+      if (window.matchMedia('(max-width: 900px)').matches) {
+        e.preventDefault();
+        t.closest('.nav-dropdown').classList.toggle('expanded');
+      }
+    }));
 
     const observer = new IntersectionObserver((entries) => {
       entries.forEach(entry => {
