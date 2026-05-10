@@ -1019,6 +1019,36 @@
       gap: 2px;
       background: var(--linen-deep);
     }
+    .testimonials-scroller {
+      max-width: 1280px;
+      margin: 0 auto;
+      display: flex;
+      gap: 24px;
+      overflow-x: auto;
+      scroll-snap-type: x mandatory;
+      scroll-padding: 48px;
+      padding: 8px 48px 28px;
+      scrollbar-width: thin;
+      scrollbar-color: rgba(212,184,92,0.4) transparent;
+    }
+    .testimonials-scroller::-webkit-scrollbar { height: 6px; }
+    .testimonials-scroller::-webkit-scrollbar-track { background: transparent; }
+    .testimonials-scroller::-webkit-scrollbar-thumb { background: rgba(212,184,92,0.5); border-radius: 4px; }
+    .testimonials-scroller .t-card {
+      flex: 0 0 auto;
+      width: clamp(300px, 32vw, 420px);
+      scroll-snap-align: start;
+    }
+    .scroll-hint {
+      text-align: center;
+      font-family: var(--sans);
+      font-size: 11px;
+      letter-spacing: 3px;
+      text-transform: uppercase;
+      color: var(--gold);
+      margin-top: 28px;
+      opacity: 0.75;
+    }
     .t-card {
       background: var(--warm-white);
       padding: 56px 48px;
@@ -1336,6 +1366,8 @@
       .compare-table { grid-template-columns: 1fr; }
       .compare-col-head, .compare-col-row { padding: 20px 24px; }
       .testimonials-grid { grid-template-columns: 1fr; }
+      .testimonials-scroller { padding: 8px 24px 24px; gap: 16px; scroll-padding: 24px; }
+      .testimonials-scroller .t-card { width: 85vw; min-width: 280px; max-width: 360px; }
       .t-card { padding: 44px 32px; }
       .pricing-card { padding: 56px 32px; }
       .pricing-meta { gap: 32px; }
@@ -1732,23 +1764,72 @@
       <h2 class="fade-in fade-in-delay-1">From women who've done the work in community.</h2>
     </div>
 
-    <div class="testimonials-grid">
-      <div class="t-card fade-in">
+    <div class="testimonials-scroller fade-in">
+      <div class="t-card">
         <p class="mark">"</p>
         <blockquote>
-          These last few months have been monumental, steeped in divinity, grace, and an abundance I never could have expected. Being able to truly open up to myself has been an incredible gift. Your presence, certainty, and unconditional love through this process has given me unlimited permission to dive deep. I feel like I have truly stepped into feminine guided leadership.
+          These last few months have been monumental, steeped in divinity, grace, and an abundance I never could have expected. Your presence, certainty, and unconditional love through this process has given me unlimited permission to dive deep. I feel like I have truly stepped into feminine guided leadership.
         </blockquote>
         <p class="attr">Melissa Moon · Elan Healing Facilitator</p>
       </div>
 
-      <div class="t-card fade-in fade-in-delay-1">
+      <div class="t-card">
         <p class="mark">"</p>
         <blockquote>
-          I knew I needed something like this. I just didn't know how much I needed it. Being in community with other women that are also doing this work was beyond priceless. Watching the other women have breakthrough moments and being able to share in that experience as a community has been so good for my soul. This experience will be one I look back to as a time of great shifting for me.
+          I knew I needed something like this. I just didn't know how much I needed it. Being in community with other women doing this work was beyond priceless. This experience will be one I look back to as a time of great shifting for me.
         </blockquote>
         <p class="attr">Becky Bradley · Group Participant</p>
       </div>
+
+      <div class="t-card">
+        <p class="mark">"</p>
+        <blockquote>
+          My experience in InVision Feminine Leadership has shifted everything within me. Thank you for showing up so authentically human and divine. Your ways are subtle and gentle, yet so powerful and poignant, and create space for shifts on the soul level.
+        </blockquote>
+        <p class="attr">Kellie Glessner · Holistic Mamapreneur</p>
+      </div>
+
+      <div class="t-card">
+        <p class="mark">"</p>
+        <blockquote>
+          IFL came into my life at the exact time I was looking for a BIG something. Through IFL, my heart found healing in areas I had been longing to heal for years. Andrea's wisdom, guidance, and leadership will ignite a fire inside of you. I am coming out a more confident, trusting, and loving human.
+        </blockquote>
+        <p class="attr">Michaela Rodgers · Group Participant</p>
+      </div>
+
+      <div class="t-card">
+        <p class="mark">"</p>
+        <blockquote>
+          Andrea has put together something that is magical and all encompassing. The weekly meetings, in person, with a group of amazing women were something I looked forward to each week. I will never forget the 12 weeks we spent together, and the connections made with other women.
+        </blockquote>
+        <p class="attr">Elise Knox · MFT &amp; Life Coach</p>
+      </div>
+
+      <div class="t-card">
+        <p class="mark">"</p>
+        <blockquote>
+          IFL has offered me a safe container and inspired guidance to connect to the warm, gentle divine feminine I often hide from. I've taken hundreds of hours of teacher training and never have I experienced such ease in finding my center. I believe Andrea is a visionary mentor with a capacity to change lives.
+        </blockquote>
+        <p class="attr">Tosh · Group Participant</p>
+      </div>
+
+      <div class="t-card">
+        <p class="mark">"</p>
+        <blockquote>
+          I couldn't have imagined another perfect person to support us during this time other than Andrea. Her guidance, support, and follow-up allowed us to take what we needed while staying true to our commitment for the whole time. There is always something to learn when you gather a group of uniquely divine souls together.
+        </blockquote>
+        <p class="attr">Lisa Peat · Founder, Taylor House</p>
+      </div>
+
+      <div class="t-card">
+        <p class="mark">"</p>
+        <blockquote>
+          Andrea has a unique ability to show up with profound presence and love, seeing things from a perspective that calls you forward into expressing yourself honestly while also seeing where you are stuck. From this course, I received real tools to step into my natural leadership abilities.
+        </blockquote>
+        <p class="attr">Hailey K · Group Participant</p>
+      </div>
     </div>
+    <p class="scroll-hint">← Scroll for more →</p>
   </section>
 
   <!-- FINAL CTA -->

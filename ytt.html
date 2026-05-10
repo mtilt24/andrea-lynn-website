@@ -694,6 +694,32 @@
     .ytt-voices-grid {
       display: grid; grid-template-columns: repeat(3, 1fr); gap: 32px;
     }
+    .ytt-voices-scroller {
+      display: flex; gap: 24px;
+      overflow-x: auto;
+      scroll-snap-type: x mandatory;
+      scroll-padding: 0;
+      padding: 8px 0 28px;
+      scrollbar-width: thin;
+      scrollbar-color: rgba(212,184,92,0.4) transparent;
+    }
+    .ytt-voices-scroller::-webkit-scrollbar { height: 6px; }
+    .ytt-voices-scroller::-webkit-scrollbar-thumb { background: rgba(212,184,92,0.5); border-radius: 4px; }
+    .ytt-voices-scroller .ytt-voice-card {
+      flex: 0 0 auto;
+      width: clamp(280px, 30vw, 380px);
+      scroll-snap-align: start;
+    }
+    .ytt-scroll-hint {
+      text-align: center;
+      font-family: var(--sans);
+      font-size: 11px;
+      letter-spacing: 3px;
+      text-transform: uppercase;
+      color: var(--gold);
+      margin-top: 20px;
+      opacity: 0.75;
+    }
     .ytt-voice-card {
       background: var(--white); padding: 40px 32px;
       border: 1px solid rgba(122, 140, 110, 0.18);
@@ -715,6 +741,8 @@
     @media (max-width: 900px) {
       .ytt-voices { padding: 100px 28px; }
       .ytt-voices-grid { grid-template-columns: 1fr; gap: 24px; }
+      .ytt-voices-scroller { gap: 16px; padding: 8px 0 24px; }
+      .ytt-voices-scroller .ytt-voice-card { width: 85vw; min-width: 280px; max-width: 360px; }
       .ytt-voice-card { padding: 32px 28px; }
     }
   </style>
@@ -873,23 +901,39 @@
         <p class="eyebrow">Past Trainees</p>
         <h2>From women who <em>crossed through</em>.</h2>
       </div>
-      <div class="ytt-voices-grid">
-        <div class="ytt-voice-card fade-in">
+      <div class="ytt-voices-scroller fade-in">
+        <div class="ytt-voice-card">
           <p class="mark">"</p>
-          <blockquote>Participating in this yoga training was truly an awakening experience. To be surrounded by all the love and support while you dive deep into an unknown journey together, life-changing. Working with Andrea was amazing and had such an impact on me. Her nurturing, fiery, passionate, and playful energy never goes unnoticed. This was more than just a yoga teacher training. This was a transformational experience in all areas. It will stay with me forever.</blockquote>
+          <blockquote>Participating in this yoga training was truly an awakening experience. To be surrounded by all the love and support while you dive deep into an unknown journey together, life-changing. This was more than just a yoga teacher training. This was a transformational experience in all areas. It will stay with me forever.</blockquote>
           <p class="attr">Joriel P. · 200hr YTT 2023</p>
         </div>
-        <div class="ytt-voice-card fade-in fade-in-delay-1">
+        <div class="ytt-voice-card">
           <p class="mark">"</p>
-          <blockquote>My experience with the 200-hour training Andrea provided was more than I ever anticipated. Yes, we learned asana. Yes, my personal practice grew. However above all, I experienced a closeness to myself I never knew existed. Taking my 200-hour was an important decision, one that will forever change my life course. Nurturing and tactful, Andrea was there for me and all my peers every step of the way.</blockquote>
+          <blockquote>My experience with the 200-hour training Andrea provided was more than I ever anticipated. Above all, I experienced a closeness to myself I never knew existed. Taking my 200-hour was an important decision, one that will forever change my life course. Nurturing and tactful, Andrea was there for me and all my peers every step of the way.</blockquote>
           <p class="attr">Jenny H. · 200hr YTT 2023</p>
         </div>
-        <div class="ytt-voice-card fade-in fade-in-delay-2">
+        <div class="ytt-voice-card">
           <p class="mark">"</p>
-          <blockquote>Andrea is a true modern mystic. Her deep yogini wisdom combined with her expertise as a facilitator of women's circles helped me recognize walls and barriers I had within myself, and not just knock them down, but completely burn them to the ground in the name of healing for myself and the planet. I learned so much from her about how to live yoga.</blockquote>
+          <blockquote>Andrea is a true modern mystic. Her deep yogini wisdom combined with her expertise as a facilitator of women's circles helped me recognize walls and barriers I had within myself, and not just knock them down, but completely burn them to the ground in the name of healing.</blockquote>
           <p class="attr">Nicole Beardsley · Channels of Healing YTT 2023</p>
         </div>
+        <div class="ytt-voice-card">
+          <p class="mark">"</p>
+          <blockquote>Andrea is not just a mystic, yogi, shaman, friend, and saint, but a gifted yoga teacher who has helped me transform my asana practice and deepen my connection to my body, mind, and spirit. Her wisdom and insight have inspired me to approach my practice and my life with more grace, courage, and compassion.</blockquote>
+          <p class="attr">Megan Pickrell · 200hr YTT 2023</p>
+        </div>
+        <div class="ytt-voice-card">
+          <p class="mark">"</p>
+          <blockquote>I took a leap of courage to sign up for YTT to journey outside my comfort zone and enhance my confidence. My yoga practice has never felt stronger, my voice has never felt more heard, and I will take these skills with me in all of my future explorations. I am forever grateful and forever changed for the better.</blockquote>
+          <p class="attr">Ashley Rose · 200hr YTT 2023</p>
+        </div>
+        <div class="ytt-voice-card">
+          <p class="mark">"</p>
+          <blockquote>Andrea so eloquently facilitated the divine flow of the universe to allow, nurture, and energize a beautiful community. This experience has become the scaffolding to move through the rest of my life with a real authentic connection to myself, my yoga practice, and continued self growth.</blockquote>
+          <p class="attr">Madison McCoy · 200hr YTT 2023</p>
+        </div>
       </div>
+      <p class="ytt-scroll-hint">← Scroll for more →</p>
     </div>
   </section>
 
