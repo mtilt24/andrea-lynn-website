@@ -10,7 +10,7 @@
   <meta name="author" content="Andrea Lynn">
   <meta name="robots" content="index, follow, max-image-preview:large">
   <link rel="canonical" href="https://mtilt24.github.io/andrea-lynn-website/jungle-room.html">
-  <link rel="icon" type="image/svg+xml" href="favicon.svg">
+  <link rel="icon" type="image/svg+xml" href="https://res.cloudinary.com/dstssdnoj/image/upload/v1779209376/AndreaLynn_logomark_fullcolor_rgb_lejux0.svg">
   <meta property="og:type" content="website">
   <meta property="og:site_name" content="Andrea Lynn">
   <meta property="og:title" content="Jungle Room · Bodhi Tree Yoga Resort · Costa Rica">
@@ -87,10 +87,17 @@
       border-bottom: 1px solid rgba(122, 140, 110, 0.12);
     }
     .nav-logo {
-      font-family: var(--serif);
-      font-size: 24px; font-weight: 400; font-style: italic;
-      color: var(--charcoal); letter-spacing: 1px;
+      display: inline-flex;
+      align-items: center;
+      line-height: 1;
     }
+    .nav-logo-img {
+      height: 38px;
+      width: auto;
+      display: block;
+      transition: height 0.4s ease;
+    }
+    .nav.scrolled .nav-logo-img { height: 30px; }
     .nav-links .mobile-only { display: none; } .nav-links { list-style: none; display: flex; gap: 36px; align-items: center; }
     .nav-links a {
       font-size: 12px; font-weight: 400; letter-spacing: 2px;
@@ -505,9 +512,15 @@
       margin-bottom: 24px;
     }
     .footer-brand .footer-logo {
-      font-family: var(--serif); font-size: 32px;
-      font-weight: 300; font-style: italic;
-      color: var(--white); margin-bottom: 20px;
+      margin-bottom: 20px;
+      display: block;
+    }
+    .footer-logo-img {
+      height: 56px;
+      width: auto;
+      display: block;
+      filter: brightness(0) invert(1);
+      opacity: 0.92;
     }
     .footer-brand .footer-tagline {
       font-family: var(--sans); font-size: 13px;
@@ -584,7 +597,7 @@
     @media (max-width: 600px) {
       .nav { padding: 14px 22px; }
       .nav.scrolled { padding: 10px 22px; }
-      .nav-logo { font-size: 18px; letter-spacing: 2.5px; }
+      .nav-logo-img { height: 32px; }
       .nav-toggle { padding: 12px; min-width: 44px; min-height: 44px; }
 
       .hero, .page-hero { padding: 120px 24px 80px; }
@@ -601,7 +614,7 @@
     /* Small phones: 480px and below */
     @media (max-width: 480px) {
       .nav { padding: 12px 20px; }
-      .nav-logo { font-size: 16px; letter-spacing: 2px; }
+      .nav-logo-img { height: 28px; }
       .hero, .page-hero { padding: 110px 24px 70px; }
       .hero-headline, .page-hero-title { font-size: clamp(36px, 8.5vw, 48px); }
       .hero-headline br, .page-hero-title br { display: none; }
@@ -656,7 +669,7 @@
 
   <!-- NAV -->
   <nav class="nav" id="nav">
-    <a href="index.html" class="nav-logo">Andrea Lynn</a>
+    <a href="index.html" class="nav-logo" aria-label="Andrea Lynn"><img src="https://res.cloudinary.com/dstssdnoj/image/upload/v1779209328/AndreaLynn_logo_fullcolor_rgb_v9ohrq.svg" alt="Andrea Lynn" class="nav-logo-img" width="160" height="38"></a>
     <ul class="nav-links" id="navLinks">
       <li class="mobile-only"><a href="index.html">Home</a></li>
       <li><a href="about.html">About</a></li>
@@ -677,7 +690,7 @@
         </ul>
       </li>
             <li><a href="contact.html">Contact</a></li>
-      <li><a href="contact.html" class="nav-cta">Book a Call</a></li>
+      <li><a href="contact.html" class="nav-cta">Book a Clarity Call</a></li>
     </ul>
     <button class="nav-toggle" id="navToggle" aria-label="Menu"><span></span><span></span><span></span></button>
   </nav>
@@ -833,7 +846,7 @@
       <div class="footer-grid">
 
         <div class="footer-col footer-brand">
-          <p class="footer-logo">Andrea Lynn</p>
+          <p class="footer-logo"><img src="https://res.cloudinary.com/dstssdnoj/image/upload/v1779209328/AndreaLynn_logo_fullcolor_rgb_v9ohrq.svg" alt="Andrea Lynn" class="footer-logo-img" width="200" height="56" loading="lazy"></p>
           <p class="footer-tagline">Embodied coaching for women in transition. Somatic, sacred, soul-led.</p>
           <div class="footer-socials">
             <a href="https://www.instagram.com/andrealynnalchemy/" target="_blank" aria-label="Instagram">IG</a>

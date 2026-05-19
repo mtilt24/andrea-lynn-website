@@ -5,12 +5,12 @@
   <meta name="viewport" content="width=device-width, initial-scale=1.0, viewport-fit=cover">
   <meta name="theme-color" content="#F2EDE4">
   <title>1:1 Somatic Coaching for Women · Six-Session Private Container | Andrea Lynn</title>
-  <meta name="description" content="Six-session private somatic coaching container with Andrea Lynn. Embodied, nervous-system informed coaching for women in transition. Starting at $2,200. Apply for a discovery call.">
+  <meta name="description" content="Six-session private somatic coaching container with Andrea Lynn. Embodied, nervous-system informed coaching for women in transition. Starting at $2,200. Apply for a clarity call.">
   <meta name="keywords" content="1:1 somatic coaching, private coaching for women, embodiment coach, nervous system coaching, life transition coach, women's coaching California, somatic therapy alternative, Andrea Lynn coaching">
   <meta name="author" content="Andrea Lynn">
   <meta name="robots" content="index, follow, max-image-preview:large">
   <link rel="canonical" href="https://mtilt24.github.io/andrea-lynn-website/coaching.html">
-  <link rel="icon" type="image/svg+xml" href="favicon.svg">
+  <link rel="icon" type="image/svg+xml" href="https://res.cloudinary.com/dstssdnoj/image/upload/v1779209376/AndreaLynn_logomark_fullcolor_rgb_lejux0.svg">
   <meta property="og:type" content="website">
   <meta property="og:site_name" content="Andrea Lynn">
   <meta property="og:title" content="1:1 Somatic Coaching for Women | Andrea Lynn">
@@ -92,10 +92,17 @@
       border-bottom: 1px solid rgba(122, 140, 110, 0.12);
     }
     .nav-logo {
-      font-family: var(--serif);
-      font-size: 24px; font-weight: 400; font-style: italic;
-      color: var(--charcoal); letter-spacing: 1px;
+      display: inline-flex;
+      align-items: center;
+      line-height: 1;
     }
+    .nav-logo-img {
+      height: 38px;
+      width: auto;
+      display: block;
+      transition: height 0.4s ease;
+    }
+    .nav.scrolled .nav-logo-img { height: 30px; }
     .nav-links .mobile-only { display: none; } .nav-links { list-style: none; display: flex; gap: 40px; align-items: center; }
     .nav-links a {
       font-size: 12px; font-weight: 400; letter-spacing: 2px;
@@ -963,13 +970,15 @@
       margin-bottom: 24px;
     }
     .footer-brand .footer-logo {
-      font-family: var(--serif);
-      font-size: 32px;
-      font-weight: 300;
-      font-style: italic;
-      color: var(--white);
       margin-bottom: 20px;
-      letter-spacing: 0.5px;
+      display: block;
+    }
+    .footer-logo-img {
+      height: 56px;
+      width: auto;
+      display: block;
+      filter: brightness(0) invert(1);
+      opacity: 0.92;
     }
     .footer-brand .footer-tagline {
       font-family: var(--sans);
@@ -1146,7 +1155,7 @@
       .marquee-track { animation-duration: 22s !important; }
       .nav { padding: 14px 22px; }
       .nav.scrolled { padding: 10px 22px; }
-      .nav-logo { font-size: 18px; letter-spacing: 2.5px; }
+      .nav-logo-img { height: 32px; }
       .nav-toggle { padding: 12px; min-width: 44px; min-height: 44px; }
 
       .hero, .page-hero { padding: 120px 24px 80px; }
@@ -1165,7 +1174,7 @@
     /* Small phones: 480px and below */
     @media (max-width: 480px) {
       .nav { padding: 12px 20px; }
-      .nav-logo { font-size: 16px; letter-spacing: 2px; }
+      .nav-logo-img { height: 28px; }
       .hero, .page-hero { padding: 110px 24px 70px; }
       .hero-headline, .page-hero-title { font-size: clamp(36px, 8.5vw, 48px); }
       .hero-headline br, .page-hero-title br { display: none; }
@@ -1220,7 +1229,7 @@
 
   <!-- NAV -->
   <nav class="nav" id="nav">
-    <a href="index.html" class="nav-logo">Andrea Lynn</a>
+    <a href="index.html" class="nav-logo" aria-label="Andrea Lynn"><img src="https://res.cloudinary.com/dstssdnoj/image/upload/v1779209328/AndreaLynn_logo_fullcolor_rgb_v9ohrq.svg" alt="Andrea Lynn" class="nav-logo-img" width="160" height="38"></a>
     <ul class="nav-links" id="navLinks">
       <li class="mobile-only"><a href="index.html">Home</a></li>
       <li><a href="about.html">About</a></li>
@@ -1484,7 +1493,7 @@
       <div class="footer-grid">
 
         <div class="footer-col footer-brand">
-          <p class="footer-logo">Andrea Lynn</p>
+          <p class="footer-logo"><img src="https://res.cloudinary.com/dstssdnoj/image/upload/v1779209328/AndreaLynn_logo_fullcolor_rgb_v9ohrq.svg" alt="Andrea Lynn" class="footer-logo-img" width="200" height="56" loading="lazy"></p>
           <p class="footer-tagline">Embodied coaching for women in transition. Somatic, sacred, soul-led.</p>
           <div class="footer-socials">
             <a href="https://www.instagram.com/andrealynnalchemy/" target="_blank" aria-label="Instagram">IG</a>

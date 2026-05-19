@@ -4,24 +4,24 @@
   <meta charset="UTF-8">
   <meta name="viewport" content="width=device-width, initial-scale=1.0, viewport-fit=cover">
   <meta name="theme-color" content="#F2EDE4">
-  <title>Andrea Lynn | Somatic Coaching, Breathwork & Yoga Teacher Training for Women</title>
-  <meta name="description" content="Somatic coaching, breathwork, feminine embodiment retreats and 200-hour yoga teacher training with Andrea Lynn. For women in transition who are ready to live from their body, not their fear.">
-  <meta name="keywords" content="somatic coaching, embodiment coach, women's coaching, breathwork facilitator, yoga teacher training, women's retreats, Costa Rica yoga retreat, Sedona women's retreat, feminine embodiment, Andrea Lynn">
+  <title>Andrea Lynn · Somatic Coaching & Breathwork for Women | Retreats + 200hr YTT</title>
+  <meta name="description" content="Somatic coaching, breathwork and feminine embodiment retreats for women in midlife transition. Nervous-system informed 1:1 coaching, REBUILD group container, Costa Rica + Sedona retreats, and 200-hour yoga teacher training.">
+  <meta name="keywords" content="somatic coaching for women, embodiment coach, nervous system coaching, midlife coach for women, women in transition coaching, breathwork facilitator, breathwork and cacao ceremony, Costa Rica women's retreat 2026, Sedona women's retreat, 200 hour yoga teacher training, feminine embodiment coach, REBUILD group coaching, holotropic breathwork California, Andrea Lynn, Andrea Spacek">
   <meta name="author" content="Andrea Lynn">
   <meta name="robots" content="index, follow, max-image-preview:large">
   <link rel="canonical" href="https://mtilt24.github.io/andrea-lynn-website/">
-  <link rel="icon" type="image/svg+xml" href="favicon.svg">
+  <link rel="icon" type="image/svg+xml" href="https://res.cloudinary.com/dstssdnoj/image/upload/v1779209376/AndreaLynn_logomark_fullcolor_rgb_lejux0.svg">
   <meta property="og:type" content="website">
   <meta property="og:site_name" content="Andrea Lynn">
-  <meta property="og:title" content="Andrea Lynn | Somatic Coaching, Breathwork & Yoga Teacher Training">
-  <meta property="og:description" content="Somatic coaching, breathwork, feminine embodiment retreats and 200-hour yoga teacher training for women in transition.">
+  <meta property="og:title" content="Andrea Lynn · Somatic Coaching & Breathwork for Women in Midlife">
+  <meta property="og:description" content="Nervous-system informed somatic coaching, breathwork, feminine embodiment retreats, and 200-hour yoga teacher training for women in transition.">
   <meta property="og:url" content="https://mtilt24.github.io/andrea-lynn-website/">
   <meta property="og:image" content="https://res.cloudinary.com/dstssdnoj/image/upload/q_auto,f_auto,w_1200,h_630,c_fill,g_auto/AdobeStock_255167394_x3jreb.jpg">
   <meta property="og:image:width" content="1200">
   <meta property="og:image:height" content="630">
   <meta name="twitter:card" content="summary_large_image">
-  <meta name="twitter:title" content="Andrea Lynn | Somatic Coaching & Embodiment for Women">
-  <meta name="twitter:description" content="Somatic coaching, breathwork, retreats, and yoga teacher training for women in transition.">
+  <meta name="twitter:title" content="Andrea Lynn · Somatic Coaching & Breathwork for Women">
+  <meta name="twitter:description" content="Nervous-system informed somatic coaching, breathwork, retreats, and 200-hour yoga teacher training for women in midlife transition.">
   <meta name="twitter:image" content="https://res.cloudinary.com/dstssdnoj/image/upload/q_auto,f_auto,w_1200,h_630,c_fill,g_auto/AdobeStock_255167394_x3jreb.jpg">
   <script type="application/ld+json">
   {
@@ -44,8 +44,11 @@
           "Somatic coaching",
           "Breathwork",
           "Feminine embodiment",
+          "Nervous system regulation",
+          "Cacao ceremony",
           "Yoga teacher training",
-          "Women's retreats"
+          "Women's retreats",
+          "Midlife transition coaching"
         ]
       },
       {
@@ -63,7 +66,7 @@
         "url": "https://mtilt24.github.io/andrea-lynn-website/",
         "priceRange": "$$$",
         "areaServed": ["United States", "Online"],
-        "serviceType": ["Somatic Coaching", "Breathwork", "Yoga Teacher Training", "Women's Retreats"],
+        "serviceType": ["Somatic Coaching", "Breathwork", "Cacao Ceremony", "Yoga Teacher Training", "Women's Retreats", "Midlife Transition Coaching"],
         "founder": { "@id": "https://mtilt24.github.io/andrea-lynn-website/#andrea" }
       }
     ]
@@ -145,13 +148,17 @@
     }
 
     .nav-logo {
-      font-family: var(--serif);
-      font-size: 22px;
-      font-weight: 400;
-      letter-spacing: 3px;
-      text-transform: uppercase;
-      color: var(--charcoal);
+      display: inline-flex;
+      align-items: center;
+      line-height: 1;
     }
+    .nav-logo-img {
+      height: 38px;
+      width: auto;
+      display: block;
+      transition: height 0.4s ease;
+    }
+    .nav.scrolled .nav-logo-img { height: 30px; }
 
     .nav-links {
       display: flex;
@@ -785,6 +792,182 @@
     .coaching-cta { margin-top: 44px; }
 
     /* ============================================
+       WORK WITH ME (1:1 + Group cards)
+       ============================================ */
+    .work-with-me {
+      padding: 160px 48px;
+      background: var(--linen-warm);
+      position: relative;
+      border-top: 2px solid rgba(122,140,110,0.25);
+      border-bottom: 2px solid rgba(122,140,110,0.25);
+    }
+    .work-inner {
+      max-width: 1180px;
+      margin: 0 auto;
+      position: relative;
+      z-index: 1;
+    }
+    .work-header {
+      text-align: center;
+      max-width: 720px;
+      margin: 0 auto 72px;
+    }
+    .work-lede {
+      font-family: var(--sans);
+      font-size: 16px;
+      font-weight: 300;
+      line-height: 1.8;
+      color: var(--taupe);
+      margin-top: 8px;
+    }
+    .work-cards {
+      display: grid;
+      grid-template-columns: 1fr 1fr;
+      gap: 36px;
+      align-items: stretch;
+    }
+    .work-card {
+      background: rgba(255,255,255,0.65);
+      border: 1px solid rgba(122,140,110,0.2);
+      border-radius: 6px;
+      padding: 48px 44px;
+      display: flex;
+      flex-direction: column;
+      box-shadow: 0 10px 32px rgba(44,40,37,0.05);
+    }
+    .work-card-tag {
+      font-family: var(--sans);
+      font-size: 11px;
+      letter-spacing: 3px;
+      text-transform: uppercase;
+      color: var(--gold);
+      margin-bottom: 18px;
+    }
+    .work-card-title {
+      font-family: var(--serif);
+      font-size: clamp(26px, 2.6vw, 34px);
+      font-weight: 400;
+      line-height: 1.15;
+      color: var(--charcoal);
+      margin-bottom: 18px;
+    }
+    .work-card-blurb {
+      font-family: var(--sans);
+      font-size: 15px;
+      font-weight: 300;
+      line-height: 1.85;
+      color: var(--taupe);
+      margin-bottom: 8px;
+    }
+    .work-card .coaching-features { margin: 24px 0 32px; }
+    .work-card .btn-primary { margin-top: auto; align-self: flex-start; }
+
+    /* ============================================
+       BREATHWORK + UPCOMING EVENTS
+       ============================================ */
+    .breathwork-events {
+      padding: 160px 48px;
+      background: var(--white);
+      position: relative;
+    }
+    .breathwork-inner {
+      max-width: 1180px;
+      margin: 0 auto;
+      display: grid;
+      grid-template-columns: 1fr 1.05fr;
+      gap: 90px;
+      align-items: center;
+    }
+    .breathwork-blurb {
+      font-family: var(--sans);
+      font-size: 16px;
+      font-weight: 300;
+      line-height: 1.9;
+      color: var(--taupe);
+      margin-bottom: 28px;
+    }
+    .events-list {
+      background: var(--linen);
+      border: 1px solid rgba(122,140,110,0.18);
+      border-radius: 6px;
+      padding: 40px 36px;
+    }
+    .events-eyebrow {
+      font-family: var(--sans);
+      font-size: 11px;
+      letter-spacing: 3px;
+      text-transform: uppercase;
+      color: var(--gold);
+      margin-bottom: 24px;
+      text-align: center;
+    }
+    .event-row {
+      display: grid;
+      grid-template-columns: 64px 1fr auto;
+      align-items: center;
+      gap: 20px;
+      padding: 18px 4px;
+      border-bottom: 1px solid rgba(122,140,110,0.18);
+      color: var(--charcoal);
+    }
+    .event-row:hover { background: rgba(212,184,92,0.06); }
+    .event-date {
+      display: flex;
+      flex-direction: column;
+      align-items: center;
+      justify-content: center;
+      padding: 8px 0;
+      border: 1px solid rgba(212,184,92,0.3);
+      border-radius: 4px;
+      background: var(--white);
+    }
+    .event-month {
+      font-family: var(--sans);
+      font-size: 10px;
+      letter-spacing: 2px;
+      text-transform: uppercase;
+      color: var(--gold);
+    }
+    .event-day {
+      font-family: var(--serif);
+      font-size: 24px;
+      font-weight: 400;
+      color: var(--charcoal);
+      line-height: 1;
+      margin-top: 2px;
+    }
+    .event-info { display: flex; flex-direction: column; gap: 4px; }
+    .event-name {
+      font-family: var(--sans);
+      font-size: 14px;
+      font-weight: 500;
+      color: var(--charcoal);
+    }
+    .event-meta {
+      font-family: var(--sans);
+      font-size: 12px;
+      font-weight: 300;
+      color: var(--taupe-light);
+    }
+    .event-cta {
+      font-family: var(--sans);
+      font-size: 11px;
+      letter-spacing: 2px;
+      text-transform: uppercase;
+      color: var(--gold);
+    }
+    .events-all {
+      display: block;
+      margin-top: 22px;
+      text-align: center;
+      font-family: var(--sans);
+      font-size: 12px;
+      letter-spacing: 2px;
+      text-transform: uppercase;
+      color: var(--sage);
+    }
+
+    /* ============================================
        STANDALONE SECTIONS (Breathwork, YTT)
        ============================================ */
     .standalone-section {
@@ -953,7 +1136,7 @@
       width: 100%;
       height: 100%;
       object-fit: cover;
-      filter: brightness(0.3) sepia(0.2);
+      filter: brightness(0.22) sepia(0.2);
     }
 
     .retreats-overlay {
@@ -961,7 +1144,7 @@
       inset: 0;
       background:
         radial-gradient(ellipse at 30% 50%, rgba(212,184,92,0.08) 0%, transparent 50%),
-        linear-gradient(to bottom, rgba(44,40,37,0.3) 0%, rgba(44,40,37,0.7) 100%);
+        linear-gradient(to bottom, rgba(20,18,16,0.55) 0%, rgba(20,18,16,0.82) 100%);
       z-index: 1;
     }
 
@@ -1019,10 +1202,10 @@
 
     .retreats-body p {
       font-family: var(--sans);
-      font-size: 16px;
-      font-weight: 300;
-      line-height: 2;
-      color: rgba(255,255,255,0.65);
+      font-size: 17px;
+      font-weight: 400;
+      line-height: 1.9;
+      color: rgba(255,255,255,0.92);
       margin-bottom: 20px;
     }
 
@@ -1049,11 +1232,11 @@
 
     .retreats-detail-label {
       font-family: var(--sans);
-      font-size: 11px;
-      font-weight: 400;
+      font-size: 12px;
+      font-weight: 500;
       letter-spacing: 2px;
       text-transform: uppercase;
-      color: rgba(255,255,255,0.4);
+      color: rgba(255,255,255,0.85);
     }
 
     /* ============================================
@@ -1425,13 +1608,15 @@
       margin-bottom: 24px;
     }
     .footer-brand .footer-logo {
-      font-family: var(--serif);
-      font-size: 32px;
-      font-weight: 300;
-      font-style: italic;
-      color: var(--white);
       margin-bottom: 20px;
-      letter-spacing: 0.5px;
+      display: block;
+    }
+    .footer-logo-img {
+      height: 56px;
+      width: auto;
+      display: block;
+      filter: brightness(0) invert(1);
+      opacity: 0.92;
     }
     .footer-brand .footer-tagline {
       font-family: var(--sans);
@@ -1703,7 +1888,7 @@
     @media (max-width: 600px) {
       .nav { padding: 14px 22px; }
       .nav.scrolled { padding: 10px 22px; }
-      .nav-logo { font-size: 18px; letter-spacing: 2.5px; }
+      .nav-logo-img { height: 32px; }
       .nav-toggle { padding: 12px; min-width: 44px; min-height: 44px; }
 
       .hero { padding: 120px 24px 60px; }
@@ -1731,7 +1916,7 @@
     /* Small phones: 480px and below */
     @media (max-width: 480px) {
       .nav { padding: 12px 20px; }
-      .nav-logo { font-size: 16px; letter-spacing: 2px; }
+      .nav-logo-img { height: 28px; }
       .hero { padding: 110px 24px 50px; }
       .hero-headline { font-size: clamp(30px, 8.5vw, 40px); }
       .hero-headline br { display: none; }
@@ -1746,7 +1931,7 @@
 
   <!-- NAVIGATION -->
   <nav class="nav" id="nav">
-    <a href="#" class="nav-logo">Andrea Lynn</a>
+    <a href="index.html" class="nav-logo" aria-label="Andrea Lynn"><img src="https://res.cloudinary.com/dstssdnoj/image/upload/v1779209328/AndreaLynn_logo_fullcolor_rgb_v9ohrq.svg" alt="Andrea Lynn" class="nav-logo-img" width="160" height="38"></a>
     <ul class="nav-links" id="navLinks">
       <li class="mobile-only"><a href="index.html">Home</a></li>
       <li><a href="about.html">About</a></li>
@@ -1767,7 +1952,7 @@
         </ul>
       </li>
             <li><a href="contact.html">Contact</a></li>
-      <li><a href="contact.html" class="nav-cta">Book a Call</a></li>
+      <li><a href="contact.html" class="nav-cta">Book a Clarity Call</a></li>
     </ul>
     <button class="nav-toggle" id="navToggle" aria-label="Menu">
       <span></span><span></span><span></span>
@@ -1790,9 +1975,9 @@
 
     <div class="hero-content">
       <h1 class="hero-headline">You were made for <em>more</em> <br>than this half-life.</h1>
-      <p class="hero-subhead">You're not broken. You're between versions. I help women in midlife cross through into aliveness, clarity, and the life they actually want.</p>
+      <p class="hero-subhead">You're not broken. You're between versions. This is the work that carries you across, into aliveness, clarity, and the life you actually want.</p>
       <div class="hero-ctas">
-        <a href="contact.html" class="btn-primary">Book a Call</a>
+        <a href="contact.html" class="btn-primary">Book a Clarity Call</a>
         <a href="#coaching" class="btn-secondary">Explore the Work</a>
       </div>
     </div>
@@ -1831,9 +2016,9 @@
       <div class="about-text">
         <h2 class="about-headline fade-in">I didn't find this work.<br>It found me.</h2>
         <div class="about-body">
-          <p class="fade-in fade-in-delay-1">I'm Andrea Lynn, somatic coach, embodiment guide, and keeper of sacred space for women who know, deep in their bones, that they're meant for more.</p>
-          <p class="fade-in fade-in-delay-2">My work lives in the body. In the breath. In the places you've stopped feeling, the desires you've stopped voicing, the version of yourself you've been quietly shelving.</p>
-          <p class="fade-in fade-in-delay-3">I use somatic process, breathwork, feminine embodiment practices, and guided visualization to help women move from numb to alive, from performing to becoming.</p>
+          <p class="fade-in fade-in-delay-1">I'm Andrea Lynn. I hold sacred space for women who know, deep in their bones, they're meant for more.</p>
+          <p class="fade-in fade-in-delay-2">The work lives in the body. In the breath. In the places you've stopped feeling, the desires you've stopped voicing, the version of yourself you've been quietly shelving.</p>
+          <p class="fade-in fade-in-delay-3">Somatic process, breathwork, feminine embodiment, and guided visualization to move you from numb to alive, from performing to becoming.</p>
           <p class="fade-in fade-in-delay-4"><strong>This isn't therapy. It's not conventional coaching. It's initiation. And it changes everything.</strong></p>
         </div>
         <a href="about.html" class="about-link fade-in fade-in-delay-5">Meet Andrea &rarr;</a>
@@ -1843,57 +2028,77 @@
     </div>
   </section>
 
-  <!-- COACHING SPOTLIGHT -->
-  <section class="coaching sacred-bg" id="coaching">
-    <div class="coaching-inner">
-      <div class="coaching-text">
-        <p class="coaching-eyebrow fade-in">The Heart of the Work</p>
-        <h2 class="coaching-headline fade-in fade-in-delay-1">1:1 Coaching &<br>Group Containers</h2>
-        <div class="coaching-body">
-          <p class="fade-in fade-in-delay-2">My private 1:1 container is six sessions of focused, embodied work. You know what you want. You can feel where you're not fully choosing it. We close that gap, gently and firmly, until you are no longer abandoning yourself.</p>
-          <p class="fade-in fade-in-delay-3">My group containers create sacred space for shared transformation. You heal in community, you rebuild self-trust alongside other women, and you remember who you are in the presence of women doing the same.</p>
-        </div>
-        <ul class="coaching-features fade-in fade-in-delay-4">
-          <li>Six-session 1:1 container, starting at $2,200</li>
-          <li>REBUILD group container, 8 weeks, opens September</li>
-          <li>Somatic, breath-based, nervous-system work</li>
-          <li>Real action between sessions, not just insight</li>
-        </ul>
-        <div class="coaching-cta fade-in fade-in-delay-5">
-          <a href="coaching.html" class="btn-primary">Explore 1:1 Coaching</a>
-          <a href="group-coaching.html" class="about-link" style="display:inline-block;margin-left:24px;">Or join REBUILD &rarr;</a>
-        </div>
+  <!-- WORK WITH ME -->
+  <section class="work-with-me sacred-bg" id="coaching">
+    <div class="work-inner">
+      <div class="work-header fade-in">
+        <p class="coaching-eyebrow">Work With Me</p>
+        <h2 class="coaching-headline">Two ways to do<br>the deeper work.</h2>
+        <p class="work-lede">Somatic, nervous-system informed coaching for women in midlife transition. Choose the container that fits where you are.</p>
       </div>
-      <div class="standalone-visual fade-in">
-        <div class="standalone-placeholder">
-          <span>1:1 Coaching Photo</span>
-        </div>
+      <div class="work-cards">
+        <article class="work-card fade-in fade-in-delay-1">
+          <p class="work-card-tag">Private</p>
+          <h3 class="work-card-title">1:1 Coaching</h3>
+          <p class="work-card-blurb">You know what you want. You can feel where you're not fully choosing it. Six focused sessions close that gap, until you stop abandoning yourself.</p>
+          <ul class="coaching-features">
+            <li>Six-session container, starting at $2,200</li>
+            <li>Somatic, breath-based, nervous-system work</li>
+            <li>Real action between sessions, not just insight</li>
+          </ul>
+          <a href="coaching.html" class="btn-primary">Explore 1:1 Coaching</a>
+        </article>
+        <article class="work-card fade-in fade-in-delay-2">
+          <p class="work-card-tag">Group</p>
+          <h3 class="work-card-title">REBUILD Group Container</h3>
+          <p class="work-card-blurb">Heal in community. Rebuild self-trust alongside other women doing the same work. Remember who you are in the presence of women becoming.</p>
+          <ul class="coaching-features">
+            <li>8-week group container, opens September</li>
+            <li>Sacred space for shared transformation</li>
+            <li>Live calls, somatic practice, sisterhood</li>
+          </ul>
+          <a href="group-coaching.html" class="btn-primary">Join REBUILD</a>
+        </article>
       </div>
     </div>
   </section>
 
-  <!-- BREATHWORK -->
-  <section class="standalone-section sacred-bg" id="breathwork">
-    <div class="standalone-inner reverse">
-      <div class="standalone-text fade-in">
-        <p class="coaching-eyebrow">Breathwork</p>
+  <!-- BREATHWORK + UPCOMING EVENTS -->
+  <section class="breathwork-events sacred-bg" id="breathwork">
+    <div class="breathwork-inner">
+      <div class="breathwork-text fade-in">
+        <p class="coaching-eyebrow">Breathwork &amp; Cacao</p>
         <h2 class="coaching-headline">The fastest path<br>into the body.</h2>
-        <div class="coaching-body">
-          <p>Breath bypasses the mind and goes straight to what's held. It opens what words cannot reach. Join me for group breathwork sessions, live and virtual, that move energy, release stored emotion, and reconnect you to the parts of yourself you've been carrying in silence.</p>
-        </div>
-        <ul class="coaching-features">
-          <li>Group breathwork circles, live & virtual</li>
-          <li>Nervous system regulation</li>
-          <li>Emotional release & somatic integration</li>
-        </ul>
-        <div class="coaching-cta">
-          <a href="workshops.html" class="btn-primary">View Upcoming Workshops</a>
-        </div>
+        <p class="breathwork-blurb">Breath bypasses the mind and reaches what words cannot. Move stuck energy. Release stored emotion. Reconnect to what you've been carrying in silence.</p>
+        <a href="workshops.html" class="about-link">Learn about the workshops &rarr;</a>
       </div>
-      <div class="standalone-visual fade-in fade-in-delay-2">
-        <div class="standalone-placeholder">
-          <span>Breathwork Photo</span>
-        </div>
+      <div class="events-list fade-in fade-in-delay-2">
+        <p class="events-eyebrow">Upcoming Workshops · Auburn, CA</p>
+        <a class="event-row" href="mailto:invision@andreaspacek.com?subject=Breathwork%20%26%20Cacao%20-%20May%2023">
+          <span class="event-date"><span class="event-month">May</span><span class="event-day">23</span></span>
+          <span class="event-info">
+            <span class="event-name">Breathwork &amp; Cacao Ceremony</span>
+            <span class="event-meta">East Wind Yoga · 5–7 PM</span>
+          </span>
+          <span class="event-cta">Reserve →</span>
+        </a>
+        <a class="event-row" href="mailto:invision@andreaspacek.com?subject=Breathwork%20%26%20Cacao%20-%20June%2027">
+          <span class="event-date"><span class="event-month">Jun</span><span class="event-day">27</span></span>
+          <span class="event-info">
+            <span class="event-name">Breathwork &amp; Cacao Ceremony</span>
+            <span class="event-meta">East Wind Yoga · 5–7 PM</span>
+          </span>
+          <span class="event-cta">Reserve →</span>
+        </a>
+        <a class="event-row" href="mailto:invision@andreaspacek.com?subject=Breathwork%20%26%20Cacao%20-%20July%2025">
+          <span class="event-date"><span class="event-month">Jul</span><span class="event-day">25</span></span>
+          <span class="event-info">
+            <span class="event-name">Breathwork &amp; Cacao Ceremony</span>
+            <span class="event-meta">East Wind Yoga · 5–7 PM</span>
+          </span>
+          <span class="event-cta">Reserve →</span>
+        </a>
+        <a class="events-all" href="workshops.html">See all upcoming dates &rarr;</a>
       </div>
     </div>
   </section>
@@ -1905,7 +2110,7 @@
         <p class="coaching-eyebrow">Yoga Teacher Training</p>
         <h2 class="coaching-headline">Teach from your<br>whole self.</h2>
         <div class="coaching-body">
-          <p>A living, embodied training that goes far beyond posture. This is for teachers who want to teach from the body, from experience, from depth. Not just the mechanics of a pose, but the medicine underneath it.</p>
+          <p>A 200-hour yoga teacher training for teachers ready to teach from the body, from experience, from depth. Not the mechanics of a pose, but the medicine underneath it.</p>
         </div>
         <ul class="coaching-features">
           <li>Embodied teaching methodology</li>
@@ -1929,8 +2134,8 @@
     <div class="gold-banner-inner fade-in">
       <p class="gold-banner-eyebrow">A Door, Still Open</p>
       <h3 class="gold-banner-headline">Not sure where to <em>start</em>?</h3>
-      <p class="gold-banner-body">Let's talk. A discovery call is free, pressure-free, and real. Just a conversation about where you are, and where you want to go.</p>
-      <a href="#" class="gold-banner-btn">Schedule a Discovery Call</a>
+      <p class="gold-banner-body">Let's talk. A free, pressure-free conversation about where you are, and where you want to go.</p>
+      <a href="contact.html" class="gold-banner-btn">Book a Clarity Call</a>
     </div>
   </section>
 
@@ -1953,7 +2158,7 @@
         <p class="retreats-eyebrow fade-in">Retreats</p>
         <h2 class="retreats-headline fade-in fade-in-delay-1">The kind of reset that<br>rewrites the story.</h2>
         <div class="retreats-body">
-          <p class="fade-in fade-in-delay-2">Immersive. Sacred. Life-altering. My retreats bring women together in beautiful locations for days of breathwork, ceremony, somatic practice, and sisterhood.</p>
+          <p class="fade-in fade-in-delay-2">Immersive. Sacred. Life-altering. Days of breathwork, ceremony, somatic practice, and sisterhood in beautiful locations.</p>
         </div>
         <div class="retreats-detail fade-in fade-in-delay-3">
           <div class="retreats-detail-item">
@@ -2045,7 +2250,7 @@
     <div class="email-inner">
       <p class="email-eyebrow fade-in">Free Resource</p>
       <h2 class="email-headline fade-in fade-in-delay-1">Ready to feel something shift?</h2>
-      <p class="email-subhead fade-in fade-in-delay-2">Download my free somatic practice guide: five embodied tools to move you out of your head and back into your body. Right now. Today.</p>
+      <p class="email-subhead fade-in fade-in-delay-2">Five embodied tools to move you out of your head, back into your body. Free guide, delivered to your inbox.</p>
       <form class="email-form fade-in fade-in-delay-3" onsubmit="event.preventDefault()">
         <input type="email" placeholder="Your email address" required>
         <button type="submit">Send Me the Guide</button>
@@ -2060,7 +2265,7 @@
       <div class="footer-grid">
 
         <div class="footer-col footer-brand">
-          <p class="footer-logo">Andrea Lynn</p>
+          <p class="footer-logo"><img src="https://res.cloudinary.com/dstssdnoj/image/upload/v1779209328/AndreaLynn_logo_fullcolor_rgb_v9ohrq.svg" alt="Andrea Lynn" class="footer-logo-img" width="200" height="56" loading="lazy"></p>
           <p class="footer-tagline">Embodied coaching for women in transition. Somatic, sacred, soul-led.</p>
           <div class="footer-socials">
             <a href="https://www.instagram.com/andrealynnalchemy/" target="_blank" aria-label="Instagram">IG</a>
@@ -2098,7 +2303,7 @@
           <h4>A Door, Still Open</h4>
           <h3>If something in you just <em>stirred</em>, that is your answer.</h3>
           <a href="contact.html" class="footer-whisper-link">
-            Schedule a Discovery Call <span class="arrow">→</span>
+            Book a Clarity Call <span class="arrow">→</span>
           </a>
         </div>
 
