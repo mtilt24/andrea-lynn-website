@@ -355,6 +355,22 @@
       opacity: 0.6;
       animation: twinkle 4s ease-in-out infinite;
     }
+    .hero-star {
+      position: absolute;
+      color: var(--gold);
+      pointer-events: none;
+      opacity: 0;
+      animation: fadeUp 1.2s ease 1s forwards;
+    }
+    .hero-star::before { content: '✦'; display: block; animation: twinkle 4s ease-in-out infinite; }
+    .hero-star--1 { top: -12px; left: 20%; font-size: 14px; opacity: 0.5; }
+    .hero-star--1::before { animation-delay: 0.5s; }
+    .hero-star--2 { bottom: 18%; right: -38px; font-size: 18px; opacity: 0.45; }
+    .hero-star--2::before { animation-delay: 1.5s; }
+    .hero-star--3 { bottom: 8%; left: -28px; font-size: 12px; opacity: 0.4; }
+    .hero-star--3::before { animation-delay: 2.5s; }
+    .hero-star--4 { top: 35%; left: -34px; font-size: 16px; opacity: 0.35; }
+    .hero-star--4::before { animation-delay: 3.2s; }
 
     /* ── MARQUEE ── */
     .marquee-section {
@@ -1246,7 +1262,6 @@
         <a tabindex="0" role="button" aria-haspopup="true">Retreats</a>
         <ul class="nav-dropdown-menu">
           <li><a href="costa-rica-retreat.html">Costa Rica · Jul 2026</a></li>
-          <li><a href="sedona-retreat.html">Sedona · Oct 2026</a></li>
         </ul>
       </li>
             <li><a href="contact.html">Contact</a></li>
@@ -1270,6 +1285,10 @@
       </div>
       <div class="page-hero-visual">
         <img src="https://res.cloudinary.com/dstssdnoj/image/upload/q_auto,f_auto,w_700,h_900,c_fill/AdobeStock_255167394_x3jreb.jpg" alt="Woman in embodied somatic practice — 1:1 coaching with Andrea Lynn" width="700" height="900" fetchpriority="high" decoding="async">
+        <span class="hero-star hero-star--1"></span>
+        <span class="hero-star hero-star--2"></span>
+        <span class="hero-star hero-star--3"></span>
+        <span class="hero-star hero-star--4"></span>
       </div>
     </div>
   </section>
