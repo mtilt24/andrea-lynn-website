@@ -1,4 +1,4 @@
 User-agent: *
 Allow: /
 
-Sitemap: https://andrealynncoaching.com/sitemap.xml
+Sitemap: https://www.andrealynncoaching.com/sitemap.xml
