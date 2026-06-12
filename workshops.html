@@ -791,7 +791,7 @@
       <p class="fade-in fade-in-delay-1">Auburn, California · 5–7 PM · Email to reserve your spot.</p>
     </div>
     <ul class="dates-list">
-      <li class="date-row fade-in">
+      <li class="date-row fade-in" data-event-end="2026-05-23T19:00:00-07:00">
         <p class="date-num">23<small>May</small></p>
         <div>
           <p class="date-info-day">Saturday · 5–7 PM</p>
@@ -800,7 +800,7 @@
         </div>
         <a class="date-cta" href="mailto:andrea@andrealynncoaching.com?subject=Breathwork%20%26%20Cacao%20-%20May%2023">Reserve →</a>
       </li>
-      <li class="date-row fade-in">
+      <li class="date-row fade-in" data-event-end="2026-06-27T19:00:00-07:00">
         <p class="date-num">27<small>Jun</small></p>
         <div>
           <p class="date-info-day">Saturday · 5–7 PM</p>
@@ -809,7 +809,7 @@
         </div>
         <a class="date-cta" href="mailto:andrea@andrealynncoaching.com?subject=Breathwork%20%26%20Cacao%20-%20June%2027">Reserve →</a>
       </li>
-      <li class="date-row fade-in">
+      <li class="date-row fade-in" data-event-end="2026-07-25T19:00:00-07:00">
         <p class="date-num">25<small>Jul</small></p>
         <div>
           <p class="date-info-day">Saturday · 5–7 PM</p>
@@ -818,7 +818,7 @@
         </div>
         <a class="date-cta" href="mailto:andrea@andrealynncoaching.com?subject=Breathwork%20%26%20Cacao%20-%20July%2025">Reserve →</a>
       </li>
-      <li class="date-row fade-in">
+      <li class="date-row fade-in" data-event-end="2026-08-29T19:00:00-07:00">
         <p class="date-num">29<small>Aug</small></p>
         <div>
           <p class="date-info-day">Saturday · 5–7 PM</p>
@@ -928,10 +928,10 @@
         <div class="footer-col footer-whisper">
           <h4>Upcoming</h4>
           <ul>
-            <li><a href="mailto:andrea@andrealynncoaching.com?subject=Breathwork%20%26%20Cacao%20-%20May%2023">May 23</a></li>
-            <li><a href="mailto:andrea@andrealynncoaching.com?subject=Breathwork%20%26%20Cacao%20-%20June%2027">June 27</a></li>
-            <li><a href="mailto:andrea@andrealynncoaching.com?subject=Breathwork%20%26%20Cacao%20-%20July%2025">July 25</a></li>
-            <li><a href="mailto:andrea@andrealynncoaching.com?subject=Breathwork%20%26%20Cacao%20-%20August%2029">August 29</a></li>
+            <li data-event-end="2026-05-23T19:00:00-07:00"><a href="mailto:andrea@andrealynncoaching.com?subject=Breathwork%20%26%20Cacao%20-%20May%2023">May 23</a></li>
+            <li data-event-end="2026-06-27T19:00:00-07:00"><a href="mailto:andrea@andrealynncoaching.com?subject=Breathwork%20%26%20Cacao%20-%20June%2027">June 27</a></li>
+            <li data-event-end="2026-07-25T19:00:00-07:00"><a href="mailto:andrea@andrealynncoaching.com?subject=Breathwork%20%26%20Cacao%20-%20July%2025">July 25</a></li>
+            <li data-event-end="2026-08-29T19:00:00-07:00"><a href="mailto:andrea@andrealynncoaching.com?subject=Breathwork%20%26%20Cacao%20-%20August%2029">August 29</a></li>
           </ul>
         </div>
 
@@ -968,6 +968,25 @@
       });
     }, { threshold: 0.12, rootMargin: '0px 0px -60px 0px' });
     document.querySelectorAll('.fade-in').forEach(el => observer.observe(el));
+
+    /* Auto-expire events: hide any element with data-event-end once that
+       date/time has passed. Add data-event-end="YYYY-MM-DDTHH:MM:SS-07:00"
+       to a new .date-row (and its footer <li>) and it drops off automatically. */
+    (function () {
+      const now = Date.now();
+      document.querySelectorAll('[data-event-end]').forEach(el => {
+        const end = new Date(el.getAttribute('data-event-end')).getTime();
+        if (!isNaN(end) && end < now) el.remove();
+      });
+      const list = document.querySelector('.dates-list');
+      if (list && !list.querySelector('.date-row')) {
+        const note = document.createElement('p');
+        note.className = 'dates-empty';
+        note.style.cssText = 'text-align:center;font-family:var(--serif);font-size:22px;font-weight:300;color:var(--charcoal);opacity:.85;padding:8px 0;';
+        note.innerHTML = 'New dates are being scheduled. <a href="mailto:andrea@andrealynncoaching.com?subject=Breathwork%20%26%20Cacao%20-%20Notify%20me" style="color:var(--gold);text-decoration:underline;">Email me</a> to be the first to know.';
+        list.replaceWith(note);
+      }
+    })();
   </script>
 
 </body>
