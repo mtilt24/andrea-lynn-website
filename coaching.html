@@ -1235,6 +1235,11 @@
       .nav-links.open .nav-dropdown > a::after { display: inline-block !important; transition: transform 0.3s ease; }
       .nav-links.open .nav-dropdown.expanded > a::after { transform: rotate(225deg) translateY(-2px); }
     }
+
+    /* Full-bleed photo banners between sections */
+    .photo-band { position: relative; width: 100%; height: clamp(360px, 56vh, 600px); overflow: hidden; background: var(--charcoal); }
+    .photo-band img { width: 100%; height: 100%; object-fit: cover; object-position: center; display: block; }
+    @media (max-width: 600px) { .photo-band { height: clamp(300px, 52vh, 440px); } }
   </style>
 
 </head>
@@ -1323,6 +1328,11 @@
     </div>
   </section>
 
+  <!-- PHOTO BANNER -->
+  <div class="photo-band fade-in">
+    <img src="https://res.cloudinary.com/dstssdnoj/image/upload/q_auto,f_auto,w_1920,h_840,c_fill,g_auto/v1781137415/we_can_t_do_it_alone_rl9wzk.jpg" alt="Andrea in red with a circle of women gathered around her by the river" width="1920" height="840" loading="lazy" decoding="async">
+  </div>
+
   <!-- WHO IT IS FOR / NOT FOR -->
   <section class="for-not-for">
     <div class="for-not-for-inner">
@@ -1358,6 +1368,11 @@
       </ul>
     </div>
   </section>
+
+  <!-- PHOTO BANNER -->
+  <div class="photo-band fade-in">
+    <img src="https://res.cloudinary.com/dstssdnoj/image/upload/q_auto,f_auto,w_1920,h_840,c_fill,g_auto/v1781137401/red_dress_river_comtempletive_oiti31.jpg" alt="Andrea in red by the river, contemplative" width="1920" height="840" loading="lazy" decoding="async">
+  </div>
 
   <!-- PRICING / LOGISTICS -->
   <section class="pricing" id="apply">
