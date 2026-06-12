@@ -401,19 +401,43 @@
     }
     .scheduler-embed {
       width: 100%;
-      max-width: 760px;
-      margin-left: auto;
-      margin-right: auto;
+      max-width: 720px;
+      margin: 48px auto 0;
     }
-    .scheduler-embed iframe {
-      width: 100%;
-      height: 720px;
-      border: 0;
-      border-radius: 14px;
-      background: #fff;
+    .scheduler-card {
+      position: relative;
+      background: var(--warm-white);
+      border: 1px solid var(--linen-deep);
+      border-radius: 24px;
+      padding: 10px;
+      overflow: hidden;
+      box-shadow: 0 28px 64px -28px rgba(44,40,37,0.30), 0 8px 22px -14px rgba(44,40,37,0.18);
+    }
+    .scheduler-card::before {
+      content: '';
+      position: absolute; top: 0; left: 0; right: 0; height: 3px;
+      background: linear-gradient(90deg, transparent, var(--gold), transparent);
+    }
+    .scheduler-card__head {
+      display: flex; align-items: center; justify-content: center; gap: 14px;
+      padding: 20px 16px 16px;
+    }
+    .scheduler-card__head .rule { width: 30px; height: 1px; background: var(--gold); opacity: 0.6; }
+    .scheduler-card__label {
+      font-family: var(--sans); font-size: 11px; font-weight: 500;
+      letter-spacing: 2.5px; text-transform: uppercase; color: var(--taupe); margin: 0;
+    }
+    .scheduler-card__frame {
+      background: #fff; border: 1px solid var(--linen-deep);
+      border-radius: 16px; overflow: hidden;
+    }
+    .scheduler-card__frame iframe {
+      width: 100%; height: 700px; border: 0; display: block; background: #fff;
     }
     @media (max-width: 600px) {
-      .scheduler-embed iframe { height: 640px; }
+      .scheduler-embed { margin-top: 36px; }
+      .scheduler-card { border-radius: 20px; padding: 8px; }
+      .scheduler-card__frame iframe { height: 640px; }
     }
     .intro .eyebrow {
       font-size: 12px; font-weight: 500;
@@ -1357,8 +1381,17 @@
       <p class="fade-in fade-in-delay-2">
         Thirty minutes on Zoom. We talk about what is alive in you right now, what you are reaching for, and what kind of support would actually meet you. No script. No pitch. I respond personally within 48 hours.
       </p>
-      <div class="scheduler-embed fade-in fade-in-delay-3" style="margin-top: 40px;">
-        <iframe src="https://calendar.google.com/calendar/appointments/schedules/AcZssZ0w4nQGAkDoe-xxeGwjPXP8mqwN4OSe0Dk0kuqaSsceKT5gsE1KeuwKPYuP0dmOXDRIbDFmhqHQ?gv=true" title="Book a Clarity Call with Andrea" frameborder="0" loading="lazy"></iframe>
+      <div class="scheduler-embed fade-in fade-in-delay-3">
+        <div class="scheduler-card">
+          <div class="scheduler-card__head">
+            <span class="rule"></span>
+            <p class="scheduler-card__label">Pick a time that works</p>
+            <span class="rule"></span>
+          </div>
+          <div class="scheduler-card__frame">
+            <iframe src="https://calendar.google.com/calendar/appointments/schedules/AcZssZ0w4nQGAkDoe-xxeGwjPXP8mqwN4OSe0Dk0kuqaSsceKT5gsE1KeuwKPYuP0dmOXDRIbDFmhqHQ?gv=true" title="Book a Clarity Call with Andrea" frameborder="0" loading="lazy"></iframe>
+          </div>
+        </div>
       </div>
     </div>
   </section>
