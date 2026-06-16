@@ -1265,6 +1265,10 @@
       .nav-links.open .nav-dropdown > a::after { display: inline-block !important; transition: transform 0.3s ease; }
       .nav-links.open .nav-dropdown.expanded > a::after { transform: rotate(225deg) translateY(-2px); }
     }
+    /* Sedona: balanced room-options layout (3 + 2 centered) */
+    .rs-rooms .tiers-grid { display: flex; flex-wrap: wrap; justify-content: center; gap: 16px; background: transparent; }
+    .rs-rooms .tier { flex: 0 1 320px; box-shadow: 0 12px 40px rgba(44,40,37,0.07); }
+    @media (max-width: 900px) { .rs-rooms .tier { flex-basis: 100%; } }
   </style>
 
 </head>
@@ -1298,11 +1302,11 @@
   </nav>
 
   <!-- PAGE HERO -->
-  <section class="page-hero">
+  <section class="page-hero" style="background-image:linear-gradient(rgba(26,28,20,0.5), rgba(18,20,14,0.64)), url('https://res.cloudinary.com/dstssdnoj/image/upload/f_auto,q_auto,w_1920,h_1100,c_fill,g_auto/brair-home-fallback-banner_dzpw4l'); background-size:cover; background-position:center;">
     <div class="page-hero-inner">
-      <p class="page-hero-eyebrow">Women's Retreat · October 17–22, 2026</p>
-      <h1 class="page-hero-title">Sedona.<br><em>Remember who you are.</em></h1>
-      <p class="page-hero-lede">Five nights in the sacred red rocks of Oak Creek Canyon, devoted to remembrance, renewal, and return.</p>
+      <p class="page-hero-eyebrow" style="color:#E0C96A;">Women's Retreat · October 17–22, 2026</p>
+      <h1 class="page-hero-title" style="color:#ffffff;">Sedona.<br><em>Remember who you are.</em></h1>
+      <p class="page-hero-lede" style="color:rgba(255,255,255,0.92);">Five nights in the sacred red rocks of Oak Creek Canyon, devoted to remembrance, renewal, and return.</p>
     </div>
   </section>
 
@@ -1496,8 +1500,8 @@
         <p>Two devoted teachers holding space for remembrance, renewal, and return.</p>
       </div>
       <figure class="fade-in" style="max-width:520px; margin:0 auto 56px;">
-        <img src="https://res.cloudinary.com/dstssdnoj/image/upload/f_auto,q_auto,w_1040/IMG_9072_2_iai23l" alt="The Sedona retreat facilitators together in the red rocks" style="display:block; width:100%; height:auto; box-shadow:0 30px 80px rgba(44,40,37,0.18);" loading="lazy">
-        <figcaption style="text-align:center; margin-top:16px; font-family:var(--serif); font-style:italic; font-size:17px; color:var(--taupe);">Together in the red rocks of Sedona.</figcaption>
+        <img src="https://res.cloudinary.com/dstssdnoj/image/upload/f_auto,q_auto,w_1040/IMG_9072_2_iai23l" alt="Rose West, Mark Cone, and Andrea Lynn at Crescent Moon Vortex, Sedona" style="display:block; width:100%; height:auto; box-shadow:0 30px 80px rgba(44,40,37,0.18);" loading="lazy">
+        <figcaption style="text-align:center; margin-top:16px; font-family:var(--serif); font-style:italic; font-size:17px; color:var(--taupe);">Rose West, Mark Cone, and Andrea Lynn at Crescent Moon Vortex.</figcaption>
       </figure>
       <div class="hosts-grid">
         <div class="host fade-in">
@@ -1581,6 +1585,11 @@
           </ul>
         </div>
       </div>
+      <div class="fade-in" style="max-width:760px; margin:56px auto 0; text-align:center;">
+        <h4 style="font-family:var(--serif); font-size:24px; font-weight:400; color:var(--charcoal); margin-bottom:16px;">How to reserve</h4>
+        <p style="font-family:var(--sans); font-size:15px; font-weight:300; line-height:1.9; color:var(--taupe);">A <strong style="color:var(--charcoal); font-weight:500;">$500 non-refundable deposit</strong> holds your spot, with the balance due August 17, 2026. Pay by <strong style="color:var(--charcoal); font-weight:500;">Venmo @rose-west-4</strong> (please don't enable purchase protection, as Venmo takes a portion) or by credit or debit card, which adds a 5% processing fee.</p>
+        <a href="mailto:andrea@andrealynncoaching.com?subject=Sedona%20Women's%20Retreat%20Reservation" class="btn-primary" style="margin-top:28px;">Reserve Your Room</a>
+      </div>
     </div>
   </section>
 
@@ -1604,14 +1613,6 @@
           <li>We help coordinate group arrivals to support shared transportation.</li>
         </ul>
       </div>
-    </div>
-  </section>
-
-  <!-- CANCELLATION -->
-  <section class="rs-cancellation">
-    <div class="cancellation-inner fade-in">
-      <h4>Reserving Your Space</h4>
-      <p>A $500 non-refundable deposit holds your spot, with the remaining balance due August 17, 2026. Pay by Venmo at @rose-west-4 (please do not enable purchase protection, as Venmo takes a portion of the payment) or by credit or debit card, which includes a 5% processing fee.</p>
     </div>
   </section>
 
