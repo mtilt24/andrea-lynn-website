@@ -1017,6 +1017,63 @@
       font-weight: 300;
       letter-spacing: 0.5px;
     }
+    .pricing-card .founding-label {
+      font-family: var(--sans);
+      font-size: 12px;
+      letter-spacing: 2.5px;
+      text-transform: uppercase;
+      color: var(--gold);
+      font-weight: 500;
+      margin-bottom: 14px;
+    }
+    .pricing-card .price-regular {
+      font-family: var(--sans);
+      font-size: 14px;
+      color: var(--taupe);
+      margin-bottom: 28px;
+      font-weight: 300;
+    }
+    .pricing-card .founding-intro {
+      font-family: var(--sans);
+      font-size: 15px;
+      line-height: 1.7;
+      color: var(--charcoal);
+      font-weight: 300;
+      margin-bottom: 24px;
+    }
+    .pricing-card .founding-list {
+      list-style: none;
+      text-align: left;
+      max-width: 360px;
+      margin: 0 auto 28px;
+    }
+    .pricing-card .founding-list li {
+      font-family: var(--sans);
+      font-size: 15px;
+      line-height: 1.6;
+      color: var(--charcoal);
+      font-weight: 300;
+      padding-left: 24px;
+      margin-bottom: 12px;
+      position: relative;
+    }
+    .pricing-card .founding-list li::before {
+      content: "";
+      position: absolute;
+      left: 0;
+      top: 9px;
+      width: 6px;
+      height: 6px;
+      border-radius: 50%;
+      background: var(--gold);
+    }
+    .pricing-card .spots-note {
+      font-family: var(--serif);
+      font-size: 19px;
+      font-style: italic;
+      color: var(--charcoal);
+      margin-bottom: 8px;
+    }
     .pricing-card .pricing-cta { margin-top: 8px; }
 
     /* ── TESTIMONIALS ── */
@@ -1779,8 +1836,24 @@
         </div>
 
         <p class="dates">Sept 11 <em>to</em> Nov 6, 2026</p>
-        <p class="price">$1,100</p>
-        <p class="price-note">Payment plans available on request.</p>
+
+        <p class="founding-label">Founding Member Pricing</p>
+        <p class="price">$333</p>
+        <p class="price-regular">Regular investment: $1,100+</p>
+
+        <p class="founding-intro">As I launch the very first REBUILD cohort, I'm opening a limited number of Founding Member spots. As a Founding Member, you'll receive:</p>
+
+        <ul class="founding-list">
+          <li>Full 8-week REBUILD experience</li>
+          <li>Weekly live coaching calls</li>
+          <li>Lifetime access to all recordings</li>
+          <li>Private community support</li>
+          <li>The opportunity to help shape future versions of the program through your feedback</li>
+        </ul>
+
+        <p class="founding-intro">This pricing will never be offered again.</p>
+        <p class="spots-note">Only 25 Founding Member spots are available.</p>
+        <p class="price-note">Once they're filled, enrollment moves to the regular tuition.</p>
 
         <div class="pricing-cta">
           <a href="contact" class="btn-primary">Book a Clarity Call</a>
