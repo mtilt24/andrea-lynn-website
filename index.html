@@ -544,17 +544,45 @@
     /* ============================================
        COMPOSED IMAGE (pre-framed from Canva/design)
        ============================================ */
+    /* Arch-framed photo with offset gold outline, matching the page heroes */
     .composed-image {
-      max-width: 680px;
+      max-width: 430px;
       width: 100%;
-      margin: -40px auto 0;
-      align-self: start;
+      margin: 0 auto;
+      position: relative;
     }
 
     .composed-image img {
       width: 100%;
       height: auto;
+      aspect-ratio: 4/5;
+      object-fit: cover;
+      object-position: center 22%;
       display: block;
+      border-radius: 210px 210px 6px 6px;
+      box-shadow: 0 20px 60px rgba(44,40,37,0.15);
+      position: relative;
+      z-index: 1;
+    }
+
+    .composed-image::before {
+      content: '';
+      position: absolute;
+      top: -18px; left: -18px; right: 18px; bottom: 18px;
+      border: 1px solid var(--gold);
+      border-radius: 210px 210px 6px 6px;
+      opacity: 0.45;
+      pointer-events: none;
+    }
+
+    .composed-image::after {
+      content: '✦';
+      position: absolute;
+      top: 6%; right: -28px;
+      font-size: 26px;
+      color: var(--gold);
+      opacity: 0.65;
+      pointer-events: none;
     }
 
     /* ============================================
@@ -2182,7 +2210,7 @@
   <section class="about sacred-bg" id="about">
     <div class="about-inner">
       <div class="composed-image fade-in">
-        <img src="https://res.cloudinary.com/dstssdnoj/image/upload/q_auto,f_auto,w_800/v1781137828/Andrea_website_Photo_Templates-02_mps0ln.png" alt="Andrea Lynn" width="800" height="1000" loading="lazy" decoding="async">
+        <img src="https://res.cloudinary.com/dstssdnoj/image/upload/q_auto,f_auto,w_680,h_850,c_fill,g_faces/v1781137405/Close_Up_Bio_hyo9bc.jpg" alt="Andrea Lynn" width="680" height="850" loading="lazy" decoding="async">
       </div>
       <div class="about-text">
         <h2 class="about-headline fade-in">I didn't find this work.<br>It found me.</h2>

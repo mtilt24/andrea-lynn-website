@@ -774,12 +774,43 @@
       opacity: 0.4;
       pointer-events: none;
     }
-    .closing-pitch-img {
+    /* Arch-framed photo with offset gold outline, matching the page heroes */
+    .closing-pitch-arch {
+      position: relative;
       width: 100%;
       max-width: 420px;
+      margin: 0 auto;
+    }
+    .closing-pitch-img {
+      width: 100%;
       height: auto;
+      aspect-ratio: 4/5;
+      object-fit: cover;
+      object-position: center 20%;
       margin: 0 auto;
       display: block;
+      border-radius: 205px 205px 6px 6px;
+      box-shadow: 0 20px 60px rgba(44,40,37,0.15);
+      position: relative;
+      z-index: 1;
+    }
+    .closing-pitch-arch::before {
+      content: '';
+      position: absolute;
+      top: -18px; left: -18px; right: 18px; bottom: 18px;
+      border: 1px solid var(--gold);
+      border-radius: 205px 205px 6px 6px;
+      opacity: 0.45;
+      pointer-events: none;
+    }
+    .closing-pitch-arch::after {
+      content: '✦';
+      position: absolute;
+      top: 6%; right: -28px;
+      font-size: 26px;
+      color: var(--gold);
+      opacity: 0.65;
+      pointer-events: none;
     }
     .closing-pitch-text .eyebrow {
       font-size: 12px; font-weight: 500;
@@ -1578,7 +1609,8 @@
       .compare-grid { grid-template-columns: 1fr; }
       .compare-col { padding: 40px 30px; }
       .closing-pitch-inner { grid-template-columns: 1fr; gap: 60px; }
-      .closing-pitch-photo { max-width: 420px; margin: 0 auto; }
+      .closing-pitch-photo, .closing-pitch-arch { max-width: 420px; margin: 0 auto; }
+      .closing-pitch-arch::after { display: none; }
       .for-not-for-inner { grid-template-columns: 1fr; }
       .for-card { padding: 48px 32px; }
       .arc-grid { grid-template-columns: 1fr; }
@@ -1807,7 +1839,9 @@
   <!-- WHO IT IS FOR -->
   <section class="closing-pitch alt-bg">
     <div class="closing-pitch-inner">
-      <img class="closing-pitch-img fade-in" src="https://res.cloudinary.com/dstssdnoj/image/upload/q_auto,f_auto,w_900/v1781137823/Andrea_website_Photo_Templates-04_hwaj8o.png" alt="Ready to rebuild" loading="lazy">
+      <div class="closing-pitch-arch fade-in">
+        <img class="closing-pitch-img" src="https://res.cloudinary.com/dstssdnoj/image/upload/q_auto,f_auto,w_680,h_850,c_fill,g_faces/v1781137411/red_dress_laughter_gvajda.jpg" alt="Ready to rebuild" width="680" height="850" loading="lazy" decoding="async">
+      </div>
       <div class="closing-pitch-text">
         <p class="eyebrow fade-in">Who This Is For</p>
         <h2 class="fade-in fade-in-delay-1">Ready to <em>rebuild.</em></h2>
