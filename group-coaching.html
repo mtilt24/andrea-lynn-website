@@ -1207,6 +1207,104 @@
       border-top: 1px solid rgba(122,140,110,0.2);
     }
 
+    /* ── REBUILD VS HIVE ── */
+    .compare { padding: 160px 48px; background: var(--linen); }
+    .compare-head { text-align: center; max-width: 720px; margin: 0 auto 64px; }
+    .compare-head .eyebrow {
+      font-size: 12px; font-weight: 500;
+      letter-spacing: 4px; text-transform: uppercase;
+      color: var(--gold);
+      margin-bottom: 28px;
+    }
+    .compare-head h2 {
+      font-family: var(--serif);
+      font-size: clamp(34px, 4.2vw, 52px);
+      font-weight: 300;
+      line-height: 1.15;
+      color: var(--charcoal);
+      margin-bottom: 20px;
+    }
+    .compare-head h2 em { font-style: italic; color: var(--gold); }
+    .compare-head p {
+      font-family: var(--sans);
+      font-size: 16px; font-weight: 300;
+      line-height: 1.85;
+      color: var(--taupe);
+    }
+    .compare-grid {
+      max-width: 1000px;
+      margin: 0 auto;
+      display: grid;
+      grid-template-columns: 1fr 1fr;
+      gap: 2px;
+      background: var(--linen-deep);
+    }
+    .compare-col { background: var(--warm-white); padding: 52px 44px; }
+    .compare-col.accent { border-top: 3px solid var(--gold); }
+    .compare-col .tag {
+      font-family: var(--sans);
+      font-size: 11px; font-weight: 500;
+      letter-spacing: 3px; text-transform: uppercase;
+      color: var(--sage);
+      margin-bottom: 16px;
+    }
+    .compare-col h3 {
+      font-family: var(--serif);
+      font-size: 28px; font-weight: 400;
+      color: var(--charcoal);
+      line-height: 1.25;
+      margin-bottom: 10px;
+    }
+    .compare-col h3 em { font-style: italic; color: var(--gold); }
+    .compare-col .sub {
+      font-family: var(--serif);
+      font-size: 19px; font-style: italic;
+      color: var(--gold);
+      margin-bottom: 26px;
+    }
+    .compare-col ul { list-style: none; margin-bottom: 30px; }
+    .compare-col li {
+      display: flex;
+      align-items: flex-start;
+      gap: 13px;
+      padding: 12px 0;
+      border-bottom: 1px solid rgba(122,140,110,0.16);
+      font-family: var(--sans);
+      font-size: 14.5px; font-weight: 300;
+      line-height: 1.7;
+      color: var(--charcoal);
+    }
+    .compare-col li:last-child { border-bottom: none; }
+    .compare-col li::before {
+      content: '';
+      width: 11px; height: 13px;
+      background: var(--gold);
+      opacity: 0.8;
+      clip-path: polygon(50% 0%, 100% 25%, 100% 75%, 50% 100%, 0% 75%, 0% 25%);
+      flex-shrink: 0;
+      margin-top: 6px;
+    }
+    .compare-link {
+      font-family: var(--sans);
+      font-size: 11px; font-weight: 500;
+      letter-spacing: 3px; text-transform: uppercase;
+      color: var(--gold);
+      padding-bottom: 5px;
+      border-bottom: 1px solid rgba(212,184,92,0.45);
+    }
+    .compare-link:hover { color: var(--charcoal); border-bottom-color: var(--charcoal); }
+    .compare-note {
+      max-width: 1000px;
+      margin: 40px auto 0;
+      text-align: center;
+      font-family: var(--serif);
+      font-size: clamp(20px, 2.3vw, 26px);
+      font-style: italic;
+      line-height: 1.5;
+      color: var(--charcoal);
+    }
+    .compare-note em { color: var(--gold); }
+
     /* ── FINAL CTA ── */
     .final-cta {
       background: var(--charcoal);
@@ -1476,7 +1574,9 @@
       .page-hero-visual::after { display: none; }
       .page-hero-visual { max-width: 360px; margin: 0 auto; }
       .page-hero-visual img { max-height: 400px; aspect-ratio: auto; height: 400px; }
-      .manifesto, .for-not-for, .arc, .how, .closing-pitch, .outcomes, .pricing, .testimonials, .final-cta { padding: 100px 28px; }
+      .manifesto, .for-not-for, .arc, .how, .closing-pitch, .outcomes, .pricing, .testimonials, .compare, .final-cta { padding: 100px 28px; }
+      .compare-grid { grid-template-columns: 1fr; }
+      .compare-col { padding: 40px 30px; }
       .closing-pitch-inner { grid-template-columns: 1fr; gap: 60px; }
       .closing-pitch-photo { max-width: 420px; margin: 0 auto; }
       .for-not-for-inner { grid-template-columns: 1fr; }
@@ -1527,7 +1627,7 @@
       .hero, .page-hero { padding: 110px 24px 70px; }
       .hero-headline, .page-hero-title { font-size: clamp(30px, 8.5vw, 48px); }
       .hero-headline br, .page-hero-title br { display: none; }
-      .manifesto, .closing-pitch, .arc, .how, .outcomes, .pricing, .testimonials, .final-cta { padding: 70px 20px; }
+      .manifesto, .closing-pitch, .arc, .how, .outcomes, .pricing, .testimonials, .compare, .final-cta { padding: 70px 20px; }
       .btn-primary, .btn-secondary { padding: 15px 22px; font-size: 11px; letter-spacing: 1.5px; }
     }
     /* MOBILE NAV */
@@ -1908,6 +2008,45 @@
       </div>
       </div>
     </div>
+  </section>
+
+  <!-- REBUILD VS HIVE -->
+  <section class="compare">
+    <div class="compare-head">
+      <p class="eyebrow fade-in">REBUILD or The Hive?</p>
+      <h2 class="fade-in fade-in-delay-1">Two different <em>kinds of support.</em></h2>
+      <p class="fade-in fade-in-delay-1">Both are done in community. They ask different things of you, and they do different work.</p>
+    </div>
+
+    <div class="compare-grid">
+      <div class="compare-col accent fade-in">
+        <p class="tag">8 Weeks</p>
+        <h3><em>RE</em>BUILD</h3>
+        <p class="sub">A season of focused work.</p>
+        <ul>
+          <li>A closed cohort with a start and a finish, September 11 to November 6.</li>
+          <li>Online, with weekly 90-minute live calls.</li>
+          <li>A structured arc: see the pattern, interrupt it, rebuild. Work between sessions.</li>
+          <li>$333 for the founding cohort.</li>
+        </ul>
+        <p style="font-family:var(--sans);font-size:14px;font-weight:300;color:var(--taupe);line-height:1.7;">For the woman ready to move through one specific chapter, all the way.</p>
+      </div>
+
+      <div class="compare-col fade-in fade-in-delay-1">
+        <p class="tag">Ongoing</p>
+        <h3>The <em>Hive</em> Collective</h3>
+        <p class="sub">A place to return to.</p>
+        <ul>
+          <li>No start date, no end date. Come each month, for as long as it serves you.</li>
+          <li>In person, in Auburn, on a Sunday afternoon.</li>
+          <li>Come exactly as you are. Nothing to prepare, nothing to keep up with.</li>
+          <li>$55 a month, or $22 to drop in once.</li>
+        </ul>
+        <a href="hive" class="compare-link">Explore The Hive →</a>
+      </div>
+    </div>
+
+    <p class="compare-note fade-in">Many women do both. <em>Hive members save 20% on REBUILD.</em></p>
   </section>
 
   <!-- FINAL CTA -->

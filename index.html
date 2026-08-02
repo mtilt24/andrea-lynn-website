@@ -824,12 +824,9 @@
     }
     .work-cards {
       display: grid;
-      grid-template-columns: repeat(3, 1fr);
-      gap: 28px;
+      grid-template-columns: 1fr 1fr;
+      gap: 36px;
       align-items: stretch;
-    }
-    @media (max-width: 1080px) {
-      .work-cards { grid-template-columns: 1fr; }
     }
     .work-card {
       background: rgba(255,255,255,0.65);
@@ -1022,6 +1019,152 @@
       letter-spacing: 2px;
       text-transform: uppercase;
       color: var(--taupe-light);
+    }
+
+    /* ============================================
+       HIVE FEATURE BAND (mid-page, dark)
+       ============================================ */
+    .hive-feature {
+      padding: 150px 48px;
+      background: linear-gradient(180deg, #2C2825 0%, #1a1815 100%);
+      position: relative;
+      overflow: hidden;
+    }
+    .hive-feature::before {
+      content: '';
+      position: absolute;
+      top: 50%; left: 50%;
+      transform: translate(-50%, -50%);
+      width: 1000px; height: 1000px;
+      background: radial-gradient(circle, rgba(212,184,92,0.10) 0%, rgba(122,140,110,0.05) 40%, transparent 70%);
+      pointer-events: none;
+    }
+    .hive-feature-inner {
+      max-width: 1180px;
+      margin: 0 auto;
+      display: grid;
+      grid-template-columns: 1fr 1fr;
+      gap: 84px;
+      align-items: center;
+      position: relative;
+      z-index: 1;
+    }
+    .hive-feature-photo {
+      position: relative;
+      border-radius: 4px;
+      overflow: hidden;
+      box-shadow: 0 24px 70px rgba(0,0,0,0.4);
+    }
+    .hive-feature-photo img {
+      width: 100%;
+      /* height:auto is required, or the img height attribute wins over aspect-ratio */
+      height: auto;
+      aspect-ratio: 5/4;
+      object-fit: cover;
+      display: block;
+    }
+    .hive-feature-frame {
+      position: absolute;
+      top: -14px; left: -14px; right: 14px; bottom: 14px;
+      border: 1px solid var(--gold);
+      border-radius: 4px;
+      opacity: 0.45;
+      pointer-events: none;
+    }
+    .hive-feature-eyebrow {
+      font-family: var(--sans);
+      font-size: 12px; font-weight: 500;
+      letter-spacing: 5px; text-transform: uppercase;
+      color: var(--gold);
+      margin-bottom: 22px;
+      text-shadow: 0 0 24px var(--gold-glow);
+    }
+    .hive-feature h2 {
+      font-family: var(--serif);
+      font-size: clamp(38px, 4.6vw, 60px);
+      font-weight: 300;
+      line-height: 1.1;
+      color: var(--white);
+      margin-bottom: 16px;
+    }
+    .hive-feature h2 em {
+      font-style: italic;
+      color: var(--gold);
+      text-shadow: 0 0 30px var(--gold-glow);
+    }
+    .hive-feature-tagline {
+      font-family: var(--sans);
+      font-size: 12px; font-weight: 500;
+      letter-spacing: 4px; text-transform: uppercase;
+      color: rgba(212,184,92,0.85);
+      margin-bottom: 30px;
+    }
+    .hive-feature-lede {
+      font-family: var(--serif);
+      font-size: clamp(22px, 2.3vw, 28px);
+      font-weight: 300; font-style: italic;
+      line-height: 1.45;
+      color: rgba(255,255,255,0.94);
+      margin-bottom: 22px;
+    }
+    .hive-feature-body {
+      font-family: var(--sans);
+      font-size: 16px; font-weight: 300;
+      line-height: 1.85;
+      color: rgba(255,255,255,0.68);
+      margin-bottom: 34px;
+      max-width: 500px;
+    }
+    .hive-feature-meta {
+      display: flex;
+      gap: 40px;
+      flex-wrap: wrap;
+      padding: 26px 0;
+      border-top: 1px solid rgba(212,184,92,0.22);
+      border-bottom: 1px solid rgba(212,184,92,0.22);
+      margin-bottom: 36px;
+    }
+    .hive-feature-meta div { display: flex; flex-direction: column; gap: 6px; }
+    .hive-feature-meta .val {
+      font-family: var(--serif);
+      font-size: 26px; font-weight: 300;
+      color: var(--gold);
+      line-height: 1;
+    }
+    .hive-feature-meta .lab {
+      font-family: var(--sans);
+      font-size: 10px; font-weight: 500;
+      letter-spacing: 2.5px; text-transform: uppercase;
+      color: rgba(255,255,255,0.5);
+    }
+    .hive-feature-ctas { display: flex; gap: 16px; flex-wrap: wrap; align-items: center; }
+    .hive-feature-ctas .btn-outline {
+      display: inline-block;
+      font-family: var(--sans);
+      font-size: 12px; font-weight: 500;
+      letter-spacing: 3px; text-transform: uppercase;
+      color: rgba(255,255,255,0.9);
+      padding: 17px 38px;
+      border: 1px solid rgba(212,184,92,0.45);
+      transition: all 0.35s ease;
+    }
+    .hive-feature-ctas .btn-outline:hover {
+      color: var(--gold);
+      border-color: var(--gold);
+      transform: translateY(-2px);
+    }
+    @media (max-width: 900px) {
+      .hive-feature { padding: 100px 28px; }
+      .hive-feature-inner { grid-template-columns: 1fr; gap: 56px; }
+      .hive-feature-photo { max-width: 460px; margin: 0 auto; width: 100%; }
+      .hive-feature-meta { gap: 28px; }
+    }
+    @media (max-width: 600px) {
+      .hive-feature-ctas { flex-direction: column; align-items: stretch; width: 100%; max-width: 320px; }
+      .hive-feature-ctas .btn-primary, .hive-feature-ctas .btn-outline { width: 100%; text-align: center; }
+    }
+    @media (max-width: 480px) {
+      .hive-feature { padding: 70px 20px; }
     }
 
     /* ============================================
@@ -1869,6 +2012,7 @@
       .marquee-track { animation-duration: 22s; }
 
       .offerings-grid { grid-template-columns: 1fr; }
+      .work-cards { grid-template-columns: 1fr; }
       .work-card { padding: 40px 32px; }
 
       .hero { padding: 140px 28px 80px; }
@@ -2039,13 +2183,48 @@
     </div>
   </section>
 
+  <!-- HIVE FEATURE -->
+  <section class="hive-feature" id="hive">
+    <div class="hive-feature-inner">
+      <div class="hive-feature-photo fade-in">
+        <img src="https://res.cloudinary.com/dstssdnoj/image/upload/q_auto,f_auto,w_1000,h_800,c_fill,g_faces/v1781137416/goddess_train_close_up_xxao5a.jpg" alt="Women gathered together at a Hive Collective gathering" width="1000" height="800" loading="lazy" decoding="async">
+        <span class="hive-feature-frame"></span>
+      </div>
+      <div class="hive-feature-text">
+        <p class="hive-feature-eyebrow fade-in">Now Gathering Monthly</p>
+        <h2 class="fade-in fade-in-delay-1">The Hive <em>Collective.</em></h2>
+        <p class="hive-feature-tagline fade-in fade-in-delay-1">Gather. Rebuild. Pollinate.</p>
+        <p class="hive-feature-lede fade-in fade-in-delay-2">You weren't meant to do life alone.</p>
+        <p class="hive-feature-body fade-in fade-in-delay-2">An ongoing community for women navigating life's transitions. No start date, no end date. Come back each month, in person, and leave a little more connected to yourself and to the women beside you.</p>
+        <div class="hive-feature-meta fade-in fade-in-delay-3">
+          <div>
+            <p class="val">$55</p>
+            <p class="lab">Per Month</p>
+          </div>
+          <div>
+            <p class="val">Monthly</p>
+            <p class="lab">Auburn, CA</p>
+          </div>
+          <div>
+            <p class="val">$22</p>
+            <p class="lab">Drop In Once</p>
+          </div>
+        </div>
+        <div class="hive-feature-ctas fade-in fade-in-delay-3">
+          <a href="hive" class="btn-primary">Become a Member</a>
+          <a href="hive#gatherings" class="btn-outline">Attend a Gathering</a>
+        </div>
+      </div>
+    </div>
+  </section>
+
   <!-- WORK WITH ME -->
   <section class="work-with-me sacred-bg" id="coaching">
     <div class="work-inner">
       <div class="work-header fade-in">
         <p class="coaching-eyebrow">Work With Me</p>
-        <h2 class="coaching-headline">Three ways to do<br>the deeper work.</h2>
-        <p class="work-lede">Somatic, nervous-system informed coaching for women in midlife transition. Go deep on your own, move through a season with a cohort, or belong to something ongoing.</p>
+        <h2 class="coaching-headline">Two ways to do<br>the deeper work.</h2>
+        <p class="work-lede">Somatic, nervous-system informed coaching for women in midlife transition. Go deep on your own, or move through a season alongside a small group.</p>
       </div>
       <div class="work-cards">
         <article class="work-card fade-in fade-in-delay-1">
@@ -2069,17 +2248,6 @@
             <li>A structured arc, not open-ended discussion</li>
           </ul>
           <a href="group-coaching" class="btn-primary">Join REBUILD</a>
-        </article>
-        <article class="work-card fade-in fade-in-delay-3">
-          <p class="work-card-tag">Ongoing Community</p>
-          <h3 class="work-card-title">The Hive Collective</h3>
-          <p class="work-card-blurb">Not a program with an end date. A place to return to every month, in person, so you are not rebuilding your life by yourself.</p>
-          <ul class="coaching-features">
-            <li>$55 a month, ongoing, or drop in for $22</li>
-            <li>Monthly gathering in Auburn, plus monthly breathwork</li>
-            <li>Weekly practices, prompts, and 20% off everything else</li>
-          </ul>
-          <a href="hive" class="btn-primary">Explore The Hive</a>
         </article>
       </div>
     </div>
