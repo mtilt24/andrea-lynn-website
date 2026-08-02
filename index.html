@@ -5,8 +5,8 @@
   <meta name="viewport" content="width=device-width, initial-scale=1.0, viewport-fit=cover">
   <meta name="theme-color" content="#F2EDE4">
   <title>Andrea Lynn | Somatic Coaching for Women Rebuilding Their Lives</title>
-  <meta name="description" content="Somatic coaching, breathwork and feminine embodiment retreats for women rebuilding after divorce, loss, identity shifts, and major life transitions. Nervous-system informed 1:1 coaching, REBUILD group container, and Costa Rica retreats.">
-  <meta name="keywords" content="somatic coaching for women, embodiment coach, nervous system coaching, coaching after divorce, women in transition coaching, rebuilding after divorce, identity shift coaching, breathwork facilitator, breathwork and cacao ceremony, Costa Rica women's retreat 2026, feminine embodiment coach, REBUILD group coaching, holotropic breathwork California, Andrea Lynn, Andrea Spacek">
+  <meta name="description" content="Somatic coaching, breathwork and feminine embodiment retreats for women rebuilding after divorce, loss, identity shifts, and major life transitions. Nervous-system informed 1:1 coaching, REBUILD group container, and women's retreats.">
+  <meta name="keywords" content="somatic coaching for women, embodiment coach, nervous system coaching, coaching after divorce, women in transition coaching, rebuilding after divorce, identity shift coaching, breathwork facilitator, breathwork and cacao ceremony, Sedona women's retreat 2026, feminine embodiment coach, REBUILD group coaching, holotropic breathwork California, Andrea Lynn, Andrea Spacek">
   <meta name="author" content="Andrea Lynn">
   <meta name="robots" content="index, follow, max-image-preview:large">
   <link rel="canonical" href="https://www.andrealynncoaching.com/">
@@ -1043,32 +1043,47 @@
       max-width: 1180px;
       margin: 0 auto;
       display: grid;
-      grid-template-columns: 1fr 1fr;
-      gap: 84px;
+      grid-template-columns: 1.05fr 0.95fr;
+      gap: 90px;
       align-items: center;
       position: relative;
       z-index: 1;
     }
+    /* Arch-topped image with an offset gold frame, matching the page heroes */
     .hive-feature-photo {
       position: relative;
-      border-radius: 4px;
-      overflow: hidden;
-      box-shadow: 0 24px 70px rgba(0,0,0,0.4);
+      max-width: 400px;
+      width: 100%;
+      margin: 0 auto;
     }
     .hive-feature-photo img {
       width: 100%;
       /* height:auto is required, or the img height attribute wins over aspect-ratio */
       height: auto;
-      aspect-ratio: 5/4;
+      aspect-ratio: 4/5;
       object-fit: cover;
+      object-position: center;
       display: block;
+      border-radius: 190px 190px 6px 6px;
+      box-shadow: 0 24px 70px rgba(0,0,0,0.45);
+      position: relative;
+      z-index: 1;
     }
     .hive-feature-frame {
       position: absolute;
-      top: -14px; left: -14px; right: 14px; bottom: 14px;
+      top: -16px; left: -16px; right: 16px; bottom: 16px;
       border: 1px solid var(--gold);
-      border-radius: 4px;
+      border-radius: 190px 190px 6px 6px;
       opacity: 0.45;
+      pointer-events: none;
+    }
+    .hive-feature-photo::after {
+      content: '✦';
+      position: absolute;
+      top: 8%; right: -30px;
+      font-size: 22px;
+      color: var(--gold);
+      opacity: 0.6;
       pointer-events: none;
     }
     .hive-feature-eyebrow {
@@ -1155,8 +1170,10 @@
     }
     @media (max-width: 900px) {
       .hive-feature { padding: 100px 28px; }
+      /* Stack with the photo first so the section still opens on an image */
       .hive-feature-inner { grid-template-columns: 1fr; gap: 56px; }
-      .hive-feature-photo { max-width: 460px; margin: 0 auto; width: 100%; }
+      .hive-feature-photo { order: -1; max-width: 340px; }
+      .hive-feature-photo::after { display: none; }
       .hive-feature-meta { gap: 28px; }
     }
     @media (max-width: 600px) {
@@ -2103,7 +2120,6 @@
       <li class="nav-dropdown">
         <a tabindex="0" role="button" aria-haspopup="true">Retreats</a>
         <ul class="nav-dropdown-menu">
-          <li><a href="costa-rica-retreat">Costa Rica · Jul 2026</a></li>
           <li><a href="sedona-retreat">Sedona · Oct 2026</a></li>
         </ul>
       </li>
@@ -2186,10 +2202,6 @@
   <!-- HIVE FEATURE -->
   <section class="hive-feature" id="hive">
     <div class="hive-feature-inner">
-      <div class="hive-feature-photo fade-in">
-        <img src="https://res.cloudinary.com/dstssdnoj/image/upload/q_auto,f_auto,w_1000,h_800,c_fill,g_faces/v1781137416/goddess_train_close_up_xxao5a.jpg" alt="Women gathered together at a Hive Collective gathering" width="1000" height="800" loading="lazy" decoding="async">
-        <span class="hive-feature-frame"></span>
-      </div>
       <div class="hive-feature-text">
         <p class="hive-feature-eyebrow fade-in">Now Gathering Monthly</p>
         <h2 class="fade-in fade-in-delay-1">The Hive <em>Collective.</em></h2>
@@ -2214,6 +2226,10 @@
           <a href="hive" class="btn-primary">Become a Member</a>
           <a href="hive#gatherings" class="btn-outline">Attend a Gathering</a>
         </div>
+      </div>
+      <div class="hive-feature-photo fade-in fade-in-delay-1">
+        <img src="https://res.cloudinary.com/dstssdnoj/image/upload/q_auto,f_auto,w_640,h_800,c_fill,g_faces/v1781137416/goddess_train_close_up_xxao5a.jpg" alt="Women gathered together at a Hive Collective gathering" width="640" height="800" loading="lazy" decoding="async">
+        <span class="hive-feature-frame"></span>
       </div>
     </div>
   </section>
@@ -2304,7 +2320,7 @@
     <div class="retreats-content">
       <div class="retreat-images-stack fade-in">
         <div class="retreat-framed">
-          <img src="https://res.cloudinary.com/dstssdnoj/image/upload/q_auto,f_auto,w_500,h_667,c_fill/AdobeStock_812065335_gnlbay.jpg" alt="Women gathered in a sacred retreat circle — Andrea Lynn retreats in Costa Rica" loading="lazy" decoding="async">
+          <img src="https://res.cloudinary.com/dstssdnoj/image/upload/q_auto,f_auto,w_500,h_667,c_fill/AdobeStock_812065335_gnlbay.jpg" alt="Women gathered in a sacred retreat circle at an Andrea Lynn retreat" loading="lazy" decoding="async">
         </div>
         <div class="retreat-framed">
           <img src="https://res.cloudinary.com/dstssdnoj/image/upload/q_auto,f_auto,w_500,h_667,c_fill/AdobeStock_1869137455_ujaizp.jpg" alt="Sacred ceremony altar with crystals and candles — breathwork and embodiment ritual" loading="lazy" decoding="async">
@@ -2318,15 +2334,15 @@
         </div>
         <div class="retreats-detail fade-in fade-in-delay-3">
           <div class="retreats-detail-item">
-            <p class="retreats-detail-number">Jul</p>
-            <p class="retreats-detail-label">Costa Rica</p>
+            <p class="retreats-detail-number">Oct</p>
+            <p class="retreats-detail-label">Sedona</p>
           </div>
           <div class="retreats-detail-item">
             <p class="retreats-detail-number">2026</p>
             <p class="retreats-detail-label">Open Now</p>
           </div>
         </div>
-        <a href="costa-rica-retreat" class="btn-primary fade-in fade-in-delay-4">View Costa Rica Retreat</a>
+        <a href="sedona-retreat" class="btn-primary fade-in fade-in-delay-4">View Sedona Retreat</a>
       </div>
     </div>
   </section>
@@ -2414,7 +2430,6 @@
             <li><a href="coaching">1:1 Coaching</a></li>
             <li><a href="group-coaching">Group Containers</a></li>
             <li><a href="hive">The Hive Collective</a></li>
-            <li><a href="costa-rica-retreat">Costa Rica Retreat</a></li>
             <li><a href="workshops">Workshops</a></li>
                 </ul>
         </div>

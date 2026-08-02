@@ -43,27 +43,9 @@
     <priority>0.8</priority>
   </url>
   <url>
-    <loc>https://www.andrealynncoaching.com/costa-rica-retreat</loc>
-    <lastmod>2026-05-09</lastmod>
+    <loc>https://www.andrealynncoaching.com/sedona-retreat</loc>
+    <lastmod>2026-08-02</lastmod>
     <changefreq>weekly</changefreq>
     <priority>0.9</priority>
-  </url>
-  <url>
-    <loc>https://www.andrealynncoaching.com/jungle-room</loc>
-    <lastmod>2026-05-09</lastmod>
-    <changefreq>monthly</changefreq>
-    <priority>0.6</priority>
-  </url>
-  <url>
-    <loc>https://www.andrealynncoaching.com/queen-bungalow</loc>
-    <lastmod>2026-05-09</lastmod>
-    <changefreq>monthly</changefreq>
-    <priority>0.6</priority>
-  </url>
-  <url>
-    <loc>https://www.andrealynncoaching.com/casita</loc>
-    <lastmod>2026-05-09</lastmod>
-    <changefreq>monthly</changefreq>
-    <priority>0.6</priority>
   </url>
 </urlset>
