@@ -824,9 +824,12 @@
     }
     .work-cards {
       display: grid;
-      grid-template-columns: 1fr 1fr;
-      gap: 36px;
+      grid-template-columns: repeat(3, 1fr);
+      gap: 28px;
       align-items: stretch;
+    }
+    @media (max-width: 1080px) {
+      .work-cards { grid-template-columns: 1fr; }
     }
     .work-card {
       background: rgba(255,255,255,0.65);
@@ -1866,7 +1869,6 @@
       .marquee-track { animation-duration: 22s; }
 
       .offerings-grid { grid-template-columns: 1fr; }
-      .work-cards { grid-template-columns: 1fr; }
       .work-card { padding: 40px 32px; }
 
       .hero { padding: 140px 28px 80px; }
@@ -1950,6 +1952,7 @@
         <ul class="nav-dropdown-menu">
           <li><a href="coaching">1:1 Coaching</a></li>
           <li><a href="group-coaching">Group Containers</a></li>
+          <li><a href="hive">The Hive Collective</a></li>
         </ul>
       </li>
       <li><a href="workshops">Workshops</a></li>
@@ -2041,8 +2044,8 @@
     <div class="work-inner">
       <div class="work-header fade-in">
         <p class="coaching-eyebrow">Work With Me</p>
-        <h2 class="coaching-headline">Two ways to do<br>the deeper work.</h2>
-        <p class="work-lede">Somatic, nervous-system informed coaching for women in midlife transition. Choose the container that fits where you are.</p>
+        <h2 class="coaching-headline">Three ways to do<br>the deeper work.</h2>
+        <p class="work-lede">Somatic, nervous-system informed coaching for women in midlife transition. Go deep on your own, move through a season with a cohort, or belong to something ongoing.</p>
       </div>
       <div class="work-cards">
         <article class="work-card fade-in fade-in-delay-1">
@@ -2057,15 +2060,26 @@
           <a href="coaching" class="btn-primary">Explore 1:1 Coaching</a>
         </article>
         <article class="work-card fade-in fade-in-delay-2">
-          <p class="work-card-tag">Group</p>
+          <p class="work-card-tag">8-Week Cohort</p>
           <h3 class="work-card-title">REBUILD Group Container</h3>
-          <p class="work-card-blurb">Heal in community. Rebuild self-trust alongside other women doing the same work. Remember who you are in the presence of women becoming.</p>
+          <p class="work-card-blurb">A focused season of work with a start and a finish. See the pattern, interrupt it, and build what comes next alongside a small group of women doing the same.</p>
           <ul class="coaching-features">
-            <li>8-week group container, opens September</li>
-            <li>Sacred space for shared transformation</li>
-            <li>Live calls, somatic practice, sisterhood</li>
+            <li>8 weeks online, September 11 to November 6</li>
+            <li>Weekly 90-minute live calls, limited group</li>
+            <li>A structured arc, not open-ended discussion</li>
           </ul>
           <a href="group-coaching" class="btn-primary">Join REBUILD</a>
+        </article>
+        <article class="work-card fade-in fade-in-delay-3">
+          <p class="work-card-tag">Ongoing Community</p>
+          <h3 class="work-card-title">The Hive Collective</h3>
+          <p class="work-card-blurb">Not a program with an end date. A place to return to every month, in person, so you are not rebuilding your life by yourself.</p>
+          <ul class="coaching-features">
+            <li>$55 a month, ongoing, or drop in for $22</li>
+            <li>Monthly gathering in Auburn, plus monthly breathwork</li>
+            <li>Weekly practices, prompts, and 20% off everything else</li>
+          </ul>
+          <a href="hive" class="btn-primary">Explore The Hive</a>
         </article>
       </div>
     </div>
@@ -2231,6 +2245,7 @@
             <li><a href="about">About</a></li>
             <li><a href="coaching">1:1 Coaching</a></li>
             <li><a href="group-coaching">Group Containers</a></li>
+            <li><a href="hive">The Hive Collective</a></li>
             <li><a href="costa-rica-retreat">Costa Rica Retreat</a></li>
             <li><a href="workshops">Workshops</a></li>
                 </ul>
