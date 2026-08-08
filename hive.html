@@ -1849,7 +1849,7 @@
           <input type="text" id="signupWebsite" name="website" tabindex="-1" autocomplete="off">
         </div>
         <button type="submit" class="btn-primary" id="signupSubmit">Continue to Payment</button>
-        <p class="signup-note">You'll be taken to a secure checkout with your email already filled in.</p>
+        <p class="signup-note">Next you'll be taken to our secure Square checkout to complete payment.</p>
       </form>
     </div>
   </div>
@@ -1908,23 +1908,30 @@
        so nobody types it twice.
 
        To change a price or checkout link, edit PAY_LINKS below. The `tag` values
-       must stay in sync with ALLOWED_TAGS in /api/subscribe.js. */
+       must stay in sync with ALLOWED_TAGS in /api/subscribe.js.
+
+       emailParam: Square's hosted checkout links cannot prefill the buyer email
+       from a URL (that only works on links generated through their API), so it
+       stays null. If a link ever moves to Stripe, set it to 'prefilled_email'
+       and the email carries over automatically. */
     (function () {
       const PAY_LINKS = {
         member: {
           tag: 'Hive Member',
-          url: 'REPLACE_WITH_STRIPE_MEMBERSHIP_LINK',
+          url: 'https://checkout.square.site/merchant/V4G801A2GN8BN/checkout/EGXU6NMQ6ZEEZRJYH7B5W4KP',
+          emailParam: null,
           eyebrow: 'Membership',
           title: 'Join <em>The Hive.</em>',
-          intro: 'The Hive Collective is $55 a month. Share your details and we’ll take you straight to checkout.',
+          intro: 'The Hive Collective is $55 a month. Share your details and we’ll take you to checkout.',
           button: 'Continue to Payment'
         },
         dropin: {
           tag: 'Hive Drop-In',
-          url: 'REPLACE_WITH_STRIPE_DROPIN_LINK',
+          url: 'https://checkout.square.site/merchant/V4G801A2GN8BN/checkout/6DCZAWHIKKQMKLVCB5LF24TF',
+          emailParam: null,
           eyebrow: 'Drop In',
           title: 'Save your <em>spot.</em>',
-          intro: 'Drop in to a gathering for $22. Share your details and we’ll take you straight to checkout.',
+          intro: 'Drop in to a gathering for $22. Share your details and we’ll take you to checkout.',
           button: 'Continue to Payment'
         }
       };
@@ -2021,8 +2028,12 @@
           return setError(err.message || 'Something went wrong. Please try again.');
         }
 
-        window.location.href = current.url + (current.url.includes('?') ? '&' : '?')
-          + 'prefilled_email=' + encodeURIComponent(email);
+        let dest = current.url;
+        if (current.emailParam) {
+          dest += (dest.includes('?') ? '&' : '?')
+            + current.emailParam + '=' + encodeURIComponent(email);
+        }
+        window.location.href = dest;
       });
     })();
   </script>
