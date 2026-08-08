@@ -1334,6 +1334,96 @@
       .nav-links.open .nav-dropdown > a::after { display: inline-block !important; transition: transform 0.3s ease; }
       .nav-links.open .nav-dropdown.expanded > a::after { transform: rotate(225deg) translateY(-2px); }
     }
+    /* ===== SIGNUP MODAL ===== */
+    .signup-overlay {
+      position: fixed; inset: 0; z-index: 3000;
+      background: rgba(28, 24, 22, 0.72);
+      display: flex; align-items: flex-start; justify-content: center;
+      padding: 40px 20px;
+      overflow-y: auto;
+      opacity: 0; visibility: hidden;
+      transition: opacity 0.35s ease, visibility 0.35s ease;
+    }
+    .signup-overlay.open { opacity: 1; visibility: visible; }
+    .signup-modal {
+      position: relative;
+      width: 100%; max-width: 520px;
+      margin: auto;
+      background: var(--warm-white);
+      padding: 52px 48px 44px;
+      border: 1px solid rgba(212, 184, 92, 0.35);
+      box-shadow: 0 30px 80px rgba(28, 24, 22, 0.35);
+      transform: translateY(18px);
+      transition: transform 0.35s ease;
+    }
+    .signup-overlay.open .signup-modal { transform: translateY(0); }
+    .signup-close {
+      position: absolute; top: 16px; right: 18px;
+      background: none; border: none; cursor: pointer;
+      font-family: var(--sans); font-size: 24px; line-height: 1;
+      color: var(--taupe); opacity: 0.6; padding: 6px 10px;
+      transition: opacity 0.3s ease;
+    }
+    .signup-close:hover { opacity: 1; }
+    .signup-modal .eyebrow { margin-bottom: 12px; }
+    .signup-modal h3 {
+      font-family: var(--serif); font-size: 34px; font-weight: 300;
+      line-height: 1.2; color: var(--charcoal); margin-bottom: 14px;
+    }
+    .signup-modal h3 em { font-style: italic; color: var(--gold); }
+    .signup-intro {
+      font-family: var(--sans); font-size: 14px; font-weight: 300;
+      line-height: 1.7; color: var(--taupe); margin-bottom: 28px;
+    }
+    .signup-field { margin-bottom: 18px; }
+    .signup-row { display: flex; gap: 14px; }
+    .signup-row .signup-field { flex: 1; }
+    .signup-field label {
+      display: block;
+      font-family: var(--sans); font-size: 11px; font-weight: 500;
+      letter-spacing: 2px; text-transform: uppercase;
+      color: var(--taupe); margin-bottom: 8px;
+    }
+    .signup-field input {
+      width: 100%;
+      font-family: var(--sans); font-size: 15px; font-weight: 300;
+      color: var(--charcoal);
+      background: var(--white);
+      border: 1px solid var(--linen-deep);
+      padding: 13px 15px;
+      transition: border-color 0.3s ease, box-shadow 0.3s ease;
+    }
+    .signup-field input:focus {
+      outline: none;
+      border-color: var(--gold);
+      box-shadow: 0 0 0 3px var(--gold-glow-soft);
+    }
+    .signup-hp {
+      position: absolute; left: -9999px;
+      width: 1px; height: 1px; overflow: hidden;
+    }
+    .signup-modal .btn-primary { width: 100%; margin-top: 10px; }
+    .signup-modal .btn-primary[disabled] { opacity: 0.6; cursor: wait; }
+    .signup-note {
+      font-family: var(--sans); font-size: 12px; font-weight: 300;
+      line-height: 1.6; color: var(--taupe); opacity: 0.85;
+      text-align: center; margin-top: 18px;
+    }
+    .signup-error {
+      font-family: var(--sans); font-size: 13px; font-weight: 400;
+      line-height: 1.6; color: #A3453B;
+      background: rgba(163, 69, 59, 0.07);
+      border-left: 2px solid #A3453B;
+      padding: 12px 14px; margin-bottom: 20px;
+      display: none;
+    }
+    .signup-error.show { display: block; }
+    @media (max-width: 560px) {
+      .signup-overlay { padding: 20px 14px; }
+      .signup-modal { padding: 44px 26px 34px; }
+      .signup-modal h3 { font-size: 28px; }
+      .signup-row { display: block; }
+    }
   </style>
 
 </head>
@@ -1541,7 +1631,7 @@
           <li>20% off monthly breathwork</li>
         </ul>
 
-        <a href="mailto:andrea@andrealynncoaching.com?subject=The%20Hive%20Collective%20-%20Membership" class="btn-primary">Become a Member</a>
+        <a href="mailto:andrea@andrealynncoaching.com?subject=The%20Hive%20Collective%20-%20Membership" class="btn-primary" data-signup="member">Become a Member</a>
         <p class="cancel-note">Questions first? <a href="contact" style="color:var(--gold);border-bottom:1px solid rgba(212,184,92,0.45);">Book a clarity call.</a></p>
       </div>
     </div>
@@ -1580,7 +1670,7 @@
           <p class="date-info-name">The Hive Gathering</p>
           <p class="date-info-loc">East Wind Yoga · 922 Lincoln Way, Auburn, CA</p>
         </div>
-        <a class="date-cta" href="mailto:andrea@andrealynncoaching.com?subject=The%20Hive%20Gathering%20-%20September%2027">Save my spot →</a>
+        <a class="date-cta" href="mailto:andrea@andrealynncoaching.com?subject=The%20Hive%20Gathering%20-%20September%2027" data-signup="dropin">Save my spot →</a>
       </li>
       <li class="date-row fade-in" data-event-end="2026-10-25T16:00:00-07:00">
         <p class="date-num">25<small>Oct</small></p>
@@ -1589,7 +1679,7 @@
           <p class="date-info-name">The Hive Gathering</p>
           <p class="date-info-loc">East Wind Yoga · 922 Lincoln Way, Auburn, CA</p>
         </div>
-        <a class="date-cta" href="mailto:andrea@andrealynncoaching.com?subject=The%20Hive%20Gathering%20-%20October%2025">Save my spot →</a>
+        <a class="date-cta" href="mailto:andrea@andrealynncoaching.com?subject=The%20Hive%20Gathering%20-%20October%2025" data-signup="dropin">Save my spot →</a>
       </li>
       <li class="date-row fade-in" data-event-end="2026-11-22T16:00:00-08:00">
         <p class="date-num">22<small>Nov</small></p>
@@ -1598,7 +1688,7 @@
           <p class="date-info-name">The Hive Gathering</p>
           <p class="date-info-loc">East Wind Yoga · 922 Lincoln Way, Auburn, CA</p>
         </div>
-        <a class="date-cta" href="mailto:andrea@andrealynncoaching.com?subject=The%20Hive%20Gathering%20-%20November%2022">Save my spot →</a>
+        <a class="date-cta" href="mailto:andrea@andrealynncoaching.com?subject=The%20Hive%20Gathering%20-%20November%2022" data-signup="dropin">Save my spot →</a>
       </li>
       <li class="date-row fade-in" data-event-end="2026-12-27T16:00:00-08:00">
         <p class="date-num">27<small>Dec</small></p>
@@ -1607,7 +1697,7 @@
           <p class="date-info-name">The Hive Gathering</p>
           <p class="date-info-loc">East Wind Yoga · 922 Lincoln Way, Auburn, CA</p>
         </div>
-        <a class="date-cta" href="mailto:andrea@andrealynncoaching.com?subject=The%20Hive%20Gathering%20-%20December%2027">Save my spot →</a>
+        <a class="date-cta" href="mailto:andrea@andrealynncoaching.com?subject=The%20Hive%20Gathering%20-%20December%2027" data-signup="dropin">Save my spot →</a>
       </li>
     </ul>
 
@@ -1725,6 +1815,45 @@
     </div>
   </footer>
 
+  <!-- SIGNUP MODAL -->
+  <div class="signup-overlay" id="signupOverlay" role="dialog" aria-modal="true" aria-labelledby="signupTitle" hidden>
+    <div class="signup-modal">
+      <button type="button" class="signup-close" id="signupClose" aria-label="Close">&times;</button>
+      <p class="eyebrow" id="signupEyebrow">Membership</p>
+      <h3 id="signupTitle">Join <em>The Hive.</em></h3>
+      <p class="signup-intro" id="signupIntro">Share your details and we'll take you straight to checkout.</p>
+
+      <p class="signup-error" id="signupError" role="alert"></p>
+
+      <form id="signupForm" novalidate>
+        <div class="signup-row">
+          <div class="signup-field">
+            <label for="signupFirst">First name</label>
+            <input type="text" id="signupFirst" name="firstName" autocomplete="given-name" required>
+          </div>
+          <div class="signup-field">
+            <label for="signupLast">Last name</label>
+            <input type="text" id="signupLast" name="lastName" autocomplete="family-name">
+          </div>
+        </div>
+        <div class="signup-field">
+          <label for="signupEmail">Email</label>
+          <input type="email" id="signupEmail" name="email" autocomplete="email" required>
+        </div>
+        <div class="signup-field">
+          <label for="signupPhone">Phone <span style="text-transform:none;letter-spacing:0;opacity:.7;">(optional)</span></label>
+          <input type="tel" id="signupPhone" name="phone" autocomplete="tel">
+        </div>
+        <div class="signup-hp" aria-hidden="true">
+          <label for="signupWebsite">Leave this blank</label>
+          <input type="text" id="signupWebsite" name="website" tabindex="-1" autocomplete="off">
+        </div>
+        <button type="submit" class="btn-primary" id="signupSubmit">Continue to Payment</button>
+        <p class="signup-note">You'll be taken to a secure checkout with your email already filled in.</p>
+      </form>
+    </div>
+  </div>
+
   <script>
     const navEl = document.getElementById("nav");
     if (navEl) window.addEventListener("scroll", () => navEl.classList.toggle("scrolled", window.scrollY > 60));
@@ -1771,6 +1900,130 @@
       }
       const up = document.querySelector('.footer-upcoming');
       if (up && !up.querySelector('li')) up.closest('.footer-col').querySelector('h4').textContent = 'Join The Hive';
+    })();
+
+    /* ===== SIGNUP MODAL =====
+       Captures the contact into Mailchimp (tagged, so each type can trigger its
+       own welcome Journey) and then hands off to Stripe with the email prefilled
+       so nobody types it twice.
+
+       To change a price or checkout link, edit PAY_LINKS below. The `tag` values
+       must stay in sync with ALLOWED_TAGS in /api/subscribe.js. */
+    (function () {
+      const PAY_LINKS = {
+        member: {
+          tag: 'Hive Member',
+          url: 'REPLACE_WITH_STRIPE_MEMBERSHIP_LINK',
+          eyebrow: 'Membership',
+          title: 'Join <em>The Hive.</em>',
+          intro: 'The Hive Collective is $55 a month. Share your details and we’ll take you straight to checkout.',
+          button: 'Continue to Payment'
+        },
+        dropin: {
+          tag: 'Hive Drop-In',
+          url: 'REPLACE_WITH_STRIPE_DROPIN_LINK',
+          eyebrow: 'Drop In',
+          title: 'Save your <em>spot.</em>',
+          intro: 'Drop in to a gathering for $22. Share your details and we’ll take you straight to checkout.',
+          button: 'Continue to Payment'
+        }
+      };
+
+      const overlay = document.getElementById('signupOverlay');
+      const form = document.getElementById('signupForm');
+      if (!overlay || !form) return;
+
+      const modal = overlay.querySelector('.signup-modal');
+      const errorEl = document.getElementById('signupError');
+      const submitBtn = document.getElementById('signupSubmit');
+      const emailEl = document.getElementById('signupEmail');
+      const firstEl = document.getElementById('signupFirst');
+      let current = null;
+      let lastFocused = null;
+
+      function setError(msg) {
+        errorEl.textContent = msg || '';
+        errorEl.classList.toggle('show', !!msg);
+      }
+
+      function open(key) {
+        const cfg = PAY_LINKS[key];
+        if (!cfg) return;
+        current = cfg;
+        document.getElementById('signupEyebrow').textContent = cfg.eyebrow;
+        document.getElementById('signupTitle').innerHTML = cfg.title;
+        document.getElementById('signupIntro').textContent = cfg.intro;
+        submitBtn.textContent = cfg.button;
+        submitBtn.disabled = false;
+        setError('');
+        overlay.hidden = false;
+        lastFocused = document.activeElement;
+        /* Next frame so the transition runs instead of snapping open. */
+        requestAnimationFrame(() => {
+          overlay.classList.add('open');
+          firstEl.focus();
+        });
+        document.body.style.overflow = 'hidden';
+      }
+
+      function close() {
+        overlay.classList.remove('open');
+        document.body.style.overflow = '';
+        setTimeout(() => { overlay.hidden = true; }, 350);
+        if (lastFocused) lastFocused.focus();
+      }
+
+      document.querySelectorAll('[data-signup]').forEach(el => {
+        el.addEventListener('click', (e) => {
+          e.preventDefault();
+          open(el.getAttribute('data-signup'));
+        });
+      });
+
+      document.getElementById('signupClose').addEventListener('click', close);
+      overlay.addEventListener('click', (e) => { if (!modal.contains(e.target)) close(); });
+      document.addEventListener('keydown', (e) => {
+        if (e.key === 'Escape' && overlay.classList.contains('open')) close();
+      });
+
+      form.addEventListener('submit', async (e) => {
+        e.preventDefault();
+        if (!current) return;
+        setError('');
+
+        const email = emailEl.value.trim();
+        if (!firstEl.value.trim()) return setError('Please enter your first name.');
+        if (!/^[^\s@]+@[^\s@]+\.[^\s@]+$/.test(email)) return setError('Please enter a valid email address.');
+
+        submitBtn.disabled = true;
+        submitBtn.textContent = 'One moment…';
+
+        const payload = {
+          firstName: firstEl.value.trim(),
+          lastName: document.getElementById('signupLast').value.trim(),
+          email: email,
+          phone: document.getElementById('signupPhone').value.trim(),
+          website: document.getElementById('signupWebsite').value,
+          tag: current.tag
+        };
+
+        try {
+          const res = await fetch('/api/subscribe', {
+            method: 'POST',
+            headers: { 'Content-Type': 'application/json' },
+            body: JSON.stringify(payload)
+          });
+          const data = await res.json().catch(() => ({}));
+          if (!res.ok) throw new Error(data.error || 'Something went wrong. Please try again.');
+        } catch (err) {
+          submitBtn.disabled = false;
+          submitBtn.textContent = current.button;
+          return setError(err.message || 'Something went wrong. Please try again.');
+        }
+
+        window.location.href = current.url + (current.url.includes('?') ? '&' : '?')
+          + 'prefilled_email=' + encodeURIComponent(email);
+      });
     })();
   </script>
 
