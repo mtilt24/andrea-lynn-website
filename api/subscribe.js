@@ -1,6 +1,13 @@
 /* Mailchimp subscribe endpoint.
-   Adds (or updates) a contact in the audience and applies a tag so each
-   signup type can trigger its own welcome Journey in Mailchimp.
+   Adds (or updates) a contact in the audience and applies a Pending tag.
+
+   The tags here are deliberately Pending only. This runs when the form is
+   submitted, which is before the person reaches Square, so anyone who
+   abandons checkout would otherwise sit in the audience tagged as a paid
+   member and keep receiving member email. Payment is confirmed separately by
+   the Square by Mailchimp integration, which syncs orders in as store data.
+   The welcome Journeys start on "Buys a specific product" from that store,
+   never on these tags. A Pending tag only means someone started the form.
 
    Env vars (set in Vercel > Project > Settings > Environment Variables):
      MAILCHIMP_API_KEY     e.g. abc123...-us21   (the -usXX suffix picks the server)
@@ -9,8 +16,9 @@
 
 const crypto = require('crypto');
 
-/* Only these tags are accepted, so a stray request can't invent audience tags. */
-const ALLOWED_TAGS = ['Hive Member', 'Hive Drop-In'];
+/* Only these tags are accepted, so a stray request can't invent audience tags.
+   Must stay in sync with PAY_LINKS in hive.html. */
+const ALLOWED_TAGS = ['Hive Member Pending', 'Hive Drop-In Pending'];
 
 module.exports = async (req, res) => {
   if (req.method !== 'POST') {

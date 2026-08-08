@@ -1903,12 +1903,22 @@
     })();
 
     /* ===== SIGNUP MODAL =====
-       Captures the contact into Mailchimp (tagged, so each type can trigger its
-       own welcome Journey) and then hands off to Stripe with the email prefilled
-       so nobody types it twice.
+       Captures the contact into Mailchimp and then hands off to checkout.
+
+       The tag applied here is Pending, because this fires before payment. A
+       Pending tag means "started the form", nothing more, and no Journey may
+       start on it. Paid members are identified by the Square by Mailchimp
+       integration, which syncs the order in and starts the welcome Journey off
+       "Buys a specific product". See the note in /api/subscribe.js.
 
        To change a price or checkout link, edit PAY_LINKS below. The `tag` values
        must stay in sync with ALLOWED_TAGS in /api/subscribe.js.
+
+       Matching a payment back to a signup is by email address, so anyone who
+       types a different email at Square lands as a separate contact and stays
+       Pending. Andrea reconciles those by hand. If that gets noisy, generate
+       the checkout link server-side with Square's Payment Links API and set
+       pre_populated_data.buyer_email.
 
        emailParam: Square's hosted checkout links cannot prefill the buyer email
        from a URL (that only works on links generated through their API), so it
@@ -1917,7 +1927,7 @@
     (function () {
       const PAY_LINKS = {
         member: {
-          tag: 'Hive Member',
+          tag: 'Hive Member Pending',
           url: 'https://checkout.square.site/merchant/V4G801A2GN8BN/checkout/EGXU6NMQ6ZEEZRJYH7B5W4KP',
           emailParam: null,
           eyebrow: 'Membership',
@@ -1926,7 +1936,7 @@
           button: 'Continue to Payment'
         },
         dropin: {
-          tag: 'Hive Drop-In',
+          tag: 'Hive Drop-In Pending',
           url: 'https://checkout.square.site/merchant/V4G801A2GN8BN/checkout/6DCZAWHIKKQMKLVCB5LF24TF',
           emailParam: null,
           eyebrow: 'Drop In',
