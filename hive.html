@@ -787,6 +787,55 @@
       margin-top: 22px;
     }
 
+    /* ── ENROLLMENT NOTICE ── */
+    .enroll-notice {
+      background: var(--warm-white);
+      border: 1px solid rgba(212,184,92,0.45);
+      padding: 48px 44px;
+      margin-bottom: 44px;
+      text-align: center;
+    }
+    .enroll-notice .notice-kicker {
+      font-family: var(--sans);
+      font-size: 12px; font-weight: 500;
+      letter-spacing: 4px; text-transform: uppercase;
+      color: var(--gold);
+      margin-bottom: 26px;
+    }
+    .enroll-notice p {
+      font-family: var(--sans);
+      font-size: 16px; font-weight: 300;
+      color: var(--charcoal);
+      line-height: 1.8;
+      max-width: 520px;
+      margin: 0 auto 18px;
+    }
+    .enroll-notice p:last-child { margin-bottom: 0; }
+    .enroll-notice .notice-lead {
+      font-family: var(--serif);
+      font-size: 24px; font-weight: 300; font-style: italic;
+      line-height: 1.45;
+    }
+    .enroll-notice .notice-fine {
+      font-size: 13px;
+      letter-spacing: 1px;
+      color: var(--taupe);
+      margin-top: 30px;
+      padding-top: 24px;
+      border-top: 1px solid rgba(122,140,110,0.18);
+    }
+    .btn-closed {
+      display: inline-block;
+      font-family: var(--sans);
+      font-size: 12px; font-weight: 500;
+      letter-spacing: 2.5px; text-transform: uppercase;
+      color: var(--taupe);
+      background: rgba(122,140,110,0.08);
+      border: 1px solid rgba(122,140,110,0.28);
+      padding: 18px 40px;
+      cursor: default;
+    }
+
     /* ── DROP IN ── */
     .dropin { padding: 180px 48px; background: var(--warm-white); }
     .dropin-inner {
@@ -1255,6 +1304,7 @@
       .experience-cell, .experience-cell:nth-child(n+5) { grid-column: auto; }
       .experience-cell { padding: 36px 26px; }
       .membership-card { padding: 56px 32px; }
+      .enroll-notice { padding: 40px 28px; }
       .dropin-inner { grid-template-columns: 1fr; gap: 56px; }
       .dropin-photo { max-width: 400px; margin: 0 auto; width: 100%; }
       .date-row { grid-template-columns: 90px 1fr; row-gap: 14px; padding: 24px 26px; }
@@ -1282,6 +1332,8 @@
       .btn-row .btn-primary, .btn-row .btn-secondary { width: 100%; text-align: center; }
 
       .btn-primary, .btn-secondary { padding: 16px 28px; min-height: 48px; letter-spacing: 2px; }
+      .btn-closed { display: block; width: 100%; padding: 16px 20px; letter-spacing: 1.5px; }
+      .enroll-notice .notice-lead { font-size: 21px; }
       h2 { font-size: clamp(30px, 6.5vw, 40px); line-height: 1.25; }
       .membership-card .price { font-size: 52px; }
       .footer-grid { grid-template-columns: 1fr; gap: 40px; }
@@ -1525,6 +1577,14 @@
       <p class="eyebrow fade-in">Membership</p>
       <h2 class="fade-in fade-in-delay-1">A place to <em>return to.</em></h2>
 
+      <div class="enroll-notice fade-in fade-in-delay-1">
+        <p class="notice-kicker">Founding Membership Opens August 28</p>
+        <p class="notice-lead">The Hive Collective Membership begins September 1st.</p>
+        <p>Join us for an ongoing community of connection, embodied practice, meaningful conversation, and support through the seasons of your life.</p>
+        <p>Our first in-person Hive Gathering is September 27.</p>
+        <p class="notice-fine">$55/month · Enrollment opens August 28</p>
+      </div>
+
       <div class="membership-card fade-in fade-in-delay-2">
         <p class="label">The Hive Collective</p>
         <p class="name">Monthly <em>Membership</em></p>
@@ -1541,7 +1601,7 @@
           <li>20% off monthly breathwork</li>
         </ul>
 
-        <a href="https://checkout.square.site/merchant/V4G801A2GN8BN/checkout/EGXU6NMQ6ZEEZRJYH7B5W4KP" class="btn-primary" target="_blank" rel="noopener">Become a Member</a>
+        <span class="btn-closed">Enrollment Opens August 28</span>
         <p class="cancel-note">Questions first? <a href="contact" style="color:var(--gold);border-bottom:1px solid rgba(212,184,92,0.45);">Book a clarity call.</a></p>
       </div>
     </div>
