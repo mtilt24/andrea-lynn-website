@@ -1,4 +1,10 @@
 {
   "cleanUrls": true,
-  "trailingSlash": false
+  "trailingSlash": false,
+  "redirects": [
+    { "source": "/costa-rica-retreat", "destination": "/sedona-retreat", "permanent": true },
+    { "source": "/casita", "destination": "/sedona-retreat", "permanent": true },
+    { "source": "/jungle-room", "destination": "/sedona-retreat", "permanent": true },
+    { "source": "/queen-bungalow", "destination": "/sedona-retreat", "permanent": true }
+  ]
 }
