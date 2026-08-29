@@ -157,7 +157,7 @@
     /* ── VIDEO ── */
     .video-shell { margin: 48px auto 0; }
     .video-shell.portrait  { max-width: 380px; }
-    .video-shell.landscape { max-width: 900px; }
+    .video-shell.landscape { max-width: 100%; }
 
     .video-frame {
       width: 100%; display: block;
@@ -382,24 +382,23 @@
       <h2 class="fade-in">A Quick <em>Introduction</em></h2>
       <p class="fade-in">Before beginning, watch this short introduction to learn what to expect and how to get the most from your Vitality Awakening practice.</p>
 
-      <div class="video-shell portrait fade-in">
-        <!-- ═══ PLACEHOLDER · INTRO VIDEO (portrait 9:16) ═══
-             TO GO LIVE: delete this <div class="video-frame video-placeholder"> block
-             and uncomment the <video> block below it, replacing INTRO_PUBLIC_ID
-             with the Cloudinary public ID of the uploaded intro video. -->
+      <!-- ═══ INTRO VIDEO · portrait 9:16 ═══
+           TO GO LIVE, edit ONE thing: the data-drive-id below.
+           1. In Google Drive, right-click the video → Share → General access →
+              "Anyone with the link" → Viewer. Skip this and visitors hit a
+              Google sign-in wall instead of the video.
+           2. Hit Copy link, and paste the whole link in over PASTE_INTRO_LINK_HERE.
+              The full URL is fine, the file ID on its own works too.
+           The placeholder below shows until a real link is in place. -->
+      <div class="video-shell portrait fade-in"
+           data-drive-id="PASTE_INTRO_LINK_HERE"
+           data-video-title="Vitality Awakening · Introduction">
         <div class="video-frame video-placeholder">
           <div class="play">&#9654;</div>
           <p class="vp-label">Intro Video</p>
-          <p class="vp-note">Portrait 9:16. Drop the Cloudinary public ID into the commented block in the source.</p>
+          <p class="vp-note">Portrait 9:16. Paste the Google Drive link into data-drive-id above.</p>
         </div>
-
-        <!--
-        <video class="video-frame" controls playsinline preload="metadata"
-               poster="https://res.cloudinary.com/dstssdnoj/video/upload/so_1,q_auto,f_jpg,w_760/INTRO_PUBLIC_ID.jpg">
-          <source src="https://res.cloudinary.com/dstssdnoj/video/upload/q_auto,f_auto/INTRO_PUBLIC_ID.mp4" type="video/mp4">
-          Your browser does not support embedded video.
-        </video>
-        -->
+        <noscript><p class="video-caption">This video needs JavaScript enabled to play.</p></noscript>
       </div>
     </div>
   </section>
@@ -470,24 +469,18 @@
         <p>There is no correct experience. Let your body lead.</p>
       </div>
 
-      <div class="video-shell landscape fade-in">
-        <!-- ═══ PLACEHOLDER · GUIDED PRACTICE VIDEO (landscape 16:9) ═══
-             TO GO LIVE: delete this <div class="video-frame video-placeholder"> block
-             and uncomment the <video> block below it, replacing PRACTICE_PUBLIC_ID
-             with the Cloudinary public ID of the uploaded practice video. -->
+      <!-- ═══ GUIDED PRACTICE VIDEO · landscape 16:9 ═══
+           Same as the intro above: share the file as "Anyone with the link" →
+           Viewer, then paste the Copy-link URL in over PASTE_PRACTICE_LINK_HERE. -->
+      <div class="video-shell landscape fade-in"
+           data-drive-id="PASTE_PRACTICE_LINK_HERE"
+           data-video-title="Vitality Awakening · 10-Minute Guided Practice">
         <div class="video-frame video-placeholder">
           <div class="play">&#9654;</div>
           <p class="vp-label">10-Minute Guided Practice</p>
-          <p class="vp-note">Landscape 16:9. Drop the Cloudinary public ID into the commented block in the source.</p>
+          <p class="vp-note">Landscape 16:9. Paste the Google Drive link into data-drive-id above.</p>
         </div>
-
-        <!--
-        <video class="video-frame" controls playsinline preload="metadata"
-               poster="https://res.cloudinary.com/dstssdnoj/video/upload/so_2,q_auto,f_jpg,w_1600/PRACTICE_PUBLIC_ID.jpg">
-          <source src="https://res.cloudinary.com/dstssdnoj/video/upload/q_auto,f_auto/PRACTICE_PUBLIC_ID.mp4" type="video/mp4">
-          Your browser does not support embedded video.
-        </video>
-        -->
+        <noscript><p class="video-caption">This video needs JavaScript enabled to play.</p></noscript>
         <p class="video-caption">Find a comfortable position before you press play.</p>
       </div>
     </div>
@@ -564,6 +557,27 @@
       });
     }, { threshold: 0.12, rootMargin: '0px 0px -60px 0px' });
     document.querySelectorAll('.fade-in').forEach(el => observer.observe(el));
+
+    /* Google Drive video embeds. Each .video-shell carries a data-drive-id.
+       Accepts a full share URL or a bare file ID; leaves the placeholder in
+       place until a real value is filled in. */
+    document.querySelectorAll('.video-shell[data-drive-id]').forEach(function (shell) {
+      var raw = (shell.getAttribute('data-drive-id') || '').trim();
+      if (!raw || raw.indexOf('PASTE_') === 0) return;
+      var match = raw.match(/\/d\/([^/?#]+)/);
+      var id = match ? match[1] : raw;
+      var placeholder = shell.querySelector('.video-placeholder');
+      if (!placeholder) return;
+      var frame = document.createElement('iframe');
+      frame.className = 'video-frame';
+      frame.src = 'https://drive.google.com/file/d/' + id + '/preview';
+      frame.title = shell.getAttribute('data-video-title') || 'Video';
+      frame.setAttribute('allow', 'autoplay; fullscreen');
+      frame.setAttribute('allowfullscreen', '');
+      frame.setAttribute('loading', 'lazy');
+      placeholder.replaceWith(frame);
+    });
+
   </script>
 
 </body>
