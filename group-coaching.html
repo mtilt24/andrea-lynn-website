@@ -1714,6 +1714,7 @@
     @media (max-width: 600px) { .group-header-band { height: clamp(360px, 56vh, 480px); } }
   </style>
 
+  <link rel="stylesheet" href="/assets/signup.css">
 </head>
 <body>
 
@@ -2123,6 +2124,19 @@
               <a href="mailto:andrea@andrealynncoaching.com">andrea@andrealynncoaching.com</a>
             </li>
           </ul>
+          <p class="sg-micro">Occasional notes on breath, body, and coming home to yourself.</p>
+          <form class="sg-form" data-signup="footer">
+            <div class="sg-field">
+              <label class="sg-hp" for="sgFootEmail">Email address</label>
+              <input id="sgFootEmail" name="email" type="email" placeholder="Your email address" autocomplete="email" required>
+            </div>
+            <div class="sg-hp" aria-hidden="true">
+              <label for="sgFootHp">Leave this field empty</label>
+              <input id="sgFootHp" name="website" type="text" tabindex="-1" autocomplete="off">
+            </div>
+            <button type="submit">Sign Up</button>
+            <p class="sg-msg" role="status" aria-live="polite"></p>
+          </form>
         </div>
 
         <div class="footer-col footer-whisper">
@@ -2182,5 +2196,6 @@
     });
   </script>
 
+  <script src="/assets/signup.js" defer></script>
 </body>
 </html>

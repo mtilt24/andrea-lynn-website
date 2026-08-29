@@ -2127,6 +2127,7 @@
       .btn-primary, .btn-secondary { padding: 15px 22px; font-size: 11px; letter-spacing: 1.5px; }
     }
   </style>
+  <link rel="stylesheet" href="/assets/signup.css">
 </head>
 <body>
 
@@ -2421,20 +2422,32 @@
     </div>
   </section>
 
-  <!-- EMAIL CAPTURE — hidden until the free guide exists; layout preserved for later
-  <section class="email-capture sacred-bg">
+  <!-- FREE PRACTICE CAPTURE. Tags lead-magnet, which triggers the nurture
+       journey; that journey is what sends people to /vitality-awakening. -->
+  <section class="email-capture sacred-bg" id="free-practice">
     <div class="email-inner">
-      <p class="email-eyebrow fade-in">Free Resource</p>
-      <h2 class="email-headline fade-in fade-in-delay-1">Ready to feel something shift?</h2>
-      <p class="email-subhead fade-in fade-in-delay-2">Five embodied tools to move you out of your head, back into your body. Free guide, delivered to your inbox.</p>
-      <form class="email-form fade-in fade-in-delay-3" onsubmit="event.preventDefault()">
-        <input type="email" placeholder="Your email address" required>
-        <button type="submit">Send Me the Guide</button>
+      <p class="email-eyebrow fade-in">A Free Practice</p>
+      <h2 class="email-headline fade-in fade-in-delay-1">Come back into your <em>body</em></h2>
+      <p class="email-subhead fade-in fade-in-delay-2">Vitality Awakening is a 10-minute guided breath, sound and movement practice to move stagnant energy, release built-up tension, and reconnect with your natural sense of aliveness. Sent straight to your inbox.</p>
+      <form class="sg-form sg-inline fade-in fade-in-delay-3" data-signup="homepage" style="margin: 0 auto; max-width: 520px;">
+        <div class="sg-field">
+          <label class="sg-hp" for="sgHomeName">First name</label>
+          <input id="sgHomeName" name="firstName" type="text" placeholder="First name" autocomplete="given-name">
+        </div>
+        <div class="sg-field">
+          <label class="sg-hp" for="sgHomeEmail">Email address</label>
+          <input id="sgHomeEmail" name="email" type="email" placeholder="Your email address" autocomplete="email" required>
+        </div>
+        <div class="sg-hp" aria-hidden="true">
+          <label for="sgHomeHp">Leave this field empty</label>
+          <input id="sgHomeHp" name="website" type="text" tabindex="-1" autocomplete="off">
+        </div>
+        <button type="submit">Send Me the Practice</button>
+        <p class="sg-msg" role="status" aria-live="polite" style="flex-basis:100%"></p>
       </form>
       <p class="email-micro fade-in fade-in-delay-4">No spam. Just real tools and occasional love notes from me.</p>
     </div>
   </section>
-  -->
 
   <!-- FOOTER -->
   <footer class="footer">
@@ -2469,6 +2482,19 @@
               <a href="mailto:andrea@andrealynncoaching.com">andrea@andrealynncoaching.com</a>
             </li>
           </ul>
+          <p class="sg-micro">Occasional notes on breath, body, and coming home to yourself.</p>
+          <form class="sg-form" data-signup="footer">
+            <div class="sg-field">
+              <label class="sg-hp" for="sgFootEmail">Email address</label>
+              <input id="sgFootEmail" name="email" type="email" placeholder="Your email address" autocomplete="email" required>
+            </div>
+            <div class="sg-hp" aria-hidden="true">
+              <label for="sgFootHp">Leave this field empty</label>
+              <input id="sgFootHp" name="website" type="text" tabindex="-1" autocomplete="off">
+            </div>
+            <button type="submit">Sign Up</button>
+            <p class="sg-msg" role="status" aria-live="polite"></p>
+          </form>
         </div>
 
         <div class="footer-col footer-whisper">
@@ -2547,5 +2573,6 @@
     })();
   </script>
 
+  <script src="/assets/signup.js" defer></script>
 </body>
 </html>

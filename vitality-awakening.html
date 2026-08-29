@@ -348,8 +348,9 @@
       .fade-in { opacity: 1; transform: none; transition: none; }
     }
   </style>
+  <link rel="stylesheet" href="/assets/signup.css">
 </head>
-<body>
+<body data-no-popup>
 
   <nav class="nav" id="nav">
     <a href="/" class="nav-logo" aria-label="Andrea Lynn"><img src="https://res.cloudinary.com/dstssdnoj/image/upload/v1779209328/AndreaLynn_logo_fullcolor_rgb_v9ohrq.svg" alt="Andrea Lynn" class="nav-logo-img" width="160" height="38"></a>
@@ -518,6 +519,19 @@
         <div class="footer-connect">
           <h4>Connect</h4>
           <a href="mailto:andrea@andrealynncoaching.com">andrea@andrealynncoaching.com</a>
+          <p class="sg-micro">Occasional notes on breath, body, and coming home to yourself.</p>
+          <form class="sg-form" data-signup="footer">
+            <div class="sg-field">
+              <label class="sg-hp" for="sgFootEmail">Email address</label>
+              <input id="sgFootEmail" name="email" type="email" placeholder="Your email address" autocomplete="email" required>
+            </div>
+            <div class="sg-hp" aria-hidden="true">
+              <label for="sgFootHp">Leave this field empty</label>
+              <input id="sgFootHp" name="website" type="text" tabindex="-1" autocomplete="off">
+            </div>
+            <button type="submit">Sign Up</button>
+            <p class="sg-msg" role="status" aria-live="polite"></p>
+          </form>
           <div class="footer-socials">
             <a href="https://www.instagram.com/andrealynnalchemy/" target="_blank" rel="noopener" aria-label="Instagram">IG</a>
             <a href="https://www.facebook.com/drespacek" target="_blank" rel="noopener" aria-label="Facebook">FB</a>
@@ -553,5 +567,6 @@
 
   </script>
 
+  <script src="/assets/signup.js" defer></script>
 </body>
 </html>

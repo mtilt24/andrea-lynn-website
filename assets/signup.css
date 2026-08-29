@@ -1,0 +1,139 @@
+/* Signup forms + the free-practice popup.
+   Token fallbacks are inline so this works on every page whether or not that
+   page defines the palette. --gold is unreadable as text on the cream
+   backgrounds (1.67:1), so text uses the deeper --gold-ink. */
+
+.sg-form { display: flex; flex-direction: column; gap: 12px; max-width: 420px; }
+.sg-form.sg-inline { flex-direction: row; flex-wrap: wrap; align-items: flex-start; }
+.sg-form.sg-inline .sg-field { flex: 1 1 200px; }
+
+.sg-field { display: flex; flex-direction: column; gap: 6px; }
+.sg-form input[type="text"],
+.sg-form input[type="email"] {
+  width: 100%;
+  font-family: var(--sans, 'Montserrat', Arial, sans-serif);
+  font-size: 15px; font-weight: 300;
+  color: var(--charcoal, #2C2825);
+  background: var(--white, #fff);
+  border: 1px solid rgba(44,40,37,0.22);
+  border-radius: 2px;
+  padding: 14px 16px;
+  transition: border-color 0.25s ease, box-shadow 0.25s ease;
+}
+.sg-form input::placeholder { color: rgba(92,86,80,0.62); }
+.sg-form input:focus {
+  outline: none;
+  border-color: var(--gold, #D4B85C);
+  box-shadow: 0 0 0 3px rgba(212,184,92,0.22);
+}
+.sg-form input[aria-invalid="true"] { border-color: #9B3B2F; }
+
+.sg-form button {
+  font-family: var(--sans, 'Montserrat', Arial, sans-serif);
+  font-size: 12px; font-weight: 500;
+  letter-spacing: 3px; text-transform: uppercase;
+  color: var(--white, #fff);
+  background: var(--gold, #D4B85C);
+  border: none; border-radius: 2px;
+  padding: 16px 30px; cursor: pointer;
+  transition: background 0.3s ease, transform 0.3s ease, opacity 0.3s ease;
+}
+.sg-form button:hover:not(:disabled) { background: var(--gold-bright, #E0C96A); transform: translateY(-1px); }
+.sg-form button:disabled { opacity: 0.6; cursor: default; }
+
+/* Hidden from people, visible to bots. Not display:none, which some bots skip. */
+.sg-hp {
+  position: absolute !important; left: -9999px !important;
+  width: 1px; height: 1px; overflow: hidden;
+}
+
+.sg-msg {
+  font-family: var(--sans, 'Montserrat', Arial, sans-serif);
+  font-size: 14px; font-weight: 300; line-height: 1.7;
+  margin-top: 4px; min-height: 1px;
+}
+.sg-msg[data-state="ok"]  { color: var(--gold-ink, #745F16); }
+.sg-msg[data-state="err"] { color: #8E3327; }
+.sg-micro {
+  font-family: var(--sans, 'Montserrat', Arial, sans-serif);
+  font-size: 12px; font-weight: 300;
+  color: var(--taupe, #5C5650); opacity: 0.85; margin-top: 10px;
+}
+
+/* ── popup ── */
+.sg-pop {
+  position: fixed; inset: 0; z-index: 4000;
+  display: flex; align-items: center; justify-content: center;
+  padding: 24px;
+  background: rgba(44,40,37,0.55);
+  opacity: 0; visibility: hidden;
+  transition: opacity 0.45s ease, visibility 0.45s ease;
+}
+.sg-pop.sg-open { opacity: 1; visibility: visible; }
+.sg-pop-card {
+  position: relative;
+  width: 100%; max-width: 470px;
+  background: var(--warm-white, #FDFAF6);
+  border: 1px solid rgba(212,184,92,0.4);
+  box-shadow: 0 30px 90px rgba(44,40,37,0.3);
+  padding: 52px 44px 40px;
+  text-align: center;
+  transform: translateY(14px);
+  transition: transform 0.45s ease;
+  max-height: 90vh; overflow-y: auto;
+}
+.sg-pop.sg-open .sg-pop-card { transform: translateY(0); }
+.sg-pop-eyebrow {
+  font-family: var(--sans, 'Montserrat', Arial, sans-serif);
+  font-size: 11px; font-weight: 500; letter-spacing: 4px;
+  text-transform: uppercase; color: var(--gold-ink, #745F16);
+  margin: 0 0 18px;
+}
+.sg-pop-card h2 {
+  font-family: var(--serif, 'Cormorant Garamond', Georgia, serif);
+  font-size: clamp(30px, 4.4vw, 40px);
+  font-weight: 300; line-height: 1.1;
+  color: var(--charcoal, #2C2825); margin: 0 0 16px;
+}
+.sg-pop-card h2 em { font-style: italic; color: var(--gold-ink, #745F16); }
+.sg-pop-card p.sg-pop-lede {
+  font-family: var(--sans, 'Montserrat', Arial, sans-serif);
+  font-size: 15px; font-weight: 300; line-height: 1.8;
+  color: var(--taupe, #5C5650); margin: 0 0 28px;
+}
+.sg-pop .sg-form { max-width: none; }
+.sg-pop-close {
+  position: absolute; top: 12px; right: 14px;
+  width: 38px; height: 38px;
+  background: none; border: none; cursor: pointer;
+  font-size: 24px; line-height: 1;
+  color: var(--taupe, #5C5650); opacity: 0.6;
+  transition: opacity 0.25s ease;
+}
+.sg-pop-close:hover { opacity: 1; }
+.sg-pop-dismiss {
+  display: inline-block; margin-top: 18px;
+  font-family: var(--sans, 'Montserrat', Arial, sans-serif);
+  font-size: 12px; font-weight: 300; letter-spacing: 1px;
+  color: var(--taupe, #5C5650);
+  background: none; border: none; cursor: pointer;
+  text-decoration: underline; text-underline-offset: 3px;
+  opacity: 0.75;
+}
+.sg-pop-dismiss:hover { opacity: 1; }
+
+@media (max-width: 600px) {
+  .sg-pop-card { padding: 44px 26px 32px; }
+  .sg-form.sg-inline { flex-direction: column; }
+}
+@media (prefers-reduced-motion: reduce) {
+  .sg-pop, .sg-pop-card, .sg-form button { transition: none; }
+}
+
+/* Footer sits on charcoal: --gold-ink is for cream, it is 2.4:1 here. */
+.footer .sg-micro { color: rgba(255,255,255,0.55); }
+.footer .sg-msg[data-state="ok"]  { color: var(--gold, #D4B85C); }
+.footer .sg-msg[data-state="err"] { color: #E8A99E; }
+.footer .sg-form { max-width: 320px; margin-top: 14px; }
+.footer .sg-form input { background: rgba(255,255,255,0.94); border-color: rgba(255,255,255,0.25); }
+.footer .sg-form button { padding: 14px 24px; }
