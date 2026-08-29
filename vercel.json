@@ -6,5 +6,13 @@
     { "source": "/casita", "destination": "/sedona-retreat", "permanent": true },
     { "source": "/jungle-room", "destination": "/sedona-retreat", "permanent": true },
     { "source": "/queen-bungalow", "destination": "/sedona-retreat", "permanent": true }
+  ],
+  "headers": [
+    {
+      "source": "/vitality-awakening",
+      "headers": [
+        { "key": "X-Robots-Tag", "value": "noindex, nofollow, noarchive, nosnippet, noimageindex" }
+      ]
+    }
   ]
 }
