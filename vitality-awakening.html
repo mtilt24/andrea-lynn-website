@@ -33,7 +33,9 @@
       --gold-glow: rgba(212, 184, 92, 0.5);
       --gold-glow-strong: rgba(212, 184, 92, 0.75);
       --gold-glow-soft: rgba(212, 184, 92, 0.2);
+      --gold-ink: #745F16;   /* gold for TEXT on the cream backgrounds; --gold is for fills, borders, glows, and text on charcoal */
       --sage: #7A8C6E;
+      --sage-ink: #5A684F;   /* deeper sage for small text on cream */
       --taupe: #5C5650;
       --white: #ffffff;
       --warm-white: #FDFAF6;
@@ -70,7 +72,7 @@
     .eyebrow {
       font-family: var(--sans); font-size: 12px; font-weight: 500;
       letter-spacing: 4px; text-transform: uppercase;
-      color: var(--gold); margin-bottom: 24px;
+      color: var(--gold-ink); margin-bottom: 24px;
     }
     .section { padding: 120px 48px; position: relative; overflow: hidden; }
     .section-inner { max-width: 820px; margin: 0 auto; }
@@ -80,7 +82,7 @@
       font-weight: 300; line-height: 1.12;
       color: var(--charcoal); margin-bottom: 28px;
     }
-    .section h2 em { font-style: italic; color: var(--gold); }
+    .section h2 em { font-style: italic; color: var(--gold-ink); }
     .section p {
       font-family: var(--sans); font-size: 16px; font-weight: 300;
       line-height: 1.9; margin-bottom: 20px;
@@ -124,16 +126,16 @@
       font-weight: 300; line-height: 1.02;
       color: var(--charcoal); margin-bottom: 20px;
     }
-    .page-hero h1 em { font-style: italic; color: var(--gold); text-shadow: 0 0 30px var(--gold-glow-soft); }
+    .page-hero h1 em { font-style: italic; color: var(--gold-ink); }
     .page-hero-kicker {
       font-family: var(--sans); font-size: 13px; font-weight: 500;
       letter-spacing: 4px; text-transform: uppercase;
-      color: var(--sage); margin-bottom: 34px;
+      color: var(--sage-ink); margin-bottom: 34px;
     }
     .page-hero-lede {
       font-family: var(--serif); font-size: clamp(21px, 2.3vw, 27px);
       font-style: italic; font-weight: 300; line-height: 1.5;
-      color: var(--gold); max-width: 640px; margin: 0 auto 44px;
+      color: var(--charcoal); max-width: 640px; margin: 0 auto 44px;
     }
     .page-hero-body {
       font-family: var(--sans); font-size: 16px; font-weight: 300;
@@ -152,11 +154,11 @@
       font-weight: 300; line-height: 1.6; color: var(--charcoal);
       margin-bottom: 14px;
     }
-    .stack p:last-child { margin-bottom: 0; font-style: italic; color: var(--gold); }
+    .stack p:last-child { margin-bottom: 0; font-style: italic; color: var(--gold-ink); }
 
     /* ── VIDEO ── */
     .video-shell { margin: 48px auto 0; }
-    .video-shell.portrait  { max-width: 380px; }
+    .video-shell.portrait  { max-width: 340px; margin-top: 0; }
     .video-shell.landscape { max-width: 100%; }
 
     .video-frame {
@@ -168,33 +170,22 @@
     .portrait  .video-frame { aspect-ratio: 9 / 16; }
     .landscape .video-frame { aspect-ratio: 16 / 9; }
 
-    /* placeholder styling, swapped out for the real <video> later */
-    .video-placeholder {
-      display: flex; flex-direction: column;
-      align-items: center; justify-content: center;
-      gap: 18px; padding: 32px; text-align: center;
-      background: linear-gradient(150deg, #3A3531 0%, var(--charcoal) 100%);
-    }
-    .video-placeholder .play {
-      width: 62px; height: 62px; border-radius: 50%;
-      border: 1px solid rgba(212,184,92,0.5);
-      display: flex; align-items: center; justify-content: center;
-      color: var(--gold); font-size: 17px;
-      padding-left: 5px;
-    }
-    .video-placeholder .vp-label {
-      font-family: var(--sans); font-size: 11px; font-weight: 500;
-      letter-spacing: 3px; text-transform: uppercase; color: var(--gold);
-    }
-    .video-placeholder .vp-note {
-      font-family: var(--sans); font-size: 12px; font-weight: 300;
-      line-height: 1.7; color: rgba(255,255,255,0.45); max-width: 260px;
-    }
     .video-caption {
       font-family: var(--sans); font-size: 12px; font-weight: 300;
       letter-spacing: 1px; color: var(--taupe);
-      text-align: center; margin-top: 16px; opacity: 0.75;
+      text-align: center; margin-top: 16px; opacity: 0.8;
     }
+
+    /* two-column: copy on one side, the portrait video on the other */
+    .split-inner { max-width: 980px; margin: 0 auto; }
+    .split {
+      display: grid; grid-template-columns: 1fr 380px;
+      gap: 80px; align-items: center; text-align: left;
+    }
+    .split-text .eyebrow { margin-bottom: 22px; }
+    .split-text h2 { margin-bottom: 24px; }
+    .split-text p { max-width: 520px; }
+    .split-text .stack { margin: 34px 0 0; max-width: 520px; padding-top: 32px; }
 
     /* ── CHECKLIST ── */
     .checklist { list-style: none; max-width: 620px; margin: 40px auto 0; text-align: left; }
@@ -219,7 +210,9 @@
       width: 80%; height: 1px;
       background: linear-gradient(to right, transparent, rgba(212,184,92,0.4), transparent);
     }
+    .safety .eyebrow { color: var(--gold); }
     .safety h2 { color: var(--white); }
+    .safety h2 em { color: var(--gold); }
     .safety h3 {
       font-family: var(--serif); font-size: clamp(24px, 2.6vw, 32px);
       font-weight: 300; color: var(--white);
@@ -254,7 +247,7 @@
       font-family: var(--serif); font-size: clamp(23px, 2.6vw, 32px);
       font-weight: 300; line-height: 1.45; color: var(--charcoal);
     }
-    .pullquote em { font-style: italic; color: var(--gold); }
+    .pullquote em { font-style: italic; color: var(--gold-ink); }
 
     /* ── CTA ── */
     .cta { background: var(--linen); text-align: center; }
@@ -314,11 +307,11 @@
     .footer-disclaimer h5 {
       font-family: var(--sans); font-size: 10px; font-weight: 500;
       letter-spacing: 2.5px; text-transform: uppercase;
-      color: rgba(255,255,255,0.4); margin-bottom: 12px;
+      color: rgba(255,255,255,0.55); margin-bottom: 12px;
     }
     .footer-disclaimer p {
       font-family: var(--sans); font-size: 12px; font-weight: 300;
-      line-height: 1.85; color: rgba(255,255,255,0.42);
+      line-height: 1.85; color: rgba(255,255,255,0.55);
       max-width: 860px;
     }
     .footer-bottom {
@@ -344,6 +337,9 @@
       .section { padding: 84px 26px; }
       .footer { padding: 56px 24px 28px; }
       .video-shell { margin-top: 36px; }
+      .split { grid-template-columns: 1fr; gap: 44px; text-align: center; }
+      .split-text p, .split-text .stack { margin-left: auto; margin-right: auto; }
+      .video-shell.portrait { margin: 0 auto; }
       .safety .stop { padding: 22px 22px; }
     }
 
@@ -367,38 +363,36 @@
       <p class="page-hero-lede fade-in fade-in-delay-1">Come out of your head. Come back into your body. Awaken the energy that's already there.</p>
       <p class="page-hero-body fade-in fade-in-delay-1">Vitality Awakening is a guided somatic breathwork practice designed to help you move stagnant energy, release built-up tension, and reconnect with your natural sense of aliveness.</p>
       <p class="page-hero-body fade-in fade-in-delay-2">Through breath, sound, and intuitive movement, you'll be invited to soften what's holding, create space in your body, and allow more of your natural life-force energy to move through you.</p>
-      <div class="stack fade-in fade-in-delay-2">
-        <p>You don't need to know how to do this perfectly.</p>
-        <p>You don't need to force a release.</p>
-        <p>You simply need to be willing to breathe, feel, and follow what your body is asking for.</p>
-      </div>
     </div>
   </header>
 
   <!-- ══ INTRO VIDEO ══ -->
-  <section class="section bg-white center">
-    <div class="section-inner">
-      <p class="eyebrow fade-in">Start Here</p>
-      <h2 class="fade-in">A Quick <em>Introduction</em></h2>
-      <p class="fade-in">Before beginning, watch this short introduction to learn what to expect and how to get the most from your Vitality Awakening practice.</p>
+  <section class="section bg-white">
+    <div class="split-inner">
+      <div class="split">
 
-      <!-- ═══ INTRO VIDEO · portrait 9:16 ═══
-           TO GO LIVE, edit ONE thing: the data-drive-id below.
-           1. In Google Drive, right-click the video → Share → General access →
-              "Anyone with the link" → Viewer. Skip this and visitors hit a
-              Google sign-in wall instead of the video.
-           2. Hit Copy link, and paste the whole link in over PASTE_INTRO_LINK_HERE.
-              The full URL is fine, the file ID on its own works too.
-           The placeholder below shows until a real link is in place. -->
-      <div class="video-shell portrait fade-in"
-           data-drive-id="PASTE_INTRO_LINK_HERE"
-           data-video-title="Vitality Awakening · Introduction">
-        <div class="video-frame video-placeholder">
-          <div class="play">&#9654;</div>
-          <p class="vp-label">Intro Video</p>
-          <p class="vp-note">Portrait 9:16. Paste the Google Drive link into data-drive-id above.</p>
+        <div class="split-text">
+          <p class="eyebrow fade-in">Start Here</p>
+          <h2 class="fade-in">A Quick <em>Introduction</em></h2>
+          <p class="fade-in">Before beginning, watch this short introduction to learn what to expect and how to get the most from your Vitality Awakening practice.</p>
+          <div class="stack fade-in fade-in-delay-1">
+            <p>You don't need to know how to do this perfectly.</p>
+            <p>You don't need to force a release.</p>
+            <p>You simply need to be willing to breathe, feel, and follow what your body is asking for.</p>
+          </div>
         </div>
-        <noscript><p class="video-caption">This video needs JavaScript enabled to play.</p></noscript>
+
+        <!-- Intro video. Hosted on Cloudinary: q_auto,f_auto transcodes the
+             62MB .mov source down to ~7MB and serves mp4/webm per browser.
+             Never link the raw .mov, Chrome and Firefox cannot play it. -->
+        <div class="video-shell portrait fade-in fade-in-delay-1">
+          <video class="video-frame" controls playsinline preload="metadata"
+                 poster="https://res.cloudinary.com/dstssdnoj/video/upload/so_1,q_auto,f_jpg,w_760/v1788041324/CC06EE6C-203D-41D2-A536-A5F6671DD405_h1wslj.jpg">
+            <source src="https://res.cloudinary.com/dstssdnoj/video/upload/q_auto,f_auto/v1788041324/CC06EE6C-203D-41D2-A536-A5F6671DD405_h1wslj.mp4" type="video/mp4">
+            Your browser does not support embedded video.
+          </video>
+        </div>
+
       </div>
     </div>
   </section>
@@ -469,18 +463,16 @@
         <p>There is no correct experience. Let your body lead.</p>
       </div>
 
-      <!-- ═══ GUIDED PRACTICE VIDEO · landscape 16:9 ═══
-           Same as the intro above: share the file as "Anyone with the link" →
-           Viewer, then paste the Copy-link URL in over PASTE_PRACTICE_LINK_HERE. -->
-      <div class="video-shell landscape fade-in"
-           data-drive-id="PASTE_PRACTICE_LINK_HERE"
-           data-video-title="Vitality Awakening · 10-Minute Guided Practice">
-        <div class="video-frame video-placeholder">
-          <div class="play">&#9654;</div>
-          <p class="vp-label">10-Minute Guided Practice</p>
-          <p class="vp-note">Landscape 16:9. Paste the Google Drive link into data-drive-id above.</p>
-        </div>
-        <noscript><p class="video-caption">This video needs JavaScript enabled to play.</p></noscript>
+      <!-- 10-minute practice video. On Google Drive because it is too large
+           for Cloudinary's 100MB free-plan upload cap. The Drive file must stay
+           shared "Anyone with the link" or visitors hit a sign-in wall. -->
+      <div class="video-shell landscape fade-in">
+        <iframe class="video-frame"
+                src="https://drive.google.com/file/d/1GTpgLGLZ1PP0zwdkuy2jzWi2OClx8Dxp/preview"
+                title="Vitality Awakening · 10-Minute Guided Practice"
+                allow="autoplay; fullscreen"
+                allowfullscreen
+                loading="lazy"></iframe>
         <p class="video-caption">Find a comfortable position before you press play.</p>
       </div>
     </div>
@@ -558,25 +550,6 @@
     }, { threshold: 0.12, rootMargin: '0px 0px -60px 0px' });
     document.querySelectorAll('.fade-in').forEach(el => observer.observe(el));
 
-    /* Google Drive video embeds. Each .video-shell carries a data-drive-id.
-       Accepts a full share URL or a bare file ID; leaves the placeholder in
-       place until a real value is filled in. */
-    document.querySelectorAll('.video-shell[data-drive-id]').forEach(function (shell) {
-      var raw = (shell.getAttribute('data-drive-id') || '').trim();
-      if (!raw || raw.indexOf('PASTE_') === 0) return;
-      var match = raw.match(/\/d\/([^/?#]+)/);
-      var id = match ? match[1] : raw;
-      var placeholder = shell.querySelector('.video-placeholder');
-      if (!placeholder) return;
-      var frame = document.createElement('iframe');
-      frame.className = 'video-frame';
-      frame.src = 'https://drive.google.com/file/d/' + id + '/preview';
-      frame.title = shell.getAttribute('data-video-title') || 'Video';
-      frame.setAttribute('allow', 'autoplay; fullscreen');
-      frame.setAttribute('allowfullscreen', '');
-      frame.setAttribute('loading', 'lazy');
-      placeholder.replaceWith(frame);
-    });
 
   </script>
 
