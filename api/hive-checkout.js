@@ -76,9 +76,22 @@ module.exports = async (req, res) => {
     res.writeHead(302, { Location: url, 'Cache-Control': 'no-store' });
     return res.end();
   } catch (err) {
-    if (err instanceof ConfigError) console.error('Square not configured:', err.message);
-    else console.error('hive-checkout failed', err);
-    res.writeHead(302, { Location: FALLBACK_CHECKOUT, 'Cache-Control': 'no-store' });
+    /* The buyer is sent to the old shared link either way. The header is for
+       us: without it a misconfigured token looks identical to a healthy
+       fallback, and the only symptom is that nobody ever gets tagged. */
+    let reason;
+    if (err instanceof ConfigError) {
+      reason = err.message;
+      console.error('Square not configured:', err.message);
+    } else {
+      reason = err.squareDetail || err.message || 'unknown';
+      console.error('hive-checkout failed', err);
+    }
+    res.writeHead(302, {
+      Location: FALLBACK_CHECKOUT,
+      'Cache-Control': 'no-store',
+      'X-Checkout-Fallback': String(reason).replace(/[^\x20-\x7e]/g, '').slice(0, 120),
+    });
     return res.end();
   }
 };

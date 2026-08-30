@@ -110,12 +110,14 @@ means a new gathering needs nothing done in Square.
 
 ### Adding a gathering
 
-The date lives in **three** places, all in this repo:
+The date lives in **four** places, all in this repo:
 
 1. `lib/gatherings.js` `DATES`, the allowlist. Without it the checkout route
    refuses the date.
 2. The `.date-row` list in `hive.html`, the visible schedule and its CTA.
 3. The footer date list in `hive.html`.
+4. The schema.org `Event` JSON-LD in the `<head>` of `hive.html`, which is what
+   Google reads for event rich results.
 
 `PRICE_CENTS` in `lib/gatherings.js` is the drop-in price and has to stay in
 step with the `$22` shown on `hive.html`. Square is not the source of truth
