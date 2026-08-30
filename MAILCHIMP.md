@@ -89,24 +89,64 @@ Add `data-no-popup` to a page's `<body>` to suppress it there.
    `lead-magnet`, `newsletter`, `hive-gathering`, `hive-member`. A typo silently
    creates a new unused tag rather than erroring, and the journey never fires.
 
-## Not built: purchase tagging
+## Square purchase tagging
 
-`hive-gathering` and `hive-member` are **not wired**, because there is nothing
-to wire them into. Hive checkout is a plain link out to a Square-hosted page
-(`checkout.square.site/...`), so the buyer leaves the site entirely and this
-app never learns that a purchase happened. There is no success handler to add
-a call to.
+A completed gathering payment tags the buyer `hive-gathering` and fills
+`EVENTDATE`, `EVENTWHEN`, and `EVENTLOC`, which is what the "7 days before"
+reminder journey needs.
 
-Closing that needs a Square webhook: a Square Developer app, `orders.created` /
-`payment.updated` subscribed to an `/api/square-webhook` route, signature
-verification, and reading the buyer's email plus the gathering off the order.
-That needs credentials and Square Dashboard access.
+The flow:
 
-Note also that all four gathering dates currently point at the *same* Square
-checkout link, so an order cannot be mapped back to a specific gathering. Each
-gathering needs its own Square product before `EVENTDATE` / `EVENTWHEN` /
-`EVENTLOC` can be filled in per purchase (§8 of the brief).
+1. `hive.html` "Save my spot" points at `/api/hive-checkout?d=YYYY-MM-DD`.
+2. `api/hive-checkout.js` checks the date against `lib/gatherings.js`, asks
+   Square for a payment link with `metadata.gathering` set to that date, and
+   302s the buyer to the Square-hosted page.
+3. Square calls `api/square-webhook.js` on `payment.updated`. It verifies the
+   signature, fetches the order, reads `metadata.gathering`, and syncs.
 
-Do not fall back to tagging people *before* they reach Square. That was the
-previous design and it was removed on purpose: anyone who abandoned checkout
-sat in the audience tagged as a paid member.
+Links are created per click rather than kept in the Square Dashboard, because
+a Dashboard link carries nothing that says which gathering was bought. It also
+means a new gathering needs nothing done in Square.
+
+### Adding a gathering
+
+The date lives in **three** places, all in this repo:
+
+1. `lib/gatherings.js` `DATES`, the allowlist. Without it the checkout route
+   refuses the date.
+2. The `.date-row` list in `hive.html`, the visible schedule and its CTA.
+3. The footer date list in `hive.html`.
+
+`PRICE_CENTS` in `lib/gatherings.js` is the drop-in price and has to stay in
+step with the `$22` shown on `hive.html`. Square is not the source of truth
+for it, because the line item is built here rather than pulled from a catalog.
+
+### Why the tag is only applied on the webhook
+
+Never tag anyone before they reach Square. That was the original design and it
+was removed on purpose: everyone who abandoned checkout sat in the audience
+tagged as a paid member.
+
+### Gotchas
+
+- **Raw body.** The signature covers the notification URL concatenated with the
+  raw request bytes. `api/square-webhook.js` sets `bodyParser: false` and reads
+  the stream itself. Re-serializing parsed JSON changes key order and the
+  signature never matches.
+- **`SQUARE_NOTIFICATION_URL` must match the subscription exactly**, including
+  scheme and `www`. It is hashed, so a mismatch fails every request.
+- **Signature key is per subscription.** Sandbox and production have different
+  ones.
+- A payment through the old shared Dashboard link has no gathering metadata.
+  It is acknowledged and skipped rather than guessed at, since a wrong date
+  fires the wrong reminder.
+- Square retries on a non-200. `syncContact()` is idempotent, so a replay is
+  safe.
+
+## Still not built: membership tagging
+
+`hive-member` is not wired. The $55/month membership is a separate Square
+product and this code only recognises gathering payments, which it identifies
+by the `metadata.gathering` stamp that `api/hive-checkout.js` writes. Wiring it
+needs the membership to go through a route that stamps the order the same way,
+or a recurring-payment event to key off.
