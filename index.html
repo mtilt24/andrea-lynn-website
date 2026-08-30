@@ -2049,8 +2049,12 @@
       .framed-image .photo { max-height: 348px; }
       .framed-image.frame-orbital .photo { max-height: 425px; }
       .standalone-placeholder { aspect-ratio: auto; height: 325px; max-width: 320px; }
-      .composed-image { max-width: 380px; }
+      /* The gold outline (-18px left) and the sparkle (-28px right) sit
+         outside the box, so reserve room for them or they push the page
+         wider than the viewport. */
+      .composed-image { max-width: min(380px, 100% - 36px); }
       .composed-image img { height: auto; }
+      .composed-image::after { right: -18px; }
 
       .retreats-content { grid-template-columns: 1fr; gap: 60px; padding: 120px 28px; }
       .retreat-framed:nth-child(2) { margin-top: 0; }

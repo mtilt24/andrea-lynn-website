@@ -124,7 +124,10 @@
 
 @media (max-width: 600px) {
   .sg-pop-card { padding: 44px 26px 32px; }
-  .sg-form.sg-inline { flex-direction: column; }
+  /* Stacked, the row rule's `flex: 1 1 200px` would set a 200px *height*
+     floor on each field and blow the gaps open. Reset it. */
+  .sg-form.sg-inline { flex-direction: column; align-items: stretch; }
+  .sg-form.sg-inline .sg-field { flex: 0 0 auto; }
 }
 @media (prefers-reduced-motion: reduce) {
   .sg-pop, .sg-pop-card, .sg-form button { transition: none; }
