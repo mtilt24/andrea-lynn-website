@@ -123,6 +123,30 @@ The date lives in **four** places, all in this repo:
 step with the `$22` shown on `hive.html`. Square is not the source of truth
 for it, because the line item is built here rather than pulled from a catalog.
 
+### Two tags per gathering, and why
+
+A gathering purchase applies **both** `hive-gathering` and `gathering-booked`.
+
+- `hive-gathering` is **permanent**: the segment of everyone who has ever booked.
+- `gathering-booked` is **transient**: the welcome journey must remove it as its
+  final step.
+
+Mailchimp fires a "tag added" trigger only when a tag goes from absent to
+present. Re-applying a tag that is already active is a silent no-op. So with
+one tag, a repeat buyer's second booking updates the `EVENT*` fields and sends
+no email at all, which looks exactly like a broken integration and is not one.
+
+The welcome journey must therefore be set up as:
+
+1. Trigger: tag `gathering-booked` added
+2. Allow contacts to re-enter the journey (off by default)
+3. Final step: remove tag `gathering-booked`
+
+Membership deliberately has no transient tag. Renewals fire `payment.updated`
+every month, and a welcome email on every renewal is wrong. If a membership
+welcome is ever wanted, gate it on `order.metadata.membership`, which only the
+first charge carries.
+
 ### Why the tag is only applied on the webhook
 
 Never tag anyone before they reach Square. That was the original design and it

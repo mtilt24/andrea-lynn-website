@@ -100,10 +100,23 @@ module.exports = async (req, res) => {
       mergeFields.EVENTLOC = G.LOCATION;
     }
 
-    const tag = isGathering ? 'hive-gathering' : 'hive-member';
-    await syncContact({ email, mergeFields, tags: [tag] });
+    /* Two tags for a gathering, on purpose.
 
-    console.log('square-webhook: tagged', tag, isGathering ? date : 'membership', payment.id);
+       hive-gathering is permanent: the segment of everyone who has ever
+       booked. gathering-booked is transient, and the welcome journey removes
+       it as its last step so the next purchase can re-add it.
+
+       Without the transient one a repeat buyer gets nothing. Mailchimp fires
+       "tag added" only on absent -> present, and re-applying a tag that is
+       already active is a silent no-op, so a second booking would update the
+       EVENT* fields and send no email. */
+    const tags = isGathering
+      ? ['hive-gathering', 'gathering-booked']
+      : ['hive-member'];
+
+    await syncContact({ email, mergeFields, tags });
+
+    console.log('square-webhook: tagged', tags.join('+'), isGathering ? date : 'membership', payment.id);
     return res.status(200).json({ ok: true });
   } catch (err) {
     if (err instanceof ComplianceError) {
