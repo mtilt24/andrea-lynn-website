@@ -12,6 +12,7 @@
 const { squareFetch, verifySignature, readRawBody, ConfigError } = require('../lib/square');
 const { syncContact, toEventDate, ComplianceError } = require('../lib/mailchimp');
 const G = require('../lib/gatherings');
+const M = require('../lib/membership');
 
 module.exports.config = { api: { bodyParser: false } };
 
@@ -71,11 +72,15 @@ module.exports = async (req, res) => {
       : null;
 
     const date = order && order.metadata && order.metadata.gathering;
-    if (!G.isGathering(date)) {
+    const isGathering = G.isGathering(date);
+    /* Only ask Square about the plan when it is not already a gathering. */
+    const isMembership = !isGathering && await M.isMembershipOrder(order);
+
+    if (!isGathering && !isMembership) {
       /* A payment through the old shared Dashboard link, or anything else sold
-         through this Square account, has no gathering stamped on it. Nothing
-         to tag, and guessing a date would fire the wrong reminder. */
-      console.log('square-webhook: payment with no gathering metadata, skipping', payment.id);
+         through this Square account, matches neither. Nothing to tag, and
+         guessing a date would fire the wrong reminder. */
+      console.log('square-webhook: payment matched no product, skipping', payment.id);
       return res.status(200).json({ ok: true, ignored: true });
     }
 
@@ -85,18 +90,20 @@ module.exports = async (req, res) => {
       return res.status(200).json({ ok: true, ignored: true });
     }
 
-    await syncContact({
-      email,
-      mergeFields: {
-        ...(firstName ? { FNAME: firstName } : {}),
-        EVENTDATE: toEventDate(date),
-        EVENTWHEN: G.describe(date),
-        EVENTLOC: G.LOCATION,
-      },
-      tags: ['hive-gathering'],
-    });
+    /* The EVENT* fields are gathering-specific. A membership charge leaves them
+       alone rather than blanking them, since a member who also bought a
+       drop-in still needs their reminder to fire. */
+    const mergeFields = firstName ? { FNAME: firstName } : {};
+    if (isGathering) {
+      mergeFields.EVENTDATE = toEventDate(date);
+      mergeFields.EVENTWHEN = G.describe(date);
+      mergeFields.EVENTLOC = G.LOCATION;
+    }
 
-    console.log('square-webhook: tagged hive-gathering', date, payment.id);
+    const tag = isGathering ? 'hive-gathering' : 'hive-member';
+    await syncContact({ email, mergeFields, tags: [tag] });
+
+    console.log('square-webhook: tagged', tag, isGathering ? date : 'membership', payment.id);
     return res.status(200).json({ ok: true });
   } catch (err) {
     if (err instanceof ComplianceError) {
