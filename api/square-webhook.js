@@ -59,34 +59,61 @@ module.exports = async (req, res) => {
   let event;
   try { event = JSON.parse(rawBody); } catch { return res.status(400).json({ error: 'Bad request' }); }
 
-  /* Anything that is not a completed payment is acknowledged and dropped.
-     A non-200 makes Square retry, so only real failures get one. */
-  const payment = event && event.data && event.data.object && event.data.object.payment;
-  if (event.type !== 'payment.updated' || !payment || payment.status !== 'COMPLETED') {
+  /* Square delivers a membership charge and a gathering charge as different
+     event types, which is why this handles three.
+
+     A one-off payment (a gathering) fires payment.created then
+     payment.updated. A subscription is billed through an INVOICE, and the
+     first charge fires invoice.payment_made with no payment.* event to match,
+     which is why the first membership signup tagged nobody.
+
+     payment.created is accepted alongside payment.updated because the status
+     check below is what actually gates this, not the event name. Both firing
+     for one payment is harmless: syncContact is idempotent. */
+  let payment = null;
+  let invoice = null;
+
+  if (event.type === 'payment.updated' || event.type === 'payment.created') {
+    payment = event.data && event.data.object && event.data.object.payment;
+    if (!payment || payment.status !== 'COMPLETED') {
+      return res.status(200).json({ ok: true, ignored: true });
+    }
+  } else if (event.type === 'invoice.payment_made') {
+    invoice = event.data && event.data.object && event.data.object.invoice;
+    if (!invoice) return res.status(200).json({ ok: true, ignored: true });
+  } else {
     return res.status(200).json({ ok: true, ignored: true });
   }
 
+  const ref = (payment && payment.id) || (invoice && invoice.id) || 'unknown';
+
   try {
-    const order = payment.order_id
-      ? (await squareFetch(`/v2/orders/${encodeURIComponent(payment.order_id)}`)).order
+    const orderId = (payment && payment.order_id) || (invoice && invoice.order_id);
+    const order = orderId
+      ? (await squareFetch(`/v2/orders/${encodeURIComponent(orderId)}`)).order
       : null;
 
     const date = order && order.metadata && order.metadata.gathering;
     const isGathering = G.isGathering(date);
-    /* Only ask Square about the plan when it is not already a gathering. */
-    const isMembership = !isGathering && await M.isMembershipOrder(order);
+
+    /* An invoice carrying a subscription_id IS a membership charge, first or
+       renewal. That is more reliable than matching the plan variation on the
+       order, so it is checked first. */
+    const isMembership = !isGathering && (
+      Boolean(invoice && invoice.subscription_id) || await M.isMembershipOrder(order)
+    );
 
     if (!isGathering && !isMembership) {
       /* A payment through the old shared Dashboard link, or anything else sold
          through this Square account, matches neither. Nothing to tag, and
          guessing a date would fire the wrong reminder. */
-      console.log('square-webhook: payment matched no product, skipping', payment.id);
+      console.log('square-webhook: payment matched no product, skipping', ref);
       return res.status(200).json({ ok: true, ignored: true });
     }
 
-    const { email, firstName } = await buyer(payment, order);
+    const { email, firstName } = await buyer(payment, order, invoice);
     if (!email) {
-      console.error('square-webhook: no buyer email on payment', payment.id);
+      console.error('square-webhook: no buyer email on', ref);
       return res.status(200).json({ ok: true, ignored: true });
     }
 
@@ -103,26 +130,29 @@ module.exports = async (req, res) => {
     /* Two tags for a gathering, on purpose.
 
        hive-gathering is permanent: the segment of everyone who has ever
-       booked. gathering-booked is transient, and the welcome journey removes
-       it as its last step so the next purchase can re-add it.
+       booked, and what the date-based reminder journeys filter on.
+       gathering-booked is transient, and the welcome journey removes it as its
+       last step so the next purchase can re-add it.
 
        Without the transient one a repeat buyer gets nothing. Mailchimp fires
        "tag added" only on absent -> present, and re-applying a tag that is
-       already active is a silent no-op, so a second booking would update the
-       EVENT* fields and send no email. */
+       already active is a silent no-op.
+
+       Membership gets no transient tag: renewals fire every month and a
+       welcome email on every renewal would be wrong. */
     const tags = isGathering
       ? ['hive-gathering', 'gathering-booked']
       : ['hive-member'];
 
     await syncContact({ email, mergeFields, tags });
 
-    console.log('square-webhook: tagged', tags.join('+'), isGathering ? date : 'membership', payment.id);
+    console.log('square-webhook: tagged', tags.join('+'), isGathering ? date : 'membership', ref);
     return res.status(200).json({ ok: true });
   } catch (err) {
     if (err instanceof ComplianceError) {
       /* They unsubscribed at some point and Mailchimp refuses to re-add them.
          Retrying will never work, so acknowledge and move on. */
-      console.error('square-webhook: buyer previously unsubscribed, not tagged', payment.id);
+      console.error('square-webhook: buyer previously unsubscribed, not tagged', ref);
       return res.status(200).json({ ok: true, ignored: true });
     }
     if (err instanceof ConfigError) {
@@ -137,17 +167,23 @@ module.exports = async (req, res) => {
 
 /* Square puts the buyer's email in different places depending on how the
    checkout was completed, so try each in turn before giving up. */
-async function buyer(payment, order) {
+async function buyer(payment, order, invoice) {
+  const recipient = invoice && invoice.primary_recipient;
   const fromFulfillment = (order && order.fulfillments || [])
     .map((f) => (f.pickup_details || f.shipment_details || f.delivery_details || {}).recipient)
     .find((r) => r && r.email_address);
 
-  let email = payment.buyer_email_address
+  let email = (payment && payment.buyer_email_address)
+    || (recipient && recipient.email_address)
     || (fromFulfillment && fromFulfillment.email_address)
     || null;
-  let displayName = fromFulfillment && fromFulfillment.display_name;
+  let displayName = (fromFulfillment && fromFulfillment.display_name)
+    || (recipient && [recipient.given_name, recipient.family_name].filter(Boolean).join(' '))
+    || null;
 
-  const customerId = payment.customer_id || (order && order.customer_id);
+  const customerId = (payment && payment.customer_id)
+    || (invoice && invoice.primary_recipient && invoice.primary_recipient.customer_id)
+    || (order && order.customer_id);
   if ((!email || !displayName) && customerId) {
     try {
       const { customer } = await squareFetch(`/v2/customers/${encodeURIComponent(customerId)}`);
