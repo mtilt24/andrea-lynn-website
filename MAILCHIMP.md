@@ -101,7 +101,7 @@ The flow:
 2. `api/hive-checkout.js` checks the date against `lib/gatherings.js`, asks
    Square for a payment link with `metadata.gathering` set to that date, and
    302s the buyer to the Square-hosted page.
-3. Square calls `api/square-webhook.js` on `payment.updated`. It verifies the
+3. Square calls `api/square-webhook.js`. It verifies the
    signature, fetches the order, reads `metadata.gathering`, and syncs.
 
 Links are created per click rather than kept in the Square Dashboard, because
@@ -142,10 +142,33 @@ The welcome journey must therefore be set up as:
 2. Allow contacts to re-enter the journey (off by default)
 3. Final step: remove tag `gathering-booked`
 
-Membership deliberately has no transient tag. Renewals fire `payment.updated`
-every month, and a welcome email on every renewal is wrong. If a membership
+Membership deliberately has no transient tag. Renewals fire a webhook every
+month, and a welcome email on every renewal is wrong. If a membership
 welcome is ever wanted, gate it on `order.metadata.membership`, which only the
 first charge carries.
+
+### Which webhook events to subscribe to
+
+**Three**, and all three are needed:
+
+- `payment.updated`
+- `payment.created`
+- `invoice.payment_made`
+
+A one-off purchase (a gathering) fires the `payment.*` events. **A subscription
+is billed through an invoice and fires no `payment.*` event at all**, only
+`invoice.payment_made`. That is why the first real membership signup took the
+money and created an active subscription in Square while tagging nobody: the
+only subscribed event was `payment.updated`, and Square's delivery log showed
+no attempt, because it never sent one.
+
+`payment.created` is safe to accept because the handler gates on
+`status === 'COMPLETED'`, not on the event name. Both payment events firing for
+a single payment is harmless: `syncContact()` is idempotent.
+
+A membership charge is identified by `invoice.subscription_id` being present,
+which covers the first charge and every renewal. The plan-variation match in
+`lib/membership.js` is the fallback for an order that arrives without it.
 
 ### Why the tag is only applied on the webhook
 
