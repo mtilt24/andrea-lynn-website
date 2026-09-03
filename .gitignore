@@ -1,0 +1,10 @@
+# Local env files. `vercel env pull` writes .env.local with LIVE Square and
+# Mailchimp credentials into the repo root, so this has to stay ahead of it.
+.env
+.env.*
+!.env.example
+
+node_modules/
+.vercel/
+
+.DS_Store
