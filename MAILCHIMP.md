@@ -149,12 +149,19 @@ Each welcome journey must therefore be set up as:
 2. Allow contacts to re-enter the journey (off by default)
 3. Final step: remove that same transient tag
 
-The second reason for the split is segmentation, not just triggering. Members
-are on rolling monthly automations, and a member is only ever "in onboarding"
-while the welcome runs. `hive-member` AND NOT `hive-new` is every member past
-onboarding, so someone who joins mid-October can be kept out of the October
-content until their welcome finishes. Send to plain `hive-member` instead and
-they get both at once. The permanent tag alone cannot express that.
+**The rolling monthly sends target plain `hive-member`, with no exclusion.**
+Decided 2026-09-03: someone who joins in the middle of October should still get
+the October content, on top of their welcome sequence.
+
+`hive-new` is a **subset** of `hive-member` — the first charge applies both
+together, so it never exists on its own. A rolling send addressed to
+`hive-member` therefore already includes everyone still in onboarding, and
+adding `hive-new` to the target would select the identical set.
+
+That leaves `hive-new` doing exactly one job: triggering the welcome journey.
+Should the two ever need separating, `hive-member` AND NOT `hive-new` is every
+member past onboarding, which the permanent tag alone cannot express. That
+segment is available and deliberately unused.
 
 #### `hive-new` fires on the first charge only
 
