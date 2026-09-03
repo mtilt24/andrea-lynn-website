@@ -85,9 +85,10 @@ Add `data-no-popup` to a page's `<body>` to suppress it there.
    form collects email only, so the newsletter welcome needs a fallback. The
    endpoint deliberately omits `FNAME` rather than sending `""`, so an existing
    contact's real name is never overwritten by a footer signup.
-3. Confirm the four tags exist exactly as spelled, all lowercase:
-   `lead-magnet`, `newsletter`, `hive-gathering`, `hive-member`. A typo silently
-   creates a new unused tag rather than erroring, and the journey never fires.
+3. Confirm the six tags exist exactly as spelled, all lowercase:
+   `lead-magnet`, `newsletter`, `hive-gathering`, `gathering-booked`,
+   `hive-member`, `hive-new`. A typo silently creates a new unused tag rather
+   than erroring, and the journey never fires.
 
 ## Square purchase tagging
 
@@ -123,29 +124,57 @@ The date lives in **four** places, all in this repo:
 step with the `$22` shown on `hive.html`. Square is not the source of truth
 for it, because the line item is built here rather than pulled from a catalog.
 
-### Two tags per gathering, and why
+### Two tags per purchase, and why
 
-A gathering purchase applies **both** `hive-gathering` and `gathering-booked`.
+Every purchase applies **two** tags, one permanent and one transient.
 
-- `hive-gathering` is **permanent**: the segment of everyone who has ever booked.
-- `gathering-booked` is **transient**: the welcome journey must remove it as its
-  final step.
+| Purchase | Permanent | Transient |
+|---|---|---|
+| Gathering | `hive-gathering` | `gathering-booked` |
+| Membership | `hive-member` | `hive-new` |
+
+- The **permanent** tag is the standing segment: everyone who has ever booked,
+  everyone who is a member. The rolling monthly sends filter on it.
+- The **transient** tag exists only while the welcome journey runs. That
+  journey must remove it as its final step.
 
 Mailchimp fires a "tag added" trigger only when a tag goes from absent to
 present. Re-applying a tag that is already active is a silent no-op. So with
 one tag, a repeat buyer's second booking updates the `EVENT*` fields and sends
 no email at all, which looks exactly like a broken integration and is not one.
 
-The welcome journey must therefore be set up as:
+Each welcome journey must therefore be set up as:
 
-1. Trigger: tag `gathering-booked` added
+1. Trigger: the **transient** tag added (`gathering-booked`, or `hive-new`)
 2. Allow contacts to re-enter the journey (off by default)
-3. Final step: remove tag `gathering-booked`
+3. Final step: remove that same transient tag
 
-Membership deliberately has no transient tag. Renewals fire a webhook every
-month, and a welcome email on every renewal is wrong. If a membership
-welcome is ever wanted, gate it on `order.metadata.membership`, which only the
-first charge carries.
+The second reason for the split is segmentation, not just triggering. Members
+are on rolling monthly automations, and a member is only ever "in onboarding"
+while the welcome runs. `hive-member` AND NOT `hive-new` is every member past
+onboarding, so someone who joins mid-October can be kept out of the October
+content until their welcome finishes. Send to plain `hive-member` instead and
+they get both at once. The permanent tag alone cannot express that.
+
+#### `hive-new` fires on the first charge only
+
+A membership renews every month and **every renewal comes back through the
+webhook**. Adding `hive-new` on each one would re-add it after the journey
+removed it and send the welcome again, monthly.
+
+The gate is `order.metadata.membership === 'hive'`, which
+`api/hive-membership.js` stamps on the checkout that starts the subscription.
+Square builds renewal orders from the plan rather than cloning that first
+order, so the stamp only ever rides the first charge. That is the same reason
+`lib/membership.js` needs its plan-variation fallback to recognise a renewal at
+all: a renewal order carries none of our metadata.
+
+A renewal therefore re-applies `hive-member` and nothing else, which is a
+silent no-op in Mailchimp and exactly what is wanted.
+
+Someone who cancels and later rejoins goes back through
+`/api/hive-membership`, so they get a fresh stamp and a fresh `hive-new`, and
+the welcome runs again. `hive-member` is already on them and stays put.
 
 ### Which webhook events to subscribe to
 
@@ -191,11 +220,3 @@ tagged as a paid member.
   fires the wrong reminder.
 - Square retries on a non-200. `syncContact()` is idempotent, so a replay is
   safe.
-
-## Still not built: membership tagging
-
-`hive-member` is not wired. The $55/month membership is a separate Square
-product and this code only recognises gathering payments, which it identifies
-by the `metadata.gathering` stamp that `api/hive-checkout.js` writes. Wiring it
-needs the membership to go through a route that stamps the order the same way,
-or a recurring-payment event to key off.

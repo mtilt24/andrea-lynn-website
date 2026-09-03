@@ -127,22 +127,38 @@ module.exports = async (req, res) => {
       mergeFields.EVENTLOC = G.LOCATION;
     }
 
-    /* Two tags for a gathering, on purpose.
+    /* Both products get a permanent tag plus a transient one, on purpose.
 
-       hive-gathering is permanent: the segment of everyone who has ever
-       booked, and what the date-based reminder journeys filter on.
-       gathering-booked is transient, and the welcome journey removes it as its
-       last step so the next purchase can re-add it.
+       Permanent (hive-gathering, hive-member) is the standing segment: who has
+       ever booked, who is a member now. The rolling monthly sends filter on it.
+       Transient (gathering-booked, hive-new) exists only while the welcome
+       journey runs, and that journey removes it as its final step.
 
-       Without the transient one a repeat buyer gets nothing. Mailchimp fires
-       "tag added" only on absent -> present, and re-applying a tag that is
-       already active is a silent no-op.
+       The transient tag is what triggers the welcome, because Mailchimp fires
+       "tag added" only on absent -> present and re-applying a live tag is a
+       silent no-op. Trigger off the permanent tag instead and a repeat buyer,
+       or someone who cancels and later rejoins, gets nothing.
 
-       Membership gets no transient tag: renewals fire every month and a
-       welcome email on every renewal would be wrong. */
+       It is also the lever the permanent tag cannot give: "hive-member AND NOT
+       hive-new" is every member past onboarding, so someone who joins in the
+       middle of October need not also take the October content mid-welcome.
+
+       hive-new is gated on the FIRST charge. A membership renews every month
+       and every renewal comes back through here, so adding hive-new each time
+       would re-fire the welcome monthly. order.metadata.membership is written
+       by api/hive-membership.js on the checkout that starts the subscription,
+       and Square builds renewal orders from the plan rather than cloning that
+       first one, so the stamp only ever rides the first charge. That is the
+       same reason lib/membership.js needs its plan-variation fallback to
+       recognise a renewal at all. */
+    const isFirstMembershipCharge =
+      Boolean(order && order.metadata && order.metadata.membership === 'hive');
+
     const tags = isGathering
       ? ['hive-gathering', 'gathering-booked']
-      : ['hive-member'];
+      : isFirstMembershipCharge
+        ? ['hive-member', 'hive-new']
+        : ['hive-member'];
 
     await syncContact({ email, mergeFields, tags });
 
