@@ -900,21 +900,28 @@
 
     /* ── WAYS TO WORK TOGETHER ── */
     .pricing-inner.wide { max-width: 1240px; }
+    .pricing { padding-top: 120px; scroll-margin-top: 70px; }
+    .for-not-for { background: var(--white); }
+    .for-not-for .for-card { background: var(--linen); }
+    .page-hero-ctas { margin-top: 36px; display: flex; gap: 16px; flex-wrap: wrap; opacity: 0; animation: fadeUp 1s ease 1.1s forwards; }
+    .page-hero-ctas a { padding-left: 30px; padding-right: 30px; }
+    @media (max-width: 1000px) { .offer-card h3, .offer-card .price-sub { min-height: 0; } }
+    @media (max-width: 600px) { .page-hero-ctas { flex-direction: column; } .page-hero-ctas a { text-align: center; } }
     .pricing h2.tight { margin-bottom: 28px; }
     .pricing-lede {
       font-size: 17px; font-weight: 300; line-height: 1.9;
       color: var(--taupe);
-      max-width: 720px; margin: 0 auto 72px;
+      max-width: 720px; margin: 0 auto 48px;
     }
     .offer-grid {
       display: grid;
       grid-template-columns: repeat(3, 1fr);
-      gap: 28px;
+      gap: 24px;
       text-align: left;
     }
     .offer-card {
       background: var(--warm-white);
-      padding: 56px 40px 48px;
+      padding: 34px 30px 30px;
       box-shadow: 0 20px 60px rgba(44,40,37,0.08);
       position: relative;
       display: flex; flex-direction: column;
@@ -932,13 +939,14 @@
     }
     .offer-card h3 {
       font-family: var(--serif);
-      font-size: 30px; font-weight: 400; line-height: 1.2;
+      font-size: 25px; font-weight: 400; line-height: 1.2;
       color: var(--charcoal);
-      margin-bottom: 22px;
+      margin-bottom: 12px;
+      min-height: 2.4em;
     }
     .offer-card .price {
       font-family: var(--serif);
-      font-size: 54px; font-weight: 300; line-height: 1;
+      font-size: 42px; font-weight: 300; line-height: 1;
       color: var(--charcoal);
       letter-spacing: -1px;
       margin-bottom: 10px;
@@ -951,7 +959,8 @@
     .offer-card .price-sub {
       font-size: 13px; font-weight: 400; letter-spacing: 0.3px;
       color: var(--taupe);
-      padding-bottom: 26px; margin-bottom: 26px;
+      padding-bottom: 14px; margin-bottom: 8px;
+      min-height: calc(3.2em + 14px);
       border-bottom: 1px solid rgba(122,140,110,0.22);
     }
     .offer-card .desc {
@@ -959,11 +968,11 @@
       color: var(--taupe);
       margin-bottom: 20px;
     }
-    .offer-card ul { list-style: none; margin-bottom: 36px; }
+    .offer-card ul { list-style: none; margin-bottom: 10px; }
     .offer-card li {
       display: flex; align-items: flex-start; gap: 12px;
-      padding: 11px 0;
-      font-size: 14px; font-weight: 300; line-height: 1.65;
+      padding: 6px 0;
+      font-size: 13px; font-weight: 400; line-height: 1.5;
       color: var(--charcoal);
       border-bottom: 1px solid rgba(122,140,110,0.14);
     }
@@ -972,11 +981,24 @@
       content: '✦'; color: var(--gold); font-size: 11px;
       margin-top: 4px; flex-shrink: 0;
     }
+    .offer-more { margin-bottom: 16px; border-top: 1px solid rgba(122,140,110,0.22); }
+    .offer-more summary {
+      cursor: pointer; list-style: none;
+      display: flex; justify-content: space-between; align-items: center;
+      min-height: 44px; padding: 6px 0;
+      font-size: 11px; font-weight: 600; letter-spacing: 2.5px; text-transform: uppercase;
+      color: #5F7055;
+    }
+    .offer-more summary::-webkit-details-marker { display: none; }
+    .offer-more summary::after { content: '+'; font-size: 18px; font-weight: 300; color: var(--charcoal); }
+    .offer-more[open] summary::after { content: '–'; }
+    .offer-more summary:focus-visible { outline: 2px solid var(--charcoal); outline-offset: 2px; }
+    .offer-more .desc { font-size: 14px; line-height: 1.75; margin: 4px 0 14px; }
     .offer-card .btn-primary {
       margin-top: auto;
       display: block; text-align: center;
-      padding: 18px 20px;
-      letter-spacing: 2px; line-height: 1.5;
+      padding: 16px 14px;
+      font-size: 11px; letter-spacing: 1.5px; line-height: 1.5;
     }
     .sessions {
       margin-top: 28px;
@@ -1510,7 +1532,10 @@
         <p class="page-hero-lede">
           Reclaim your power. Trust your inner knowing. Create a life that reflects who you truly are.
         </p>
-        <div class="page-hero-divider"></div>
+        <div class="page-hero-ctas">
+          <a href="contact" class="btn-primary">Book a Clarity Call</a>
+          <a href="#apply" class="btn-secondary">Ways to Work Together</a>
+        </div>
       </div>
       <div class="page-hero-visual">
         <img src="https://res.cloudinary.com/dstssdnoj/image/upload/q_auto,f_auto,w_640,h_800,c_fill/v1781137382/Desk_dance_party_ostjn3.jpg" alt="Andrea Lynn, 1:1 Alchemy Coaching" width="640" height="800" fetchpriority="high" decoding="async">
@@ -1601,87 +1626,6 @@
     </div>
   </section>
 
-  <!-- WAYS TO WORK TOGETHER -->
-  <section class="pricing" id="apply">
-    <div class="pricing-inner wide">
-      <p class="eyebrow fade-in">The Offerings</p>
-      <h2 class="tight fade-in fade-in-delay-1">Ways to Work <em>Together.</em></h2>
-      <p class="pricing-lede fade-in fade-in-delay-1">Every woman’s journey is different. Whether you’re seeking consistent guidance, an immersive period of transformation, or a sacred space to honor a significant transition, there’s a way to meet you where you are.</p>
-
-      <div class="offer-grid">
-        <article class="offer-card fade-in">
-          <p class="label">Ongoing Support</p>
-          <h3>Monthly Alchemy Coaching</h3>
-          <p class="price">$444<small>/ month</small></p>
-          <p class="price-sub">Three-month minimum commitment ($1,332 total).</p>
-          <p class="desc">For women seeking ongoing support, self-inquiry, and embodied integration as they navigate change and consciously create their next chapter.</p>
-          <ul>
-            <li>One private 90-minute coaching session each month.</li>
-            <li>Access to supportive prerecorded somatic practices and guided meditations.</li>
-            <li>One personalized monthly check-in for reflection, guidance, and integration.</li>
-            <li>A three-month minimum commitment.</li>
-          </ul>
-          <a href="contact" class="btn-primary">Book a Clarity Call</a>
-        </article>
-
-        <article class="offer-card fade-in fade-in-delay-1">
-          <p class="label">Immersive</p>
-          <h3>The 8-Week Alchemy Intensive</h3>
-          <p class="price">$3,333</p>
-          <p class="price-sub">Eight weeks of private weekly sessions.</p>
-          <p class="desc">For women moving through a significant life passage or feeling called into a deeper level of personal transformation. This intensive provides dedicated weekly space to explore the beliefs, emotions, patterns, and desires emerging in your life.</p>
-          <ul>
-            <li>Eight private 90-minute sessions, weekly on Zoom.</li>
-            <li>Personalized somatic practices and guided meditations.</li>
-            <li>Private Telegram support between sessions for reflection, questions, and integration.</li>
-            <li>Individualized guidance and integration practices.</li>
-          </ul>
-          <!-- LINK PENDING: swap for the private coaching application link before launch. -->
-          <a href="mailto:andrea@andrealynncoaching.com?subject=Application%20-%208-Week%20Alchemy%20Intensive" class="btn-primary">Apply for Private Coaching</a>
-        </article>
-
-        <article class="offer-card fade-in fade-in-delay-2">
-          <p class="label">Ceremony</p>
-          <h3>The Private Alchemy Half-Day Retreat</h3>
-          <p class="price">$1,111</p>
-          <p class="price-sub">Four-hour customized ceremonial experience.</p>
-          <p class="desc">Some life passages deserve to be consciously witnessed, honored, and celebrated. This private half-day experience supports you in navigating a meaningful transition, releasing what is complete, and calling in what you are ready to create.</p>
-          <p class="desc">Together, we design an intentional ceremony unique to your experience, needs, and desires.</p>
-          <ul>
-            <li>Somatic inquiry and embodied exploration.</li>
-            <li>Customized ritual or ceremony to honor your transition.</li>
-            <li>Extended holotropic-inspired breathwork journey, subject to appropriate screening.</li>
-            <li>Reflection, emotional processing, and integration practices.</li>
-            <li>Intention-setting to welcome your next chapter.</li>
-          </ul>
-          <!-- LINK PENDING: swap for the private retreat inquiry link before launch. -->
-          <a href="mailto:andrea@andrealynncoaching.com?subject=Inquiry%20-%20Private%20Alchemy%20Half-Day%20Retreat" class="btn-primary">Inquire About a Private Retreat</a>
-        </article>
-      </div>
-
-      <div class="sessions fade-in">
-        <p class="label">Single Sessions</p>
-        <h3>Individual Alchemy Sessions</h3>
-        <p>For returning clients or those seeking focused guidance around a particular transition, question, or experience.</p>
-        <div class="sessions-grid">
-          <div>
-            <h4>60-Minute Private Session</h4>
-            <p class="rate">$333</p>
-            <p>A focused session for somatic inquiry, reflection, and personalized coaching.</p>
-          </div>
-          <div>
-            <h4>Extended Alchemy Session</h4>
-            <p class="rate"><small>Starting at</small>$444</p>
-            <p>Additional time for deeper somatic exploration, breathwork, and integration.</p>
-          </div>
-        </div>
-        <p>Sessions may be available online or in person, with rates varying by format and duration.</p>
-        <!-- LINK PENDING: swap for the private session booking link before launch. -->
-        <a href="mailto:andrea@andrealynncoaching.com?subject=Private%20Session%20Booking" class="btn-secondary">Book a Private Session</a>
-      </div>
-    </div>
-  </section>
-
   <!-- THIS IS FOR YOU IF -->
   <section class="for-not-for">
     <div class="for-not-for-inner">
@@ -1757,6 +1701,99 @@
           I just completed a transformative integration coaching series with Andrea. The virtual meetings were tailored just for me, and from our time together, many spiritual gifts and life-changing results have come my way. I know I will continue to reap the benefits for years to come.
         </blockquote>
         <p class="attr">Judy G. · 1:1 Coaching Client</p>
+      </div>
+    </div>
+  </section>
+
+  <!-- WAYS TO WORK TOGETHER -->
+  <section class="pricing" id="apply">
+    <div class="pricing-inner wide">
+      <p class="eyebrow fade-in">The Offerings</p>
+      <h2 class="tight fade-in fade-in-delay-1">Ways to Work <em>Together.</em></h2>
+      <p class="pricing-lede fade-in fade-in-delay-1">Every woman’s journey is different. Whether you’re seeking consistent guidance, an immersive period of transformation, or a sacred space to honor a significant transition, there’s a way to meet you where you are.</p>
+
+      <div class="offer-grid">
+        <article class="offer-card fade-in">
+          <h3>Monthly Alchemy Coaching</h3>
+          <p class="price">$444<small>/ month</small></p>
+          <p class="price-sub">Three-month minimum commitment ($1,332 total).</p>
+          <ul>
+            <li>One private 90-minute coaching session each month.</li>
+            <li>Access to supportive prerecorded somatic practices and guided meditations.</li>
+            <li>One personalized monthly check-in for reflection, guidance, and integration.</li>
+            <li>A three-month minimum commitment.</li>
+          </ul>
+          <details class="offer-more">
+            <summary>More about this</summary>
+            <div>
+              <p class="desc">For women seeking ongoing support, self-inquiry, and embodied integration as they navigate change and consciously create their next chapter.</p>
+            </div>
+          </details>
+          <a href="contact" class="btn-primary">Book a Clarity Call</a>
+        </article>
+
+        <article class="offer-card fade-in fade-in-delay-1">
+          <h3>The 8-Week Alchemy Intensive</h3>
+          <p class="price">$3,333</p>
+          <p class="price-sub">Eight weeks of private weekly sessions.</p>
+          <ul>
+            <li>Eight private 90-minute sessions, weekly on Zoom.</li>
+            <li>Personalized somatic practices and guided meditations.</li>
+            <li>Private Telegram support between sessions for reflection, questions, and integration.</li>
+            <li>Individualized guidance and integration practices.</li>
+          </ul>
+          <details class="offer-more">
+            <summary>More about this</summary>
+            <div>
+              <p class="desc">For women moving through a significant life passage or feeling called into a deeper level of personal transformation. This intensive provides dedicated weekly space to explore the beliefs, emotions, patterns, and desires emerging in your life.</p>
+            </div>
+          </details>
+          <!-- LINK PENDING: swap for the private coaching application link before launch. -->
+          <a href="mailto:andrea@andrealynncoaching.com?subject=Application%20-%208-Week%20Alchemy%20Intensive" class="btn-primary">Apply for Private Coaching</a>
+        </article>
+
+        <article class="offer-card fade-in fade-in-delay-2">
+          <h3>The Private Alchemy Half-Day Retreat</h3>
+          <p class="price">$1,111</p>
+          <p class="price-sub">Four-hour customized ceremonial experience.</p>
+          <ul>
+            <li>Somatic inquiry and embodied exploration.</li>
+            <li>Customized ritual or ceremony to honor your transition.</li>
+            <li>Extended holotropic-inspired breathwork journey, subject to appropriate screening.</li>
+            <li>Reflection, emotional processing, and integration practices.</li>
+            <li>Intention-setting to welcome your next chapter.</li>
+          </ul>
+          <details class="offer-more">
+            <summary>More about this</summary>
+            <div>
+              <p class="desc">Some life passages deserve to be consciously witnessed, honored, and celebrated. This private half-day experience supports you in navigating a meaningful transition, releasing what is complete, and calling in what you are ready to create.</p>
+              <p class="desc">Together, we design an intentional ceremony unique to your experience, needs, and desires.</p>
+            </div>
+          </details>
+          <!-- LINK PENDING: swap for the private retreat inquiry link before launch. -->
+          <a href="mailto:andrea@andrealynncoaching.com?subject=Inquiry%20-%20Private%20Alchemy%20Half-Day%20Retreat" class="btn-primary">Inquire About a Private Retreat</a>
+        </article>
+      </div>
+
+      <div class="sessions fade-in">
+        <p class="label">Single Sessions</p>
+        <h3>Individual Alchemy Sessions</h3>
+        <p>For returning clients or those seeking focused guidance around a particular transition, question, or experience.</p>
+        <div class="sessions-grid">
+          <div>
+            <h4>60-Minute Private Session</h4>
+            <p class="rate">$333</p>
+            <p>A focused session for somatic inquiry, reflection, and personalized coaching.</p>
+          </div>
+          <div>
+            <h4>Extended Alchemy Session</h4>
+            <p class="rate"><small>Starting at</small>$444</p>
+            <p>Additional time for deeper somatic exploration, breathwork, and integration.</p>
+          </div>
+        </div>
+        <p>Sessions may be available online or in person, with rates varying by format and duration.</p>
+        <!-- LINK PENDING: swap for the private session booking link before launch. -->
+        <a href="mailto:andrea@andrealynncoaching.com?subject=Private%20Session%20Booking" class="btn-secondary">Book a Private Session</a>
       </div>
     </div>
   </section>
