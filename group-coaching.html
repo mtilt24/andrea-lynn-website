@@ -1378,6 +1378,22 @@
     }
     .for-not-for-inner.split-wrap { max-width: 1160px; display: grid; }
 
+    /* "This is for you" as a plain text block beside the photo, not a card */
+    .for-not-for { padding: 110px 48px; }
+    .for-not-for .for-card { background: none; padding: 0; }
+    .for-not-for .for-card .eyebrow { margin-bottom: 16px; }
+    .for-not-for .for-card h2.for-title { margin-bottom: 22px; }
+    .for-not-for .for-card li { padding: 8px 0; border-bottom: none; font-size: 16px; line-height: 1.6; }
+    .for-not-for .for-card .for-lede { margin-bottom: 18px; }
+    .for-not-for .split { gap: 80px; }
+    .for-not-for .split-photo { max-width: 360px; }
+    @media (max-width: 900px) {
+      .for-not-for { padding: 80px 28px; }
+      .for-not-for .split { gap: 44px; }
+      .for-not-for .split-photo { max-width: 300px; }
+    }
+    @media (max-width: 480px) { .for-not-for { padding: 64px 22px; } }
+
     /* ── TESTIMONIALS ── */
     .testimonials {
       padding: 180px 48px;
