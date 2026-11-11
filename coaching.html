@@ -1159,6 +1159,38 @@
     }
     @media (max-width: 480px) { .for-not-for { padding: 64px 22px; } }
 
+    /* ── Offer notes + inquiry form ── */
+    .offer-note { font-size: 12.5px; font-weight: 400; line-height: 1.55; color: var(--taupe); font-style: italic; margin: 0 0 12px; }
+    .sessions-grid h4 small { display: block; margin-top: 2px; font-family: var(--sans); font-size: 11px; font-weight: 600; letter-spacing: 2px; text-transform: uppercase; color: #5F7055; }
+    .inquire { padding: 130px 48px; background: var(--warm-white); scroll-margin-top: 70px; }
+    .inquire-inner { max-width: 760px; margin: 0 auto; text-align: center; }
+    .inquire .eyebrow { font-size: 12px; font-weight: 500; letter-spacing: 4px; text-transform: uppercase; color: var(--gold); margin-bottom: 24px; }
+    .inquire h2 { font-family: var(--serif); font-size: clamp(34px, 4.2vw, 52px); font-weight: 300; line-height: 1.2; color: var(--charcoal); margin-bottom: 22px; }
+    .inquire h2 em { font-style: italic; color: var(--gold); }
+    .inquire-lede { font-size: 16px; font-weight: 300; line-height: 1.85; color: var(--taupe); margin-bottom: 48px; }
+    .inquire-lede a, .f-msg a { color: var(--charcoal); text-decoration: underline; text-underline-offset: 3px; }
+    .inquire-form { text-align: left; display: grid; gap: 22px; }
+    .f-row { display: grid; grid-template-columns: 1fr 1fr; gap: 22px; }
+    .f-field { display: flex; flex-direction: column; gap: 8px; }
+    .f-field label { font-size: 11px; font-weight: 600; letter-spacing: 2.5px; text-transform: uppercase; color: var(--charcoal); }
+    .f-field label span { font-weight: 400; letter-spacing: 1px; text-transform: none; color: var(--taupe); }
+    .f-field input, .f-field select, .f-field textarea {
+      width: 100%; font-family: var(--sans); font-size: 16px; font-weight: 300; color: var(--charcoal);
+      background: var(--white); border: 1px solid rgba(44,40,37,0.35); border-radius: 0;
+      padding: 14px 16px; min-height: 50px; line-height: 1.5;
+    }
+    .f-field textarea { resize: vertical; }
+    .f-field input:focus, .f-field select:focus, .f-field textarea:focus { outline: 2px solid var(--charcoal); outline-offset: 1px; border-color: var(--charcoal); }
+    .f-field [aria-invalid="true"] { border-color: #9B3B2F; }
+    .inquire-form .btn-primary { justify-self: start; }
+    .f-msg { font-size: 14px; line-height: 1.7; color: var(--charcoal); min-height: 1.7em; }
+    .f-msg.err { color: #9B3B2F; }
+    @media (max-width: 700px) {
+      .inquire { padding: 80px 24px; }
+      .f-row { grid-template-columns: 1fr; }
+      .inquire-form .btn-primary { justify-self: stretch; text-align: center; }
+    }
+
     /* ── TESTIMONIALS ── */
     .testimonials {
       padding: 180px 48px;
@@ -1824,6 +1856,7 @@
             <li>One personalized monthly check-in for reflection, guidance, and integration.</li>
             <li>A three-month minimum commitment.</li>
           </ul>
+          <p class="offer-note">Sessions are on Zoom. In-person sessions can be arranged for $495.</p>
           <details class="offer-more">
             <summary>More about this</summary>
             <div>
@@ -1843,14 +1876,14 @@
             <li>Private Telegram support between sessions for reflection, questions, and integration.</li>
             <li>Individualized guidance and integration practices.</li>
           </ul>
+          <p class="offer-note">Payment plans are available on a case-by-case basis.</p>
           <details class="offer-more">
             <summary>More about this</summary>
             <div>
               <p class="desc">For women moving through a significant life passage or feeling called into a deeper level of personal transformation. This intensive provides dedicated weekly space to explore the beliefs, emotions, patterns, and desires emerging in your life.</p>
             </div>
           </details>
-          <!-- LINK PENDING: swap for the private coaching application link before launch. -->
-          <a href="mailto:andrea@andrealynncoaching.com?subject=Application%20-%208-Week%20Alchemy%20Intensive" class="btn-primary">Apply for Private Coaching</a>
+          <a href="#inquire" data-interest="The 8-Week Alchemy Intensive" class="btn-primary">Apply for Private Coaching</a>
         </article>
 
         <article class="offer-card fade-in fade-in-delay-2">
@@ -1864,15 +1897,17 @@
             <li>Reflection, emotional processing, and integration practices.</li>
             <li>Intention-setting to welcome your next chapter.</li>
           </ul>
+          <p class="offer-note">Payment plans are available on a case-by-case basis.</p>
           <details class="offer-more">
             <summary>More about this</summary>
             <div>
               <p class="desc">Some life passages deserve to be consciously witnessed, honored, and celebrated. This private half-day experience supports you in navigating a meaningful transition, releasing what is complete, and calling in what you are ready to create.</p>
               <p class="desc">Together, we design an intentional ceremony unique to your experience, needs, and desires.</p>
+              <p class="desc">The retreat is held at an agreed-upon private location, confirmed directly with you.</p>
+              <p class="desc">I’ll review any contraindications for breathwork, and adapt or omit as necessary.</p>
             </div>
           </details>
-          <!-- LINK PENDING: swap for the private retreat inquiry link before launch. -->
-          <a href="mailto:andrea@andrealynncoaching.com?subject=Inquiry%20-%20Private%20Alchemy%20Half-Day%20Retreat" class="btn-primary">Inquire About a Private Retreat</a>
+          <a href="#inquire" data-interest="The Private Alchemy Half-Day Retreat" class="btn-primary">Inquire About a Private Retreat</a>
         </article>
       </div>
 
@@ -1888,19 +1923,69 @@
             <p>A focused session for somatic inquiry, reflection, and personalized coaching.</p>
           </div>
           <div>
-            <h4>Extended Alchemy Session</h4>
+            <h4>Extended Alchemy Session <small>Up to two hours</small></h4>
             <p class="rate"><small>Starting at</small>$444</p>
             <p>Additional time for deeper somatic exploration, breathwork, and integration.</p>
           </div>
         </div>
-        <p>Sessions may be available online or in person, with rates varying by format and duration.</p>
-        <!-- LINK PENDING: swap for the private session booking link before launch. -->
-        <a href="mailto:andrea@andrealynncoaching.com?subject=Private%20Session%20Booking" class="btn-secondary">Book a Private Session</a>
+        <p>Sessions are held on Zoom. In-person sessions are available at East Wind Yoga in Auburn for $495.</p>
+        <a href="#inquire" data-interest="An Individual Alchemy Session" class="btn-secondary">Book a Private Session</a>
         </div>
         <div class="sessions-photo">
           <img src="https://res.cloudinary.com/dstssdnoj/image/upload/q_auto,f_auto,w_520,h_650,c_fill,g_face/v1781137405/Close_Up_Bio_hyo9bc.jpg" alt="Andrea Lynn, smiling" width="520" height="650" loading="lazy" decoding="async">
         </div>
       </div>
+    </div>
+  </section>
+
+  <!-- INQUIRY FORM -->
+  <section class="inquire" id="inquire">
+    <div class="inquire-inner">
+      <p class="eyebrow fade-in">Begin Here</p>
+      <h2 class="fade-in fade-in-delay-1">Tell me what you’re <em>seeking.</em></h2>
+      <p class="inquire-lede fade-in fade-in-delay-1">Share a little about where you are, and I’ll reply personally. Prefer to talk first? <a href="contact">Book a free clarity call</a>.</p>
+
+      <!-- DELIVERY PENDING: this form has no server behind it yet. On submit it opens the visitor's
+           email app with the answers filled in, addressed to Andrea. Swap sendInquiry() below for a
+           real form service or API route before launch if she wants submissions to arrive on their own. -->
+      <form class="inquire-form fade-in" id="inquireForm" novalidate>
+        <div class="f-row">
+          <div class="f-field">
+            <label for="inqName">Name</label>
+            <input type="text" id="inqName" name="name" autocomplete="name" required>
+          </div>
+          <div class="f-field">
+            <label for="inqEmail">Email</label>
+            <input type="email" id="inqEmail" name="email" autocomplete="email" required>
+          </div>
+        </div>
+        <div class="f-row">
+          <div class="f-field">
+            <label for="inqPhone">Phone <span>(optional)</span></label>
+            <input type="tel" id="inqPhone" name="phone" autocomplete="tel">
+          </div>
+          <div class="f-field">
+            <label for="inqInterest">I’m interested in</label>
+            <select id="inqInterest" name="interest">
+              <option>Not sure yet</option>
+              <option>Monthly Alchemy Coaching</option>
+              <option>The 8-Week Alchemy Intensive</option>
+              <option>The Private Alchemy Half-Day Retreat</option>
+              <option>An Individual Alchemy Session</option>
+            </select>
+          </div>
+        </div>
+        <div class="f-field">
+          <label for="inqIntentions">Your intentions</label>
+          <textarea id="inqIntentions" name="intentions" rows="3" required></textarea>
+        </div>
+        <div class="f-field">
+          <label for="inqSupport">What are you seeking support with?</label>
+          <textarea id="inqSupport" name="support" rows="4" required></textarea>
+        </div>
+        <button type="submit" class="btn-primary">Send My Inquiry</button>
+        <p class="f-msg" id="inquireMsg" role="status" aria-live="polite"></p>
+      </form>
     </div>
   </section>
 
@@ -2003,6 +2088,41 @@
     }, { threshold: 0.12, rootMargin: '0px 0px -60px 0px' });
 
     document.querySelectorAll('.fade-in').forEach(el => observer.observe(el));
+
+    /* Inquiry form. Offer buttons carry data-interest and preselect the dropdown. */
+    (function () {
+      var form = document.getElementById('inquireForm');
+      if (!form) return;
+      var msg = document.getElementById('inquireMsg');
+      var interest = document.getElementById('inqInterest');
+      document.querySelectorAll('a[data-interest]').forEach(function (a) {
+        a.addEventListener('click', function () { interest.value = a.getAttribute('data-interest'); });
+      });
+      function sendInquiry(d) {
+        var body = 'Name: ' + d.name + '\nEmail: ' + d.email + '\nPhone: ' + (d.phone || 'not given') +
+          '\nInterested in: ' + d.interest + '\n\nIntentions:\n' + d.intentions +
+          '\n\nSeeking support with:\n' + d.support + '\n';
+        window.location.href = 'mailto:andrea@andrealynncoaching.com?subject=' +
+          encodeURIComponent('1:1 inquiry: ' + d.interest + ' (' + d.name + ')') + '&body=' + encodeURIComponent(body);
+      }
+      form.addEventListener('submit', function (ev) {
+        ev.preventDefault();
+        var d = {}, firstBad = null;
+        ['name', 'email', 'phone', 'interest', 'intentions', 'support'].forEach(function (n) {
+          var el = form.elements[n]; d[n] = (el.value || '').trim();
+          var bad = el.required && !d[n];
+          if (n === 'email' && d[n] && !/^[^\s@]+@[^\s@]+\.[^\s@]+$/.test(d[n])) bad = true;
+          if (bad) { el.setAttribute('aria-invalid', 'true'); firstBad = firstBad || el; } else el.removeAttribute('aria-invalid');
+        });
+        if (firstBad) {
+          msg.className = 'f-msg err'; msg.textContent = 'Please fill in your name, a valid email, and both questions.';
+          firstBad.focus(); return;
+        }
+        sendInquiry(d);
+        msg.className = 'f-msg';
+        msg.innerHTML = 'Your email app should open with your message ready to send. If it doesn’t, email <a href="mailto:andrea@andrealynncoaching.com">andrea@andrealynncoaching.com</a>.';
+      });
+    })();
   </script>
 
   <script src="/assets/signup.js" defer></script>

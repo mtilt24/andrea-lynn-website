@@ -1394,6 +1394,21 @@
     }
     @media (max-width: 480px) { .for-not-for { padding: 64px 22px; } }
 
+    .card-details { margin-top: 36px; text-align: left; border-top: 1px solid rgba(122,140,110,0.25); }
+    .card-details details { border-bottom: 1px solid rgba(122,140,110,0.25); }
+    .card-details summary {
+      cursor: pointer; list-style: none; display: flex; justify-content: space-between; align-items: center; gap: 16px;
+      min-height: 52px; padding: 8px 0;
+      font-size: 11px; font-weight: 600; letter-spacing: 2.5px; text-transform: uppercase; color: var(--charcoal);
+    }
+    .card-details summary::-webkit-details-marker { display: none; }
+    .card-details summary::after { content: '+'; font-size: 18px; font-weight: 300; }
+    .card-details details[open] summary::after { content: '–'; }
+    .card-details summary:focus-visible { outline: 2px solid var(--charcoal); outline-offset: 2px; }
+    .card-details details > div { padding: 4px 0 20px; }
+    .card-details p, .card-details li { font-size: 14px; font-weight: 300; line-height: 1.75; color: var(--taupe); margin-bottom: 10px; }
+    .card-details ul { padding-left: 18px; }
+
     /* ── TESTIMONIALS ── */
     .testimonials {
       padding: 180px 48px;
@@ -2126,7 +2141,7 @@
 
       <p class="triad fade-in">The Descent. The Reclamation. <em>The Rebirth.</em></p>
       <div class="manifesto-facts fade-in">
-        <p><strong>January 7 – February 25, 2027</strong> · Thursdays at 11:00 AM Pacific</p>
+        <p><strong>January 7 – February 25, 2027</strong> · Thursdays at 11:00 AM Pacific · Limited to 12 women</p>
         <p><strong>Investment: $777.</strong> The first five women to complete registration receive $222 off: $555 founding rate.</p>
       </div>
       <div class="fade-in"><a href="#register" class="btn-primary">Register for REBUILD</a></div>
@@ -2255,7 +2270,7 @@
       <div class="how-cell fade-in fade-in-delay-2">
         <p class="how-cell-num">iii.</p>
         <h3>Eight live integration circles</h3>
-        <p>Weekly Thursday Zoom sessions for group inquiry, embodied practices, connection, and integration.</p>
+        <p>Weekly Thursday Zoom sessions for group inquiry, embodied practices, connection, and integration. Calls are recorded and available for six months.</p>
       </div>
       <div class="how-cell fade-in">
         <p class="how-cell-num">iv.</p>
@@ -2325,6 +2340,7 @@
         <p class="name"><em>RE</em>BUILD</p>
 
         <p class="dates">January 7 – February 25, 2027<br>Thursdays at <em>11:00 AM Pacific</em></p>
+        <p class="price-note" style="margin-top:-12px;margin-bottom:28px;">Limited to 12 women.</p>
 
         <p class="price-line">Standard Program Investment</p>
         <p class="price">$777</p>
@@ -2341,16 +2357,37 @@
           <li>Eight prerecorded teachings</li>
           <li>Meditations and somatic practices</li>
           <li>Weekly integration exercises</li>
+          <li>Recordings of the live calls, available for six months</li>
           <li>A private women’s Telegram community for the program duration</li>
         </ul>
 
         <div class="pricing-cta">
-          <!-- Founding-rate checkout ($555, first five women). Square does not cap this link at five,
-               so once five have paid, swap this for the $777 link and change the button text to
-               "Register for REBUILD · $777". Andrea's brief also asked for checkout embedded on this
-               page; this opens Square's checkout instead. -->
+          <!-- Founding-rate checkout ($555, first five women). Once five have paid, swap this for the
+               $777 link and change the button text to "Register for REBUILD · $777". If a founding
+               registrant is refunded before the start, her $555 spot reopens. -->
           <a href="https://square.link/u/yw1Fx9Cl" target="_blank" rel="noopener" class="btn-primary" id="rebuildRegister">Register for REBUILD · $555 Founding Offer</a>
           <p class="price-note" style="margin-top: 22px; margin-bottom: 0;">Not sure yet? <a href="contact">Book a free clarity call</a> and see if REBUILD is right for you.</p>
+        </div>
+
+        <div class="card-details">
+          <details>
+            <summary>Refund policy</summary>
+            <div>
+              <ul>
+                <li>Full refunds for cancellations at least 14 days before the program begins.</li>
+                <li>No refunds for participant cancellations within 14 days of the start date or after the program begins.</li>
+                <li>If the program is canceled by me, participants receive a full refund.</li>
+              </ul>
+            </div>
+          </details>
+          <details>
+            <summary>Breathwork screening and alternatives</summary>
+            <div>
+              <p>All REBUILD participants complete an intake questionnaire before the program begins, including health considerations relevant to breathwork.</p>
+              <p>For the extended sessions in Weeks 4 and 8, participation in activating breathwork is optional and subject to screening.</p>
+              <p>Women for whom this form of breathwork isn’t appropriate are offered a gentler, non-activating alternative, such as guided meditation, grounding, restorative breathing, or somatic inquiry, and can still take part in the group integration experience.</p>
+            </div>
+          </details>
         </div>
       </div>
     </div>
