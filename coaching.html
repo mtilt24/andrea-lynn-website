@@ -2130,8 +2130,12 @@
           done(); sendInquiry(d);
           msg.innerHTML = 'Your email app should open with your message ready to send. If it doesn’t, email <a href="mailto:andrea@andrealynncoaching.com">andrea@andrealynncoaching.com</a>.';
         }
+        /* Give the mail service 8 seconds, then hand off to the email app. */
+        var ctl = new AbortController();
+        setTimeout(function () { ctl.abort(); }, 8000);
         fetch('https://formsubmit.co/ajax/andrea@andrealynncoaching.com', {
           method: 'POST',
+          signal: ctl.signal,
           headers: { 'Content-Type': 'application/json', 'Accept': 'application/json' },
           body: JSON.stringify({
             _subject: '1:1 inquiry: ' + d.interest + ' (' + d.name + ')',
