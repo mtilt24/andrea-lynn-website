@@ -594,9 +594,18 @@
       gap: 80px;
       align-items: center;
     }
-    .who-img {
-      aspect-ratio: 3/4;
-      border-radius: 200px 200px 4px 4px;
+    .who-photo { position: relative; width: 100%; max-width: 400px; margin: 0 auto; }
+    .who-photo img {
+      display: block; width: 100%; height: auto;
+      aspect-ratio: 4/5; object-fit: cover; object-position: center 25%;
+      border-radius: 205px 205px 6px 6px;
+      box-shadow: 0 20px 60px rgba(44,40,37,0.14);
+    }
+    .who-photo::before {
+      content: ''; position: absolute;
+      top: -16px; left: -16px; right: 16px; bottom: 16px;
+      border: 1px solid var(--gold); border-radius: 205px 205px 6px 6px;
+      opacity: 0.45; pointer-events: none;
     }
     .who-text .eyebrow {
       font-family: var(--sans); font-size: 12px; font-weight: 500;
@@ -718,7 +727,6 @@
       transition: letter-spacing 0.3s ease;
     }
     .date-cta:hover { letter-spacing: 3.5px; }
-    .photo-band img { display: block; width: 100%; height: auto; min-height: 320px; aspect-ratio: 16/9; object-fit: cover; object-position: 48% center; }
     .date-cta { padding-top: 12px; display: inline-block; }
     .date-info-desc {
       font-family: var(--sans); font-size: 14px; font-weight: 300;
@@ -877,11 +885,10 @@
       .page-hero-visual::after { display: none; }
       .intro, .entails, .who, .dates, .inquire { padding: 90px 28px; }
       .who-inner { grid-template-columns: 1fr; gap: 48px; }
-      .who-img { max-width: 360px; margin: 0 auto; }
+      .who-photo { max-width: 320px; }
       .date-row { grid-template-columns: 80px 1fr; row-gap: 12px; }
       .date-num { font-size: 40px; }
       .date-cta { grid-column: 1 / -1; justify-self: start; padding-top: 16px; padding-bottom: 12px; min-height: 44px; }
-      .who-img { width: 100%; height: auto; }
       .who-inner { min-width: 0; }
       .who-text { min-width: 0; }
       .release-receive p { font-size: 18px; }
@@ -1104,15 +1111,12 @@
     </div>
   </section>
 
-  <!-- PHOTO BAND -->
-  <div class="photo-band fade-in">
-    <img src="https://res.cloudinary.com/dstssdnoj/image/upload/q_auto,f_auto,w_1920,h_1080,c_fill,g_auto/v1781137432/walking_by_the_river_ceremony_jdolqu.jpg" alt="Andrea in a white dress walking a path beside the river, carrying a basket and a drum" width="1920" height="1080" loading="lazy" decoding="async">
-  </div>
-
   <!-- WHO IT'S FOR -->
   <section class="who">
     <div class="who-inner">
-      <img class="who-img fade-in" src="https://res.cloudinary.com/dstssdnoj/image/upload/q_auto,f_auto,w_640,h_854,c_fill,g_auto/v1781137400/red_dress_prayer_hands_vtjzie.jpg" alt="Woman in a red dress with prayer hands during a breathwork and cacao ceremony" width="640" height="854" style="object-fit: cover;" loading="lazy" decoding="async">
+      <div class="who-photo fade-in">
+        <img src="https://res.cloudinary.com/dstssdnoj/image/upload/q_auto,f_auto,w_680,h_850,c_fill,g_face/v1781137400/red_dress_prayer_hands_vtjzie.jpg" alt="Andrea in a red dress by the river, hands in prayer" width="680" height="850" loading="lazy" decoding="async">
+      </div>
       <div class="who-text">
         <p class="eyebrow fade-in">Who This Is For</p>
         <h2 class="fade-in fade-in-delay-1">If something <em>needs to move.</em></h2>
