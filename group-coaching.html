@@ -1340,6 +1340,44 @@
       .manifesto-facts { padding: 24px 12px; }
     }
 
+    /* ── SPLIT (photo beside text) + PHOTO TRIO ── */
+    .split {
+      max-width: 1160px; margin: 0 auto;
+      display: grid; grid-template-columns: 0.8fr 1fr; gap: 90px;
+      align-items: center; text-align: left;
+    }
+    .split.flip { grid-template-columns: 1fr 0.8fr; }
+    .split.flip .split-photo { order: 2; }
+    .split-photo { position: relative; width: 100%; max-width: 420px; margin: 0 auto; }
+    .split-photo img {
+      display: block; width: 100%; height: auto;
+      aspect-ratio: 4/5; object-fit: cover; object-position: center 25%;
+      border-radius: 210px 210px 6px 6px;
+      box-shadow: 0 20px 60px rgba(44,40,37,0.14);
+    }
+    .split-photo::before {
+      content: ''; position: absolute;
+      top: -16px; left: -16px; right: 16px; bottom: 16px;
+      border: 1px solid var(--gold); border-radius: 210px 210px 6px 6px;
+      opacity: 0.45; pointer-events: none;
+    }
+    .photo-trio {
+      max-width: 1200px; margin: 72px auto 0;
+      display: grid; grid-template-columns: repeat(3, 1fr); gap: 16px;
+    }
+    .photo-trio img {
+      display: block; width: 100%; height: auto;
+      aspect-ratio: 4/3; object-fit: cover; border-radius: 4px;
+    }
+    @media (max-width: 900px) {
+      .split, .split.flip { grid-template-columns: 1fr; gap: 56px; }
+      .split.flip .split-photo { order: 0; }
+      .split-photo { max-width: 340px; }
+      .photo-trio { grid-template-columns: 1fr 1fr; gap: 10px; margin-top: 48px; }
+      .photo-trio img:first-child { grid-column: 1 / -1; aspect-ratio: 16/9; }
+    }
+    .for-not-for-inner.split-wrap { max-width: 1160px; display: grid; }
+
     /* ── TESTIMONIALS ── */
     .testimonials {
       padding: 180px 48px;
@@ -2113,6 +2151,12 @@
 
     <p class="arc-note fade-in">Each gateway creates space for somatic inquiry, breathwork, embodied practices, reflection, and supportive connection. The mythology provides an evocative framework; the practical objective is greater self-trust, freedom, and agency.</p>
 
+    <div class="photo-trio fade-in">
+      <img src="https://res.cloudinary.com/dstssdnoj/image/upload/q_auto,f_auto,w_800,h_600,c_fill,g_auto/v1781137431/Women_holding_hands_at_river_gf6euu.jpg" alt="Women in white holding hands, walking toward the river" width="800" height="600" loading="lazy" decoding="async">
+      <img src="https://res.cloudinary.com/dstssdnoj/image/upload/q_auto,f_auto,w_800,h_600,c_fill,g_auto/v1781137416/goddess_train_close_up_xxao5a.jpg" alt="A line of women resting their heads on one another by the river" width="800" height="600" loading="lazy" decoding="async">
+      <img src="https://res.cloudinary.com/dstssdnoj/image/upload/q_auto,f_auto,w_800,h_600,c_fill,g_auto/v1781137434/river_cirlcle_seated_laughing_rllmqs.jpg" alt="Women seated in a circle on the riverbank, laughing" width="800" height="600" loading="lazy" decoding="async">
+    </div>
+
     <div class="schedule" id="schedule">
       <h3 class="fade-in">Eight-Week Curriculum and <em>Live Schedule.</em></h3>
       <p class="schedule-sub fade-in">Thursdays, January 7 – February 25, 2027 · Live on Zoom · All times Pacific</p>
@@ -2217,7 +2261,10 @@
 
   <!-- WHO THIS IS FOR -->
   <section class="for-not-for">
-    <div class="for-not-for-inner">
+    <div class="for-not-for-inner split-wrap split">
+      <div class="split-photo fade-in">
+        <img src="https://res.cloudinary.com/dstssdnoj/image/upload/q_auto,f_auto,w_680,h_850,c_fill,g_auto/v1781137422/Power_circle_hatpqj.jpg" alt="Women in white standing in a circle with their arms around each other" width="680" height="850" loading="lazy" decoding="async">
+      </div>
       <div class="for-card fade-in">
         <p class="eyebrow">Is This You?</p>
         <h2 class="for-title">Who This Is <em>For.</em></h2>

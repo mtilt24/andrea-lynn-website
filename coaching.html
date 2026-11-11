@@ -1094,6 +1094,55 @@
       .sessions .btn-secondary { display: block; text-align: center; }
     }
 
+    /* ── SPLIT (photo beside text) + PHOTO TRIO ── */
+    .split {
+      max-width: 1160px; margin: 0 auto;
+      display: grid; grid-template-columns: 0.8fr 1fr; gap: 90px;
+      align-items: center; text-align: left;
+    }
+    .split.flip { grid-template-columns: 1fr 0.8fr; }
+    .split.flip .split-photo { order: 2; }
+    .split-photo { position: relative; width: 100%; max-width: 420px; margin: 0 auto; }
+    .split-photo img {
+      display: block; width: 100%; height: auto;
+      aspect-ratio: 4/5; object-fit: cover; object-position: center 25%;
+      border-radius: 210px 210px 6px 6px;
+      box-shadow: 0 20px 60px rgba(44,40,37,0.14);
+    }
+    .split-photo::before {
+      content: ''; position: absolute;
+      top: -16px; left: -16px; right: 16px; bottom: 16px;
+      border: 1px solid var(--gold); border-radius: 210px 210px 6px 6px;
+      opacity: 0.45; pointer-events: none;
+    }
+    .photo-trio {
+      max-width: 1200px; margin: 72px auto 0;
+      display: grid; grid-template-columns: repeat(3, 1fr); gap: 16px;
+    }
+    .photo-trio img {
+      display: block; width: 100%; height: auto;
+      aspect-ratio: 4/3; object-fit: cover; border-radius: 4px;
+    }
+    @media (max-width: 900px) {
+      .split, .split.flip { grid-template-columns: 1fr; gap: 56px; }
+      .split.flip .split-photo { order: 0; }
+      .split-photo { max-width: 340px; }
+      .photo-trio { grid-template-columns: 1fr 1fr; gap: 10px; margin-top: 48px; }
+      .photo-trio img:first-child { grid-column: 1 / -1; aspect-ratio: 16/9; }
+    }
+    .intro .split .intro-inner { max-width: none; margin: 0; }
+    .intro .split p { margin-left: 0; margin-right: 0; }
+    .for-not-for-inner.split-wrap { max-width: 1160px; }
+    .sessions { display: grid; grid-template-columns: 1fr 260px; gap: 56px; align-items: center; }
+    .sessions-photo img {
+      display: block; width: 100%; height: auto; aspect-ratio: 4/5; object-fit: cover;
+      border-radius: 130px 130px 4px 4px;
+    }
+    @media (max-width: 1000px) {
+      .sessions { grid-template-columns: 1fr; gap: 0; }
+      .sessions-photo { display: none; }
+    }
+
     /* ── TESTIMONIALS ── */
     .testimonials {
       padding: 180px 48px;
@@ -1605,6 +1654,10 @@
 
   <!-- INTRO -->
   <section class="intro">
+    <div class="split">
+    <div class="split-photo fade-in">
+      <img src="https://res.cloudinary.com/dstssdnoj/image/upload/q_auto,f_auto,w_680,h_850,c_fill,g_face/v1781137394/hand_on_belly_and_chest_lxigvn.jpg" alt="Andrea with her eyes closed and a hand on her chest" width="680" height="850" loading="lazy" decoding="async">
+    </div>
     <div class="intro-inner">
       <p class="eyebrow fade-in">An Invitation</p>
       <h2 class="long fade-in fade-in-delay-1">There are moments in life when everything we thought we knew about ourselves <em>begins to shift.</em></h2>
@@ -1617,6 +1670,7 @@
       <p class="fade-in fade-in-delay-3">
         <strong>This is your invitation to turn inward, reconnect with your truth, and become an active participant in your own transformation.</strong>
       </p>
+    </div>
     </div>
   </section>
 
@@ -1662,7 +1716,10 @@
 
   <!-- THIS IS FOR YOU IF -->
   <section class="for-not-for">
-    <div class="for-not-for-inner">
+    <div class="for-not-for-inner split-wrap split flip">
+      <div class="split-photo fade-in">
+        <img src="https://res.cloudinary.com/dstssdnoj/image/upload/q_auto,f_auto,w_680,h_850,c_fill,g_face/v1781137400/red_dress_prayer_hands_vtjzie.jpg" alt="Andrea in a red dress by the river, hands in prayer" width="680" height="850" loading="lazy" decoding="async">
+      </div>
       <div class="for-card fade-in">
         <p class="eyebrow">Is This You?</p>
         <h2 class="for-title">This Is for You <em>If…</em></h2>
@@ -1804,6 +1861,7 @@
       </div>
 
       <div class="sessions fade-in">
+        <div>
         <p class="label">Single Sessions</p>
         <h3>Individual Alchemy Sessions</h3>
         <p>For returning clients or those seeking focused guidance around a particular transition, question, or experience.</p>
@@ -1822,6 +1880,10 @@
         <p>Sessions may be available online or in person, with rates varying by format and duration.</p>
         <!-- LINK PENDING: swap for the private session booking link before launch. -->
         <a href="mailto:andrea@andrealynncoaching.com?subject=Private%20Session%20Booking" class="btn-secondary">Book a Private Session</a>
+        </div>
+        <div class="sessions-photo">
+          <img src="https://res.cloudinary.com/dstssdnoj/image/upload/q_auto,f_auto,w_520,h_650,c_fill,g_face/v1781137405/Close_Up_Bio_hyo9bc.jpg" alt="Andrea Lynn, smiling" width="520" height="650" loading="lazy" decoding="async">
+        </div>
       </div>
     </div>
   </section>
