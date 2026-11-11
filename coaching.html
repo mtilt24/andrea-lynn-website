@@ -900,6 +900,42 @@
 
     /* ── WAYS TO WORK TOGETHER ── */
     .pricing-inner.wide { max-width: 1240px; }
+    .work-inner { max-width: 980px; }
+    .opps-title {
+      font-family: var(--serif); font-size: 28px; font-weight: 300; line-height: 1.3;
+      color: var(--charcoal); margin: 64px auto 32px; max-width: 700px;
+    }
+    .opps {
+      list-style: none; text-align: left;
+      display: grid; grid-template-columns: 1fr 1fr; gap: 2px;
+      background: var(--linen-deep);
+      box-shadow: 0 20px 60px rgba(44,40,37,0.06);
+    }
+    .opps li {
+      background: var(--warm-white);
+      padding: 26px 30px;
+      display: flex; gap: 18px; align-items: baseline;
+      font-size: 15px; font-weight: 300; line-height: 1.7; color: var(--charcoal);
+    }
+    .opps li:last-child { grid-column: 1 / -1; justify-content: center; }
+    .opps-num {
+      font-family: var(--serif); font-style: italic; font-size: 18px;
+      color: #8A7428; flex-shrink: 0; min-width: 26px;
+    }
+    .outcomes-prose {
+      max-width: 780px; margin: 0 auto;
+      text-align: center;
+      font-family: var(--serif); font-weight: 300;
+      font-size: clamp(21px, 2.3vw, 28px); line-height: 1.7;
+      color: rgba(255,255,255,0.92);
+    }
+    .outcomes-prose em { font-style: italic; color: var(--gold); }
+    @media (max-width: 700px) {
+      .opps { grid-template-columns: 1fr; }
+      .opps li { padding: 20px 22px; }
+      .opps li:last-child { justify-content: flex-start; }
+      .opps-title { font-size: 24px; margin-top: 48px; }
+    }
     .pricing { padding-top: 120px; scroll-margin-top: 70px; }
     .for-not-for { background: var(--white); }
     .for-not-for .for-card { background: var(--linen); }
@@ -1584,11 +1620,6 @@
     </div>
   </section>
 
-  <!-- PHOTO BANNER -->
-  <div class="photo-band fade-in">
-    <img src="https://res.cloudinary.com/dstssdnoj/image/upload/q_auto,f_auto,w_1920,h_840,c_fill,g_auto/v1781137415/we_can_t_do_it_alone_rl9wzk.jpg" alt="Andrea in red with a circle of women gathered around her by the river" width="1920" height="840" loading="lazy" decoding="async">
-  </div>
-
   <!-- THE WORK -->
   <section class="work">
     <div class="work-inner">
@@ -1607,24 +1638,27 @@
         Desire becomes a compass. Pleasure becomes a pathway to personal power, authentic expression, and purpose.
       </p>
 
-      <div class="for-card fade-in">
-        <h3>Through our work together, you’ll have the opportunity to:</h3>
-        <ul>
-          <li>Deepen trust in your body’s wisdom and internal guidance.</li>
-          <li>Recognize and transform limiting beliefs and unconscious patterns.</li>
-          <li>Develop greater emotional awareness and nervous system regulation.</li>
-          <li>Reconnect with your desires, boundaries, and authentic expression.</li>
-          <li>Explore pleasure as a gateway to empowerment, creativity, and purpose.</li>
-          <li>Navigate life’s transitions with greater clarity, courage, and self-trust.</li>
-          <li>Translate insight into aligned action and meaningful change.</li>
-        </ul>
-      </div>
+      <h3 class="opps-title fade-in">Through our work together, you’ll have the opportunity to:</h3>
+      <ol class="opps fade-in">
+        <li><span class="opps-num" aria-hidden="true">i.</span><span>Deepen trust in your body’s wisdom and internal guidance.</span></li>
+        <li><span class="opps-num" aria-hidden="true">ii.</span><span>Recognize and transform limiting beliefs and unconscious patterns.</span></li>
+        <li><span class="opps-num" aria-hidden="true">iii.</span><span>Develop greater emotional awareness and nervous system regulation.</span></li>
+        <li><span class="opps-num" aria-hidden="true">iv.</span><span>Reconnect with your desires, boundaries, and authentic expression.</span></li>
+        <li><span class="opps-num" aria-hidden="true">v.</span><span>Explore pleasure as a gateway to empowerment, creativity, and purpose.</span></li>
+        <li><span class="opps-num" aria-hidden="true">vi.</span><span>Navigate life’s transitions with greater clarity, courage, and self-trust.</span></li>
+        <li><span class="opps-num" aria-hidden="true">vii.</span><span>Translate insight into aligned action and meaningful change.</span></li>
+      </ol>
 
       <p class="work-closer fade-in">
         This isn’t about fixing yourself. It’s about reconnecting with your own authority and creating the freedom to live in deeper alignment with who you are.
       </p>
     </div>
   </section>
+
+  <!-- PHOTO BANNER -->
+  <div class="photo-band fade-in">
+    <img src="https://res.cloudinary.com/dstssdnoj/image/upload/q_auto,f_auto,w_1920,h_840,c_fill,g_auto/v1781137415/we_can_t_do_it_alone_rl9wzk.jpg" alt="Andrea in red with a circle of women gathered around her by the river" width="1920" height="840" loading="lazy" decoding="async">
+  </div>
 
   <!-- THIS IS FOR YOU IF -->
   <section class="for-not-for">
@@ -1654,13 +1688,7 @@
         <div class="gold-divider"></div>
       </div>
 
-      <ul class="outcomes-list">
-        <li class="fade-in">Imagine moving through your life with a deeper sense of self-trust.</li>
-        <li class="fade-in fade-in-delay-1">Recognizing old patterns without being controlled by them.</li>
-        <li class="fade-in fade-in-delay-2">Feeling connected to your desires, your voice, and your ability to choose.</li>
-        <li class="fade-in fade-in-delay-3">Making decisions from inner clarity rather than fear, obligation, or conditioning.</li>
-        <li class="fade-in fade-in-delay-4">Having the courage to live in greater alignment with the woman you are becoming.</li>
-      </ul>
+      <p class="outcomes-prose fade-in"><em>Imagine</em> moving through your life with a deeper sense of self-trust. Recognizing old patterns without being controlled by them. Feeling connected to your desires, your voice, and your ability to choose. Making decisions from inner clarity rather than fear, obligation, or conditioning. Having the courage to live in greater alignment with the woman you are becoming.</p>
 
       <p class="outcomes-closer fade-in">This is the heart of our work together.</p>
     </div>
