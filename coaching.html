@@ -1185,8 +1185,6 @@
     .inquire-form .btn-primary { justify-self: start; }
     .f-msg { font-size: 14px; line-height: 1.7; color: var(--charcoal); min-height: 1.7em; }
     .f-msg.err { color: #9B3B2F; }
-    .f-hp { position: absolute; left: -9999px; width: 1px; height: 1px; overflow: hidden; }
-    .inquire-form .btn-primary:disabled { opacity: 0.6; cursor: default; }
     @media (max-width: 700px) {
       .inquire { padding: 80px 24px; }
       .f-row { grid-template-columns: 1fr; }
@@ -1947,9 +1945,9 @@
       <h2 class="fade-in fade-in-delay-1">Tell me what you’re <em>seeking.</em></h2>
       <p class="inquire-lede fade-in fade-in-delay-1">Share a little about where you are, and I’ll reply personally. Prefer to talk first? <a href="contact">Book a free clarity call</a>.</p>
 
-      <!-- Submissions are emailed to Andrea through FormSubmit (formsubmit.co). The first submission
-           from the live site sends her a one-time activation email; until she clicks it, and any time
-           the service fails, the form falls back to opening the visitor's email app. -->
+      <!-- DELIVERY PENDING: this form has no server behind it yet. On submit it opens the visitor's
+           email app with the answers filled in, addressed to Andrea. Swap sendInquiry() below for a
+           real form service or API route before launch if she wants submissions to arrive on their own. -->
       <form class="inquire-form fade-in" id="inquireForm" novalidate>
         <div class="f-row">
           <div class="f-field">
@@ -1985,7 +1983,6 @@
           <label for="inqSupport">What are you seeking support with?</label>
           <textarea id="inqSupport" name="support" rows="4" required></textarea>
         </div>
-        <div class="f-hp" aria-hidden="true"><label for="inqHoney">Leave this empty</label><input type="text" id="inqHoney" name="_honey" tabindex="-1" autocomplete="off"></div>
         <button type="submit" class="btn-primary">Send My Inquiry</button>
         <p class="f-msg" id="inquireMsg" role="status" aria-live="polite"></p>
       </form>
@@ -2121,39 +2118,9 @@
           msg.className = 'f-msg err'; msg.textContent = 'Please fill in your name, a valid email, and both questions.';
           firstBad.focus(); return;
         }
-        if (form.elements._honey.value) return;
-        var btn = form.querySelector('button[type="submit"]');
-        btn.disabled = true; btn.textContent = 'Sending…';
-        msg.className = 'f-msg'; msg.textContent = '';
-        function done() { btn.disabled = false; btn.textContent = 'Send My Inquiry'; }
-        function fallback() {
-          done(); sendInquiry(d);
-          msg.innerHTML = 'Your email app should open with your message ready to send. If it doesn’t, email <a href="mailto:andrea@andrealynncoaching.com">andrea@andrealynncoaching.com</a>.';
-        }
-        /* Give the mail service 8 seconds, then hand off to the email app. */
-        var ctl = new AbortController();
-        setTimeout(function () { ctl.abort(); }, 8000);
-        fetch('https://formsubmit.co/ajax/andrea@andrealynncoaching.com', {
-          method: 'POST',
-          signal: ctl.signal,
-          headers: { 'Content-Type': 'application/json', 'Accept': 'application/json' },
-          body: JSON.stringify({
-            _subject: '1:1 inquiry: ' + d.interest + ' (' + d.name + ')',
-            _template: 'table',
-            _replyto: d.email,
-            Name: d.name, Email: d.email, Phone: d.phone || 'not given',
-            'Interested in': d.interest,
-            'Intentions': d.intentions,
-            'Seeking support with': d.support
-          })
-        }).then(function (r) { return r.json().then(function (j) { return { ok: r.ok, j: j }; }); })
-          .then(function (res) {
-            var m = String((res.j && res.j.message) || '');
-            if (!res.ok || String(res.j && res.j.success) !== 'true' || /activat/i.test(m)) return fallback();
-            done(); form.reset();
-            msg.textContent = 'Thank you. Your inquiry is on its way to Andrea, and she will reply personally.';
-          })
-          .catch(fallback);
+        sendInquiry(d);
+        msg.className = 'f-msg';
+        msg.innerHTML = 'Your email app should open with your message ready to send. If it doesn’t, email <a href="mailto:andrea@andrealynncoaching.com">andrea@andrealynncoaching.com</a>.';
       });
     })();
   </script>
